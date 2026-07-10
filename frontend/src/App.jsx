@@ -428,6 +428,13 @@ export default function App() {
     }
   }, []);
 
+  // Strict Authentication Guard
+  useEffect(() => {
+    if (!user && view !== 'landing' && view !== 'auth' && view !== 'onboarding') {
+      setView('landing');
+    }
+  }, [user, view]);
+
   const handleMockLogin = async () => {
     setLoading(true);
     try {
@@ -1461,7 +1468,7 @@ export default function App() {
       )}
 
       {/* --- DASHBOARD SHELL CONTAINER --- */}
-      {view !== 'landing' && view !== 'auth' && view !== 'onboarding' && (
+      {view !== 'landing' && view !== 'auth' && view !== 'onboarding' && user && (
         <div className="flex min-h-screen relative z-10">
           
           {/* Sidebar */}
