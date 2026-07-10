@@ -820,6 +820,7 @@ export default function App() {
         }
         const data = await api.register(authName, authEmail, authPassword);
         api.setToken(data.access_token);
+        localStorage.setItem('sakhi_token', data.access_token);
         localStorage.setItem('sakhi_user', JSON.stringify(data.user));
         setUser(data.user);
         setOnboardForm(prev => ({ ...prev, name: authName }));
@@ -827,6 +828,7 @@ export default function App() {
       } else {
         const data = await api.login(authEmail, authPassword);
         api.setToken(data.access_token);
+        localStorage.setItem('sakhi_token', data.access_token);
         localStorage.setItem('sakhi_user', JSON.stringify(data.user));
         setUser(data.user);
         setView('dashboard');
@@ -841,6 +843,7 @@ export default function App() {
 
   const handleLogout = () => {
     api.setToken(null);
+    localStorage.removeItem('sakhi_token');
     localStorage.removeItem('sakhi_user');
     setUser(null);
     setView('landing');
@@ -1679,7 +1682,7 @@ export default function App() {
                 <div>
                   <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">{t("Health Twin Active")}</span>
                   <h1 className="text-xl lg:text-2xl font-bold font-sans text-[#5E5A66] mt-0.5">
-                    {lang !== 'en' ? `नमस्ते, ${profile?.name || 'अदिति'} 🌸` : `${t("Good Morning, Aditi!")}`}
+                    {lang !== 'en' ? `नमस्ते, ${profile?.name || user?.name || 'अदिति'} 🌸` : `${t("Good Morning")}, ${profile?.name || user?.name || 'Aditi'}!`}
                   </h1>
                 </div>
               </div>
@@ -1720,7 +1723,7 @@ export default function App() {
                     <Sparkles size={10} /> {t("Daily AI Welcome Summary")}
                   </span>
                   <p className="text-xs text-[#7E7A88] leading-relaxed max-w-2xl font-medium">
-                    "Good Morning {profile?.name || 'Aditi'} 🌸. Your Wellness Score is at <strong className="text-[#F48FB1]">{dashboardData.wellness_score}%</strong> today. <strong>Coaching Tip:</strong> You've slept less than 7 hours for three days. Try winding down and going to bed 30 minutes earlier tonight. Keep hydrated; we calculated a sunlight exposure recommendation of 15 minutes."
+                    {t("Good Morning")}, {profile?.name || user?.name || 'Aditi'} 🌸. {t("Your Wellness Score is at")} <strong className="text-[#F48FB1]">{dashboardData.wellness_score}%</strong> {t("today.")} <strong>{t("Coaching Tip:")}</strong> {t("You've slept less than 7 hours for three days. Try winding down and going to bed 30 minutes earlier tonight. Keep hydrated; we calculated a sunlight exposure recommendation of 15 minutes.")}
                   </p>
                 </div>
 

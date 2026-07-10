@@ -1,7 +1,8 @@
+from contextvars import ContextVar
 import uuid
 from datetime import date, datetime, time, timedelta
 from typing import Dict, Any, List
-from fastapi import FastAPI, HTTPException, status, UploadFile, File, Form, Depends
+from fastapi import FastAPI, HTTPException, status, UploadFile, File, Form, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -159,6 +160,17 @@ def load_db():
             print("Local backup loaded successfully!")
         except Exception as e:
             print(f"Error loading local database backup: {e}")
+
+request_var: ContextVar[Request] = ContextVar("request")
+
+@app.middleware("http")
+async def request_context_middleware(request: Request, call_next):
+    token = request_var.set(request)
+    try:
+        response = await call_next(request)
+        return response
+    finally:
+        request_var.reset(token)
 
 @app.middleware("http")
 async def save_db_middleware(request, call_next):
@@ -324,6 +336,15 @@ def login(credentials: UserLogin):
 
 # Helper function to get mock current user
 def get_current_user_id() -> str:
+    try:
+        request = request_var.get()
+        authorization = request.headers.get("Authorization")
+        if authorization and authorization.startswith("Bearer "):
+            token = authorization.split("Bearer ")[1]
+            if token.startswith("mock-token-"):
+                return token.replace("mock-token-", "")
+    except Exception:
+        pass
     # Always default to Aditi Sharma's ID for simple, config-less client requests
     return "d3b07384-d113-495f-929a-24157d6b46ef"
 
@@ -333,7 +354,10 @@ def get_profile():
     uid = get_current_user_id()
     if uid not in DB["health_profiles"]:
         raise HTTPException(status_code=404, detail="Profile not found")
-    return DB["health_profiles"][uid]
+    profile = dict(DB["health_profiles"][uid])
+    user_obj = DB["users"].get(uid, {})
+    profile["name"] = user_obj.get("name", "Aditi Sharma")
+    return profile
 
 @app.post("/api/profile")
 def update_profile(profile: HealthProfileUpdate):
@@ -344,6 +368,8 @@ def update_profile(profile: HealthProfileUpdate):
     for k, v in update_data.items():
         current_profile[k] = v
         
+    user_obj = DB["users"].get(uid, {})
+    current_profile["name"] = user_obj.get("name", "Aditi Sharma")
     return current_profile
 
 # --- DASHBOARD & ANALYTICS ---

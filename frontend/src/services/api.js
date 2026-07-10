@@ -143,6 +143,7 @@ export const api = {
       const res = await client.post('/auth/register', { name, email, password });
       return res.data;
     } catch (e) {
+      if (e.response) throw e;
       const mockUser = { id: 'd3b07384-d113-495f-929a-24157d6b46ef', name, email, created_at: new Date().toISOString() };
       return { access_token: 'mock-token', token_type: 'bearer', user: mockUser };
     }
@@ -153,6 +154,7 @@ export const api = {
       const res = await client.post('/auth/login', { email, password });
       return res.data;
     } catch (e) {
+      if (e.response) throw e;
       const mockUser = { id: 'd3b07384-d113-495f-929a-24157d6b46ef', name: 'Aditi Sharma', email, created_at: new Date().toISOString() };
       return { access_token: 'mock-token', token_type: 'bearer', user: mockUser };
     }
