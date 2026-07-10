@@ -12,6 +12,26 @@ import {
 } from 'recharts';
 import { api } from './services/api';
 
+// 🌐 Dynamic Healthcare Finder Providers Database 🌐
+const HEALTHCARE_PROVIDERS = {
+  Gynecologists: [
+    { name: 'Dr. Meera Sen Gynecological Clinic', address: '24 Park Street, Landmark Building', dist: '1.2 km away', phone: '+91 98765 00112' },
+    { name: 'Dr. Priya Nair Maternity Care Center', address: '88 Residency Road, Richmond Town', dist: '2.5 km away', phone: '+91 98765 00344' }
+  ],
+  Hospitals: [
+    { name: 'Fortis Health Women Care Specialty Hospital', address: '12 Bannerghatta Main Road', dist: '3.4 km away', phone: '+91 98765 00445' },
+    { name: 'Apollo Women & Child Special Care Hospital', address: '15 Shaheed Bhagat Singh Marg', dist: '4.1 km away', phone: '+91 98765 00988' }
+  ],
+  Pharmacies: [
+    { name: 'MedPlus 24/7 Pharmacy & Wellness Store', address: '48 Brigade Road, Near Metro Gate', dist: '0.5 km away', phone: '+91 99999 11223' },
+    { name: 'Apollo Pharmacy 24/7 Store', address: '102 MG Road, Opposite Central Mall', dist: '0.9 km away', phone: '+91 99999 44332' }
+  ],
+  'Diagnostic labs': [
+    { name: 'Dr. Lal PathLabs & Diagnostics Center', address: '55 Commercial Street, Next to SBI', dist: '1.5 km away', phone: '+91 99999 88877' },
+    { name: 'SRL Diagnostics & Blood Scan Lab', address: '90 Indiranagar Double Road', dist: '2.1 km away', phone: '+91 99999 55566' }
+  ]
+};
+
 // 🌐 Indian Languages Translation Map 🌐
 const TRANSLATIONS = {
   en: {},
@@ -38,14 +58,17 @@ const TRANSLATIONS = {
     "Explore Stages": "चरणों का अन्वेषण करें",
     "Start Your Journey": "यात्रा शुरू करें",
     "Dashboard": "डैशबोर्ड",
+    "Health Insights": "स्वास्थ्य अंतर्दृष्टि",
+    "Health Wrapped": "स्वास्थ्य रैप्ड",
+    "Wellness Coach": "कल्याण कोच",
+    "AI Clinic Room": "एआई क्लिनिक कक्ष",
     "Sakhi AI Chat": "सखी एआई चैट",
     "Menstrual Tracker": "मासिक चक्र",
-    "AI Meal Scanner": "एआई भोजन स्कैनर",
+    "Meal & Grocery": "भोजन और किराना",
     "Report Analyzer": "रिपोर्ट विश्लेषक",
     "Health Passport": "स्वास्थ्य पासपोर्ट",
-    "Analytics Trends": "रुझान",
+    "Community Support": "सामुदायिक सहायता",
     "Settings": "सेटिंग्स",
-    "Health Insights": "स्वास्थ्य अंतर्दृष्टि",
     "Log Out": "लॉग आउट",
     "Demo Hackathon Quick Access (Log in as Aditi)": "हैकथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
   },
@@ -72,14 +95,17 @@ const TRANSLATIONS = {
     "Explore Stages": "ধাপগুলি অন্বেষণ করুন",
     "Start Your Journey": "আপনার যাত্রা শুরু করুন",
     "Dashboard": "ড্যাশবোর্ড",
+    "Health Insights": "স্বাস্থ্য অন্তর্দৃষ্টি",
+    "Health Wrapped": "স্বাস্থ্য র‍্যাপড",
+    "Wellness Coach": "ওয়েলনেস কোচ",
+    "AI Clinic Room": "এআই ক্লিনিক রুম",
     "Sakhi AI Chat": "সখী এআই চ্যাট",
     "Menstrual Tracker": "মাসিক চক্র",
-    "AI Meal Scanner": "এআই খাবার স্ক্যানার",
+    "Meal & Grocery": "খাবার ও মুদি",
     "Report Analyzer": "রিপোর্ট বিশ্লেষক",
     "Health Passport": "হেলথ পাসপোর্ট",
-    "Analytics Trends": "বিশ্লেষণ প্রবণতা",
+    "Community Support": "কমিউনিটি সহায়তা",
     "Settings": "সেটিংস",
-    "Health Insights": "স্বাস্থ্য অন্তর্দৃষ্টি",
     "Log Out": "লগ আউট",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ডেমো হ্যাকাথন কুইক অ্যাক্সেস (অদিতি হিসেবে লগইন করুন)"
   },
@@ -101,21 +127,24 @@ const TRANSLATIONS = {
     "Weekly Recommendations": "వారపు సిఫార్సులు",
     "Log Your Vibe": "మీ మానసిక స్థితిని నమోదు చేయండి",
     "Today's Medicine Checklist": "ఈరోజు మందుల జాబితా",
-    "Smart Reminders": "స్మార్ਟ రిమైండర్లు",
+    "Smart Reminders": "స్మార్ట్ రిమైండర్లు",
     "Upcoming Appointments": "రాబోయే అపాయింట్‌మెంట్‌లు",
     "Explore Stages": "దశలను అన్వేషించండి",
     "Start Your Journey": "మీ ప్రయాణాన్ని ప్రారంభించండి",
     "Dashboard": "డాష్‌బోర్డ్",
+    "Health Insights": "ఆరోగ్య అంతర్దృష్టులు",
+    "Health Wrapped": "ఆరోగ్య ర్యాప్డ్",
+    "Wellness Coach": "వెల్నెస్ కోచ్",
+    "AI Clinic Room": "AI క్లినిక్ గది",
     "Sakhi AI Chat": "సఖి AI చాట్",
     "Menstrual Tracker": "నెలసరి ట్రాకర్",
-    "AI Meal Scanner": "AI మీల్ స్కానర్",
-    "Report Analyzer": "రిపోర్ట్ అనలైజర్",
+    "Meal & Grocery": "భోజనం & కిరాణా",
+    "Report Analyzer": "রিపోర్ట్ అనలైజర్",
     "Health Passport": "హెల్త్ పాస్‌పోర్ట్",
-    "Analytics Trends": "విశ్లేషణ ట్రెండ్‌లు",
+    "Community Support": "కమ్యూనిటీ మద్దతు",
     "Settings": "సెట్టింగ్‌లు",
-    "Health Insights": "ఆరోగ్య అంతర్దృష్టులు",
     "Log Out": "లాగ్ అవుట్",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిత ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
+    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిక ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
   },
   mr: {
     "Sakhi": "सखी",
@@ -140,14 +169,17 @@ const TRANSLATIONS = {
     "Explore Stages": "टप्पे एक्सप्लोर करा",
     "Start Your Journey": "तुमचा प्रवास सुरू करा",
     "Dashboard": "डॅशबोर्ड",
+    "Health Insights": "आरोग्य अंतर्दृष्टी",
+    "Health Wrapped": "आरोग्य रॅप्ड",
+    "Wellness Coach": "वेलनेस कोच",
+    "AI Clinic Room": "एआय क्लिनिक रूम",
     "Sakhi AI Chat": "सखी एआय चॅट",
     "Menstrual Tracker": "मासिक पाळी",
-    "AI Meal Scanner": "एआय मील स्कॅनर",
+    "Meal & Grocery": "जेवण आणि किराणा",
     "Report Analyzer": "रिपोर्ट विश्लेषक",
     "Health Passport": "हेल्थ पासपोर्ट",
-    "Analytics Trends": "विश्लेषण ट्रेंड्स",
+    "Community Support": "सामुदायिक समर्थन",
     "Settings": "सेटिंग्ज",
-    "Health Insights": "आरोग्य अंतर्दृष्टी",
     "Log Out": "लॉग आउट",
     "Demo Hackathon Quick Access (Log in as Aditi)": "डेमो हॅकाथॉन क्विक ॲक्सेस (अदिती म्हणून लॉग इन करा)"
   },
@@ -174,16 +206,19 @@ const TRANSLATIONS = {
     "Explore Stages": "நிலைகளை ஆராயுங்கள்",
     "Start Your Journey": "உங்கள் பயணத்தைத் தொடங்குங்கள்",
     "Dashboard": "டாஷ்போர்டு",
+    "Health Insights": "ஆரோக்கிய நுண்ணறிவு",
+    "Health Wrapped": "ஆரோக்கிய ரேப்டு",
+    "Wellness Coach": "வெல்னஸ் கோச்",
+    "AI Clinic Room": "AI கிளினிக் அறை",
     "Sakhi AI Chat": "சகி AI அரட்டை",
     "Menstrual Tracker": "மாதவிடாய் டிராக்கர்",
-    "AI Meal Scanner": "AI உணவு ஸ்கேனர்",
+    "Meal & Grocery": "உணவு & மளிகை",
     "Report Analyzer": "அறிக்கை பகுப்பாய்வி",
     "Health Passport": "ஹெல்த் பாஸ்போர்ட்",
-    "Analytics Trends": "போக்குகள்",
+    "Community Support": "சமூக ஆதரவு",
     "Settings": "அமைப்புகள்",
-    "Health Insights": "ஆரோக்கிய நுண்ணறிவு",
     "Log Out": "வெளியேறு",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "டெમો ஹேக்கத்தான் விரைவு அணுகல் (அதிதியாக உள்நுழையவும்)"
+    "Demo Hackathon Quick Access (Log in as Aditi)": "டெமோ ஹேக்கத்தான் விரைவு அணுகல் (அதிதியாக உள்நுழையவும்)"
   },
   gu: {
     "Sakhi": "સખી",
@@ -208,16 +243,19 @@ const TRANSLATIONS = {
     "Explore Stages": "તબક્કાઓ અન્વેષણ કરો",
     "Start Your Journey": "તમારી યાત્રા શરૂ કરો",
     "Dashboard": "ડેશબોર્ડ",
+    "Health Insights": "આરોગ્ય આંતરદૃષ્ટિ",
+    "Health Wrapped": "આરોગ્ય રેપ્ડ",
+    "Wellness Coach": "વેલનેસ કોચ",
+    "AI Clinic Room": "AI ક્લિનિક રૂમ",
     "Sakhi AI Chat": "સખી AI ચેટ",
     "Menstrual Tracker": "માસિક ચક્ર",
-    "AI Meal Scanner": "AI ભોજન સ્કેનર",
+    "Meal & Grocery": "ભોજન અને કરિયાણું",
     "Report Analyzer": "રિપોર્ટ વિશ્લેષક",
-    "Health Passport": "હેલ્थ પાસપોર્ટ",
-    "Analytics Trends": "વિશ્લેષણ પ્રવાહો",
+    "Health Passport": "હેલ્થ પાસપોર્ટ",
+    "Community Support": "સમુદાય સપોર્ટ",
     "Settings": "સેટિંગ્સ",
-    "Health Insights": "આરોગ્ય આંતરદૃષ્ટિ",
     "Log Out": "લોગ આઉટ",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ડેમો હેકાથોન ક્વิก એક્સેਸ (અદિતી તરીકે લોગિન કરો)"
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ડેમો હેકાથોન ક્વિક એક્સેસ (અદિતી તરીકે લોગિન કરો)"
   },
   kn: {
     "Sakhi": "ಸಖಿ",
@@ -237,19 +275,22 @@ const TRANSLATIONS = {
     "Weekly Recommendations": "ಸಾಪ್ತಾಹಿಕ ಶಿಫಾರಸುಗಳು",
     "Log Your Vibe": "ನಿಮ್ಮ ಮನಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ",
     "Today's Medicine Checklist": "ಇಂದಿನ ಔಷಧಿಗಳ ಪಟ್ಟಿ",
-    "Smart Reminders": "ಸ್ಮಾರ்ட் ಜ್ಞಾಪನೆಗಳು",
+    "Smart Reminders": "ಸ್ಮಾರ್ಟ್ ಜ್ಞಾಪನೆಗಳು",
     "Upcoming Appointments": "ಮುಂಬರುವ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು",
     "Explore Stages": "ಹಂತಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
     "Start Your Journey": "ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ",
     "Dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-    "Sakhi AI Chat": "ಸಖಿ AI chata",
-    "Menstrual Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
-    "AI Meal Scanner": "AI ಊಟದ ಸ್ಕ್ಯಾನರ್",
-    "Report Analyzer": "ವರದಿ ವಿಲೇಷಕ",
-    "Health Passport": "ಹೆಲ್ತ್ ಪಾಸ್‌ಪೋರ್ಟ್",
-    "Analytics Trends": "ವಿಶ್ಲೇಷಣೆ ಪ್ರವೃತ್ತಿಗಳು",
-    "Settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
     "Health Insights": "ಆರೋಗ್ಯ ಒಳನೋಟಗಳು",
+    "Health Wrapped": "ಆರೋಗ್ಯ ರಾಪ್ಡ್",
+    "Wellness Coach": "ವೆಲ್ನೆಸ್ ಕೋಚ್",
+    "AI Clinic Room": "AI ಕ್ಲಿನಿಕ್ ಕೊಠಡಿ",
+    "Sakhi AI Chat": "ಸಖಿ AI ಚಾಟ್",
+    "Menstrual Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
+    "Meal & Grocery": "ಊಟ ಮತ್ತು ದಿನಸಿ",
+    "Report Analyzer": "ವರದಿ ವಿಶ್ಲೇಷಕ",
+    "Health Passport": "ಹೆಲ್ತ್ ಪಾಸ್‌ಪೋರ್ಟ್",
+    "Community Support": "ಸಮುದಾಯ ಬೆಂಬಲ",
+    "Settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
     "Log Out": "ಲಾಗ್ ಔಟ್",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ಡೆಮೊ ಹ್ಯಾಕಥಾನ್ ತ್ವರಿತ ಪ್ರವೇಶ (ಅದಿತಿ ಎಂದು ಲಾಗಿನ್ ಮಾಡಿ)"
   },
@@ -268,7 +309,7 @@ const TRANSLATIONS = {
     "Sleep Quality": "ഉറക്കത്തിന്റെ ഗുണനിലവാരം",
     "Exercise": "വ്യായാമം",
     "Cycle Tracker": "ആർത്തവ ചക്ര ട്രാക്കർ",
-    "Weekly Recommendations": "പ്രതിവาร നിർദ്ദേശങ്ങൾ",
+    "Weekly Recommendations": "പ്രതിവാര നിർദ്ദേശങ്ങൾ",
     "Log Your Vibe": "നിങ്ങളുടെ മാനസികാവസ്ഥ രേഖപ്പെടുത്തുക",
     "Today's Medicine Checklist": "ഇന്നത്തെ മരുന്നുകളുടെ ലിസ്റ്റ്",
     "Smart Reminders": "സ്മാർട്ട് ഓർമ്മപ്പെടുത്തലുകൾ",
@@ -276,14 +317,17 @@ const TRANSLATIONS = {
     "Explore Stages": "ഘട്ടങ്ങൾ പര്യവേക്ഷണം ചെയ്യുക",
     "Start Your Journey": "നിങ്ങളുടെ യാത്ര ആരംഭിക്കുക",
     "Dashboard": "ഡാഷ്‌ബോർഡ്",
+    "Health Insights": "ആരോഗ്യ സ്ഥിതിവിവരങ്ങൾ",
+    "Health Wrapped": "ആരോഗ്യം റാപ്പ്ഡ്",
+    "Wellness Coach": "വെൽനസ് കോച്ച്",
+    "AI Clinic Room": "AI ക്ലിനിക് റൂം",
     "Sakhi AI Chat": "സഖി AI ചാറ്റ്",
     "Menstrual Tracker": "ആർത്തവ ട്രാക്കർ",
-    "AI Meal Scanner": "AI മീൽ സ്കാനർ",
+    "Meal & Grocery": "ഭക്ഷണവും പലചരക്കും",
     "Report Analyzer": "റിപ്പോർട്ട് അനലൈസർ",
     "Health Passport": "ഹെൽത്ത് പാസ്‌പോർട്ട്",
-    "Analytics Trends": "വിശകലന പ്രവണതകൾ",
+    "Community Support": "കമ്മ്യൂണിറ്റി പിന്തുണ",
     "Settings": "ക്രമീകരണങ്ങൾ",
-    "Health Insights": "ആരോഗ്യ സ്ഥിതിവിവരങ്ങൾ",
     "Log Out": "ലോഗ് ഔട്ട്",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ഡെമോ ഹാക്കത്തോൺ ദ്രുത പ്രവേശനം (അതിഥിയായി ലോഗിൻ ചെയ്യുക)"
   },
@@ -308,16 +352,19 @@ const TRANSLATIONS = {
     "Smart Reminders": "ਸਮਾਰਟ ਰੀਮਾਈਂਡਰ",
     "Upcoming Appointments": "ਆਉਣ ਵਾਲੀਆਂ ਮੁਲਾਕਾਤਾਂ",
     "Explore Stages": "ਪੜਾਵਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ",
-    "Start Your Journey": "ਆਪਣੀ ਯਾਰਤਾ ਸ਼ੁਰੂ ਕਰੋ",
+    "Start Your Journey": "ਆਪਣੀ ਯਾਰਤਾ ਸਭਾਵਾਂ",
     "Dashboard": "ਡੈਸ਼ਬੋਰਡ",
+    "Health Insights": "ਸਿਹਤ ਸੂਝ",
+    "Health Wrapped": "ਸਿਹਤ ਰੈਪਡ",
+    "Wellness Coach": "ਵੈਲਨੈਸ ਕੋਚ",
+    "AI Clinic Room": "ਏਆਈ ਕਲੀਨਿਕ ਰੂਮ",
     "Sakhi AI Chat": "ਸਖੀ ਏਆਈ ਚੈਟ",
     "Menstrual Tracker": "ਮਾਹਵਾਰੀ ਟ੍ਰੈਕਰ",
-    "AI Meal Scanner": "ਏਆਈ ਮੀਲ ਸਕੈਨਰ",
+    "Meal & Grocery": "ਭੋਜਨ ਅਤੇ ਕਰਿਆਨਾ",
     "Report Analyzer": "ਰਿਪੋਰਟ ਐਨਾਲਾਈਜ਼ਰ",
     "Health Passport": "ਹੈਲਥ ਪਾਸਪੋਰਟ",
-    "Analytics Trends": "ਰੁਝਾਨ",
+    "Community Support": "ਭਾਈਚਾਰਕ ਸਹਾਇਤਾ",
     "Settings": "ਸੈਟਿੰਗਜ਼",
-    "Health Insights": "ਸਿਹਤ ਸੂਝ",
     "Log Out": "ਲੌਗ ਆਉਟ",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ਡੈਮੋ ਹੈਕਾਥਨ ਤੁਰੰਤ ਪਹੁੰਚ (ਅਦਿਤੀ ਵਜੋਂ ਲੌਗਇਨ ਕਰੋ)"
   }
@@ -501,12 +548,20 @@ export default function App() {
   const [familyHealthHistory, setFamilyHealthHistory] = useState({ diabetes: true, hypertension: false, thyroid: true, pcos: false });
 
   // ==========================================
-  // 🔥🔥🔥 NEW SUPER INTEGRATIONS STATE 🔥🔥🔥
+  // 🔥🔥🔥 SUPER INTEGRATIONS STATE 🔥🔥🔥
   // ==========================================
   const [zomatoInput, setZomatoInput] = useState('');
   const [zomatoSuggestion, setZomatoSuggestion] = useState(null);
   const [currentWrappedSlide, setCurrentWrappedSlide] = useState(0);
   const [kindleSlideIndex, setKindleSlideIndex] = useState(0);
+
+  // Music Synth Player States
+  const [playingAudio, setPlayingAudio] = useState(false);
+  const [playingAudioTitle, setPlayingAudioTitle] = useState('');
+  const [audioProgress, setAudioProgress] = useState(0);
+  const [activeAudioInterval, setActiveAudioInterval] = useState(null);
+  const [audioContextRef, setAudioContextRef] = useState(null);
+  const [audioOscRef, setAudioOscRef] = useState(null);
 
   const kindleLessons = [
     { title: "Estrogen Peaks (Day 6-13)", content: "Estrogen levels are rising, boosting your memory, verbal recall, and concentration levels. This is the optimal window to schedule complex meetings, study, or start new workflows." },
@@ -518,7 +573,7 @@ export default function App() {
     {
       title: "💤 Your Sleep Story",
       stat: "7.4 Hours Average",
-      desc: "You logged sleep times consistently! Your sleep quality remained 85% Good, curing luteal phase exhaustion.",
+      desc: "You logged sleep times consistently! Your sleep quality remained 85% Good, curing luteal phase fatigue.",
       color: "from-[#FFB3D9] to-[#C9B6FF]"
     },
     {
@@ -875,9 +930,13 @@ export default function App() {
   };
 
   const handleRecordAudioNotes = async () => {
+    // 🔊 Synthesize start beep sound 🔊
+    playAmbientSound('beep');
     setRecordingAudio(true);
     setTimeout(async () => {
       setRecordingAudio(false);
+      // 🔊 Synthesize stop beep sound 🔊
+      playAmbientSound('beep');
       await api.transcribeAudioNotes(null);
       setAudioNotes(await api.getAudioNotes());
       alert(lang !== 'en' ? "ऑडियो परामर्श का ट्रांसक्रिप्शन पूरा हुआ!" : "Doctor audio consult transcribed successfully!");
@@ -989,12 +1048,123 @@ export default function App() {
     return emojis[mood] || '🌸';
   };
 
+  // ==========================================
+  // 🔥🔥🔥 DYNAMIC ACTIONS FOR NEW VIEWS 🔥🔥🔥
+  // ==========================================
+
+  // Synthesize relaxing lofi/meditative hums physically inside the browser!
+  const playAmbientSound = (type) => {
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      const ctx = new AudioContextClass();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      if (type === 'meditation') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(136.1, ctx.currentTime); // Deep hum
+        gain.gain.setValueAtTime(0.25, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 6);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 6);
+      } else if (type === 'focus') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(220, ctx.currentTime); // Lofi hum
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 4);
+      } else if (type === 'beep') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(520, ctx.currentTime); 
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.4);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  // Web Audio Context continuous hum synthesizer
+  const startAmbientSynth = (title, type) => {
+    try {
+      if (activeAudioInterval) clearInterval(activeAudioInterval);
+      if (audioOscRef) {
+        try { audioOscRef.stop(); } catch (e) {}
+      }
+
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      const ctx = audioContextRef || new AudioContextClass();
+      if (!audioContextRef) setAudioContextRef(ctx);
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      if (type === 'meditation') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(136.1, ctx.currentTime); // OM hum
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      } else {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(220, ctx.currentTime); // focus hum
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      }
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      setAudioOscRef(osc);
+
+      setPlayingAudio(true);
+      setPlayingAudioTitle(title);
+      setAudioProgress(0);
+
+      const interval = setInterval(() => {
+        setAudioProgress(prev => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            osc.stop();
+            setPlayingAudio(false);
+            return 0;
+          }
+          return prev + 2;
+        });
+      }, 1000);
+      setActiveAudioInterval(interval);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const stopAmbientSynth = () => {
+    if (activeAudioInterval) clearInterval(activeAudioInterval);
+    if (audioOscRef) {
+      try { audioOscRef.stop(); } catch (e) {}
+      setAudioOscRef(null);
+    }
+    setPlayingAudio(false);
+    setAudioProgress(0);
+  };
+
   // Voice recording mood analysis
   const handleRecordVoiceMood = () => {
+    playAmbientSound('beep');
     setVoiceRecording(true);
     setVoiceAnalysisResult(null);
     setTimeout(() => {
       setVoiceRecording(false);
+      playAmbientSound('beep');
       setVoiceAnalysisResult({
         stressScore: Math.floor(Math.random() * 30) + 20, 
         tone: 'Warm, calm, slightly fatigued cadence',
@@ -1173,7 +1343,7 @@ export default function App() {
                   <option value="hi">हिन्दी (Hindi)</option>
                   <option value="bn">বাংলা (Bengali)</option>
                   <option value="te">తెలుగు (Telugu)</option>
-                  <option value="mr">मराठी (Marathi)</option>
+                  <option value="mr">మराठी (Marathi)</option>
                   <option value="ta">தமிழ் (Tamil)</option>
                   <option value="gu">ગુજરાતી (Gujarati)</option>
                   <option value="kn">ಕನ್ನಡ (Kannada)</option>
@@ -1402,12 +1572,26 @@ export default function App() {
           
           {/* Sidebar */}
           <aside className="w-64 bg-[#FFF6FB]/85 backdrop-blur-md border-r border-[#FFF3F8] p-6 flex flex-col justify-between hidden lg:flex">
-            <div className="space-y-8">
-              <div className="flex items-center gap-2 cursor-pointer" onClick={() => setView('landing')}>
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 cursor-pointer border-b pb-2.5" onClick={() => setView('landing')}>
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white" size={18} /></div>
                 <span className="text-xl font-bold bg-gradient-to-r from-[#FF8A80] to-[#F48FB1] bg-clip-text text-transparent font-sans">{t("Sakhi")}</span>
               </div>
-              <nav className="flex flex-col gap-0.5">
+              
+              {/* Sidebar Ambient Audio Controller Widget */}
+              {playingAudio && (
+                <div className="bg-[#FFF9EC] p-3 rounded-2xl border border-[#FFB68A]/30 text-xs space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-extrabold text-[#5E5A66] truncate block max-w-[120px]">🎶 {playingAudioTitle}</span>
+                    <button onClick={stopAmbientSynth} className="text-[#FF8A80] hover:text-[#FF8A80]/80 font-bold">Stop</button>
+                  </div>
+                  <div className="w-full bg-white h-1.5 rounded-full overflow-hidden border">
+                    <div className="bg-[#FF8A80] h-full transition-all duration-1000" style={{ width: `${audioProgress}%` }}></div>
+                  </div>
+                </div>
+              )}
+
+              <nav className="flex flex-col gap-1">
                 {[
                   { id: 'dashboard', label: 'Dashboard', icon: Activity },
                   { id: 'insights', label: 'Health Insights', icon: Sparkles },
@@ -1547,7 +1731,7 @@ export default function App() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
-                  {/* Wellness Circle Card */}
+                  {/* Wellness Score Circle Card */}
                   <div className="lg:col-span-4 bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden">
                     <div className="absolute -top-12 -left-12 w-24 h-24 bg-[#FFB3D9]/10 rounded-full"></div>
                     <span className="text-xs font-bold text-[#A09BAA] uppercase tracking-wider">{t("Today's Wellness Score")}</span>
@@ -1569,7 +1753,7 @@ export default function App() {
                   <div className="lg:col-span-8 bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-bold text-[#5E5A66]">⏰ Smart Daily Routine Planner</h3>
-                      <span className="text-[9px] bg-[#FFB68A] text-white px-2 py-0.5 rounded-full font-bold">Generated by AI</span>
+                      <span className="text-[9px] bg-[#FFB68A] text-white px-2 py-0.5 rounded-full font-bold font-mono">Generated by AI</span>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {routineList.map((rt, idx) => (
@@ -1878,7 +2062,7 @@ export default function App() {
                     <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                         <span>🛏️ Log Sleep Hours</span>
-                        <span className="text-[9px] bg-[#C9B6FF]/30 px-2 py-0.5 rounded-full text-[#7E7A88] font-bold">Goal Tracker</span>
+                        <span className="text-[9px] bg-[#C9B6FF]/30 px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">Goal Tracker</span>
                       </h3>
                       <form onSubmit={handleLogSleep} className="space-y-3 text-xs font-semibold text-[#7E7A88]">
                         <div className="grid grid-cols-2 gap-3">
@@ -1925,7 +2109,7 @@ export default function App() {
                         {dashboardData.reminders.map((rem, idx) => (
                           <div key={idx} className="bg-white/80 border rounded-2xl p-3 text-xs flex justify-between items-start">
                             <div><span className="font-bold text-[#5E5A66] block">{rem.title}</span><span className="text-[#7E7A88] block mt-0.5">{rem.message}</span></div>
-                            <span className="text-[9px] bg-[#FF8A80]/10 text-[#FF8A80] px-2 py-0.5 rounded-full font-bold">{rem.category}</span>
+                            <span className="text-[9px] bg-[#FF8A80]/10 text-[#FF8A80] px-2 py-0.5 rounded-full font-bold font-mono">{rem.category}</span>
                           </div>
                         ))}
                       </div>
@@ -2068,7 +2252,7 @@ export default function App() {
                             </div>
                             <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{item.name}</span>
                           </div>
-                          <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold">{item.category}</span>
+                          <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">{item.category}</span>
                         </div>
                       ))}
                     </div>
@@ -2181,7 +2365,7 @@ export default function App() {
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                   <div>
                     <h2 className="text-3xl font-bold text-[#5E5A66]">Cycle Calendar & Logs</h2>
-                    <span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-2">Day 12 Follicular Phase</span>
+                    <span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-2 font-mono">Day 12 Follicular Phase</span>
                   </div>
                   <div className="flex gap-2">
                     <button 
@@ -2377,11 +2561,21 @@ export default function App() {
                     <span className="text-[10px] bg-[#C9B6FF]/30 px-2 py-0.5 rounded-full text-[#7E7A88] font-bold">AI Transcriber</span>
                   </h3>
                   <p className="text-xs text-[#7E7A88]">Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize the doctor's key recommendations.</p>
-                  <button onClick={handleRecordAudioNotes} className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all ${
-                    recordingAudio ? 'bg-[#FF8A80] animate-pulse text-white' : 'bg-[#C9B6FF] hover:opacity-95 text-white'
-                  }`}>
-                    {recordingAudio ? '🔴 Recording Consultation (4s)...' : '🎙️ Record Doctor Visit'}
-                  </button>
+                  
+                  <div className="flex gap-4 items-center">
+                    <button onClick={handleRecordAudioNotes} className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all ${
+                      recordingAudio ? 'bg-[#FF8A80] animate-pulse text-white font-mono' : 'bg-[#C9B6FF] hover:opacity-95 text-white'
+                    }`}>
+                      {recordingAudio ? '🔴 Recording Consultation (4s)...' : '🎙️ Record Doctor Visit'}
+                    </button>
+                    {recordingAudio && (
+                      <div className="flex gap-1 items-center justify-center h-8">
+                        <span className="w-1 bg-[#FF8A80] h-6 rounded-full animate-bounce"></span>
+                        <span className="w-1 bg-[#FFB3D9] h-8 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
+                        <span className="w-1 bg-[#C9B6FF] h-4 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
@@ -2405,7 +2599,7 @@ export default function App() {
                     {doctorReportText && (
                       <div className="bg-[#FFF9EC]/80 border border-[#FFD59A]/40 rounded-2xl p-5 shadow-sm space-y-4">
                         <div className="flex justify-between items-center border-b pb-2">
-                          <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">Clinical Summary Worksheet</span>
+                          <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider font-mono">Clinical Summary Worksheet</span>
                           <button onClick={() => setDoctorReportText('')} className="text-xs text-[#F48FB1] hover:underline font-bold">Close Report</button>
                         </div>
                         <pre className="text-xs font-mono text-[#5E5A66] whitespace-pre-wrap bg-white rounded-xl p-4 max-h-72 overflow-y-auto">{doctorReportText}</pre>
@@ -2613,7 +2807,7 @@ export default function App() {
                             <span className="font-bold block text-[#5E5A66]">Ocean Waves Deep Meditation</span>
                             <span className="text-[10px] text-[#A09BAA]">Delta Frequencies (15 min)</span>
                           </div>
-                          <button onClick={() => alert("Launching Spotify meditation playlist...")} className="bg-[#B9F4D0] text-[#5E5A66] font-bold text-[10px] px-3 py-1 rounded-lg">Play</button>
+                          <button onClick={() => startAmbientSynth('Ocean Waves Deep Meditation', 'meditation')} className="bg-[#B9F4D0] text-[#5E5A66] font-bold text-[10px] px-3 py-1 rounded-lg">Play</button>
                         </div>
                       </div>
                     </div>
@@ -2657,19 +2851,19 @@ export default function App() {
                     <p className="text-xs text-[#7E7A88]">These activities adapt automatically based on your cycle phase (Estrogen/Progesterone peaks) and stress ratings.</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {[
-                        { title: "Box Breathing Pranayama", duration: "10 mins", type: "Breathing", desc: "Reduces acute high cortisol during hormonal swings." },
-                        { title: "Restorative Yin Yoga", duration: "20 mins", type: "Yoga", desc: "Stretching postures safe during menstruation cramping." },
-                        { title: "Wind-Down Sleep Meditation", duration: "15 mins", type: "Meditation", desc: "Soothing audio frequencies to cure night fatigue." },
-                        { title: "Pelvic Floor Strengthening", duration: "10 mins", type: "Stretching", desc: "Light prenatal yoga stretches aligned with pregnancy." }
+                        { title: "Box Breathing Pranayama", duration: "10 mins", type: "meditation", desc: "Reduces acute high cortisol during hormonal swings." },
+                        { title: "Restorative Yin Yoga", duration: "20 mins", type: "meditation", desc: "Stretching postures safe during menstruation cramping." },
+                        { title: "Wind-Down Sleep Meditation", duration: "15 mins", type: "meditation", desc: "Soothing audio frequencies to cure night fatigue." },
+                        { title: "Pelvic Floor Strengthening", duration: "10 mins", type: "focus", desc: "Light prenatal yoga stretches aligned with pregnancy." }
                       ].map((session, idx) => (
                         <div key={idx} className="bg-[#FFF6FB] border p-4.5 rounded-2xl space-y-2 hover:border-[#FFB3D9] transition-all">
                           <div className="flex justify-between items-center">
                             <span className="font-bold text-sm text-[#5E5A66]">{session.title}</span>
-                            <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold">{session.duration}</span>
+                            <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">{session.duration}</span>
                           </div>
                           <p className="text-xs text-[#7E7A88]">{session.desc}</p>
                           <button 
-                            onClick={() => { alert(`Starting "${session.title}"... Breathe deep.`); setUserPoints(prev => prev + 10); }}
+                            onClick={() => { startAmbientSynth(session.title, session.type); setUserPoints(prev => prev + 10); }}
                             className="bg-[#C9B6FF]/30 hover:bg-[#C9B6FF]/40 text-[#5E5A66] text-[10px] font-bold px-3 py-1 rounded-xl transition-all"
                           >
                             Play Session
@@ -2798,18 +2992,18 @@ export default function App() {
                       <option value="Diagnostic labs">Diagnostic labs</option>
                     </select>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88] pt-2">
-                    {[
-                      { name: 'Dr. Meera Sen Gynecological Clinic', address: '24 Park Street, Landmark Building', dist: '1.2 km away', phone: '+91 98765 00112' },
-                      { name: 'MedPlus Pharmacy & Wellness Labs', address: '48 Brigade Road, Near Metro Gate', dist: '1.8 km away', phone: '+91 99999 11223' }
-                    ].map((loc, idx) => (
+                  <div className="bg-[#FFF9EC] p-3 rounded-2xl border text-xs text-[#7E7A88]">
+                    📍 Showing results for PIN: <strong className="font-bold text-[#FF8A80] font-mono">{nearbyPin}</strong>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88] pt-2 animate-fade-in">
+                    {HEALTHCARE_PROVIDERS[nearbyCategory]?.map((loc, idx) => (
                       <div key={idx} className="bg-[#FFF6FB] border p-4 rounded-2xl flex justify-between items-start">
                         <div>
                           <span className="font-bold text-sm text-[#5E5A66] block">{loc.name}</span>
                           <span className="block mt-0.5 text-[#7E7A88]">{loc.address}</span>
                           <span className="text-[10px] text-[#A09BAA] block mt-1">{loc.dist}</span>
                         </div>
-                        <a href={`tel:${loc.phone}`} className="bg-white border rounded-xl px-3 py-1.5 text-xs text-[#FF8A80]">Call</a>
+                        <a href={`tel:${loc.phone}`} className="bg-white border rounded-xl px-3 py-1.5 text-xs text-[#FF8A80] hover:bg-[#FF8A80] hover:text-white transition-all">Call</a>
                       </div>
                     ))}
                   </div>
@@ -2892,7 +3086,7 @@ export default function App() {
                             </div>
                             <span className={`text-xs font-semibold ${chal.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{chal.name}</span>
                           </div>
-                          <span className="text-[9px] text-[#FFB3D9] font-extrabold">+{chal.points} pts</span>
+                          <span className="text-[9px] text-[#FFB3D9] font-extrabold font-mono">+{chal.points} pts</span>
                         </div>
                       ))}
                     </div>
@@ -2910,7 +3104,7 @@ export default function App() {
                     <p className="text-xs text-[#7E7A88]">Read quick, expert-validated daily lessons on cycle health, nutrition, and hormones.</p>
                     
                     <div className="bg-[#FFF9EC] border p-5 rounded-2xl space-y-3 relative">
-                      <span className="bg-[#FFB68A] text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Lesson {kindleSlideIndex + 1} of 3</span>
+                      <span className="bg-[#FFB68A] text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-mono">Lesson {kindleSlideIndex + 1} of 3</span>
                       <h4 className="font-bold text-sm text-[#5E5A66]">{kindleLessons[kindleSlideIndex].title}</h4>
                       <p className="text-xs text-[#7E7A88] leading-relaxed">{kindleLessons[kindleSlideIndex].content}</p>
                       
@@ -2977,7 +3171,7 @@ export default function App() {
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between h-[360px]">
                     <div className="flex justify-between items-center border-b pb-2">
                       <h3 className="font-bold text-base text-[#5E5A66]">📊 Spotify Wrapped for Health</h3>
-                      <span className="text-[10px] bg-[#FF8A80] text-white px-2 py-0.5 rounded-full font-bold">Slide {currentWrappedSlide + 1} of 4</span>
+                      <span className="text-[10px] bg-[#FF8A80] text-white px-2 py-0.5 rounded-full font-bold font-mono">Slide {currentWrappedSlide + 1} of 4</span>
                     </div>
 
                     <div className={`flex-grow my-4 rounded-2xl bg-gradient-to-tr ${wrappedSlides[currentWrappedSlide].color} p-6 flex flex-col justify-between text-[#5E5A66] shadow-sm relative overflow-hidden transition-all duration-500`}>
@@ -2986,7 +3180,7 @@ export default function App() {
                         <span className="text-3xl font-extrabold block drop-shadow-sm font-sans">{wrappedSlides[currentWrappedSlide].stat}</span>
                         <p className="text-xs mt-2 leading-relaxed opacity-95">{wrappedSlides[currentWrappedSlide].desc}</p>
                       </div>
-                      <span className="text-[8px] uppercase tracking-widest font-extrabold text-right block opacity-75">Sakhi OS Wrapped July 2026</span>
+                      <span className="text-[8px] uppercase tracking-widest font-extrabold text-right block opacity-75 font-mono">Sakhi OS Wrapped July 2026</span>
                     </div>
 
                     <div className="flex justify-between items-center">
@@ -3025,7 +3219,7 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 11: SETTINGS & LOCAL SPACE --- */}
+            {/* --- PANEL 12: SETTINGS & LOCAL SPACE --- */}
             {view === 'settings' && profile && (
               <div className="max-w-3xl mx-auto space-y-8 animate-fade-in">
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
@@ -3043,7 +3237,7 @@ export default function App() {
                   </p>
                   <div className="bg-[#FFF9EC] p-4 rounded-2xl flex items-center justify-between text-xs font-semibold">
                     <span className="text-[#5E5A66]">Local Browser Space Occupied:</span>
-                    <span className="text-sm font-bold text-[#FF8A80]">{getStorageSize()} KB</span>
+                    <span className="text-sm font-bold text-[#FF8A80] font-mono">{getStorageSize()} KB</span>
                   </div>
                   <div className="flex flex-wrap gap-3 pt-2">
                     <button 
