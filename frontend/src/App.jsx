@@ -1402,7 +1402,29 @@ export default function App() {
                   </nav>
                 </div>
                 
-                <div className="border-t border-[#FFB3D9]/20 pt-4 space-y-2">
+                <div className="border-t border-[#FFB3D9]/20 pt-4 space-y-3">
+                  {/* Mobile-only tools (XP badge and Language Select) */}
+                  <div className="flex flex-col gap-2 bg-[#FFF3F8]/50 p-3 rounded-2xl border border-[#FFB3D9]/10">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#5E5A66]">
+                      <span>🏅 {userPoints} XP {t("Level")} 3</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm mt-1 border-[#FFB3D9]/20">
+                      <Globe size={12} className="text-[#A09BAA]" />
+                      <select value={lang} onChange={(e) => setLang(e.target.value)} className="w-full bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div className="flex items-center gap-2 px-2">
                     <div className="w-8 h-8 rounded-full bg-[#FFE79A] flex items-center justify-center font-bold text-xs">{profile?.name ? profile.name[0] : 'A'}</div>
                     <div className="overflow-hidden">
@@ -1454,11 +1476,11 @@ export default function App() {
                   </h1>
                 </div>
               </div>
-              <div className="flex items-center gap-4 relative">
-                <div className="bg-[#FFE79A] text-[#5E5A66] font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm flex items-center gap-1">
+              <div className="flex items-center gap-2 lg:gap-4 relative">
+                <div className="hidden sm:flex bg-[#FFE79A] text-[#5E5A66] font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm items-center gap-1">
                   🏅 {userPoints} XP {t("Level")} 3
                 </div>
-                <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
+                <div className="hidden sm:flex relative items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
                   <Globe size={13} className="text-[#A09BAA]" />
                   <select value={lang} onChange={(e) => setLang(e.target.value)} className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer">
                     <option value="en">English</option>
@@ -1473,8 +1495,8 @@ export default function App() {
                     <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
                   </select>
                 </div>
-                <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2 rounded-2xl text-[10px] tracking-wider uppercase">🚨 {t("SOS")}</button>
-                <button onClick={() => setNotificationOpen(!notificationOpen)} className="w-10 h-10 rounded-2xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#5E5A66] shadow-sm relative">
+                <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-3 py-2 rounded-xl text-[10px] tracking-wider uppercase">🚨 {t("SOS")}</button>
+                <button onClick={() => setNotificationOpen(!notificationOpen)} className="w-10 h-10 rounded-2xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#5E5A66] shadow-sm relative flex-shrink-0">
                   <Bell size={18} />
                   {dashboardData?.notifications?.some(n => !n.seen) && <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#FF8A80]"></span>}
                 </button>
