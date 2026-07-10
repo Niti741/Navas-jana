@@ -32,6 +32,141 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import json
+import os
+import psycopg2
+from datetime import date, datetime
+
+DB_FILE = "db.json"
+
+def serialize_val(val):
+    if isinstance(val, (datetime, date)):
+        return f"__date__:{val.isoformat()}"
+    if isinstance(val, dict):
+        return {k: serialize_val(v) for k, v in val.items()}
+    if isinstance(val, list):
+        return [serialize_val(v) for v in val]
+    return val
+
+def deserialize_val(val):
+    if isinstance(val, str) and val.startswith("__date__:"):
+        date_str = val.split("__date__:", 1)[1]
+        try:
+            if "T" in date_str:
+                return datetime.fromisoformat(date_str)
+            return date.fromisoformat(date_str)
+        except Exception:
+            return date_str
+    if isinstance(val, dict):
+        return {k: deserialize_val(v) for k, v in val.items()}
+    if isinstance(val, list):
+        return [deserialize_val(v) for v in val]
+    return val
+
+def get_db_connection():
+    DATABASE_URL = os.getenv("DATABASE_URL")
+    if DATABASE_URL:
+        # Check if database is supabase pooler and replace schema if needed
+        return psycopg2.connect(DATABASE_URL)
+    return None
+
+def init_postgres():
+    conn = get_db_connection()
+    if conn:
+        try:
+            with conn.cursor() as cur:
+                cur.execute("""
+                    CREATE TABLE IF NOT EXISTS user_data (
+                        user_id VARCHAR(100) PRIMARY KEY,
+                        data TEXT,
+                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                """)
+                conn.commit()
+            print("PostgreSQL tables initialized successfully!")
+        except Exception as e:
+            print(f"Error initializing PostgreSQL: {e}")
+        finally:
+            conn.close()
+
+def save_db():
+    # 1. First save to local file as backup fallback
+    try:
+        serializable_db = serialize_val(DB)
+        with open(DB_FILE, "w") as f:
+            json.dump(serializable_db, f, indent=4)
+    except Exception as e:
+        print(f"Error saving local backup: {e}")
+
+    # 2. Sync to Supabase PostgreSQL
+    conn = get_db_connection()
+    if conn:
+        try:
+            with conn.cursor() as cur:
+                all_users = list(DB.get("users", {}).keys())
+                for uid in all_users:
+                    user_payload = {}
+                    for category in DB.keys():
+                        if isinstance(DB[category], dict):
+                            user_payload[category] = DB[category].get(uid)
+                    
+                    serialized_payload = json.dumps(serialize_val(user_payload))
+                    cur.execute("""
+                        INSERT INTO user_data (user_id, data, updated_at)
+                        VALUES (%s, %s, CURRENT_TIMESTAMP)
+                        ON CONFLICT (user_id)
+                        DO UPDATE SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
+                    """, (uid, serialized_payload))
+                conn.commit()
+            print("Supabase database sync completed successfully!")
+        except Exception as e:
+            print(f"Error syncing to Supabase: {e}")
+        finally:
+            conn.close()
+
+def load_db():
+    # 1. Load from Supabase PostgreSQL first if available
+    conn = get_db_connection()
+    if conn:
+        try:
+            init_postgres()
+            with conn.cursor() as cur:
+                cur.execute("SELECT user_id, data FROM user_data;")
+                rows = cur.fetchall()
+                if rows:
+                    print(f"Loading {len(rows)} user profiles from Supabase...")
+                    for uid, data_str in rows:
+                        user_payload = deserialize_val(json.loads(data_str))
+                        for category, val in user_payload.items():
+                            if val is not None:
+                                if category not in DB:
+                                    DB[category] = {}
+                                DB[category][uid] = val
+                    return
+        except Exception as e:
+            print(f"Error loading from Supabase: {e}. Falling back to local file.")
+        finally:
+            conn.close()
+
+    # 2. Fallback to local file backup
+    if os.path.exists(DB_FILE):
+        try:
+            with open(DB_FILE, "r") as f:
+                loaded = json.load(f)
+                deserialized = deserialize_val(loaded)
+                for k, v in deserialized.items():
+                    DB[k] = v
+            print("Local backup loaded successfully!")
+        except Exception as e:
+            print(f"Error loading local database backup: {e}")
+
+@app.middleware("http")
+async def save_db_middleware(request, call_next):
+    response = await call_next(request)
+    if request.method in ["POST", "PUT", "DELETE"] and response.status_code < 400:
+        save_db()
+    return response
+
 # --- IN-MEMORY DATABASE STATE (Mock Database for Hackathon) ---
 DB = {
     "users": {
@@ -129,6 +264,9 @@ DB = {
         ]
     }
 }
+
+# Load database state from disk if exists
+load_db()
 
 # --- AUTH ROUTES ---
 @app.post("/api/auth/register", response_model=TokenResponse)
