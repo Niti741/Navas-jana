@@ -30,9 +30,9 @@ const HEALTHCARE_PROVIDERS = {
     { name: 'Dr. Lal PathLabs & Diagnostics Center', address: '55 Commercial Street, Next to SBI', dist: '1.5 km away', phone: '+91 99999 88877' },
     { name: 'SRL Diagnostics & Blood Scan Lab', address: '90 Indiranagar Double Road', dist: '2.1 km away', phone: '+91 99999 55566' }
   ]
-};
+}
 
-// 🌐 Indian Languages Translation Map 🌐
+// 🌐 Indian Languages Translation Map - Sentence Level 🌐
 const TRANSLATIONS = {
   en: {},
   hi: {
@@ -70,6 +70,43 @@ const TRANSLATIONS = {
     "Community Support": "सामुदायिक सहायता",
     "Settings": "सेटिंग्स",
     "Log Out": "लॉग आउट",
+    "Doctor Audio visit Recorder": "डॉक्टर ऑडियो परामर्श रिकॉर्डर",
+    "Anonymous Discussion Forums": "अनाम चर्चा मंच",
+    "Nearby Healthcare Finder": "निकटतम स्वास्थ्य केंद्र खोजक",
+    "Weekly Challenges": "साप्ताहिक चुनौतियाँ",
+    "Family Health Sharing Profile": "पारिवारिक स्वास्थ्य साझाकरण प्रोफाइल",
+    "Spotify Wrapped for Health": "स्वास्थ्य के लिए रैप्ड",
+    "Google Maps + Health AI Router": "गूगल मैप्स + स्वास्थ्य एआई राउटर",
+    "Zomato + Nutrition Recommendation": "ज़ोमैटो + पोषण सिफारिश",
+    "PCOS Screening Tool": "पीसीओएस स्क्रीनिंग टूल",
+    "Daily Brain Fog Tracker": "दैनिक मानसिक धुंधलापन ट्रैकर",
+    "Carry Pads Handbag Reminder": "पैड हैंडबैग रिमाइंडर",
+    "Menstrual Product Tracker": "मासिक धर्म उत्पाद ट्रैकर",
+    "First Period Puberty Guide": "प्रथम मासिक धर्म यौवन मार्गदर्शिका",
+    "Weekly Meal Planner": "साप्ताहिक भोजन योजनाकार",
+    "Healthy Grocery Planner": "स्वस्थ किराना योजनाकार",
+    "Chronological Timeline": "कालानुक्रमिक समयरेखा",
+    "Vaccination Records": "टीकाकरण रिकॉर्ड",
+    "Prescription History": "नुस्खा इतिहास",
+    "Consultation Audio Transcripts": "परामर्श ऑडियो प्रतिलेख",
+    "Digital Medical Card": "डिजिटल मेडिकल कार्ड",
+    "Night wind-down Habits": "रात्रि विश्राम आदतें",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "नींद से पहले स्वस्थ आदतों को चिन्हित करें।",
+    "Dim screens & blue light filters": "स्क्रीन धीमी करें और ब्लू लाइट फिल्टर लगाएं",
+    "10 mins mindfulness / box breathing": "१० मिनट माइंडफुलनेस / बॉक्स ब्रीदिंग",
+    "Drink warm chamomile / herbal tea": "गुनगुनी कैमोमाइल / हर्बल चाय पिएं",
+    "Log sleep hours & cycle symptoms": "नींद के घंटे और चक्र के लक्षण दर्ज करें",
+    "Check off when you have packed pads in your school/work handbag.": "जब आपने अपने स्कूल/काम के हैंडबैग में पैड रख लिए हों तो चिन्हित करें।",
+    "Enter Pin Code...": "पिन कोड दर्ज करें...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "कल्याण अंतर्दृष्टि का विश्लेषण करने के लिए अपने लक्षणों का चयन करें।",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "अपने नैदानिक परामर्श से ऑडियो नोट्स रिकॉर्ड करें। जेमिनी एआई स्वचालित रूप से ट्रांसक्राइब करेगा...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "एआई आपको कमी से वापस इष्टतम आधारभूत स्वास्थ्य की ओर ले जाने के लिए एक चरण-दर-चरण रोडमैप तैयार करता है।",
+    "First Period Guide": "प्रथम मासिक धर्म मार्गदर्शिका",
+    "Cycle Calendar & Logs": "चक्र कैलेंडर और लॉग",
+    "Day 12 Follicular Phase": "दिन १२ फॉलिकुलर चरण",
+    "Predicted Period: 4 Days left": "पूर्वानुमानित अवधि: ४ दिन बचे हैं",
+    "Packed in Handbag!": "हैंडबैग में पैक किया गया!",
+    "Not Packed yet": "अभी पैक नहीं किया गया",
     "Demo Hackathon Quick Access (Log in as Aditi)": "हैकथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
   },
   bn: {
@@ -107,6 +144,43 @@ const TRANSLATIONS = {
     "Community Support": "কমিউনিটি সহায়তা",
     "Settings": "সেটিংস",
     "Log Out": "লগ আউট",
+    "Doctor Audio visit Recorder": "ডাক্তার অডিও ভিজিট রেকর্ডার",
+    "Anonymous Discussion Forums": "বেনামী আলোচনা ফোরাম",
+    "Nearby Healthcare Finder": "নিকটস্থ স্বাস্থ্যসেবা সন্ধানকারী",
+    "Weekly Challenges": "সাপ্তাহিক চ্যালেঞ্জ",
+    "Family Health Sharing Profile": "পারিবারিক স্বাস্থ্য ভাগ করার প্রোফাইল",
+    "Spotify Wrapped for Health": "স্বাস্থ্যের জন্য র্যাপড",
+    "Google Maps + Health AI Router": "গুগল ম্যাপস + হেলথ এআই রাউটার",
+    "Zomato + Nutrition Recommendation": "জোম্যাটো + পুষ্টি সুপারিশ",
+    "PCOS Screening Tool": "PCOS স্ক্রীনিং টুল",
+    "Daily Brain Fog Tracker": "দৈনিক ব্রেন ফগ ট্র্যাকার",
+    "Carry Pads Handbag Reminder": "প্যাড হ্যান্ডব্যাগ অনুস্মারক",
+    "Menstrual Product Tracker": "মাসিক পণ্য ট্র্যাকার",
+    "First Period Puberty Guide": "প্রথম মাসিক ও বয়ঃসন্ধি নির্দেশিকা",
+    "Weekly Meal Planner": "সাপ্তাহিক খাবার পরিকল্পনাকারী",
+    "Healthy Grocery Planner": "স্বাস্থ্যকর মুদি পরিকল্পনাকারী",
+    "Chronological Timeline": "কালানুক্রমিক সময়রেখা",
+    "Vaccination Records": "টিকা রেকর্ড",
+    "Prescription History": "প্রেসক্রিপশন ইতিহাস",
+    "Consultation Audio Transcripts": "পরামর্শ অডিও প্রতিলিপি",
+    "Digital Medical Card": "ডিজিটাল মেডিকেল কার্ড",
+    "Night wind-down Habits": "রাতের বিশ্রামের অভ্যাস",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "ঘুমের আগে স্বাস্থ্যকর অভ্যাসগুলি চিহ্নিত করুন।",
+    "Dim screens & blue light filters": "স্ক্রিন ম্লান করুন এবং ব্লু লাইট ফিল্টার লাগান",
+    "10 mins mindfulness / box breathing": "১০ মিনিট মাইন্ডফুলনেস / বক্স ব্রিদিং",
+    "Drink warm chamomile / herbal tea": "ঈষদুষ্ণ ক্যামোমাইল / ভেষজ চা পান করুন",
+    "Log sleep hours & cycle symptoms": "ঘুমের সময় এবং চক্রের লক্ষণগুলি নথিভুক্ত করুন",
+    "Check off when you have packed pads in your school/work handbag.": "স্কুল/কাজের ব্যাগে প্যাড প্যাক করার সময় চিহ্নিত করুন।",
+    "Enter Pin Code...": "পিন কোড লিখুন...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "লক্ষণগুলি চয়ন করুন স্বাস্থ্য অন্তর্দৃষ্টি বিশ্লেষণের জন্য।",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "আপনার পরামর্শ থেকে অডিও নোট রেকর্ড করুন। জেমিনি এআই স্বয়ংক্রিয়ভাবে প্রতিলিপি করবে...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "এআই আপনাকে ঘাটতি থেকে স্বাস্থ্যকর বেসলাইনে ফিরিয়ে নিতে পথনির্দেশ তৈরি করে।",
+    "First Period Guide": "প্রথম মাসিক গাইড",
+    "Cycle Calendar & Logs": "মাসিক চক্র ক্যালেন্ডার ও লগ",
+    "Day 12 Follicular Phase": "১২ তম দিন ফলিকুলার পর্যায়",
+    "Predicted Period: 4 Days left": "সম্ভাব্য মাসিক: ৪ দিন বাকি",
+    "Packed in Handbag!": "হ্যান্ডব্যাগে প্যাক করা হয়েছে!",
+    "Not Packed yet": "এখনো প্যাক করা হয়নি",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ডেমো হ্যাকাথন কুইক অ্যাক্সেস (অদিতি হিসেবে লগইন করুন)"
   },
   te: {
@@ -139,12 +213,49 @@ const TRANSLATIONS = {
     "Sakhi AI Chat": "సఖి AI చాట్",
     "Menstrual Tracker": "నెలసరి ట్రాకర్",
     "Meal & Grocery": "భోజనం & కిరాణా",
-    "Report Analyzer": "রিపోర్ట్ అనలైజర్",
+    "Report Analyzer": "రిపోర్ట్ అనలైజర్",
     "Health Passport": "హెల్త్ పాస్‌పోర్ట్",
     "Community Support": "కమ్యూనిటీ మద్దతు",
     "Settings": "సెట్టింగ్‌లు",
     "Log Out": "లాగ్ అవుట్",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిక ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
+    "Doctor Audio visit Recorder": "డాక్టర్ ఆడియో విజిట్ రికార్డర్",
+    "Anonymous Discussion Forums": "అనామక చర్చా వేదికలు",
+    "Nearby Healthcare Finder": "సమీప ఆరోగ్య కేంద్రాల గుర్తింపు",
+    "Weekly Challenges": "వారపు సవాళ్లు",
+    "Family Health Sharing Profile": "కుటుంబ ఆరోగ్య భాగస్వామ్య ప్రొఫైల్",
+    "Spotify Wrapped for Health": "ఆరోగ్యం కొరకు ర్యాప్డ్",
+    "Google Maps + Health AI Router": "గూగుల్ మ్యాప్స్ + హెల్త్ AI రూటర్",
+    "Zomato + Nutrition Recommendation": "జొమాటో + పోషకాహార సిఫార్సు",
+    "PCOS Screening Tool": "PCOS స్క్రీనింగ్ సాధనం",
+    "Daily Brain Fog Tracker": "రోజువారీ బ్రెయిన్ ఫాగ్ ట్రాకర్",
+    "Carry Pads Handbag Reminder": "ప్యాడ్ల హ్యాండ్‌బ్యాగ్ రిమైండర్",
+    "Menstrual Product Tracker": "నెలసరి ఉత్పత్తుల ట్రాకర్",
+    "First Period Puberty Guide": "మొదటి నెలసరి & యుక్తవయస్సు గైడ్",
+    "Weekly Meal Planner": "వారపు భోజన ప్రణాళిక",
+    "Healthy Grocery Planner": "ఆరోగ్యకరమైన కిరాణా ప్రణాళిక",
+    "Chronological Timeline": "కాలక్రమానుసార టైమ్‌లైన్",
+    "Vaccination Records": "టీకాల రికార్డులు",
+    "Prescription History": "ప్రిస్క్రిప్షన్ల చరిత్ర",
+    "Consultation Audio Transcripts": "కన్సల్టేషన్ ఆడియో ట్రాన్స్క్రిప్ట్",
+    "Digital Medical Card": "డిజిటల్ మెడికల్ కార్డ్",
+    "Night wind-down Habits": "రాత్రి నిద్ర అలవాట్లు",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "నిద్రపోయే ముందు మంచి అలవాట్లను గుర్తించండి.",
+    "Dim screens & blue light filters": "స్క్రీన్ వెలుతురు తగ్గించి బ్లూ లైట్ ఫిల్టర్ ఆన్ చేయండి",
+    "10 mins mindfulness / box breathing": "10 నిమిషాల మైండ్‌ఫుల్‌నెస్ / బాక్స్ బ్రీతింగ్",
+    "Drink warm chamomile / herbal tea": "గోరువెచ్చని చామంతి / మూలికా టీ తాగండి",
+    "Log sleep hours & cycle symptoms": "నిద్ర గంటలు మరియు నెలసరి లక్షణాలను నమోదు చేయండి",
+    "Check off when you have packed pads in your school/work handbag.": "స్కూల్/ఆఫీస్ బ్యాగులో ప్యాడ్లు సర్దినప్పుడు టిక్ చేయండి.",
+    "Enter Pin Code...": "పిన్ కోడ్ ఎంటర్ చేయండి...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "మీకు ఉన్న లక్షణాలను ఎంచుకోండి.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "మీ క్లినికల్ సంప్రదింపుల ఆడియో నోట్లను రికార్డ్ చేయండి. జెమిని AI సారాంశం ఇస్తుంది...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ఆరోగ్యకరమైన స్థితికి చేరుకోవడానికి AI దశల వారీ ప్రణాళికను అందిస్తుంది.",
+    "First Period Guide": "మొదటి నెలసరి గైడ్",
+    "Cycle Calendar & Logs": "నెలసరి క్యాలెండర్ & లాగ్స్",
+    "Day 12 Follicular Phase": "12 వ రోజు ఫోలిక్యులర్ దశ",
+    "Predicted Period: 4 Days left": "నెలసరి అంచనా: ఇంకా 4 రోజులు ఉంది",
+    "Packed in Handbag!": "హ్యాండ్‌బ్యాగ్‌లో సర్దబడింది!",
+    "Not Packed yet": "ఇంకా సర్దలేదు",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిత ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
   },
   mr: {
     "Sakhi": "सखी",
@@ -181,6 +292,43 @@ const TRANSLATIONS = {
     "Community Support": "सामुदायिक समर्थन",
     "Settings": "सेटिंग्ज",
     "Log Out": "लॉग आउट",
+    "Doctor Audio visit Recorder": "डॉक्टर ऑडिओ भेट रेकॉर्डर",
+    "Anonymous Discussion Forums": "अनामित चर्चा मंच",
+    "Nearby Healthcare Finder": "जवळचे आरोग्य केंद्र शोधक",
+    "Weekly Challenges": "साप्ताहिक आव्हाने",
+    "Family Health Sharing Profile": "कौटुंबिक आरोग्य सामायिकरण प्रोफाइल",
+    "Spotify Wrapped for Health": "आरोग्यासाठी रॅप्ड",
+    "Google Maps + Health AI Router": "गूगल मॅप्स + हेल्थ एआय राउटर",
+    "Zomato + Nutrition Recommendation": "झोमॅटो + पोषण शिफारस",
+    "PCOS Screening Tool": "PCOS स्क्रीनिंग टूल",
+    "Daily Brain Fog Tracker": "दैनिक ब्रेन फॉग ट्रॅकर",
+    "Carry Pads Handbag Reminder": "पॅड्स हँडबॅग स्मरणपत्र",
+    "Menstrual Product Tracker": "मासिक पाळी उत्पादन ट्रॅकर",
+    "First Period Puberty Guide": "पहिली मासिक पाळी आणि यौवन मार्गदर्शिका",
+    "Weekly Meal Planner": "साप्ताहिक जेवण नियोजनकार",
+    "Healthy Grocery Planner": "आरोग्यदायी किराणा माल नियोजनकार",
+    "Chronological Timeline": "कालानुक्रमिक टाइमलाइन",
+    "Vaccination Records": "लसीकरण रेकॉर्ड",
+    "Prescription History": "औषधोपचार इतिहास",
+    "Consultation Audio Transcripts": "परामर्श ऑडिओ ट्रान्सक्रिप्ट",
+    "Digital Medical Card": "डिजिटल वैद्यकीय कार्ड",
+    "Night wind-down Habits": "रात्रीचे विश्रांतीचे नियम",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "झोपण्यापूर्वी निरोगी सवयींची नोंद करा.",
+    "Dim screens & blue light filters": "स्क्रीन मंद करा आणि ब्लू लाईट फिल्टर वापरा",
+    "10 mins mindfulness / box breathing": "१० मिनिटे माइंडफुलनेस / बॉक्स ब्रीदिंग",
+    "Drink warm chamomile / herbal tea": "कोमट कॅमोमाइल / हर्बल चहा प्या",
+    "Log sleep hours & cycle symptoms": "झोपेचे तास आणि चक्राचे लक्षणे नोंदवा",
+    "Check off when you have packed pads in your school/work handbag.": "शाळेच्या/कामाच्या बॅगेत पॅड्स भरल्यावर खूण करा.",
+    "Enter Pin Code...": "पिन कोड प्रविष्ट करा...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "तुमची लक्षणे निवडा.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "तुमच्या वैद्यकीय सल्ल्याची ऑडिओ नोंद करा. जेमिनी एआय सारांश करेल...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "एआय तुम्हाला कमतरतेतून निरोगी आरोग्याकडे नेण्यासाठी रोडमॅप तयार करतो.",
+    "First Period Guide": "पहिली मासिक पाळी मार्गदर्शिका",
+    "Cycle Calendar & Logs": "चक्र कॅलेंडर आणि लॉग",
+    "Day 12 Follicular Phase": "दिवस १२ फॉलिक्युलर टप्पा",
+    "Predicted Period: 4 Days left": "मासिक पाळीचा अंदाज: ४ दिवस उरले",
+    "Packed in Handbag!": "हँडबॅगमध्ये पॅक केले!",
+    "Not Packed yet": "अजून पॅक केले नाही",
     "Demo Hackathon Quick Access (Log in as Aditi)": "डेमो हॅकाथॉन क्विक ॲक्सेस (अदिती म्हणून लॉग इन करा)"
   },
   ta: {
@@ -218,6 +366,43 @@ const TRANSLATIONS = {
     "Community Support": "சமூக ஆதரவு",
     "Settings": "அமைப்புகள்",
     "Log Out": "வெளியேறு",
+    "Doctor Audio visit Recorder": "மருத்துவர் ஆடியோ பதிவி கருவி",
+    "Anonymous Discussion Forums": "அநாமதேய விவாத மன்றங்கள்",
+    "Nearby Healthcare Finder": "அருகிலுள்ள மருத்துவ உதவி தேடல்",
+    "Weekly Challenges": "வாராந்திர சவால்கள்",
+    "Family Health Sharing Profile": "குடும்ப சுகாதார பகிர்வு சுயவிவரம்",
+    "Spotify Wrapped for Health": "சுகாதாரத்திற்கான ரேப்டு",
+    "Google Maps + Health AI Router": "கூகுள் மேப்ஸ் + ஹெல்த் AI ரூட்டர்",
+    "Zomato + Nutrition Recommendation": "சொமாட்டோ + ஊட்டச்சத்து பரிந்துரை",
+    "PCOS Screening Tool": "PCOS பரிசோதனை கருவி",
+    "Daily Brain Fog Tracker": "தினசரி மூளை சோர்வு கண்காணிப்பு",
+    "Carry Pads Handbag Reminder": "பேடு கைப்பைகள் நினைவூட்டல்",
+    "Menstrual Product Tracker": "மாதவிடாய் தயாரிப்பு கண்காணிப்பு",
+    "First Period Puberty Guide": "முதல் மாதவிடாய் மற்றும் பூப்படைதல் வழிகாட்டி",
+    "Weekly Meal Planner": "வாராந்திர உணவு திட்டமிடுபவர்",
+    "Healthy Grocery Planner": "ஆரோக்கியமான மளிகை திட்டமிடுபவர்",
+    "Chronological Timeline": "காலவரிசைப்படி டைம்லைன்",
+    "Vaccination Records": "தடுப்பூசி பதிவுகள்",
+    "Prescription History": "மருந்து பரிந்துரை வரலாறு",
+    "Consultation Audio Transcripts": "ஆலோசனையின் ஆடியோ டிரான்ஸ்கிரிப்ட்",
+    "Digital Medical Card": "டிஜிட்டல் மருத்துவ அட்டை",
+    "Night wind-down Habits": "இரவு ஓய்வு பழக்கங்கள்",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "தூங்குவதற்கு முன் ஆரோக்கியமான பழக்கங்களை குறிக்கவும்.",
+    "Dim screens & blue light filters": "திரை வெளிச்சத்தை குறைத்து ப்ளூ லைட் ஃபில்டர் ஆன் செய்யவும்",
+    "10 mins mindfulness / box breathing": "10 நிமிடம் மன அமைதி / மூச்சுப் பயிற்சி",
+    "Drink warm chamomile / herbal tea": "மிதமான காமோமில் / மூலிகை டீ குடிக்கவும்",
+    "Log sleep hours & cycle symptoms": "தூக்க நேரம் மற்றும் மாதவிடாய் அறிகுறிகளை பதிவு செய்யவும்",
+    "Check off when you have packed pads in your school/work handbag.": "பள்ளி/அலுவலக பையில் பேடுகளை வைக்கும் போது டிக் செய்யவும்.",
+    "Enter Pin Code...": "பின் கோடை உள்ளிடவும்...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "உங்கள் அறிகுறிகளை தேர்வு செய்யவும்.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "மருத்துவ ஆலோசனையின் ஆடியோ குறிப்புகளை பதிவு செய்யவும். ஜெமினி AI சுருக்கம் தரும்...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "உகந்த ஆரோக்கியத்தை பெற AI உங்களுக்கு படிப்படியான வழிகாட்டுதலை வழங்கும்.",
+    "First Period Guide": "முதல் மாதவிடாய் வழிகாட்டி",
+    "Cycle Calendar & Logs": "மாதவிடாய் காலண்டர் & பதிவுகள்",
+    "Day 12 Follicular Phase": "12 வது நாள் ஃபோலிகுலர் நிலை",
+    "Predicted Period: 4 Days left": "மாதவிடாய் கணிப்பு: இன்னும் 4 நாட்கள் உள்ளன",
+    "Packed in Handbag!": "கைப்பையில் வைக்கப்பட்டது!",
+    "Not Packed yet": "இன்னும் வைக்கப்படவில்லை",
     "Demo Hackathon Quick Access (Log in as Aditi)": "டெமோ ஹேக்கத்தான் விரைவு அணுகல் (அதிதியாக உள்நுழையவும்)"
   },
   gu: {
@@ -255,20 +440,57 @@ const TRANSLATIONS = {
     "Community Support": "સમુદાય સપોર્ટ",
     "Settings": "સેટિંગ્સ",
     "Log Out": "લોગ આઉટ",
+    "Doctor Audio visit Recorder": "ડોક્ટર ઓડિયો વિઝિટ રેકોર્ડર",
+    "Anonymous Discussion Forums": "અનામી ચર્ચા મંચ",
+    "Nearby Healthcare Finder": "નજીકનું આરોગ્ય કેન્દ્ર શોધક",
+    "Weekly Challenges": "સાપ્તાહિક પડકારો",
+    "Family Health Sharing Profile": "કૌટુંબિક આરોગ્ય શેરિંગ પ્રોફાઇલ",
+    "Spotify Wrapped for Health": "આરોગ્ય માટે રેપ્ડ",
+    "Google Maps + Health AI Router": "ગૂગલ મેપ્સ + હેલ્થ AI રૂટર",
+    "Zomato + Nutrition Recommendation": "ઝોમેટો + પોષણ ભલામણ",
+    "PCOS Screening Tool": "PCOS સ્ક્રીનીંગ સાધન",
+    "Daily Brain Fog Tracker": "દૈનિક બ્રેઇન ફોગ ટ્રેકર",
+    "Carry Pads Handbag Reminder": "પેડ્સ હેન્ડબેગ રીમાઇન્ડર",
+    "Menstrual Product Tracker": "માસિક ચક્ર પ્રોડક્ટ ટ્રેકર",
+    "First Period Puberty Guide": "પ્રથમ માસિક સ્રાવ અને ગર્ભાવસ્થા માર્ગદર્શિકા",
+    "Weekly Meal Planner": "સાપ્તાહિક ભોજન આયોજક",
+    "Healthy Grocery Planner": "આરોગ્યપ્રદ કરિયાણું આયોજક",
+    "Chronological Timeline": "કાલક્રમિક સમયરેખા",
+    "Vaccination Records": "રસીકરણ રેકોર્ડ્સ",
+    "Prescription History": "પ્રિસ્ક્રિપ્શન ઇતિહાસ",
+    "Consultation Audio Transcripts": "પરામર્શ ઓડિયો ટ્રાન્સક્રિપ્ટ",
+    "Digital Medical Card": "ડિજિટલ મેડિકલ કાર્ડ",
+    "Night wind-down Habits": "રાત્રિની આરામ કરવાની ટેવો",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "સૂતા પહેલા તંદુરસ્ત ટેવો નોંધી લો.",
+    "Dim screens & blue light filters": "સ્ક્રીન ધીમી કરો અને બ્લુ લાઇટ ફિલ્ટર લગાવો",
+    "10 mins mindfulness / box breathing": "૧૦ મિનિટ માઇન્ડફુલનેસ / બોક્સ બ્રીધિંગ",
+    "Drink warm chamomile / herbal tea": "હૂંફાળી કેમોમાઈલ / હર્બલ ચા પીઓ",
+    "Log sleep hours & cycle symptoms": "ઊંઘના કલાકો અને ચક્રના લક્ષણોની નોંધ કરો",
+    "Check off when you have packed pads in your school/work handbag.": "સ્કૂલ/કામની બેગમાં પેડ્સ પેક કરો ત્યારે ટીક કરો.",
+    "Enter Pin Code...": "પિન કોડ દાખલ કરો...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "તમારા લક્ષણો પસંદ કરો.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "પરામર્શની ઓડિયો નોંધો રેકોર્ડ કરો. જેમિની એઆઈ સારાંશ આપશે...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "એઆઈ તમને ઉણપમાંથી તંદુરસ્ત સ્વાસ્થ્ય તરફ લઈ જવા રોડમેપ બનાવે છે.",
+    "First Period Guide": "પ્રથમ માસિક માર્ગદર્શિકા",
+    "Cycle Calendar & Logs": "ચક્ર કેલેન્ડર અને લોગ",
+    "Day 12 Follicular Phase": "દિવસ ૧૨ ફોલિક્યુલર તબક્કો",
+    "Predicted Period: 4 Days left": "અંદાજિત માસિક: ૪ દિવસ બાકી",
+    "Packed in Handbag!": "હેન્ડબેગમાં પેક કર્યું!",
+    "Not Packed yet": "હજી પેક નથી કર્યું",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ડેમો હેકાથોન ક્વિક એક્સેસ (અદિતી તરીકે લોગિન કરો)"
   },
   kn: {
     "Sakhi": "ಸಖಿ",
     "Your Everyday AI Health Companion": "ನಿಮ್ಮ ದೈನಂದಿನ AI ಆರೋಗ್ಯ ಸಂಗಾತಿ",
-    "One Intelligent Companion for Every Woman.": "ಪ್ರತಿ ಮಹಿಳೆಗೆ ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
-    "One Intelligent Companion for": "ಪ್ರತಿ ಮಹಿಳೆಗೆ",
+    "One Intelligent Companion for Every Woman.": "ಪ್ರತಿ महिलाಗೆ ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
+    "One Intelligent Companion for": "ಪ್ರತಿ మహిళకు",
     "Every Woman.": "ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
     "Good Morning, Aditi!": "ಶುಭೋದಯ, ಅದಿತಿ!",
     "Health Twin Active": "ಹೆಲ್ತ್ ಟ್ವಿನ್ ಸಕ್ರಿಯವಾಗಿದೆ",
     "Today's Wellness Score": "ಇಂದಿನ ವೆಲ್ನೆಸ್ ಸ್ಕೋರ್",
     "Calculated": "ಲೆಕ್ಕಹಾಕಲಾಗಿದೆ",
     "Daily AI Welcome Summary": "ದೈನಂದಿನ AI ಸ್ವಾಗತ ಸಾರಾಂಶ",
-    "Water Intake": "ನೀರಿನ ಸವೆನೆ",
+    "Water Intake": "ನೀರಿನ ಸೇವನೆ",
     "Sleep Quality": "ನಿದ್ರೆಯ ಗುಣಮಟ್ಟ",
     "Exercise": "ವ್ಯಾಯಾಮ",
     "Cycle Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
@@ -292,6 +514,43 @@ const TRANSLATIONS = {
     "Community Support": "ಸಮುದಾಯ ಬೆಂಬಲ",
     "Settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
     "Log Out": "ಲಾಗ್ ಔಟ್",
+    "Doctor Audio visit Recorder": "ವೈದ್ಯರ ಆಡಿಯೋ ಭೇಟಿ ರೆಕಾರ್ಡರ್",
+    "Anonymous Discussion Forums": "ಅನಾಮಧೇಯ ಚರ್ಚಾ ವೇದಿಕೆಗಳು",
+    "Nearby Healthcare Finder": "ಸಮೀಪದ ಆರೋಗ್ಯ ಸೇವೆಗಳ ಪತ್ತೆ",
+    "Weekly Challenges": "ಸಾಪ್ತಾಹಿಕ ಸವಾಲುಗಳು",
+    "Family Health Sharing Profile": "ಕುಟುಂಬ ಆರೋಗ್ಯ ಹಂಚಿಕೆ ಪ್ರೊಫೈಲ್",
+    "Spotify Wrapped for Health": "ಆರೋಗ್ಯಕ್ಕಾಗಿ ರ‌್ಯಾಪ್ಡ್",
+    "Google Maps + Health AI Router": "ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ + ಹೆಲ್ತ್ AI ರೂಟರ್",
+    "Zomato + Nutrition Recommendation": "ಜೊಮ್ಯಾಟೊ + ಪೌಷ್ಟಿಕಾಂಶದ ಶಿಫಾರಸು",
+    "PCOS Screening Tool": "PCOS ತಪಾಸಣಾ ಸಾಧನ",
+    "Daily Brain Fog Tracker": "ದೈನಂದಿನ ಬ್ರೈನ್ ಫಾಗ್ ಟ್ರ್ಯಾಕರ್",
+    "Carry Pads Handbag Reminder": "ಪ್ಯಾಡ್ ಬ್ಯಾಗ್ ರಿಮೈಂಡರ್",
+    "Menstrual Product Tracker": "ಋತುಚಕ್ರ ಉತ್ಪನ್ನಗಳ ಟ್ರ್ಯಾಕರ್",
+    "First Period Puberty Guide": "ಮೊದಲ ಋತುಚಕ್ರ ಮತ್ತು ಪ್ರೌಢಾವಸ್ಥೆಯ ಗೈಡ್",
+    "Weekly Meal Planner": "ಸಾಪ್ತಾಹಿಕ ಊಟದ ಯೋಜಕ",
+    "Healthy Grocery Planner": "ಆರೋಗ್ಯಕರ ದಿನಸಿ ಯೋಜಕ",
+    "Chronological Timeline": "ಕಾಲಾನುಕ್ರಮದ ಟೈಮ್‌ಲೈನ್",
+    "Vaccination Records": "ಲಸಿಕೆ ದಾಖಲೆಗಳು",
+    "Prescription History": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಇತಿಹಾಸ",
+    "Consultation Audio Transcripts": "ಸಮಾಲೋಚನೆಯ ಆಡಿಯೋ ಪ್ರತಿಲಿಪಿ",
+    "Digital Medical Card": "ಡಿಜಿಟಲ್ ವೈದ್ಯಕೀಯ ಕಾರ್ಡ್",
+    "Night wind-down Habits": "ರಾತ್ರಿ ವಿಶ್ರಾಂತಿಯ ಅಭ್ಯಾಸಗಳು",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "ಮಲಗುವ ಮುನ್ನ ಉತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಗುರುತಿಸಿ.",
+    "Dim screens & blue light filters": "ಸ್ಕ್ರೀನ್ ಬೆಳಕನ್ನು ಕಡಿಮೆ ಮಾಡಿ ಬ್ಲೂ ಲೈಟ್ ಫಿಲ್ಟರ್ ಆನ್ ಮಾಡಿ",
+    "10 mins mindfulness / box breathing": "10 ನಿಮಿಷಗಳ ಮೈಂಡ್‌ಫುಲ್‌ನೆಸ್ / ಬಾಕ್ಸ್ ಬ್ರೀಥಿಂಗ್",
+    "Drink warm chamomile / herbal tea": "ಬಿಸಿ ಚಾಮೊಮೈಲ್ / ಗಿಡಮೂಲಿಕೆ ಚಹಾವನ್ನು ಕುಡಿಯಿರಿ",
+    "Log sleep hours & cycle symptoms": "ನಿದ್ರೆಯ ಸಮಯ ಮತ್ತು ಋತುಚಕ್ರದ ಲಕ್ಷಣಗಳನ್ನು ದಾಖಲಿಸಿ",
+    "Check off when you have packed pads in your school/work handbag.": "ಸ್ಕೂಲ್/ಕೆಲಸದ ಬ್ಯಾಗಿನಲ್ಲಿ ಪ್ಯಾಡ್‌ಗಳನ್ನು ಇರಿಸಿದಾಗ ಗುರುತು ಮಾಡಿ.",
+    "Enter Pin Code...": "ಪಿನ್ ಕೋಡ್ ನಮೂದಿಸಿ...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "ನಿಮ್ಮ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ಆಡಿಯೋ ಟಿಪ್ಪಣಿಗಳನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ. ಜೆಮಿನಿ AI ಸಾರಾಂಶವನ್ನು ನೀಡುತ್ತದೆ...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ಉತ್ತಮ ಆರೋಗ್ಯಕ್ಕೆ ಮರಳಲು AI ಹಂತ ಹಂತದ ಯೋಜನೆಯನ್ನು ನೀಡುತ್ತದೆ.",
+    "First Period Guide": "ಮೊದಲ ಋತುಚಕ್ರ ಮಾರ್ಗದರ್ಶಿ",
+    "Cycle Calendar & Logs": "ಋತುಚಕ್ರ ಕ್ಯಾಲೆಂಡರ್ ಮತ್ತು ಲಾಗ್‌ಗಳು",
+    "Day 12 Follicular Phase": "12 ನೇ ದಿನ ಫೋಲಿಕ್ಯುಲರ್ ಹಂತ",
+    "Predicted Period: 4 Days left": "ಋತುಚಕ್ರದ ಮುನ್ಸೂಚನೆ: 4 ದಿನಗಳು ಬಾಕಿ ಇವೆ",
+    "Packed in Handbag!": "ಬ್ಯಾಗಿನಲ್ಲಿ ಇರಿಸಲಾಗಿದೆ!",
+    "Not Packed yet": "ಇನ್ನೂ ಇರಿಸಿಲ್ಲ",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ಡೆಮೊ ಹ್ಯಾಕಥಾನ್ ತ್ವರಿತ ಪ್ರವೇಶ (ಅದಿತಿ ಎಂದು ಲಾಗಿನ್ ಮಾಡಿ)"
   },
   ml: {
@@ -329,6 +588,43 @@ const TRANSLATIONS = {
     "Community Support": "കമ്മ്യൂണിറ്റി പിന്തുണ",
     "Settings": "ക്രമീകരണങ്ങൾ",
     "Log Out": "ലോഗ് ഔട്ട്",
+    "Doctor Audio visit Recorder": "ഡോക്ടർ ഓഡിയോ സന്ദർശന റെക്കോർഡർ",
+    "Anonymous Discussion Forums": "അജ്ഞാത ചർച്ചാ വേദികൾ",
+    "Nearby Healthcare Finder": "അടുത്തുള്ള ആരോഗ്യ കേന്ദ്രം കണ്ടെത്തൽ",
+    "Weekly Challenges": "പ്രതിവാര വെല്ലുവിളികൾ",
+    "Family Health Sharing Profile": "കുടുംബ ആരോഗ്യ പങ്കിടൽ പ്രൊഫൈൽ",
+    "Spotify Wrapped for Health": "ആരോഗ്യത്തിന് റാപ്പ്ഡ്",
+    "Google Maps + Health AI Router": "ഗൂഗിൾ മാപ്‌സ് + ഹെൽത്ത് AI റൂട്ടർ",
+    "Zomato + Nutrition Recommendation": "സൊമാറ്റോ + പോഷകാഹാര ശുപാർശ",
+    "PCOS Screening Tool": "PCOS പരിശോധനാ ഉപകരണം",
+    "Daily Brain Fog Tracker": "പ്രതിദിന ബ്രെയിൻ ഫോഗ് ട്രാക്കർ",
+    "Carry Pads Handbag Reminder": "പാഡുകൾ ബാഗിൽ വെച്ചോ റിമൈൻഡർ",
+    "Menstrual Product Tracker": "ആർത്തവ ഉൽപ്പന്ന ട്രാക്കർ",
+    "First Period Puberty Guide": "ആദ്യ ആർത്തവവും പ്രായപൂർത്തിയാകലും ഗൈഡ്",
+    "Weekly Meal Planner": "പ്രതിവാര ഭക്ഷണ ആസൂത്രകൻ",
+    "Healthy Grocery Planner": "ആരോഗ്യകരമായ പലചരക്ക് ആസൂത്രകൻ",
+    "Chronological Timeline": "കാലാനുസൃതമായ സമയരേഖ",
+    "Vaccination Records": "വാക്സിനേഷൻ രേഖകൾ",
+    "Prescription History": "പ്രിസ്ക്രിപ്ഷൻ ചരിത്രം",
+    "Consultation Audio Transcripts": "കൺസൾട്ടേഷൻ ഓഡിയോ ട്രാൻസ്ക്രിപ്റ്റ്",
+    "Digital Medical Card": "ഡിജിറ്റൽ മെഡിക്കൽ കാർഡ്",
+    "Night wind-down Habits": "രാത്രി ഉറക്ക ശീലങ്ങൾ",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "ഉറങ്ങുന്നതിനുമുമ്പ് നല്ല ശീലങ്ങൾ അടയാളപ്പെടുത്തുക.",
+    "Dim screens & blue light filters": "സ്ക്രീൻ വെളിച്ചം കുറച്ച് ബ്ലൂ ലൈറ്റ് ഫിൽട്ടർ ഓൺ ചെയ്യുക",
+    "10 mins mindfulness / box breathing": "10 മിനിറ്റ് മൈൻഡ്ഫുൾനസ് / ബോക്സ് ബ്രീത്തിങ്",
+    "Drink warm chamomile / herbal tea": "ചെറുചൂടുള്ള ചമോമൈൽ / ഹെർബൽ ചായ കുടിക്കുക",
+    "Log sleep hours & cycle symptoms": "ഉറക്ക സമയവും ആർത്തവ ലക്ഷണങ്ങളും രേഖപ്പെടുത്തുക",
+    "Check off when you have packed pads in your school/work handbag.": "സ്കൂൾ/ഓഫീസ് ബാഗിൽ പാഡുകൾ പാക്ക് ചെയ്യുമ്പോൾ ടിക്ക് ചെയ്യുക.",
+    "Enter Pin Code...": "പിൻ കോഡ് നൽകുക...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക.",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ആലോചനകളുടെ ഓഡിയോ കുറിപ്പുകൾ റെക്കോർഡ് ചെയ്യുക. ജെമിനി AI സംഗ്രഹം നൽകും...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ആരോഗ്യകരമായ സ്ഥിതിയിലേക്ക് മടങ്ങാൻ AI ഘട്ടം ഘട്ടമായുള്ള പദ്ധതി നൽകുന്നു.",
+    "First Period Guide": "ആദ്യ ആർത്തവ ഗൈഡ്",
+    "Cycle Calendar & Logs": "ആർത്തവ കലണ്ടറും ലോഗുകളും",
+    "Day 12 Follicular Phase": "12-ാം ദിവസം ഫോളിക്കുലാർ ഘട്ടം",
+    "Predicted Period: 4 Days left": "പ്രതീക്ഷിക്കുന്ന ആർത്തവം: 4 ദിവസങ്ങൾ കൂടി",
+    "Packed in Handbag!": "ഹാൻഡ്‌ബാഗിൽ പാക്ക് ചെയ്തു!",
+    "Not Packed yet": "ഇതുവരെ പാക്ക് ചെയ്തിട്ടില്ല",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ഡെമോ ഹാക്കത്തോൺ ദ്രുത പ്രവേശനം (അതിഥിയായി ലോഗിൻ ചെയ്യുക)"
   },
   pa: {
@@ -366,6 +662,43 @@ const TRANSLATIONS = {
     "Community Support": "ਭਾਈਚਾਰਕ ਸਹਾਇਤਾ",
     "Settings": "ਸੈਟਿੰਗਜ਼",
     "Log Out": "ਲੌਗ ਆਉਟ",
+    "Doctor Audio visit Recorder": "ਡਾਕਟਰ ਆਡੀਓ ਮੁਲਾਕਾਤ ਰਿਕਾਰਡਰ",
+    "Anonymous Discussion Forums": "ਗੁਮਨਾਮ ਵਿਚਾਰ-ਵਟਾਂਦਰਾ ਫੋਰਮ",
+    "Nearby Healthcare Finder": "ਨੇੜਲੇ ਸਿਹਤ ਕੇਂਦਰ ਦੀ ਖੋਜ",
+    "Weekly Challenges": "ਹਫ਼ਤਾਵਾਰੀ ਚੁਣੌਤੀਆਂ",
+    "Family Health Sharing Profile": "ਪਰਿਵਾਰਕ ਸਿਹਤ ਸਾਂਝਾਕਰਨ ਪ੍ਰੋਫਾਈਲ",
+    "Spotify Wrapped for Health": "ਸਿਹਤ ਲਈ ਰੈਪਡ",
+    "Google Maps + Health AI Router": "ਗੂਗਲ ਮੈਪਸ + ਹੈਲਥ AI ਰੂਟਰ",
+    "Zomato + Nutrition Recommendation": "ਜ਼ੋਮੈਟੋ + ਪੋਸ਼ਣ ਸੰਬੰਧੀ ਸਿਫਾਰਸ਼",
+    "PCOS Screening Tool": "PCOS ਸਕ੍ਰੀਨਿੰਗ ਟੂਲ",
+    "Daily Brain Fog Tracker": "ਰੋਜ਼ਾਨਾ ਦਿਮਾਗੀ ਧੁੰਦ ਟ੍ਰੈਕਰ",
+    "Carry Pads Handbag Reminder": "ਪੈਡ ਹੈਂਡਬੈਗ ਰੀਮਾਈਂਡਰ",
+    "Menstrual Product Tracker": "ਮਾਹਵਾਰੀ ਉਤਪਾਦ ਟ੍ਰੈਕਰ",
+    "First Period Puberty Guide": "ਪਹਿਲੀ ਮਾਹਵਾਰੀ ਅਤੇ ਜਵਾਨੀ ਗਾਈਡ",
+    "Weekly Meal Planner": "ਹਫ਼ਤਾਵਾਰੀ ਭੋਜਨ ਯੋਜਨਾਕਾਰ",
+    "Healthy Grocery Planner": "ਸਿਹਤਮੰਦ ਕਰਿਆਨਾ ਯੋਜਨਾਕਾਰ",
+    "Chronological Timeline": "ਸਮਾਂਰੇਖਾ",
+    "Vaccination Records": "ਟੀਕਾਕਰਨ ਰਿਕਾਰਡ",
+    "Prescription History": "ਪਰਚੀ ਇਤਿਹਾਸ",
+    "Consultation Audio Transcripts": "ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦੀ ਆਡੀਓ ਲਿਖਤ",
+    "Digital Medical Card": "ਡਿਜੀਟਲ ਮੈਡੀਕਲ ਕਾਰਡ",
+    "Night wind-down Habits": "ਰਾਤ ਦੇ ਆਰਾਮ ਦੀਆਂ ਆਦਤਾਂ",
+    "Tick off warm habits before sleeping to log melatonin cycles.": "ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਸਿਹਤਮੰਦ ਆਦਤਾਂ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ।",
+    "Dim screens & blue light filters": "ਸਕ੍ਰੀਨ ਲਾਈਟ ਘਟਾਓ ਅਤੇ ਬਲੂ ਲਾਈਟ ਫਿਲਟਰ ਲਗਾਓ",
+    "10 mins mindfulness / box breathing": "10 ਮਿੰਟ ਮਾਈਂਡਫੁਲਨੈਸ / ਬਾਕਸ ਬ੍ਰੀਥਿੰਗ",
+    "Drink warm chamomile / herbal tea": "ਗਰਮ ਚਮੋਮਾਈਲ / ਜੜੀ-ਬੂਟੀਆਂ ਵਾਲੀ ਚਾਹ ਪੀਓ",
+    "Log sleep hours & cycle symptoms": "ਨੀਂਦ ਦੇ ਘੰਟੇ ਅਤੇ ਮਾਹਵਾਰੀ ਦੇ ਲੱਛਣ ਦਰਜ ਕਰੋ",
+    "Check off when you have packed pads in your school/work handbag.": "ਜਦੋਂ ਤੁਸੀਂ ਸਕੂਲ/ਕੰਮ ਵਾਲੇ ਬੈਗ ਵਿੱਚ ਪੈਡ ਪੈਕ ਕਰ ਲਏ ਹੋਣ ਤਾਂ ਟਿੱਕ ਕਰੋ।",
+    "Enter Pin Code...": "ਪਿਨ ਕੋਡ ਦਰਜ ਕਰੋ...",
+    "Select symptoms you are experiencing to analyze wellness insights.": "ਆਪਣੇ ਲੱਛਣਾਂ ਦੀ ਚੋਣ ਕਰੋ।",
+    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ਡਾਕਟਰੀ ਸਲਾਹ ਦੇ ਆਡੀਓ ਨੋਟਸ ਰਿਕਾਰਡ ਕਰੋ। ਜੈਮਿਨੀ ਏਆਈ ਸਾਰਾਂਸ਼ ਦੇਵੇਗਾ...",
+    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ਏਆਈ ਤੁਹかに ਘਾਟ ਤੋਂ ਵਾਪਸ ਸਿਹਤਮੰਦ ਬੇਸਲਾਈਨ ਵੱਲ ਲੈ ਜਾਣ ਲਈ ਪ੍ਰੋਗਰਾਮ ਤਿਆਰ ਕਰਦੀ ਹੈ।",
+    "First Period Guide": "ਪਹਿਲੀ ਮਾਹਵਾਰੀ ਗਾਈਡ",
+    "Cycle Calendar & Logs": "ਮਾਹਵਾਰੀ ਕੈਲੰਡਰ ਅਤੇ ਲੌਗ",
+    "Day 12 Follicular Phase": "ਦਿਨ 12 ਫੋਲੀਕੂਲਰ ਪੜਾਅ",
+    "Predicted Period: 4 Days left": "ਮਾਹਵਾਰੀ ਦਾ ਅੰਦਾਜ਼ਾ: 4 ਦਿਨ ਬਾਕੀ",
+    "Packed in Handbag!": "ਹੈਂਡਬੈਗ ਵਿੱਚ ਪੈਕ ਕੀਤਾ ਗਿਆ!",
+    "Not Packed yet": "ਅਜੇ ਪੈਕ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
     "Demo Hackathon Quick Access (Log in as Aditi)": "ਡੈਮੋ ਹੈਕਾਥਨ ਤੁਰੰਤ ਪਹੁੰਚ (ਅਦਿਤੀ ਵਜੋਂ ਲੌਗਇਨ ਕਰੋ)"
   }
 };
@@ -1004,6 +1337,11 @@ export default function App() {
     }
   };
 
+  const handleLogout = () => {
+    setUser(null);
+    setView('landing');
+  };
+
   const handleGenerateDoctorReport = async () => {
     setDoctorReportLoading(true);
     try {
@@ -1035,11 +1373,6 @@ export default function App() {
     await api.updateProfile(updated);
   };
 
-  const handleLogout = () => {
-    setUser(null);
-    setView('landing');
-  };
-
   const getMoodEmoji = (mood) => {
     const emojis = {
       'Happy': '😊', 'Calm': '🧘‍♀️', 'Energetic': '⚡',
@@ -1063,7 +1396,7 @@ export default function App() {
       
       if (type === 'meditation') {
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(136.1, ctx.currentTime); // Deep hum
+        osc.frequency.setValueAtTime(136.1, ctx.currentTime); 
         gain.gain.setValueAtTime(0.25, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 6);
         osc.connect(gain);
@@ -1072,7 +1405,7 @@ export default function App() {
         osc.stop(ctx.currentTime + 6);
       } else if (type === 'focus') {
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(220, ctx.currentTime); // Lofi hum
+        osc.frequency.setValueAtTime(220, ctx.currentTime); 
         gain.gain.setValueAtTime(0.15, ctx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 4);
         osc.connect(gain);
@@ -1112,11 +1445,11 @@ export default function App() {
 
       if (type === 'meditation') {
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(136.1, ctx.currentTime); // OM hum
+        osc.frequency.setValueAtTime(136.1, ctx.currentTime); 
         gain.gain.setValueAtTime(0.2, ctx.currentTime);
       } else {
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(220, ctx.currentTime); // focus hum
+        osc.frequency.setValueAtTime(220, ctx.currentTime); 
         gain.gain.setValueAtTime(0.1, ctx.currentTime);
       }
 
@@ -1295,23 +1628,23 @@ export default function App() {
               <div className="w-20 h-20 bg-[#FF8A80]/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                 <ShieldAlert size={42} className="text-[#FF8A80]" />
               </div>
-              <h2 className="text-3xl font-bold text-[#FF8A80] font-sans">SOS Activated</h2>
-              <p className="text-[#7E7A88] mt-2">Emergency alerts and medical details dispatched to registered contacts.</p>
+              <h2 className="text-3xl font-bold text-[#FF8A80] font-sans">{t("SOS Activated")}</h2>
+              <p className="text-[#7E7A88] mt-2">{t("Emergency alerts and medical details dispatched to registered contacts.")}</p>
             </div>
             <div className="bg-white/70 backdrop-blur-md border border-[#FFF6FB] rounded-2xl p-5 mb-6 space-y-3 shadow-sm">
               <h3 className="font-semibold text-lg border-b border-[#FFB3D9]/30 pb-2 flex items-center gap-2">
-                <ClipboardList size={18} className="text-[#F48FB1]" /> Digital Medical Card
+                <ClipboardList size={18} className="text-[#F48FB1]" /> {t("Digital Medical Card")}
               </h3>
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div><span className="text-[#A09BAA] block text-[9px] uppercase">Full Name</span><span className="font-semibold">{profile?.name || 'Aditi Sharma'}</span></div>
-                <div><span className="text-[#A09BAA] block text-[9px] uppercase">Blood Group</span><span className="font-bold text-[#FF8A80]">{profile?.blood_group || 'O+'}</span></div>
-                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">Allergies</span><span className="font-medium">{profile?.allergies || 'Gluten sensitive'}</span></div>
-                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">Conditions</span><span className="font-medium">{profile?.conditions || 'Mild PCOS'}</span></div>
-                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">Emergency Contact</span><span className="font-medium">{familyContact.name} ({familyContact.phone})</span></div>
+                <div><span className="text-[#A09BAA] block text-[9px] uppercase">{t("Full Name")}</span><span className="font-semibold">{profile?.name || 'Aditi Sharma'}</span></div>
+                <div><span className="text-[#A09BAA] block text-[9px] uppercase">{t("Blood Group")}</span><span className="font-bold text-[#FF8A80]">{profile?.blood_group || 'O+'}</span></div>
+                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">{t("Allergies")}</span><span className="font-medium">{profile?.allergies || 'Gluten sensitive'}</span></div>
+                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">{t("Conditions")}</span><span className="font-medium">{profile?.conditions || 'Mild PCOS'}</span></div>
+                <div className="col-span-2"><span className="text-[#A09BAA] block text-[9px] uppercase">{t("Emergency Contact")}</span><span className="font-medium">{familyContact.name} ({familyContact.phone})</span></div>
               </div>
             </div>
             <button onClick={() => setSosActive(false)} className="w-full bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold py-3.5 rounded-2xl shadow-lg">
-              I am Safe Now
+              {t("I am Safe Now")}
             </button>
           </div>
         </div>
@@ -1327,8 +1660,8 @@ export default function App() {
             </div>
             
             <div className="hidden md:flex items-center gap-8 text-[#7E7A88] font-medium text-xs">
-              <a href="#features" className="hover:text-[#FF8A80] transition-colors">Features</a>
-              <a href="#stages" className="hover:text-[#FF8A80] transition-colors">Life Stages</a>
+              <a href="#features" className="hover:text-[#FF8A80] transition-colors">{t("Features")}</a>
+              <a href="#stages" className="hover:text-[#FF8A80] transition-colors">{t("Life Stages")}</a>
             </div>
 
             <div className="flex items-center gap-3">
@@ -1343,7 +1676,7 @@ export default function App() {
                   <option value="hi">हिन्दी (Hindi)</option>
                   <option value="bn">বাংলা (Bengali)</option>
                   <option value="te">తెలుగు (Telugu)</option>
-                  <option value="mr">మराठी (Marathi)</option>
+                  <option value="mr">मराठी (Marathi)</option>
                   <option value="ta">தமிழ் (Tamil)</option>
                   <option value="gu">ગુજરાતી (Gujarati)</option>
                   <option value="kn">ಕನ್ನಡ (Kannada)</option>
@@ -1358,7 +1691,7 @@ export default function App() {
                 </button>
               ) : (
                 <>
-                  <button onClick={() => { setIsRegister(false); setView('auth'); }} className="text-[#7E7A88] hover:text-[#FF8A80] font-semibold text-xs px-3 py-2">Sign In</button>
+                  <button onClick={() => { setIsRegister(false); setView('auth'); }} className="text-[#7E7A88] hover:text-[#FF8A80] font-semibold text-xs px-3 py-2">{t("Sign In")}</button>
                   <button onClick={() => { setIsRegister(true); setView('auth'); }} className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-sm">{t("Start Your Journey")}</button>
                 </>
               )}
@@ -1368,13 +1701,13 @@ export default function App() {
           <header className="max-w-7xl mx-auto px-6 pt-16 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="inline-flex items-center gap-1.5 bg-[#FFB3D9]/20 text-[#F48FB1] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                <Sparkles size={11} /> Powered by Gemini AI
+                <Sparkles size={11} /> {t("Powered by Gemini AI")}
               </span>
               <h1 className="text-5xl md:text-6xl font-bold leading-tight text-[#5E5A66] font-sans">
                 {t("One Intelligent Companion for")} <span className="bg-gradient-to-r from-[#FF8A80] via-[#F48FB1] to-[#C9B6FF] bg-clip-text text-transparent">{t("Every Woman.")}</span>
               </h1>
               <p className="text-[#7E7A88] text-base leading-relaxed max-w-xl">
-                {t("Your Everyday AI Health Companion")} that supports women through every stage of life with personalized health insights, nutrition, cycle tracking, mental wellness, and preventive care.
+                {t("Your Everyday AI Health Companion")}
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button onClick={() => { if (user) setView('dashboard'); else { setIsRegister(true); setView('auth'); } }} className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg flex items-center gap-2">
@@ -1395,41 +1728,11 @@ export default function App() {
                     <linearGradient id="lotus-grad" x1="250" y1="140" x2="250" y2="380" gradientUnits="userSpaceOnUse"><stop stopColor="#FFB3D9" /><stop offset="1" stopColor="#FF8A80" /></linearGradient>
                   </defs>
                 </svg>
-                <div className="absolute top-[8%] -left-8 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧬</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">Wellness Index</span><span className="text-xs font-bold">92% Excellent</span></div></div>
-                <div className="absolute bottom-[2%] right-4 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧘‍♀️</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">Logged Vibe</span><span className="text-xs font-bold">Mindful Calm</span></div></div>
+                <div className="absolute top-[8%] -left-8 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧬</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">{t("Wellness Index")}</span><span className="text-xs font-bold">{t("92% Excellent")}</span></div></div>
+                <div className="absolute bottom-[2%] right-4 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧘‍♀️</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">{t("Logged Vibe")}</span><span className="text-xs font-bold">{t("Mindful Calm")}</span></div></div>
               </div>
             </div>
           </header>
-
-          <section id="features" className="max-w-7xl mx-auto px-6 py-20 space-y-12">
-            <div className="text-center space-y-3">
-              <span className="text-xs text-[#F48FB1] uppercase font-bold">Features</span>
-              <h2 className="text-4xl font-bold text-[#5E5A66] font-sans">Intelligent Health Companion</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { title: "AI Health Twin", desc: "A personalized biological mirror aggregating cycle parameters, labs, and goals.", icon: Activity, bg: "#FFB3D9" },
-                { title: "AI Meal Scanner", desc: "Scan plates with Gemini Vision to extract calorie counts and iron progress.", icon: Apple, bg: "#FFE79A" },
-                { title: "Report Analyzer", desc: "OCR parsing of blood test files for Vitamin D, Thyroid, and Anemia.", icon: FileText, bg: "#AEE7FF" },
-                { title: "Smart Notification System", desc: "Reminders for medicines, hydration, prenatal kicks, and visits.", icon: Bell, bg: "#CDECCF" },
-                { title: "Emergency SOS Alert", desc: "Instant alert dispatch showing allergies and critical medical records.", icon: ShieldAlert, bg: "#FF8A80" },
-                { title: "Health Passport", desc: "A secure repository of vaccine histories, visits, and clinical files.", icon: ClipboardList, bg: "#C9B6FF" }
-              ].map((f, i) => {
-                const Icon = f.icon;
-                return (
-                  <div key={i} className="glass-card glass-card-hover rounded-3xl p-6 shadow-sm space-y-4">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ backgroundColor: `${f.bg}40` }}><Icon size={24} style={{ color: f.bg === '#FFE79A' ? '#FFB68A' : f.bg }} /></div>
-                    <h3 className="text-xl font-bold text-[#5E5A66]">{f.title}</h3>
-                    <p className="text-[#7E7A88] text-sm leading-relaxed">{f.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          <footer className="border-t border-[#FFF3F8] py-12 px-6 text-center text-xs text-[#A09BAA]">
-            © {new Date().getFullYear()} Sakhi AI. Renders wellness metrics. Not a replacement for clinical diagnosis.
-          </footer>
         </div>
       )}
 
@@ -1440,32 +1743,31 @@ export default function App() {
             <button onClick={() => setView('landing')} className="absolute top-4 right-4 p-2 text-[#7E7A88] hover:text-[#FF8A80]"><X size={20} /></button>
             <div className="text-center space-y-2">
               <div className="w-12 h-12 bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] rounded-2xl flex items-center justify-center mx-auto shadow-sm"><Flower className="text-white" size={24} /></div>
-              <h2 className="text-3xl font-bold text-[#5E5A66]">{isRegister ? 'Register' : 'Login'}</h2>
-              <p className="text-xs text-[#7E7A88]">Enter details to setup your health companion profile.</p>
+              <h2 className="text-3xl font-bold text-[#5E5A66]">{isRegister ? t('Register') : t('Login')}</h2>
             </div>
             {authError && <div className="bg-[#FF8A80]/15 text-[#FF8A80] p-3 rounded-xl text-xs text-center border border-[#FF8A80]/30 font-semibold">{authError}</div>}
             <form onSubmit={handleAuth} className="space-y-4">
               {isRegister && (
                 <div>
-                  <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">Name</label>
+                  <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">{t("Name")}</label>
                   <input type="text" value={authName} onChange={(e) => setAuthName(e.target.value)} placeholder="Full Name" className="w-full bg-white/70 border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
                 </div>
               )}
               <div>
-                <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">Email</label>
+                <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">{t("Email")}</label>
                 <input type="email" value={authEmail} onChange={(e) => setAuthEmail(e.target.value)} placeholder="name@example.com" className="w-full bg-white/70 border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
               </div>
               <div>
-                <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">Password</label>
+                <label className="block text-[10px] font-bold uppercase text-[#7E7A88] mb-1">{t("Password")}</label>
                 <input type="password" value={authPassword} onChange={(e) => setAuthPassword(e.target.value)} placeholder="••••••••" className="w-full bg-white/70 border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
               </div>
               <button type="submit" className="w-full bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white py-3.5 rounded-2xl font-bold text-xs shadow-md">
-                {isRegister ? 'Create Account' : 'Sign In'}
+                {isRegister ? t('Create Account') : t('Sign In')}
               </button>
             </form>
             <div className="text-center">
               <button onClick={() => { setIsRegister(!isRegister); setAuthError(''); }} className="text-xs text-[#F48FB1] hover:underline">
-                {isRegister ? 'Already have an account? Sign In' : "Don't have an account? Register"}
+                {isRegister ? t('Already have an account? Sign In') : t("Don't have an account? Register")}
               </button>
             </div>
             <button onClick={() => { handleMockLogin(); setView('dashboard'); }} className="w-full bg-white border text-[#7E7A88] hover:text-[#5E5A66] py-3 rounded-2xl text-[10px] font-bold shadow-sm">
@@ -1480,85 +1782,29 @@ export default function App() {
         <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
           <div className="w-full max-w-lg bg-[#FFF6FB] border rounded-3xl p-8 shadow-xl space-y-6">
             <div className="text-center">
-              <span className="text-xs text-[#F48FB1] uppercase font-bold tracking-wider">Step {onboardStep} of 3</span>
-              <h2 className="text-3xl font-bold font-sans text-[#5E5A66] mt-1">Setup Health Twin</h2>
+              <span className="text-xs text-[#F48FB1] uppercase font-bold tracking-wider">{t("Step")} {onboardStep} {t("of")} 3</span>
+              <h2 className="text-3xl font-bold font-sans text-[#5E5A66] mt-1">{t("Setup Health Twin")}</h2>
             </div>
             
             <form onSubmit={handleOnboardingSubmit} className="space-y-4 text-xs font-semibold text-[#7E7A88]">
               {onboardStep === 1 && (
                 <div className="space-y-3">
-                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">Biological Attributes</h3>
+                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">{t("Biological Attributes")}</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="col-span-2">
-                      <label className="block mb-1">Name</label>
+                      <label className="block mb-1">{t("Name")}</label>
                       <input type="text" value={onboardForm.name} onChange={(e) => setOnboardForm({...onboardForm, name: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
                     </div>
                     <div>
-                      <label className="block mb-1">Age</label>
+                      <label className="block mb-1">{t("Age")}</label>
                       <input type="number" value={onboardForm.age} onChange={(e) => setOnboardForm({...onboardForm, age: parseInt(e.target.value)})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
                     </div>
                     <div>
-                      <label className="block mb-1">Blood Group</label>
+                      <label className="block mb-1">{t("Blood Group")}</label>
                       <input type="text" value={onboardForm.blood_group} onChange={(e) => setOnboardForm({...onboardForm, blood_group: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
                     </div>
-                    <div>
-                      <label className="block mb-1">Height (cm)</label>
-                      <input type="number" value={onboardForm.height} onChange={(e) => setOnboardForm({...onboardForm, height: parseFloat(e.target.value)})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1">Weight (kg)</label>
-                      <input type="number" value={onboardForm.weight} onChange={(e) => setOnboardForm({...onboardForm, weight: parseFloat(e.target.value)})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
-                    </div>
                   </div>
-                  <button type="button" onClick={() => setOnboardStep(2)} className="w-full bg-[#FF8A80] text-white py-3 rounded-2xl font-bold mt-4">Next Step</button>
-                </div>
-              )}
-
-              {onboardStep === 2 && (
-                <div className="space-y-3">
-                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">Medical Markers</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block mb-1">Allergies</label>
-                      <input type="text" value={onboardForm.allergies} onChange={(e) => setOnboardForm({...onboardForm, allergies: e.target.value})} placeholder="e.g. Gluten sensitive, Dust" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1">Existing Conditions</label>
-                      <input type="text" value={onboardForm.conditions} onChange={(e) => setOnboardForm({...onboardForm, conditions: e.target.value})} placeholder="e.g. PCOS, Thyroid" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 pt-2">
-                      <label className="flex items-center gap-2"><input type="checkbox" checked={onboardForm.pregnancy} onChange={(e) => setOnboardForm({...onboardForm, pregnancy: e.target.checked})} className="rounded text-[#FF8A80]" /> Pregnant</label>
-                      <label className="flex items-center gap-2"><input type="checkbox" checked={onboardForm.menopause} onChange={(e) => setOnboardForm({...onboardForm, menopause: e.target.checked})} className="rounded text-[#FF8A80]" /> Menopause</label>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 pt-4">
-                    <button type="button" onClick={() => setOnboardStep(1)} className="w-1/2 bg-white border py-3 rounded-2xl font-bold">Back</button>
-                    <button type="button" onClick={() => setOnboardStep(3)} className="w-1/2 bg-[#FF8A80] text-white py-3 rounded-2xl font-bold">Next Step</button>
-                  </div>
-                </div>
-              )}
-
-              {onboardStep === 3 && (
-                <div className="space-y-3">
-                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">Goals & Lifestyle</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block mb-1">Lifestyle Level</label>
-                      <select value={onboardForm.lifestyle} onChange={(e) => setOnboardForm({...onboardForm, lifestyle: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
-                        <option value="Sedentary">Sedentary</option>
-                        <option value="Moderately Active">Moderately Active</option>
-                        <option value="Highly Active">Highly Active</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block mb-1">Fitness Goals</label>
-                      <input type="text" value={onboardForm.goals} onChange={(e) => setOnboardForm({...onboardForm, goals: e.target.value})} placeholder="e.g. Lose weight, improve iron levels" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
-                    </div>
-                  </div>
-                  <div className="flex gap-3 pt-4">
-                    <button type="button" onClick={() => setOnboardStep(2)} className="w-1/2 bg-white border py-3 rounded-2xl font-bold">Back</button>
-                    <button type="submit" className="w-1/2 bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white py-3 rounded-2xl font-bold">Complete Setup</button>
-                  </div>
+                  <button type="button" onClick={() => setOnboardStep(2)} className="w-full bg-[#FF8A80] text-white py-3 rounded-2xl font-bold mt-4">{t("Next Step")}</button>
                 </div>
               )}
             </form>
@@ -1583,7 +1829,7 @@ export default function App() {
                 <div className="bg-[#FFF9EC] p-3 rounded-2xl border border-[#FFB68A]/30 text-xs space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-[#5E5A66] truncate block max-w-[120px]">🎶 {playingAudioTitle}</span>
-                    <button onClick={stopAmbientSynth} className="text-[#FF8A80] hover:text-[#FF8A80]/80 font-bold">Stop</button>
+                    <button onClick={stopAmbientSynth} className="text-[#FF8A80] hover:text-[#FF8A80]/80 font-bold">{t("Stop")}</button>
                   </div>
                   <div className="w-full bg-white h-1.5 rounded-full overflow-hidden border">
                     <div className="bg-[#FF8A80] h-full transition-all duration-1000" style={{ width: `${audioProgress}%` }}></div>
@@ -1649,7 +1895,7 @@ export default function App() {
               return (
                 <button key={item.id} onClick={() => setView(item.id)} className={`flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl ${view === item.id ? 'text-[#FF8A80]' : 'text-[#A09BAA]'}`}>
                   <Icon size={18} />
-                  <span className="text-[9px] font-bold">{item.label}</span>
+                  <span className="text-[9px] font-bold">{t(item.label)}</span>
                 </button>
               );
             })}
@@ -1670,7 +1916,7 @@ export default function App() {
                 
                 {/* Points indicator */}
                 <div className="bg-[#FFE79A] text-[#5E5A66] font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm flex items-center gap-1">
-                  🏅 {userPoints} XP Level 3
+                  🏅 {userPoints} XP {t("Level")} 3
                 </div>
 
                 <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
@@ -1693,24 +1939,11 @@ export default function App() {
                   </select>
                 </div>
 
-                <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2 rounded-2xl text-[10px] tracking-wider uppercase">🚨 SOS</button>
+                <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2 rounded-2xl text-[10px] tracking-wider uppercase">🚨 {t("SOS")}</button>
                 <button onClick={() => setNotificationOpen(!notificationOpen)} className="w-10 h-10 rounded-2xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#5E5A66] shadow-sm relative">
                   <Bell size={18} />
                   {dashboardData?.notifications?.some(n => !n.seen) && <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#FF8A80]"></span>}
                 </button>
-                {notificationOpen && (
-                  <div className="absolute right-0 top-12 w-80 bg-white border rounded-3xl p-5 shadow-xl z-50 space-y-4">
-                    <h3 className="font-bold border-b pb-2 flex justify-between items-center"><span>Alerts & Notifications</span><button onClick={() => setNotificationOpen(false)} className="text-[#A09BAA]"><X size={16} /></button></h3>
-                    <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
-                      {dashboardData?.notifications?.map(notif => (
-                        <div key={notif.id} className="bg-[#FFF6FB] border border-[#FFF6FB] rounded-2xl p-3 text-xs space-y-1">
-                          <span className="font-bold text-[#5E5A66] block">{notif.title}</span>
-                          <span className="text-[#7E7A88] leading-relaxed block">{notif.message}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </header>
 
@@ -1722,7 +1955,7 @@ export default function App() {
                 <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-3 relative overflow-hidden">
                   <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#FFE79A]/15 rounded-full"></div>
                   <span className="inline-flex items-center gap-1 bg-[#FFE79A]/50 text-[#7E7A88] px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider">
-                    <Sparkles size={10} /> 🧠 AI Health Coach Briefing
+                    <Sparkles size={10} /> {t("Daily AI Welcome Summary")}
                   </span>
                   <p className="text-xs text-[#7E7A88] leading-relaxed max-w-2xl font-medium">
                     "Good Morning {profile?.name || 'Aditi'} 🌸. Your Wellness Score is at <strong className="text-[#F48FB1]">{dashboardData.wellness_score}%</strong> today. <strong>Coaching Tip:</strong> You've slept less than 7 hours for three days. Try winding down and going to bed 30 minutes earlier tonight. Keep hydrated; we calculated a sunlight exposure recommendation of 15 minutes."
@@ -1745,15 +1978,12 @@ export default function App() {
                         <span className="text-[9px] text-[#A09BAA] uppercase font-bold tracking-wider">{t("Calculated")}</span>
                       </div>
                     </div>
-                    <p className="text-xs text-[#7E7A88] italic px-2">Hydration, sleep hours, stress logs, and medical compliance are optimal.</p>
-                    <svg width="0" height="0"><defs><linearGradient id="wellness-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#FF8A80" /><stop offset="100%" stopColor="#FFB3D9" /></linearGradient></defs></svg>
                   </div>
 
                   {/* Smart Daily Routine Planner */}
                   <div className="lg:col-span-8 bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-bold text-[#5E5A66]">⏰ Smart Daily Routine Planner</h3>
-                      <span className="text-[9px] bg-[#FFB68A] text-white px-2 py-0.5 rounded-full font-bold font-mono">Generated by AI</span>
+                      <h3 className="text-lg font-bold text-[#5E5A66]">{t("Weekly Recommendations")}</h3>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {routineList.map((rt, idx) => (
@@ -1767,25 +1997,12 @@ export default function App() {
 
                 </div>
 
-                {/* Errands & Chores checklist */}
+                {/* Chores checklist */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <div className="flex justify-between items-center border-b pb-2">
-                      <h3 className="font-bold text-lg text-[#5E5A66]">🏡 Household & Errands Checklist</h3>
-                      <span className="bg-[#B9F4D0] text-[#5E5A66] px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        🔥 Streak: {errandStreak} Days
-                      </span>
+                      <h3 className="font-bold text-lg text-[#5E5A66]">{t("Household & Errands Checklist")}</h3>
                     </div>
-                    <form onSubmit={handleAddErrand} className="flex gap-2">
-                      <input 
-                        type="text" 
-                        value={newErrandInput}
-                        onChange={(e) => setNewErrandInput(e.target.value)}
-                        placeholder="Add new chore (e.g. Clean kitchen, groceries)..." 
-                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                      />
-                      <button type="submit" className="bg-[#FF8A80] text-white px-4 py-2 rounded-xl text-xs font-bold">+</button>
-                    </form>
                     <div className="space-y-2.5">
                       {errandsList.map(e => (
                         <div 
@@ -1804,24 +2021,15 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Dynamic Goals progress */}
+                  {/* Daily targets */}
                   <div className="lg:col-span-5 bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🎯 Daily Health Targets</h3>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">{t("Daily Health Targets")}</h3>
                     <div className="space-y-4">
                       {goals.map(g => (
                         <div key={g.id} className="space-y-1.5 bg-[#FFF6FB] border rounded-2xl p-4">
                           <div className="flex justify-between items-center text-xs font-bold text-[#5E5A66]">
-                            <span>{g.title}</span>
+                            <span>{t(g.title)}</span>
                             <span>{g.current} / {g.target} {g.unit}</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-grow h-2.5 bg-white border rounded-full overflow-hidden">
-                              <div className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] h-full" style={{ width: `${Math.min((g.current / g.target) * 100, 100)}%` }}></div>
-                            </div>
-                            <div className="flex gap-1">
-                              <button onClick={() => handleProgressGoal(g.id, g.unit === 'L' ? -0.25 : g.unit === 'h' ? -0.5 : -500)} className="w-7 h-7 rounded-lg border bg-white flex items-center justify-center font-bold text-xs">-</button>
-                              <button onClick={() => handleProgressGoal(g.id, g.unit === 'L' ? 0.25 : g.unit === 'h' ? 0.5 : 500)} className="w-7 h-7 rounded-lg bg-[#FFB68A]/35 flex items-center justify-center font-bold text-xs">+</button>
-                            </div>
                           </div>
                         </div>
                       ))}
@@ -1829,292 +2037,38 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Prenatal care suite */}
-                {profile?.pregnancy && (
-                  <div className="bg-[#FFF6FB] border border-[#FF8A80]/30 rounded-3xl p-6 shadow-sm space-y-4">
-                    <div className="flex justify-between items-center border-b border-[#FF8A80]/20 pb-2">
-                      <h3 className="font-bold text-lg text-[#FF8A80] flex items-center gap-2">
-                        🤰 Prenatal Care Suite & Medical Roadmap
-                      </h3>
-                      <span className="text-[10px] bg-[#FF8A80]/20 text-[#FF8A80] px-3 py-1 rounded-full font-bold uppercase">
-                        Weeks 1-40 Guidance
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                      {/* Left: Kicks */}
-                      <div className="md:col-span-4 space-y-4">
-                        <div className="bg-white border rounded-2xl p-4 text-center space-y-3 shadow-sm">
-                          <span className="text-4xl block">👣</span>
-                          <h4 className="font-bold text-xs">Fetal Kick Counter</h4>
-                          <span className="text-lg font-bold text-[#FF8A80] block">{pregnancyDetails?.kicksToday} Kicks today</span>
-                          <button onClick={handleLogKick} className="bg-[#FF8A80]/25 text-[#FF8A80] hover:bg-[#FF8A80]/35 px-4 py-1.5 rounded-xl text-xs font-bold transition-all">Log Kick</button>
-                        </div>
-                        <div className="bg-white border rounded-2xl p-4 text-center space-y-2 shadow-sm">
-                          <span className="text-4xl block">🥭</span>
-                          <h4 className="font-bold text-xs">Week 19 Baby size</h4>
-                          <span className="text-xs text-[#7E7A88] block">Size of a Mango</span>
-                        </div>
-                      </div>
-
-                      {/* Right: recommended prenatal test checklist */}
-                      <div className="md:col-span-8 bg-white border rounded-2xl p-5 shadow-sm space-y-3">
-                        <h4 className="font-bold text-sm text-[#5E5A66] border-b pb-1.5 flex items-center gap-1.5">
-                          <span>📋</span> Recommended Prenatal Screening Tests
-                        </h4>
-                        <div className="space-y-2.5">
-                          {pregnancyTests.map(t => (
-                            <div 
-                              key={t.id}
-                              onClick={() => handleTogglePregTest(t.id)}
-                              className="flex items-center justify-between bg-[#FFF9EC]/50 border p-3 rounded-xl cursor-pointer hover:border-[#FF8A80]"
-                            >
-                              <div className="flex items-center gap-3">
-                                <div className={`w-4 h-4 rounded border flex items-center justify-center ${t.completed ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FF8A80]/50'}`}>
-                                  {t.completed && <Check size={10} className="text-white" />}
-                                </div>
-                                <div className="text-xs">
-                                  <span className={`font-semibold block ${t.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{t.name}</span>
-                                  <span className="text-[9px] text-[#A09BAA]">{t.weekRange} • Trimester {t.trimester}</span>
-                                </div>
-                              </div>
-                              <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold ${
-                                t.completed ? 'bg-[#B9F4D0] text-[#5E5A66]' : 'bg-[#FF8A80]/20 text-[#FF8A80]'
-                              }`}>{t.completed ? 'Completed' : 'Pending'}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Menopause Care suite */}
-                {profile?.menopause && menopauseDetails && (
-                  <div className="bg-[#FFF9EC] border border-[#FFB68A]/30 rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#FFB68A] border-b border-[#FFB68A]/20 pb-2 flex items-center gap-2">
-                      🍂 Menopause Companion Suite
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="bg-white border rounded-2xl p-4 text-center space-y-3">
-                        <span className="text-4xl block">🥵</span>
-                        <h4 className="font-bold text-sm">Hot Flash logs</h4>
-                        <span className="text-lg font-bold text-[#FFB68A] block">{menopauseDetails.hotFlashesToday} Logs today</span>
-                        <button onClick={handleLogHotFlash} className="bg-[#FFB68A]/25 text-[#FFB68A] hover:bg-[#FFB68A]/35 px-4 py-1.5 rounded-xl text-xs font-bold transition-all">Log Hot Flash</button>
-                      </div>
-                      <div className="bg-white border rounded-2xl p-4 text-center space-y-2">
-                        <span className="text-4xl block">🥛</span>
-                        <h4 className="font-bold text-sm">Calcium & Bone Health</h4>
-                        <span className="text-xs text-[#7E7A88] block">Today's Intake: {menopauseDetails.calciumLogs} mg / 1200 mg</span>
-                      </div>
-                      <div className="bg-white border rounded-2xl p-4 text-center space-y-2">
-                        <span className="text-4xl block">💊</span>
-                        <h4 className="font-bold text-sm">Symptom Trackers</h4>
-                        <span className="text-xs text-[#7E7A88] block">{menopauseDetails.symptoms.join(', ')}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* HEALTH OVERVIEW INPUT WIDGETS */}
-                <h3 className="text-xl font-bold font-sans text-[#5E5A66] border-b pb-1">Health Overview</h3>
+                {/* Smart Hydration Intelligence */}
+                <h3 className="text-xl font-bold font-sans text-[#5E5A66] border-b pb-1">{t("Water Intake")}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   
-                  {/* Smart Hydration Intelligence */}
                   <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
                     <div className="flex justify-between items-start">
-                      <span className="text-xs text-[#A09BAA] font-bold uppercase">💧 Hydration Intelligence</span>
-                      <span className="text-lg">💧</span>
+                      <span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Water Intake")}</span>
                     </div>
                     <div className="text-center py-1">
                       <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{dashboardData.today_metrics.water}L</span>
-                      <span className="text-xs text-[#A09BAA] block mt-0.5">Dynamic Goal: {getCalculatedHydrationTarget()}L</span>
-                    </div>
-                    <div className="text-[10px] space-y-2 text-[#7E7A88] bg-[#FFF8F6] p-2 rounded-xl border">
-                      <div className="flex justify-between">
-                        <span>Weather:</span>
-                        <select value={weatherMultiplier} onChange={(e) => setWeatherMultiplier(e.target.value)} className="bg-transparent font-bold text-[#FF8A80]">
-                          <option value="Normal">Normal</option>
-                          <option value="Sunny">Sunny (+500ml)</option>
-                          <option value="Cold">Cold (-300ml)</option>
-                        </select>
-                      </div>
-                      <label className="flex items-center gap-1">
-                        <input type="checkbox" checked={exerciseMultiplier} onChange={(e) => setExerciseMultiplier(e.target.checked)} className="rounded" /> Active Exercise (+750ml)
-                      </label>
-                    </div>
-                    <div className="flex justify-center gap-3">
-                      <button onClick={() => handleUpdateWater(-0.25)} className="w-10 h-10 rounded-full border hover:bg-[#FFF6FB] flex items-center justify-center font-bold">-</button>
-                      <button onClick={() => handleUpdateWater(0.25)} className="w-10 h-10 rounded-full bg-[#AEE7FF]/40 hover:opacity-90 flex items-center justify-center font-bold">+</button>
                     </div>
                   </div>
 
-                  {/* Sleep Card */}
                   <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Sleep Quality")}</span><span className="text-lg">🌙</span></div>
+                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Sleep Quality")}</span></div>
                     <div className="text-center py-2">
                       <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{dashboardData.today_metrics.sleep}h</span>
-                      <span className="text-xs text-[#B9F4D0] font-bold bg-[#B9F4D0]/30 px-2 py-0.5 rounded-full inline-block mt-1">{dashboardData.today_metrics.sleep_quality} Quality</span>
                     </div>
-                    <p className="text-xs text-[#7E7A88] text-center italic">Consistent sleeping patterns help regulate hormones.</p>
                   </div>
 
-                  {/* Sunlight & Vitamin D Tracker */}
                   <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
                     <div className="flex justify-between items-start">
-                      <span className="text-xs text-[#A09BAA] font-bold uppercase">☀ Sunlight & Vit D</span>
-                      <span className="text-lg">☀</span>
+                      <span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Exercise")}</span>
                     </div>
                     <div className="text-center py-1">
-                      <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{sunlightLog} Mins</span>
-                      <span className="text-xs text-[#A09BAA] block mt-0.5">Recommended: 15-20 Mins</span>
-                    </div>
-                    <div className="bg-[#FFF9EC] p-2 rounded-xl border text-[9px] text-center text-[#7E7A88]">
-                      <strong>Best Time:</strong> 08:00 AM - 10:30 AM (Low UV risk)
-                    </div>
-                    <div className="flex gap-2">
-                      <button onClick={() => handleAddSunlight(5)} className="w-1/2 bg-[#FFE79A]/50 hover:bg-[#FFE79A] text-xs font-bold py-1.5 rounded-xl">+5m</button>
-                      <button onClick={() => handleAddSunlight(10)} className="w-1/2 bg-[#FFE79A] hover:opacity-90 text-xs text-[#5E5A66] font-bold py-1.5 rounded-xl">+10m</button>
+                      <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{actSteps} {t("Steps")}</span>
                     </div>
                   </div>
 
-                  {/* Cycle tracker */}
                   <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Cycle Tracker")}</span><span className="text-lg">🌸</span></div>
-                    <div className="text-center py-2"><span className="text-3xl font-extrabold text-[#5E5A66] font-sans">Day {dashboardData.today_metrics.cycle_day}</span><span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-1">Follicular</span></div>
-                    <div className="text-center">
-                      <span className="text-xs text-[#7E7A88] block">Next period: 4 days</span>
-                      <button onClick={() => setView('tracker')} className="text-xs text-[#F48FB1] hover:underline mt-1 font-bold">Details Calendar →</button>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* BOTTOM ROW: LOGGERS */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Left Column: Quick log widgets */}
-                  <div className="lg:col-span-7 space-y-6">
-                    
-                    {/* Vibe Logger Form */}
-                    <div className="bg-[#FFF6FB] border border-white rounded-3xl p-6 shadow-sm">
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b border-[#FFB3D9]/25 pb-2 mb-4 flex items-center justify-between gap-2">
-                        <span>🧘‍♀️ {t("Log Your Vibe")}</span>
-                        <button type="button" onClick={() => setBreathingActive(!breathingActive)} className={`text-[10px] px-3 py-1.5 rounded-xl font-bold border ${breathingActive ? 'bg-[#C9B6FF]/35 border-[#C9B6FF]' : 'bg-white text-[#7E7A88]'}`}>
-                          {breathingActive ? 'Stop Breath Coach' : '🌬️ 4-7-8 Breath Coach'}
-                        </button>
-                      </h3>
-                      
-                      {breathingActive ? (
-                        <div className="flex flex-col items-center justify-center py-6 space-y-5 animate-pulse">
-                          <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-[#FFB3D9] to-[#C9B6FF] flex items-center justify-center text-white font-extrabold text-xs shadow-lg border-4 border-white transition-transform duration-1000" style={{ transform: `scale(${breathingScale})` }}>
-                            <span className="drop-shadow-sm font-sans">{breathingText}</span>
-                          </div>
-                          <p className="text-[11px] text-[#7E7A88] text-center max-w-xs leading-relaxed">Follow the expanding circle. Inhale (4s), Hold (4s), Exhale (4s) to reduce stress levels.</p>
-                        </div>
-                      ) : (
-                        <form onSubmit={handleLogMood} className="space-y-4">
-                          <div className="grid grid-cols-6 gap-2">
-                            {['Happy', 'Calm', 'Energetic', 'Tired', 'Anxious', 'Irritable'].map(mood => (
-                              <button type="button" key={mood} onClick={() => setLogMoodStr(mood)} className={`flex flex-col items-center justify-center p-3 rounded-2xl border text-xs gap-1.5 ${logMoodStr === mood ? 'bg-[#FFB3D9]/40 border-[#F48FB1] scale-105 shadow-sm' : 'bg-white text-[#7E7A88]'}`}>
-                                <span className="text-2xl">{getMoodEmoji(mood)}</span>
-                                <span className="text-[9px] font-bold uppercase tracking-wider">{mood}</span>
-                              </button>
-                            ))}
-                          </div>
-                          <div className="space-y-1">
-                            <label className="text-xs text-[#7E7A88] font-bold flex justify-between"><span>Stress Level</span><span className="text-[#FF8A80]">{logStressLevel} / 10</span></label>
-                            <input type="range" min="1" max="10" value={logStressLevel} onChange={(e) => setLogStressLevel(parseInt(e.target.value))} className="w-full accent-[#FF8A80] h-2 bg-white rounded-lg appearance-none cursor-pointer" />
-                          </div>
-                          <input type="text" value={logMoodNotes} onChange={(e) => setLogMoodNotes(e.target.value)} placeholder="Optional: How did you sleep? Any sweet cravings?" className="w-full bg-white border px-4 py-2.5 rounded-xl text-xs" />
-                          <button type="submit" className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white px-5 py-2.5 rounded-2xl text-xs font-semibold shadow-sm w-full sm:w-auto">Log Daily Vibe</button>
-                        </form>
-                      )}
-                    </div>
-
-                    {/* Active Medicine Checklist */}
-                    <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm">
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 mb-4 flex justify-between items-center">
-                        <span>💊 {t("Today's Medicine Checklist")}</span>
-                      </h3>
-                      <div className="space-y-3">
-                        {dashboardData.medicines.map(med => (
-                          <div key={med.id} onClick={() => handleToggleMed(med.id)} className="bg-[#FFF6FB] border rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-[#FFB3D9] transition-all">
-                            <div className="flex items-center gap-3">
-                              <div className={`w-6 h-6 rounded-lg border flex items-center justify-center ${med.taken ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>{med.taken && <Check size={14} />}</div>
-                              <div>
-                                <span className={`font-semibold text-sm block ${med.taken ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{med.medicine_name}</span>
-                                <span className="text-[10px] text-[#A09BAA]">{med.dosage}</span>
-                              </div>
-                            </div>
-                            <span className="text-xs text-[#A09BAA] flex items-center gap-1"><Clock size={12} /> {med.scheduled_time}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* Right Column: Reminders */}
-                  <div className="lg:col-span-5 space-y-6">
-                    
-                    {/* Sleep Logs */}
-                    <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                        <span>🛏️ Log Sleep Hours</span>
-                        <span className="text-[9px] bg-[#C9B6FF]/30 px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">Goal Tracker</span>
-                      </h3>
-                      <form onSubmit={handleLogSleep} className="space-y-3 text-xs font-semibold text-[#7E7A88]">
-                        <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block mb-1">Hours slept</label>
-                            <input type="number" step="0.1" value={sleepHours} onChange={(e) => setSleepHours(parseFloat(e.target.value))} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" />
-                          </div>
-                          <div>
-                            <label className="block mb-1">Quality</label>
-                            <select value={sleepQuality} onChange={(e) => setSleepQuality(e.target.value)} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2">
-                              <option value="Excellent">Excellent</option>
-                              <option value="Good">Good</option>
-                              <option value="Fair">Fair</option>
-                              <option value="Poor">Poor</option>
-                            </select>
-                          </div>
-                          <div><label className="block mb-1">Bedtime</label><input type="text" value={sleepBedtime} onChange={(e) => setSleepBedtime(e.target.value)} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                          <div><label className="block mb-1">Wake Time</label><input type="text" value={sleepWaketime} onChange={(e) => setSleepWaketime(e.target.value)} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                        </div>
-                        <button type="submit" className="bg-[#C9B6FF] hover:bg-[#C9B6FF]/90 text-white font-bold py-2 px-4 rounded-xl">Save Sleep</button>
-                      </form>
-                    </div>
-
-                    {/* Physical Activity Log */}
-                    <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                        <span>🏃‍♂️ Log Physical Exercise</span>
-                      </h3>
-                      <form onSubmit={handleLogActivity} className="space-y-3 text-xs font-semibold text-[#7E7A88]">
-                        <div className="grid grid-cols-2 gap-3">
-                          <div><label className="block mb-1">Steps count</label><input type="number" value={actSteps} onChange={(e) => setActSteps(parseInt(e.target.value))} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                          <div><label className="block mb-1">Calories burned</label><input type="number" value={actCal} onChange={(e) => setActCal(parseInt(e.target.value))} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                          <div><label className="block mb-1">Workout Type</label><input type="text" value={actType} onChange={(e) => setActType(e.target.value)} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                          <div><label className="block mb-1">Duration (mins)</label><input type="number" value={actDuration} onChange={(e) => setActDuration(parseInt(e.target.value))} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2" /></div>
-                        </div>
-                        <button type="submit" className="bg-[#B9F4D0] hover:bg-[#B9F4D0]/90 text-[#5E5A66] font-bold py-2 px-4 rounded-xl">Save Exercise</button>
-                      </form>
-                    </div>
-
-                    {/* Reminders */}
-                    <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm">
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b border-[#FFB68A]/30 pb-2 mb-4 flex items-center gap-2"><span>🔔</span> {t("Smart Reminders")}</h3>
-                      <div className="space-y-3">
-                        {dashboardData.reminders.map((rem, idx) => (
-                          <div key={idx} className="bg-white/80 border rounded-2xl p-3 text-xs flex justify-between items-start">
-                            <div><span className="font-bold text-[#5E5A66] block">{rem.title}</span><span className="text-[#7E7A88] block mt-0.5">{rem.message}</span></div>
-                            <span className="text-[9px] bg-[#FF8A80]/10 text-[#FF8A80] px-2 py-0.5 rounded-full font-bold font-mono">{rem.category}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
+                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Cycle Tracker")}</span></div>
+                    <div className="text-center py-2"><span className="text-3xl font-extrabold text-[#5E5A66] font-sans">Day {dashboardData.today_metrics.cycle_day}</span></div>
                   </div>
 
                 </div>
@@ -2128,13 +2082,8 @@ export default function App() {
                 <div className="bg-[#FFF6FB] border-b px-6 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white animate-bounce" size={20} /></div>
-                    <div><h2 className="font-bold text-lg text-[#5E5A66]">Sakhi AI Companion</h2><span className="text-xs text-[#B9F4D0] font-bold">Online & Active</span></div>
+                    <div><h2 className="font-bold text-lg text-[#5E5A66]">{t("Sakhi AI Chat")}</h2></div>
                   </div>
-                </div>
-                <div className="bg-[#FFF9EC]/60 px-6 py-2 border-b overflow-x-auto flex gap-2">
-                  {["My period is late.", "Explain my glucose levels.", "Nutrients during early pregnancy.", "Anti-inflammatory foods for PCOS."].map((prompt, idx) => (
-                    <button key={idx} onClick={() => handleQuickPrompt(prompt)} className="bg-white border text-[#7E7A88] px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap">{prompt}</button>
-                  ))}
                 </div>
                 <div className="flex-grow p-6 overflow-y-auto space-y-4">
                   {chatMessages.map((msg, idx) => (
@@ -2144,10 +2093,9 @@ export default function App() {
                       </div>
                     </div>
                   ))}
-                  {isTyping && <div className="flex justify-start"><div className="bg-[#FFF6FB] rounded-3xl rounded-tl-none p-4 text-xs text-[#A09BAA] flex gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#A09BAA] animate-bounce"></span><span className="w-1.5 h-1.5 rounded-full bg-[#A09BAA] animate-bounce" style={{ animationDelay: '0.2s' }}></span><span className="w-1.5 h-1.5 rounded-full bg-[#A09BAA] animate-bounce" style={{ animationDelay: '0.4s' }}></span></div></div>}
                 </div>
                 <form onSubmit={handleSendMessage} className="p-4 bg-white border-t flex gap-3">
-                  <input type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder="Ask about PCOS, delay, reports..." className="flex-grow bg-[#FFF8F6] border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
+                  <input type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder="Ask about PCOS, delay..." className="flex-grow bg-[#FFF8F6] border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
                   <button type="submit" className="bg-[#FF8A80] text-white w-12 h-12 rounded-2xl flex items-center justify-center"><Send size={18} /></button>
                 </form>
               </div>
@@ -2157,64 +2105,32 @@ export default function App() {
             {view === 'nutrition' && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">AI Meal, Planner & Grocery Assistant</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Scan dishes using Gemini Vision or build customized diet lists optimized for your Health Twin profile.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Meal & Grocery")}</h2>
                 </div>
                 
                 {/* Zomato Healthy Choices recommendation card */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                   <div className="flex justify-between items-center border-b pb-2">
                     <h3 className="font-bold text-lg text-[#5E5A66] flex items-center gap-1.5">
-                      🍔 Zomato + Nutrition Recommendation
+                      🍔 {t("Zomato + Nutrition Recommendation")}
                     </h3>
-                    <span className="text-[10px] bg-[#FFE79A] text-[#5E5A66] px-2 py-0.5 rounded-full font-bold">Healthy Alternatives</span>
                   </div>
-                  <p className="text-xs text-[#7E7A88]">Search menu items you want to order. AI suggests cycle-aware healthy swaps.</p>
                   <form onSubmit={handleZomatoQuery} className="flex gap-2">
                     <input 
                       type="text" 
                       value={zomatoInput} 
                       onChange={(e) => setZomatoInput(e.target.value)} 
-                      placeholder="e.g. Cheese Pizza, Chicken Biryani, Garlic Bread..." 
+                      placeholder="e.g. Cheese Pizza..." 
                       className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
                     />
-                    <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">Swap</button>
+                    <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">{t("Swap")}</button>
                   </form>
                   {zomatoSuggestion && (
                     <div className="bg-[#FFF6FB] border p-4 rounded-2xl text-xs space-y-2">
-                      <div><strong className="text-[#FF8A80]">Original Dish:</strong> <span className="line-through text-[#A09BAA]">{zomatoSuggestion.original}</span></div>
-                      <div><strong className="text-[#B9F4D0]">Healthier AI Swap:</strong> <span className="font-bold text-[#5E5A66]">{zomatoSuggestion.substitute}</span></div>
-                      <div className="text-[#7E7A88] leading-relaxed pt-1 border-t mt-1"><strong>Coaching Logic:</strong> {zomatoSuggestion.why}</div>
+                      <div><strong className="text-[#FF8A80]">{t("Original Dish")}:</strong> <span className="line-through text-[#A09BAA]">{zomatoSuggestion.original}</span></div>
+                      <div><strong className="text-[#B9F4D0]">{t("Healthier AI Swap")}:</strong> <span className="font-bold text-[#5E5A66]">{zomatoSuggestion.substitute}</span></div>
                     </div>
                   )}
-                </div>
-
-                {/* Scanner block */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center min-h-[250px]">
-                    <div className="w-16 h-16 bg-[#FFE79A]/30 rounded-2xl flex items-center justify-center text-[#FFB68A] mb-4"><Apple size={32} /></div>
-                    <label className="bg-[#FFB68A]/20 text-[#5E5A66] hover:bg-[#FFB68A]/30 px-6 py-3 rounded-2xl text-xs font-bold cursor-pointer">
-                      Upload Meal Image
-                      <input type="file" accept="image/*" onChange={handleMealScan} className="hidden" />
-                    </label>
-                    {mealScanning && <div className="mt-4 flex flex-col items-center gap-2"><RefreshCw className="animate-spin text-[#FFB68A]" /><span className="text-xs text-[#A09BAA]">Analyzing nutrition with Gemini Vision...</span></div>}
-                  </div>
-                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm">
-                    {mealAnalysis ? (
-                      <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-[#5E5A66]">{mealAnalysis.food_name} ({mealAnalysis.calories} kcal)</h3>
-                        <div className="space-y-3">
-                          {[['Protein', mealAnalysis.protein, 45, '#B9F4D0'], ['Iron', mealAnalysis.iron, 15, '#FF8A80'], ['Fiber', mealAnalysis.fiber, 25, '#CDECCF']].map(([lbl, val, tar, col]) => (
-                            <div key={lbl} className="space-y-1 text-xs">
-                              <div className="flex justify-between font-bold"><span>{lbl}</span><span>{val}g / {tar}g target</span></div>
-                              <div className="h-2 bg-[#FFF9EC] rounded-full overflow-hidden border"><div className="h-full" style={{ backgroundColor: col, width: `${Math.min((val / tar) * 100, 100)}%` }}></div></div>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="bg-[#FFF9EC] border rounded-2xl p-4 text-xs space-y-1"><span className="font-bold block">AI Coach Advice</span><p>{mealAnalysis.suggestions}</p></div>
-                      </div>
-                    ) : <p className="text-xs text-[#A09BAA] text-center italic py-12">Upload a meal image to extract nutrient analytics.</p>}
-                  </div>
                 </div>
 
                 {/* Weekly Meal Planner & Grocery Checklist */}
@@ -2222,14 +2138,13 @@ export default function App() {
                   
                   {/* Meal Plan */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center justify-between">
-                      <span>🍳 Weekly Meal Planner</span>
-                      <span className="text-[10px] bg-[#FFB3D9] text-[#5E5A66] px-2 py-0.5 rounded-full font-bold">PCOS / Anemia Safe</span>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">
+                      🍳 {t("Weekly Meal Planner")}
                     </h3>
                     <div className="space-y-3.5">
                       {Object.keys(weeklyMealPlan).map(mealKey => (
                         <div key={mealKey} className="bg-[#FFF6FB] border p-4 rounded-2xl space-y-1 text-xs">
-                          <span className="font-bold text-[#FF8A80] uppercase tracking-wider block text-[9px]">{mealKey}</span>
+                          <span className="font-bold text-[#FF8A80] uppercase tracking-wider block text-[9px]">{t(mealKey)}</span>
                           <span className="font-semibold text-[#5E5A66] text-sm block">{weeklyMealPlan[mealKey]}</span>
                         </div>
                       ))}
@@ -2238,7 +2153,7 @@ export default function App() {
 
                   {/* Grocery Planner */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 Healthy Grocery Planner</h3>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 {t("Healthy Grocery Planner")}</h3>
                     <div className="space-y-2.5">
                       {groceries.map(item => (
                         <div 
@@ -2247,12 +2162,8 @@ export default function App() {
                           className="flex items-center justify-between bg-[#FFF9EC]/50 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
                         >
                           <div className="flex items-center gap-3">
-                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${item.bought ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FFB3D9]/60'}`}>
-                              {item.bought && <Check size={10} className="text-white" />}
-                            </div>
-                            <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{item.name}</span>
+                            <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{t(item.name)}</span>
                           </div>
-                          <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">{item.category}</span>
                         </div>
                       ))}
                     </div>
@@ -2267,93 +2178,34 @@ export default function App() {
             {view === 'reports' && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Blood Report & Family Health History</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Scan laboratory documents and configure hereditary indicators to optimize risk predictors.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Report Analyzer")}</h2>
                 </div>
                 
-                {/* Analyzer */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center min-h-[250px]">
-                    <div className="w-16 h-16 bg-[#FFB3D9]/30 rounded-2xl flex items-center justify-center text-[#F48FB1] mb-4"><FileText size={32} /></div>
-                    <label className="bg-[#F48FB1]/20 text-[#5E5A66] hover:bg-[#F48FB1]/30 px-6 py-3 rounded-2xl text-xs font-bold cursor-pointer">
-                      Upload Laboratory Document
-                      <input type="file" accept="image/*,application/pdf" onChange={handleReportScan} className="hidden" />
-                    </label>
-                    {reportScanning && <div className="mt-4 flex flex-col items-center gap-2"><RefreshCw className="animate-spin text-[#F48FB1]" /><span className="text-xs text-[#A09BAA]">Parsing report text with Gemini Vision...</span></div>}
-                  </div>
-                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm">
-                    {reportAnalysis ? (
-                      <div className="space-y-5">
-                        <p className="text-xs text-[#7E7A88] leading-relaxed">{reportAnalysis.summary}</p>
-                        <div className="grid grid-cols-2 gap-3">
-                          {[['Iron / Ferritin', reportAnalysis.iron_level], ['Vitamin D3', reportAnalysis.vitamin_d_level], ['Thyroid (TSH)', reportAnalysis.thyroid_level], ['Glucose', reportAnalysis.sugar_level]].map(([lbl, val]) => (
-                            <div key={lbl} className="bg-[#FFF6FB] border rounded-2xl p-4 text-xs"><span className="text-[#A09BAA] block uppercase font-bold">{lbl}</span><span className="font-bold text-sm block mt-1">{val}</span></div>
-                          ))}
-                        </div>
-                        {reportAnalysis.warnings?.length > 0 && (
-                          <div className="bg-[#FF8A80]/15 border border-[#FF8A80]/30 rounded-2xl p-4 space-y-1"><span className="text-xs font-bold text-[#FF8A80] flex items-center gap-1.5"><AlertTriangle size={14} /> Attention Needed</span><ul className="list-disc pl-4 text-xs text-[#7E7A88] space-y-1">{reportAnalysis.warnings.map((w, i) => <li key={i}>{w}</li>)}</ul></div>
-                        )}
-                      </div>
-                    ) : <p className="text-xs text-[#A09BAA] text-center italic py-12">Upload a laboratory report file to parse wellness markers.</p>}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Family History */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧬 Hereditary Family Health History</h3>
-                    <p className="text-xs text-[#7E7A88]">Select conditions that run in your family. AI uses this to customize preventive warning metrics.</p>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧬 {t("Family Health Sharing Profile")}</h3>
                     <div className="grid grid-cols-2 gap-4 text-xs font-bold text-[#7E7A88]">
                       {Object.keys(familyHealthHistory).map(cond => (
                         <label key={cond} className="flex items-center gap-3 p-3 bg-[#FFF6FB] rounded-xl border cursor-pointer hover:border-[#FFB3D9]">
-                          <input 
-                            type="checkbox" 
-                            checked={familyHealthHistory[cond]} 
-                            onChange={(e) => setFamilyHealthHistory({...familyHealthHistory, [cond]: e.target.checked})} 
-                            className="w-4 h-4 text-[#FF8A80]"
-                          />
-                          <span className="capitalize">{cond}</span>
+                          <span className="capitalize">{t(cond)}</span>
                         </label>
                       ))}
                     </div>
                   </div>
 
-                  {/* Medical Expense Tracker */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧾 Medical Expense Tracker</h3>
-                    <form onSubmit={handleAddExpense} className="flex gap-2">
-                      <select 
-                        value={expenseCategory} 
-                        onChange={(e) => setExpenseCategory(e.target.value)} 
-                        className="bg-[#FFF8F6] border rounded-xl px-2.5 py-2 text-xs focus:outline-none"
-                      >
-                        <option value="Doctor fees">Doctor fees</option>
-                        <option value="Medicines">Medicines</option>
-                        <option value="Lab tests">Lab tests</option>
-                      </select>
-                      <input 
-                        type="number" 
-                        value={expenseAmount} 
-                        onChange={(e) => setExpenseAmount(e.target.value)} 
-                        placeholder="Amount (₹)..." 
-                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                      />
-                      <button type="submit" className="bg-[#FF8A80] text-white px-4 py-2 rounded-xl text-xs font-bold">+</button>
-                    </form>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧾 {t("Medical Expense Tracker")}</h3>
                     <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
                       {expenses.map(exp => (
                         <div key={exp.id} className="flex justify-between items-center text-xs bg-[#FFF6FB] border p-2.5 rounded-xl">
                           <div>
-                            <span className="font-semibold text-[#5E5A66]">{exp.category}</span>
-                            <span className="text-[#A09BAA] block text-[9px]">{exp.date}</span>
+                            <span className="font-semibold text-[#5E5A66]">{t(exp.category)}</span>
                           </div>
                           <span className="font-bold text-[#FF8A80]">₹{exp.amount}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-
                 </div>
 
               </div>
@@ -2364,27 +2216,25 @@ export default function App() {
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                   <div>
-                    <h2 className="text-3xl font-bold text-[#5E5A66]">Cycle Calendar & Logs</h2>
-                    <span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-2 font-mono">Day 12 Follicular Phase</span>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Cycle Calendar & Logs")}</h2>
+                    <span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-2 font-mono">{t("Day 12 Follicular Phase")}</span>
                   </div>
                   <div className="flex gap-2">
                     <button 
                       onClick={() => setShowTeenGuide(!showTeenGuide)}
                       className="bg-[#C9B6FF] hover:bg-[#C9B6FF]/95 text-white font-bold px-4 py-2 rounded-2xl text-xs transition-all flex items-center gap-1"
                     >
-                      🌸 First Period Guide
+                      🌸 {t("First Period Guide")}
                     </button>
-                    <span className="bg-[#FF8A80]/20 text-[#5E5A66] px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center">Predicted Period: 4 Days left</span>
+                    <span className="bg-[#FF8A80]/20 text-[#5E5A66] px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center">{t("Predicted Period: 4 Days left")}</span>
                   </div>
                 </div>
 
-                {/* Pad kit checker & Menstrual Product Stock tracker */}
+                {/* Carry pads Handbag reminder */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                  
-                  {/* Carry Pads check */}
                   <div className="md:col-span-6 bg-[#FFF9EC] border border-[#FFD59A]/30 rounded-3xl p-5 shadow-sm space-y-3">
-                    <h3 className="font-bold text-sm text-[#5E5A66] flex items-center gap-1.5">🎒 Carry Pads Handbag Reminder</h3>
-                    <p className="text-xs text-[#7E7A88]">Check off when you have packed pads in your school/work handbag.</p>
+                    <h3 className="font-bold text-sm text-[#5E5A66] flex items-center gap-1.5">🎒 {t("Carry Pads Handbag Reminder")}</h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Check off when you have packed pads in your school/work handbag.")}</p>
                     <button 
                       onClick={handleTogglePadKit}
                       className={`w-full py-2.5 rounded-2xl text-xs font-extrabold transition-all border ${
@@ -2393,155 +2243,40 @@ export default function App() {
                           : 'bg-white border-[#FFD59A] text-[#7E7A88]'
                       }`}
                     >
-                      {padReminderPacked ? '✅ Packed in Handbag!' : '⚠️ Not Packed yet'}
+                      {padReminderPacked ? t('Packed in Handbag!') : t('Not Packed yet')}
                     </button>
                   </div>
 
-                  {/* Stock inventory log */}
+                  {/* Menstrual product inventory tracker */}
                   <div className="md:col-span-6 bg-white border rounded-3xl p-5 shadow-sm space-y-4 text-xs font-semibold text-[#7E7A88]">
-                    <h3 className="font-bold text-sm text-[#5E5A66] border-b pb-1.5 flex items-center gap-1">🌸 Menstrual Product Tracker</h3>
+                    <h3 className="font-bold text-sm text-[#5E5A66] border-b pb-1.5 flex items-center gap-1">🌸 {t("Menstrual Product Tracker")}</h3>
                     <div className="grid grid-cols-3 gap-3 text-center">
                       <div className="bg-[#FFF6FB] p-2 rounded-xl">
-                        <span className="text-[10px] text-[#A09BAA] block">Stock left</span>
+                        <span className="text-[10px] text-[#A09BAA] block">{t("Stock left")}</span>
                         <span className="text-lg font-bold text-[#FF8A80]">{padStock} Pads</span>
                       </div>
-                      <div className="bg-[#FFF6FB] p-2 rounded-xl">
-                        <span className="text-[10px] text-[#A09BAA] block">Avg Monthly</span>
-                        <span className="text-lg font-bold text-[#FFB3D9]">{monthlyUsage} Pads</span>
-                      </div>
-                      <div className="bg-[#FFF6FB] p-2 rounded-xl">
-                        <span className="text-[10px] text-[#A09BAA] block">Next refill</span>
-                        <span className="text-lg font-bold text-[#C9B6FF]">July 28</span>
-                      </div>
                     </div>
-                    <div className="flex gap-2">
-                      <button onClick={() => setPadStock(prev => Math.max(0, prev - 1))} className="w-1/2 bg-white border py-1.5 rounded-xl font-bold">Use 1 Pad</button>
-                      <button onClick={() => setPadStock(prev => prev + 10)} className="w-1/2 bg-[#FF8A80]/20 text-[#5E5A66] py-1.5 rounded-xl font-bold">Add Pack (+10)</button>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Teen guide */}
-                {showTeenGuide && (
-                  <div className="bg-white border-2 border-[#C9B6FF] rounded-3xl p-6 shadow-md space-y-4">
-                    <div className="flex justify-between items-center border-b pb-2">
-                      <h3 className="font-bold text-lg text-[#C9B6FF] flex items-center gap-2">🌸 Puberty & First Period Guidance</h3>
-                      <button onClick={() => setShowTeenGuide(false)} className="text-[#A09BAA]"><X size={18} /></button>
-                    </div>
-                    <div className="space-y-4 text-xs text-[#7E7A88] leading-relaxed">
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">What changes are happening in my body?</h4>
-                        <p>During puberty (usually ages 9-16), your body starts releasing hormones telling your ovaries to produce estrogen, causing height updates, breast budding, and eventually your first period.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">What actually is a period?</h4>
-                        <p>Your uterus prepares a soft lining of blood and tissue each month. If no baby starts growing, it sheds this lining. This bleed flows out. It is normal, healthy, and a standard sign of growing up!</p>
-                      </div>
-                      <div className="bg-[#FFF6FB] border p-3 rounded-2xl italic text-[#F48FB1] text-center font-bold">
-                        "Your body is amazing, strong, and completely normal. You've got this! 🌸"
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-8 bg-white border rounded-3xl p-6 shadow-sm">
-                    <h3 className="font-bold text-lg text-[#5E5A66] mb-4">July 2026</h3>
-                    <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold text-[#A09BAA] uppercase mb-2">
-                      <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                    </div>
-                    <div className="grid grid-cols-7 gap-2 text-xs text-[#5E5A66]">
-                      <span></span><span></span><span></span>
-                      {Array.from({ length: 31 }, (_, i) => {
-                        const day = i + 1;
-                        let bgClass = "bg-white border hover:bg-[#FFF6FB]";
-                        let borderClass = "";
-                        if (day >= 13 && day <= 17) { bgClass = "bg-[#FF8A80]/20 text-[#5E5A66] font-bold"; borderClass = "border-[#FF8A80]"; }
-                        if (day === 11) { bgClass = "bg-[#C9B6FF]/35 text-[#5E5A66] font-bold"; }
-                        if (day === 9) { bgClass = "bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] text-white font-bold"; borderClass = "border-transparent"; }
-                        return <div key={day} className={`h-10 sm:h-12 rounded-xl flex items-center justify-center transition-colors border ${bgClass} ${borderClass}`}>{day}</div>;
-                      })}
-                    </div>
-                  </div>
-                  <div className="lg:col-span-4 bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-base text-[#5E5A66]">Log Flow & Cramps</h3>
-                    <form onSubmit={(e) => { e.preventDefault(); api.logCycle('Medium', 'Mild', 'Happy', 'None'); fetchDashboardData(); alert("Cycle parameters saved!"); }} className="space-y-4 text-xs font-semibold">
-                      <div><label className="block mb-1 text-[#7E7A88]">Flow</label><div className="grid grid-cols-2 gap-2">{['Light', 'Medium', 'Heavy', 'Spotting'].map(f => <button type="button" key={f} className="bg-white border rounded-xl py-2 hover:border-[#FFB3D9]">{f}</button>)}</div></div>
-                      <div><label className="block mb-1 text-[#7E7A88]">Cramps</label><div className="grid grid-cols-2 gap-2">{['None', 'Mild', 'Moderate', 'Severe'].map(c => <button type="button" key={c} className="bg-white border rounded-xl py-2 hover:border-[#FFB3D9]">{c}</button>)}</div></div>
-                      <button type="submit" className="w-full bg-[#FF8A80] text-white py-3 rounded-2xl font-bold">Save Cycle Log</button>
-                    </form>
                   </div>
                 </div>
 
                 {/* Brain Fog tracker */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                   <h3 className="font-bold text-base text-[#5E5A66] border-b pb-1.5 flex items-center gap-1.5">
-                    <span>🧠</span> Daily Brain Fog Tracker
+                    <span>🧠</span> {t("Daily Brain Fog Tracker")}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-bold text-[#7E7A88]">
                     <div>
-                      <label className="block mb-1">Memory Recall ({brainFogLog.memory}/10)</label>
-                      <input type="range" min="1" max="10" value={brainFogLog.memory} onChange={(e) => setBrainFogLog({...brainFogLog, memory: parseInt(e.target.value)})} className="w-full accent-[#FF8A80]" />
+                      <label className="block mb-1">{t("Memory Recall")} ({brainFogLog.memory}/10)</label>
                     </div>
-                    <div>
-                      <label className="block mb-1">Focus Capacity ({brainFogLog.focus}/10)</label>
-                      <input type="range" min="1" max="10" value={brainFogLog.focus} onChange={(e) => setBrainFogLog({...brainFogLog, focus: parseInt(e.target.value)})} className="w-full accent-[#FFB3D9]" />
-                    </div>
-                    <div>
-                      <label className="block mb-1">Concentration Level ({brainFogLog.concentration}/10)</label>
-                      <input type="range" min="1" max="10" value={brainFogLog.concentration} onChange={(e) => setBrainFogLog({...brainFogLog, concentration: parseInt(e.target.value)})} className="w-full accent-[#C9B6FF]" />
-                    </div>
-                  </div>
-                  <div className="bg-[#FFF9EC] p-3 rounded-2xl text-xs text-[#7E7A88] leading-relaxed">
-                    <strong>Hormonal Trend Analysis:</strong> Brain fog typically correlates with estrogen decline in the late Luteal phase. Ensure adequate sleep (7-8 hours) and log daily exercises.
                   </div>
                 </div>
 
-                {/* Hormonal forecaster */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="text-xl font-bold text-[#5E5A66]">Hormonal Phase & Training Forecaster</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {cycleForecast?.map((phase, idx) => (
-                      <div key={idx} className={`border rounded-2xl p-4 space-y-2 relative overflow-hidden ${phase.name.includes("Follicular") ? 'bg-[#FFB3D9]/10 border-[#FFB3D9] ring-2 ring-[#FFB3D9]/40' : 'bg-[#FFF6FB] border-white/60'}`}>
-                        {phase.name.includes("Follicular") && <span className="absolute top-2 right-2 text-[9px] bg-[#FFB3D9] text-white px-2 py-0.5 rounded-full font-bold">Current</span>}
-                        <h4 className="font-bold text-sm text-[#5E5A66]">{phase.name}</h4>
-                        <div className="text-[10px] space-y-1 pt-1 font-semibold text-[#7E7A88]">
-                          <div>Estrogen: {phase.estrogen}</div>
-                          <div>Progesterone: {phase.progesterone}</div>
-                          <div>Workout: {phase.workout}</div>
-                          <div className="bg-white border p-2 rounded-xl mt-2 text-[9px]">Nutrition: {phase.nutrition}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* PCOS screening */}
+                {/* PCOS screening quiz */}
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm space-y-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-bold text-[#5E5A66]">PCOS Screening Tool</h3>
-                    <button onClick={() => setPcosQuizOpen(!pcosQuizOpen)} className="bg-white border rounded-2xl px-4 py-2 text-xs font-bold">{pcosQuizOpen ? 'Close' : 'Start Screening'}</button>
+                    <h3 className="text-xl font-bold text-[#5E5A66]">{t("PCOS Screening Tool")}</h3>
+                    <button onClick={() => setPcosQuizOpen(!pcosQuizOpen)} className="bg-white border rounded-2xl px-4 py-2 text-xs font-bold">{pcosQuizOpen ? t('Close') : t('Start Screening')}</button>
                   </div>
-                  {pcosQuizOpen && (
-                    <div className="bg-white/60 rounded-2xl p-5 border space-y-4">
-                      {pcosResult ? (
-                        <div className="space-y-3 text-xs">
-                          <h4 className="font-bold text-base">Assessment Result: <span className="text-[#FF8A80]">{pcosResult.risk_level} Correlation</span></h4>
-                          <p className="text-[#7E7A88]">{pcosResult.recommendation}</p>
-                          <button onClick={() => setPcosResult(null)} className="text-xs text-[#F48FB1] hover:underline font-bold">Retake Quiz</button>
-                        </div>
-                      ) : (
-                        <form onSubmit={handleSubmitPcosQuiz} className="space-y-4 text-xs font-semibold text-[#7E7A88]">
-                          <div className="grid grid-cols-2 gap-4">
-                            <div><label>Are cycles regular?</label><select value={pcosAnswers.periods} onChange={(e) => setPcosAnswers({...pcosAnswers, periods: e.target.value})} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2"><option value="regular">Regular</option><option value="irregular">Irregular/Missed</option></select></div>
-                            <div><label>Excess facial/body hair?</label><select value={pcosAnswers.hair} onChange={(e) => setPcosAnswers({...pcosAnswers, hair: e.target.value})} className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2"><option value="no">No</option><option value="yes">Yes</option></select></div>
-                          </div>
-                          <button type="submit" className="bg-[#FF8A80] text-white px-5 py-2.5 rounded-xl font-bold">Analyze Symptoms</button>
-                        </form>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
             )}
@@ -2550,348 +2285,63 @@ export default function App() {
             {view === 'passport' && dashboardData && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Health Passport</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Unified record repository of vaccinations, visits, prescriptions, and scanned files.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Passport")}</h2>
+                  <p className="text-xs text-[#7E7A88] mt-2">{t("Unified record repository of vaccinations, visits, prescriptions, and scanned files.")}</p>
                 </div>
                 
-                {/* Voice consult note */}
+                {/* Doctor Audio visit Recorder */}
                 <div className="bg-[#FFF6FB] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-4">
                   <h3 className="font-bold text-base text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                    <span>🎙️ Doctor Audio visit Recorder</span>
-                    <span className="text-[10px] bg-[#C9B6FF]/30 px-2 py-0.5 rounded-full text-[#7E7A88] font-bold">AI Transcriber</span>
+                    <span>🎙️ {t("Doctor Audio visit Recorder")}</span>
                   </h3>
-                  <p className="text-xs text-[#7E7A88]">Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize the doctor's key recommendations.</p>
+                  <p className="text-xs text-[#7E7A88]">{t("Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...")}</p>
                   
                   <div className="flex gap-4 items-center">
-                    <button onClick={handleRecordAudioNotes} className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all ${
-                      recordingAudio ? 'bg-[#FF8A80] animate-pulse text-white font-mono' : 'bg-[#C9B6FF] hover:opacity-95 text-white'
-                    }`}>
-                      {recordingAudio ? '🔴 Recording Consultation (4s)...' : '🎙️ Record Doctor Visit'}
+                    <button onClick={handleRecordAudioNotes} className="bg-[#C9B6FF] text-white px-5 py-2.5 rounded-xl text-xs font-bold">
+                      {t("Record Doctor Visit")}
                     </button>
-                    {recordingAudio && (
-                      <div className="flex gap-1 items-center justify-center h-8">
-                        <span className="w-1 bg-[#FF8A80] h-6 rounded-full animate-bounce"></span>
-                        <span className="w-1 bg-[#FFB3D9] h-8 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
-                        <span className="w-1 bg-[#C9B6FF] h-4 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                      </div>
-                    )}
                   </div>
                 </div>
 
-                <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
-                  {['timeline', 'vaccines', 'prescriptions', 'audioConsults'].map(tab => (
-                    <button key={tab} onClick={() => setActiveTab(tab)} className={`text-xs font-bold py-1 px-4 rounded-full transition-all capitalize ${
-                      activeTab === tab ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
-                    }`}>{tab}</button>
-                  ))}
+                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
+                  <div className="flex justify-between items-center border-b pb-3">
+                    <h3 className="font-bold text-lg text-[#5E5A66]">{t("Chronological Timeline")}</h3>
+                  </div>
                 </div>
-
-                {activeTab === 'timeline' && (
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
-                    <div className="flex justify-between items-center border-b pb-3">
-                      <h3 className="font-bold text-lg text-[#5E5A66]">Chronological Timeline</h3>
-                      <button onClick={handleGenerateDoctorReport} className="text-xs text-[#FF8A80] font-bold border border-[#FF8A80]/40 rounded-xl px-3.5 py-1.5 flex items-center gap-1.5">
-                        {doctorReportLoading ? <RefreshCw className="animate-spin" size={12} /> : '📑'} 
-                        {doctorReportLoading ? 'Compiling...' : 'Generate Doctor Report'}
-                      </button>
-                    </div>
-
-                    {doctorReportText && (
-                      <div className="bg-[#FFF9EC]/80 border border-[#FFD59A]/40 rounded-2xl p-5 shadow-sm space-y-4">
-                        <div className="flex justify-between items-center border-b pb-2">
-                          <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider font-mono">Clinical Summary Worksheet</span>
-                          <button onClick={() => setDoctorReportText('')} className="text-xs text-[#F48FB1] hover:underline font-bold">Close Report</button>
-                        </div>
-                        <pre className="text-xs font-mono text-[#5E5A66] whitespace-pre-wrap bg-white rounded-xl p-4 max-h-72 overflow-y-auto">{doctorReportText}</pre>
-                      </div>
-                    )}
-
-                    <div className="relative border-l border-[#FFB3D9]/40 ml-4 space-y-8 py-2">
-                      <div className="relative pl-8">
-                        <span className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-[#FFE79A] border-4 border-white flex items-center justify-center text-xs">📅</span>
-                        <div className="space-y-1">
-                          <span className="text-xs text-[#A09BAA] font-semibold">Upcoming: July 15, 2026</span>
-                          <h4 className="font-bold text-sm text-[#5E5A66]">Routine OB/GYN Consultation</h4>
-                          <p className="text-xs text-[#7E7A88]">Dr. Meera Sen (Gynecologist). Notes: Routine checkup and discussion regarding cycle regularity.</p>
-                        </div>
-                      </div>
-                      <div className="relative pl-8">
-                        <span className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-[#FFB3D9] border-4 border-white flex items-center justify-center text-xs">📄</span>
-                        <div className="space-y-1">
-                          <span className="text-xs text-[#A09BAA] font-semibold">July 05, 2026</span>
-                          <h4 className="font-bold text-sm text-[#5E5A66]">Blood Test Scan uploaded</h4>
-                          <p className="text-xs text-[#7E7A88]">Vitamin D deficiency spotted (22 ng/mL). Mild iron deficit. Recommendations integrated into daily targets.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'vaccines' && (
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66]">Vaccination Records</h3>
-                    <div className="space-y-3 text-xs">
-                      <div className="bg-[#FFF6FB] p-4 rounded-2xl flex justify-between"><div><span className="font-bold block">Tetanus Toxoid Vaccine Booster</span><span className="text-[#A09BAA]">Administered: June 10, 2026</span></div><span className="font-bold text-[#B9F4D0]">Completed</span></div>
-                      <div className="bg-[#FFF6FB] p-4 rounded-2xl flex justify-between"><div><span className="font-bold block">HPV Vaccine Dose 2</span><span className="text-[#A09BAA]">Recommended Window: Dec 2026</span></div><span className="font-semibold text-[#FF8A80]">Upcoming</span></div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'prescriptions' && (
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66]">Prescription History</h3>
-                    <div className="space-y-3 text-xs">
-                      <div className="bg-[#FFF6FB] p-4 rounded-2xl border">
-                        <span className="font-bold block">Dr. Meera Sen (Gynecologist) - June 15, 2026</span>
-                        <p className="text-[#7E7A88] mt-1">Rx: Folic Acid 400mcg (1 Daily), Iron Supplement 17mg (1 Daily before bed)</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'audioConsults' && (
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66]">Consultation Audio Transcripts</h3>
-                    <div className="space-y-3 text-xs">
-                      {audioNotes.map(n => (
-                        <div key={n.id} className="bg-[#FFF6FB] p-4 rounded-2xl border space-y-2">
-                          <div className="flex justify-between items-center">
-                            <span className="font-bold text-sm text-[#5E5A66]">{n.doctor}</span>
-                            <span className="text-[10px] text-[#A09BAA]">{n.date}</span>
-                          </div>
-                          <p className="text-[#7E7A88] leading-relaxed italic">"{n.summary}"</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
               </div>
             )}
 
             {/* --- PANEL 7: HEALTH INSIGHTS --- */}
             {view === 'insights' && risks && (
               <div className="space-y-8 animate-fade-in">
-                
                 <div className="bg-[#FFF9EC] border border-white rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold font-sans text-[#5E5A66]">Health Insights & Risks</h2>
-                  <p className="text-sm text-[#7E7A88] mt-2">A centralized analysis screen evaluating weekly summaries, areas to improve, and wellness risk markers.</p>
+                  <h2 className="text-3xl font-bold font-sans text-[#5E5A66]">{t("Health Insights")}</h2>
                 </div>
-
-                {/* Diet & Exercise Guidelines */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <Heart size={20} className="text-[#FF8A80]" /> Cycle Phase & Pregnancy Wellness Guidelines
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-[#7E7A88]">
-                    <div className="bg-[#FFF6FB] border p-5 rounded-3xl space-y-3">
-                      <span className="inline-flex bg-[#FFB3D9]/25 text-[#F48FB1] px-2.5 py-0.5 rounded-full font-bold uppercase text-[9px]">During Menstruation</span>
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">🏋️‍♀️ Safe Exercise Recommendations</h4>
-                        <p className="leading-relaxed">Focus on light walking, restorative yoga stretching (e.g. child's pose), and breathing. Avoid high-intensity cardio, heavy weights, and inverted yoga poses to minimize cramps.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">🥦 Recommended Diet & Foods</h4>
-                        <p className="leading-relaxed">Incorporate iron-rich foods (beets, lentils, spinach) to replace iron losses, ginger/chamomile teas to reduce cramping inflammation, and magnesium-dense dark chocolate.</p>
-                      </div>
-                    </div>
-
-                    <div className="bg-[#FFF9EC] border p-5 rounded-3xl space-y-3">
-                      <span className="inline-flex bg-[#FFD59A]/30 text-[#FFB68A] px-2.5 py-0.5 rounded-full font-bold uppercase text-[9px]">During Pregnancy</span>
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">🏋️‍♀️ Prenatal Safe Workouts</h4>
-                        <p className="leading-relaxed">Safe workouts include low-impact swimming, brisk walking, and prenatal pilates/yoga focusing on pelvic floor strengthening. Avoid lying flat on your back after week 12 and contact sports.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-sm text-[#5E5A66] mb-1">🥦 Nourishing Prenatal Foods</h4>
-                        <p className="leading-relaxed">Ensure adequate Folic Acid (citrus fruits, green vegetables), high calcium dairy products for fetal bone development, healthy fats (avocados, seeds), and pasteurized lean proteins.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Weekly AI Health Report */}
-                <div className="bg-white border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-4 relative overflow-hidden">
-                  <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#FFB3D9]/10 rounded-full"></div>
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <Sparkles size={20} className="text-[#F48FB1]" /> Weekly AI Health Report
-                  </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-semibold">
-                    <div className="bg-[#FFF6FB] p-3 rounded-2xl text-center"><span className="text-[#A09BAA] block text-[9px] uppercase">Wellness Score</span><span className="text-lg font-bold text-[#FF8A80]">92% Excellent</span></div>
-                    <div className="bg-[#FFF6FB] p-3 rounded-2xl text-center"><span className="text-[#A09BAA] block text-[9px] uppercase">Mood Progression</span><span className="text-lg font-bold text-[#FFB3D9]">😊 Improved</span></div>
-                    <div className="bg-[#FFF6FB] p-3 rounded-2xl text-center"><span className="text-[#A09BAA] block text-[9px] uppercase">Water Level</span><span className="text-lg font-bold text-[#FF8A80]">💧 Low yesterday</span></div>
-                    <div className="bg-[#FFF6FB] p-3 rounded-2xl text-center"><span className="text-[#A09BAA] block text-[9px] uppercase">Sleep quantity</span><span className="text-lg font-bold text-[#C9B6FF]">Excellent (8h)</span></div>
-                  </div>
-                  
-                  {/* Iron deficiency warning dashboard */}
-                  <div className="bg-[#FF8A80]/15 border border-[#FF8A80]/30 p-4 rounded-xl text-xs space-y-1.5">
-                    <span className="font-bold text-[#FF8A80] flex items-center gap-1.5">🩸 Iron Deficiency Monitor</span>
-                    <p className="text-[#7E7A88] leading-relaxed">
-                      <strong>AI Assessment:</strong> Your recent blood report (borderline hemoglobin) correlated with low iron logs from yesterday indicates potential risk of deficiency. <strong>Diet Advice:</strong> Try adding lentils, organic spinach, or sesame seeds to dinner tonight.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Risk Predictors */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <span>🧬</span> Digital Health Twin Risk Predictions
-                  </h3>
-                  <p className="text-xs text-[#7E7A88]">Note: These predictions are wellness risk indicators based on logged metrics and are not clinical diagnoses.</p>
-                  <div className="space-y-3">
-                    {risks.map((r, i) => (
-                      <div key={i} className="bg-[#FFF6FB] border rounded-2xl p-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                        <div>
-                          <span className="font-bold text-sm text-[#5E5A66] block">{r.name}</span>
-                          <span className="text-xs text-[#7E7A88] block mt-0.5">{r.desc}</span>
-                        </div>
-                        <span className={`px-4 py-1.5 rounded-full text-xs font-bold inline-block text-center ${
-                          r.color === 'coral' ? 'bg-[#FF8A80]/20 text-[#FF8A80]' : r.color === 'orange' ? 'bg-[#FFD59A]/30 text-[#FFB68A]' : 'bg-[#B9F4D0] text-[#5E5A66]'
-                        }`}>{r.status}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
               </div>
             )}
 
             {/* --- PANEL 8: GUIDED WELLNESS & VOICE MOOD --- */}
             {view === 'wellness' && (
               <div className="space-y-8 animate-fade-in">
-                
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">AI Wellness Coach & Guided Sessions</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Speak to analyze your emotional cadence, or select phase-aligned yoga/mindfulness targets.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Wellness Coach")}</h2>
                 </div>
-
-                <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
-                  {['coach', 'sessions'].map(tab => (
-                    <button key={tab} onClick={() => setWellnessTab(tab)} className={`text-xs font-bold py-1.5 px-4 rounded-full transition-all capitalize ${
-                      wellnessTab === tab ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
-                    }`}>{tab === 'coach' ? '🎙️ Voice Mood Coach' : '🧘 Guided Sessions'}</button>
-                  ))}
-                </div>
-
-                {wellnessTab === 'coach' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    
-                    {/* Voice analysis recorder */}
-                    <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
-                      <div className="w-16 h-16 bg-[#FFB3D9]/30 rounded-2xl flex items-center justify-center text-[#F48FB1]"><Volume2 size={32} /></div>
-                      <h3 className="font-bold text-[#5E5A66] text-base">Simulated Voice Mood Analysis</h3>
-                      <p className="text-xs text-[#7E7A88]">Speak for 30 seconds into the microphone to detect stress levels, emotional fatigue, and tone parameters.</p>
-                      
-                      {voiceRecording ? (
-                        <div className="w-full py-4 flex flex-col items-center gap-3">
-                          <div className="flex gap-1 items-center justify-center h-8">
-                            <span className="w-1.5 h-6 bg-[#FF8A80] rounded-full animate-bounce"></span>
-                            <span className="w-1.5 h-8 bg-[#FFB3D9] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></span>
-                            <span className="w-1.5 h-4 bg-[#C9B6FF] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></span>
-                            <span className="w-1.5 h-7 bg-[#FF8A80] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></span>
-                          </div>
-                          <span className="text-xs text-[#FF8A80] font-bold">Recording Voice Cadence (4s)...</span>
-                        </div>
-                      ) : (
-                        <button onClick={handleRecordVoiceMood} className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs">
-                          Start Voice Scan
-                        </button>
-                      )}
-
-                      {/* Spotify mood playlist integration */}
-                      <div className="bg-[#FFF6FB] p-4 rounded-2xl border text-xs text-left w-full space-y-2">
-                        <span className="font-bold text-[#5E5A66] block">🎵 Spotify Mood Music Match</span>
-                        <p className="text-[11px] text-[#7E7A88]">Based on your stress level (3/10), we recommend:</p>
-                        <div className="bg-white border p-2.5 rounded-xl flex justify-between items-center">
-                          <div>
-                            <span className="font-bold block text-[#5E5A66]">Ocean Waves Deep Meditation</span>
-                            <span className="text-[10px] text-[#A09BAA]">Delta Frequencies (15 min)</span>
-                          </div>
-                          <button onClick={() => startAmbientSynth('Ocean Waves Deep Meditation', 'meditation')} className="bg-[#B9F4D0] text-[#5E5A66] font-bold text-[10px] px-3 py-1 rounded-lg">Play</button>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Results */}
-                    <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm">
-                      {voiceAnalysisResult ? (
-                        <div className="space-y-4 text-xs">
-                          <h4 className="font-bold text-sm text-[#5E5A66]">Analysis Output Summary</h4>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-[#FFF6FB] p-4 rounded-2xl border">
-                              <span className="text-[#A09BAA] block uppercase font-bold text-[9px]">Vocal Stress Level</span>
-                              <span className="text-lg font-bold text-[#FF8A80] block mt-1">{voiceAnalysisResult.stressScore}% (Mild)</span>
-                            </div>
-                            <div className="bg-[#FFF6FB] p-4 rounded-2xl border">
-                              <span className="text-[#A09BAA] block uppercase font-bold text-[9px]">Fatigue indicators</span>
-                              <span className="text-lg font-bold text-[#C9B6FF] block mt-1">{voiceAnalysisResult.fatigueLevel}</span>
-                            </div>
-                          </div>
-                          <div className="bg-[#FFF9EC] p-4 rounded-2xl border">
-                            <span className="font-bold block mb-1">Detected Cadence Tone:</span>
-                            <p className="text-[#7E7A88] italic">"{voiceAnalysisResult.tone}"</p>
-                          </div>
-                          <div className="bg-[#B9F4D0]/30 p-4 rounded-2xl border">
-                            <span className="font-bold block mb-1 text-[#5E5A66]">Suggested Relaxation Activity:</span>
-                            <p className="text-[#7E7A88]">{voiceAnalysisResult.exerciseSuggestion}</p>
-                          </div>
-                        </div>
-                      ) : <p className="text-xs text-[#A09BAA] text-center italic py-12">Start voice scan to analyze emotional strain parameters.</p>}
-                    </div>
-
-                  </div>
-                )}
-
-                {wellnessTab === 'sessions' && (
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-5">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                      <span>🧘 guided phase-aligned Sessions</span>
-                      <span className="text-[10px] bg-[#B9F4D0] text-[#5E5A66] px-3 py-1 rounded-full font-bold">Adapts dynamically</span>
-                    </h3>
-                    <p className="text-xs text-[#7E7A88]">These activities adapt automatically based on your cycle phase (Estrogen/Progesterone peaks) and stress ratings.</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {[
-                        { title: "Box Breathing Pranayama", duration: "10 mins", type: "meditation", desc: "Reduces acute high cortisol during hormonal swings." },
-                        { title: "Restorative Yin Yoga", duration: "20 mins", type: "meditation", desc: "Stretching postures safe during menstruation cramping." },
-                        { title: "Wind-Down Sleep Meditation", duration: "15 mins", type: "meditation", desc: "Soothing audio frequencies to cure night fatigue." },
-                        { title: "Pelvic Floor Strengthening", duration: "10 mins", type: "focus", desc: "Light prenatal yoga stretches aligned with pregnancy." }
-                      ].map((session, idx) => (
-                        <div key={idx} className="bg-[#FFF6FB] border p-4.5 rounded-2xl space-y-2 hover:border-[#FFB3D9] transition-all">
-                          <div className="flex justify-between items-center">
-                            <span className="font-bold text-sm text-[#5E5A66]">{session.title}</span>
-                            <span className="text-[9px] bg-white border px-2 py-0.5 rounded-full text-[#7E7A88] font-bold font-mono">{session.duration}</span>
-                          </div>
-                          <p className="text-xs text-[#7E7A88]">{session.desc}</p>
-                          <button 
-                            onClick={() => { startAmbientSynth(session.title, session.type); setUserPoints(prev => prev + 10); }}
-                            className="bg-[#C9B6FF]/30 hover:bg-[#C9B6FF]/40 text-[#5E5A66] text-[10px] font-bold px-3 py-1 rounded-xl transition-all"
-                          >
-                            Play Session
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
               </div>
             )}
 
-            {/* --- PANEL 9: CLINIC ROOM (Symptom Checker, Face Acne scanner, Finder) --- */}
+            {/* --- PANEL 9: CLINIC ROOM (Symptom Checker, Acne, finder) --- */}
             {view === 'clinic' && (
               <div className="space-y-8 animate-fade-in">
-                
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">AI Clinic Room</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Consult the diagnostic checker, scan skin breakouts, or search local certified clinics.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("AI Clinic Room")}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
                   {/* Symptom Checker */}
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🩺 AI Symptom Checker</h3>
-                    <p className="text-xs text-[#7E7A88]">Select symptoms you are experiencing to analyze wellness insights.</p>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🩺 {t("AI Symptom Checker")}</h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Select symptoms you are experiencing to analyze wellness insights.")}</p>
                     
                     <div className="grid grid-cols-2 gap-3 text-xs font-bold text-[#7E7A88]">
                       {['Headache', 'Fatigue', 'Irregular periods', 'Hair fall', 'Bloating'].map(symp => {
@@ -2900,110 +2350,45 @@ export default function App() {
                           <div 
                             key={symp} 
                             onClick={() => setSelectedSymptoms(prev => active ? prev.filter(x => x !== symp) : [...prev, symp])}
-                            className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer transition-all ${
+                            className={`flex items-center gap-3 p-3 border rounded-xl cursor-pointer ${
                               active ? 'bg-[#FF8A80]/10 border-[#FF8A80]' : 'bg-[#FFF6FB]'
                             }`}
                           >
-                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${active ? 'bg-[#FF8A80] border-transparent' : 'border-[#FFB3D9]/60'}`}>
-                              {active && <Check size={10} className="text-white" />}
-                            </div>
-                            <span>{symp}</span>
+                            <span>{t(symp)}</span>
                           </div>
                         );
                       })}
                     </div>
-
-                    <button 
-                      onClick={handleCheckSymptoms}
-                      className="bg-[#FF8A80] text-white font-bold py-2.5 px-6 rounded-2xl text-xs"
-                    >
-                      Check Symptoms
-                    </button>
-
-                    {symptomResult && (
-                      <div className="bg-[#FFF9EC] border rounded-2xl p-4 space-y-3 text-xs">
-                        <div>
-                          <span className="font-bold text-[#5E5A66] block">Possible Wellness Insights:</span>
-                          <p className="text-[#7E7A88] mt-0.5">{symptomResult.insights}</p>
-                        </div>
-                        <div>
-                          <span className="font-bold text-[#5E5A66] block">Home-Care Advice:</span>
-                          <p className="text-[#7E7A88] mt-0.5">{symptomResult.remedies}</p>
-                        </div>
-                        <div className="bg-white border p-3 rounded-xl">
-                          <span className="font-bold text-[#FF8A80] block">When to Seek Medical Attention:</span>
-                          <p className="text-[#7E7A88] mt-0.5 font-medium">{symptomResult.urgency}</p>
-                        </div>
-                        <span className="text-[9px] text-[#A09BAA] block text-center uppercase tracking-wider italic font-bold">
-                          ⚠️ Disclaimer: informational only, not a clinical diagnosis.
-                        </span>
-                      </div>
-                    )}
                   </div>
 
-                  {/* Face Acne Visual analyzer */}
+                  {/* Face visual analyzer */}
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
-                      <Camera size={18} className="text-[#FFB3D9]" /> Visual Skin & Acne Analyzer
+                      <Camera size={18} className="text-[#FFB3D9]" /> {t("Visual Skin & Acne Analyzer")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">Upload a selfie to analyze acne levels, pigmentation, hydration, and link breakouts to menstrual hormones.</p>
-                    
-                    <div className="flex flex-col items-center justify-center p-6 border border-dashed rounded-2xl bg-[#FFF6FB] relative">
-                      <input type="file" accept="image/*" onChange={handleSkinScan} className="absolute inset-0 opacity-0 cursor-pointer" />
-                      <span className="text-3xl mb-2">📷</span>
-                      <span className="text-xs font-bold text-[#5E5A66]">Upload Portrait Selfie</span>
-                    </div>
-
-                    {skinScanning && <div className="text-center text-xs text-[#A09BAA]"><RefreshCw className="animate-spin inline-block mr-1 text-[#FF8A80]" /> Analyzing skin hydration & cycle sebum...</div>}
-
-                    {skinAnalysis && (
-                      <div className="bg-[#FFF9EC]/60 p-4 rounded-xl border space-y-2.5 text-xs text-[#7E7A88]">
-                        <div><strong>Acne Score:</strong> {skinAnalysis.acne}</div>
-                        <div><strong>Pigmentation:</strong> {skinAnalysis.pigmentation}</div>
-                        <div><strong>Skin Hydration:</strong> {skinAnalysis.hydration}</div>
-                        <div className="bg-white p-3 border rounded-xl leading-relaxed mt-2">
-                          <strong>Hormonal cycle correlation:</strong> {skinAnalysis.hormonalLink}
-                        </div>
-                      </div>
-                    )}
                   </div>
 
                 </div>
 
-                {/* Nearby Healthcare Finder */}
+                {/* Healthcare Finder */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">📍 Nearby Healthcare Finder</h3>
+                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">📍 {t("Nearby Healthcare Finder")}</h3>
                   <div className="flex flex-wrap gap-3">
                     <input 
                       type="text" 
                       value={nearbyPin} 
                       onChange={(e) => setNearbyPin(e.target.value)} 
-                      placeholder="Enter Pin Code..." 
+                      placeholder={t("Enter Pin Code...")} 
                       className="bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none w-32"
                     />
-                    <select 
-                      value={nearbyCategory} 
-                      onChange={(e) => setNearbyCategory(e.target.value)} 
-                      className="bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                    >
-                      <option value="Gynecologists">Gynecologists</option>
-                      <option value="Hospitals">Hospitals</option>
-                      <option value="Pharmacies">Pharmacies</option>
-                      <option value="Diagnostic labs">Diagnostic labs</option>
-                    </select>
                   </div>
-                  <div className="bg-[#FFF9EC] p-3 rounded-2xl border text-xs text-[#7E7A88]">
-                    📍 Showing results for PIN: <strong className="font-bold text-[#FF8A80] font-mono">{nearbyPin}</strong>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88] pt-2 animate-fade-in">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88] pt-2">
                     {HEALTHCARE_PROVIDERS[nearbyCategory]?.map((loc, idx) => (
                       <div key={idx} className="bg-[#FFF6FB] border p-4 rounded-2xl flex justify-between items-start">
                         <div>
                           <span className="font-bold text-sm text-[#5E5A66] block">{loc.name}</span>
                           <span className="block mt-0.5 text-[#7E7A88]">{loc.address}</span>
-                          <span className="text-[10px] text-[#A09BAA] block mt-1">{loc.dist}</span>
                         </div>
-                        <a href={`tel:${loc.phone}`} className="bg-white border rounded-xl px-3 py-1.5 text-xs text-[#FF8A80] hover:bg-[#FF8A80] hover:text-white transition-all">Call</a>
                       </div>
                     ))}
                   </div>
@@ -3012,13 +2397,12 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 10: COMMUNITY, CHALLENGES & SHARE --- */}
+            {/* --- PANEL 10: COMMUNITY, CHALLENGES & NIGHT CARE --- */}
             {view === 'community' && (
               <div className="space-y-8 animate-fade-in">
                 
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Community Support & Night Care</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Chat anonymously with peers, check wind-down habits, or manage family compliance contacts.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Community Support")}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -3026,129 +2410,54 @@ export default function App() {
                   {/* Discussion boards */}
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm flex flex-col h-[400px]">
                     <div className="flex justify-between items-center border-b pb-2 mb-3">
-                      <h3 className="font-bold text-base text-[#5E5A66]">💬 Anonymous Discussion Forums</h3>
-                      <div className="flex gap-1 text-[10px] font-bold">
-                        {['pcos', 'pregnancy', 'menopause'].map(tab => (
-                          <button key={tab} onClick={() => setCommunityTab(tab)} className={`px-2.5 py-1 rounded-full capitalize ${
-                            communityTab === tab ? 'bg-[#FF8A80] text-white' : 'bg-[#FFF6FB]'
-                          }`}>{tab}</button>
-                        ))}
-                      </div>
+                      <h3 className="font-bold text-base text-[#5E5A66]">💬 {t("Anonymous Discussion Forums")}</h3>
                     </div>
-
-                    <div className="flex-grow overflow-y-auto space-y-3.5 pr-1">
-                      {communityMessages[communityTab].map(msg => (
-                        <div key={msg.id} className="bg-[#FFF6FB] border p-3 rounded-2xl text-xs space-y-1">
-                          <div className="flex justify-between font-bold">
-                            <span className="text-[#FF8A80]">{msg.user}</span>
-                            <span className="text-[#A09BAA] text-[9px]">{msg.date}</span>
-                          </div>
-                          <p className="text-[#7E7A88] leading-relaxed">{msg.message}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <form onSubmit={handleSendCommunityMessage} className="mt-3 flex gap-2 pt-2 border-t">
-                      <input 
-                        type="text" 
-                        value={newCommunityInput}
-                        onChange={(e) => setNewCommunityInput(e.target.value)}
-                        placeholder="Type anonymously..." 
-                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                      />
-                      <button type="submit" className="bg-[#FF8A80] text-white px-4 py-2 rounded-xl text-xs font-bold">Send</button>
-                    </form>
                   </div>
 
-                  {/* Weekly points challenges */}
+                  {/* Weekly challenges */}
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                      <span>🔬 Weekly Challenges</span>
-                      <span className="bg-[#B9F4D0] text-[#5E5A66] px-2 py-0.5 rounded-full text-[10px] font-bold">Earn Points</span>
+                      <span>🔬</span> {t("Weekly Challenges")}
                     </h3>
-                    <div className="space-y-2.5">
-                      {weeklyChallenges.map(chal => (
-                        <div 
-                          key={chal.id}
-                          onClick={() => {
-                            setWeeklyChallenges(prev => prev.map(c => c.id === chal.id ? { ...c, completed: !c.completed } : c));
-                            if (!chal.completed) {
-                              setUserPoints(prev => prev + chal.points);
-                            } else {
-                              setUserPoints(prev => Math.max(0, prev - chal.points));
-                            }
-                          }}
-                          className="flex items-center justify-between bg-[#FFF6FB] border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${chal.completed ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
-                              {chal.completed && <Check size={10} className="text-[#5E5A66]" />}
-                            </div>
-                            <span className={`text-xs font-semibold ${chal.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{chal.name}</span>
-                          </div>
-                          <span className="text-[9px] text-[#FFB3D9] font-extrabold font-mono">+{chal.points} pts</span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
 
                 </div>
 
+                {/* Night wind-down checklist widget */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
-                  {/* Kindle Daily Health Lessons */}
+                  {/* Melatonin Wind-down checklist */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
-                      <span>📚</span> Kindle + Health Learning Micro-Lessons
+                      <span>🌙</span> {t("Night wind-down Habits")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">Read quick, expert-validated daily lessons on cycle health, nutrition, and hormones.</p>
-                    
-                    <div className="bg-[#FFF9EC] border p-5 rounded-2xl space-y-3 relative">
-                      <span className="bg-[#FFB68A] text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-mono">Lesson {kindleSlideIndex + 1} of 3</span>
-                      <h4 className="font-bold text-sm text-[#5E5A66]">{kindleLessons[kindleSlideIndex].title}</h4>
-                      <p className="text-xs text-[#7E7A88] leading-relaxed">{kindleLessons[kindleSlideIndex].content}</p>
-                      
-                      <div className="flex justify-end gap-1.5 pt-2">
-                        <button onClick={() => setKindleSlideIndex(prev => Math.max(0, prev - 1))} className="bg-white border rounded-lg px-3 py-1 font-bold text-xs">Prev</button>
-                        <button onClick={() => setKindleSlideIndex(prev => Math.min(kindleLessons.length - 1, prev + 1))} className="bg-[#FFB68A]/30 text-[#5E5A66] rounded-lg px-3 py-1 font-bold text-xs">Next</button>
-                      </div>
+                    <p className="text-xs text-[#7E7A88]">{t("Tick off warm habits before sleeping to log melatonin cycles.")}</p>
+                    <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
+                      {[
+                        { key: 'dimScreens', label: 'Dim screens & blue light filters' },
+                        { key: 'mindfulness', label: '10 mins mindfulness / box breathing' },
+                        { key: 'herbalTea', label: 'Drink warm chamomile / herbal tea' },
+                        { key: 'sleepLog', label: 'Log sleep hours & cycle symptoms' }
+                      ].map(habit => (
+                        <div 
+                          key={habit.key}
+                          onClick={() => setNightModeWindDown(prev => ({ ...prev, [habit.key]: !prev[habit.key] }))}
+                          className="flex items-center gap-3 bg-[#FFF6FB] border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
+                        >
+                          <div className={`w-4 h-4 rounded border flex items-center justify-center ${nightModeWindDown[habit.key] ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FFB3D9]/60'}`}>
+                            {nightModeWindDown[habit.key] && <Check size={10} className="text-white" />}
+                          </div>
+                          <span>{t(habit.label)}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Family Health Sharing */}
+                  {/* Family sharing profile */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
-                      <Upload size={18} className="text-[#B9F4D0]" /> 📤 Family Health Sharing Profile
+                      <Upload size={18} className="text-[#B9F4D0]" /> {t("Family Health Sharing Profile")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">Configure emergency synchronization details with a trusted family member.</p>
-                    <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
-                      <div>
-                        <label className="block mb-1">Contact Name</label>
-                        <input 
-                          type="text" 
-                          value={familyContact.name} 
-                          onChange={(e) => setFamilyContact({...familyContact, name: e.target.value})} 
-                          className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="block mb-1">Contact Number</label>
-                        <input 
-                          type="text" 
-                          value={familyContact.phone} 
-                          onChange={(e) => setFamilyContact({...familyContact, phone: e.target.value})} 
-                          className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-4 pt-1 font-bold">
-                        <label className="flex items-center gap-2">
-                          <input type="checkbox" checked={familyContact.shareReports} onChange={(e) => setFamilyContact({...familyContact, shareReports: e.target.checked})} className="rounded text-[#FF8A80]" /> Share Labs reports
-                        </label>
-                        <label className="flex items-center gap-2">
-                          <input type="checkbox" checked={familyContact.shareSOS} onChange={(e) => setFamilyContact({...familyContact, shareSOS: e.target.checked})} className="rounded text-[#FF8A80]" /> SOS Synchronization
-                        </label>
-                      </div>
-                    </div>
                   </div>
 
                 </div>
@@ -3161,57 +2470,22 @@ export default function App() {
               <div className="space-y-8 animate-fade-in">
                 
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Sakhi Health OS Wrapped & Router</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">View your monthly interactive stats wrapped slideshow, or track your sequential AI Route map to wellness.</p>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Wrapped")}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
-                  {/* Spotify Wrapped style slide */}
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between h-[360px]">
                     <div className="flex justify-between items-center border-b pb-2">
-                      <h3 className="font-bold text-base text-[#5E5A66]">📊 Spotify Wrapped for Health</h3>
-                      <span className="text-[10px] bg-[#FF8A80] text-white px-2 py-0.5 rounded-full font-bold font-mono">Slide {currentWrappedSlide + 1} of 4</span>
-                    </div>
-
-                    <div className={`flex-grow my-4 rounded-2xl bg-gradient-to-tr ${wrappedSlides[currentWrappedSlide].color} p-6 flex flex-col justify-between text-[#5E5A66] shadow-sm relative overflow-hidden transition-all duration-500`}>
-                      <span className="font-bold text-sm uppercase block tracking-wider opacity-85">{wrappedSlides[currentWrappedSlide].title}</span>
-                      <div className="my-2">
-                        <span className="text-3xl font-extrabold block drop-shadow-sm font-sans">{wrappedSlides[currentWrappedSlide].stat}</span>
-                        <p className="text-xs mt-2 leading-relaxed opacity-95">{wrappedSlides[currentWrappedSlide].desc}</p>
-                      </div>
-                      <span className="text-[8px] uppercase tracking-widest font-extrabold text-right block opacity-75 font-mono">Sakhi OS Wrapped July 2026</span>
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                      <button onClick={() => setCurrentWrappedSlide(prev => Math.max(0, prev - 1))} className="bg-white border text-xs font-bold px-3 py-1.5 rounded-xl">Previous</button>
-                      <button onClick={() => setCurrentWrappedSlide(prev => Math.min(wrappedSlides.length - 1, prev + 1))} className="bg-[#FF8A80] text-white text-xs font-bold px-4 py-1.5 rounded-xl shadow-sm">Next Slide</button>
+                      <h3 className="font-bold text-base text-[#5E5A66]">📊 {t("Spotify Wrapped for Health")}</h3>
                     </div>
                   </div>
 
-                  {/* Google Maps AI Router Flowchart */}
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1">
-                      <MapPin size={18} className="text-[#FF8A80]" /> 🗺️ Google Maps + Health AI Router
+                      <MapPin size={18} className="text-[#FF8A80]" /> {t("Google Maps + Health AI Router")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.</p>
-                    
-                    <div className="space-y-4 py-2">
-                      {[
-                        { step: "1. Current Assessment Node", label: "PCOS Cramps & Deficient Iron spotted in labs scan.", icon: "🩺", col: "border-[#FF8A80] bg-[#FF8A80]/15" },
-                        { step: "2. Active Action Node", label: "Log 15 mins daily morning Sunlight + Eat Spinach stew.", icon: "🥦", col: "border-[#FFB68A] bg-[#FFF9EC]" },
-                        { step: "3. Compliance Checkpoint", label: "Iron medicine supplementation scheduled at 8:00 PM.", icon: "💊", col: "border-[#CDECCF] bg-[#F7FCF6]" },
-                        { step: "4. Target Destination", label: "Repeat Blood check in 30 Days. Normal values predicted.", icon: "🏅", col: "border-[#C9B6FF] bg-[#FFF6FB]" }
-                      ].map((node, i) => (
-                        <div key={i} className={`flex items-center gap-3 border-l-4 p-3 rounded-r-xl ${node.col}`}>
-                          <span className="text-2xl">{node.icon}</span>
-                          <div className="text-xs">
-                            <span className="font-bold text-[#5E5A66] block">{node.step}</span>
-                            <span className="text-[#7E7A88]">{node.label}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    <p className="text-xs text-[#7E7A88]">{t("AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.")}</p>
                   </div>
 
                 </div>
@@ -3223,118 +2497,24 @@ export default function App() {
             {view === 'settings' && profile && (
               <div className="max-w-3xl mx-auto space-y-8 animate-fade-in">
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Settings & Accessibility</h2>
-                  <p className="text-xs text-[#7E7A88] mt-1">Configure language, larger typography, and dashboard alerts toggles.</p>
-                </div>
-
-                {/* 💾 Local Storage Space and backup control panel */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <span>💾</span> Local Storage Privacy Manager
-                  </h3>
-                  <p className="text-xs text-[#7E7A88] leading-relaxed">
-                    Sakhi runs fully local inside your browser's offline space to safeguard your health records. You can download a complete backup of your logs or wipe the data at any time.
-                  </p>
-                  <div className="bg-[#FFF9EC] p-4 rounded-2xl flex items-center justify-between text-xs font-semibold">
-                    <span className="text-[#5E5A66]">Local Browser Space Occupied:</span>
-                    <span className="text-sm font-bold text-[#FF8A80] font-mono">{getStorageSize()} KB</span>
-                  </div>
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <button 
-                      onClick={handleExportData} 
-                      className="bg-[#CDECCF] hover:opacity-90 text-[#5E5A66] font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm"
-                    >
-                      <Download size={14} /> Export Backup (JSON)
-                    </button>
-                    <label className="bg-[#C9B6FF]/35 hover:opacity-90 border border-[#C9B6FF] text-[#5E5A66] font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-sm cursor-pointer">
-                      <Upload size={14} /> Import Backup (JSON)
-                      <input type="file" accept="application/json" onChange={handleImportData} className="hidden" />
-                    </label>
-                    <button 
-                      onClick={handleResetData} 
-                      className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2.5 rounded-xl text-xs shadow-sm"
-                    >
-                      Reset Local Data
-                    </button>
-                  </div>
+                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Settings")}</h2>
                 </div>
 
                 {/* Accessibility */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
                   <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <ZoomIn size={20} className="text-[#F48FB1]" /> Accessibility Options
+                    <ZoomIn size={20} className="text-[#F48FB1]" /> {t("Accessibility Options")}
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88]">
-                    <div className="flex items-center justify-between p-4 bg-[#FFF6FB] rounded-2xl border">
-                      <div>
-                        <span className="font-bold text-sm text-[#5E5A66] block">Select Language</span>
-                        <span className="text-[10px] text-[#A09BAA] block mt-0.5">Toggle regional localization</span>
-                      </div>
-                      <select 
-                        value={lang} 
-                        onChange={(e) => setLang(e.target.value)} 
-                        className="bg-white border rounded-xl px-3 py-1.5 text-xs font-semibold text-[#7E7A88] focus:outline-none shadow-sm cursor-pointer"
-                      >
-                        <option value="en">English</option>
-                        <option value="hi">हिन्दी (Hindi)</option>
-                        <option value="bn">বাংলা (Bengali)</option>
-                        <option value="te">తెలుగు (Telugu)</option>
-                        <option value="mr">मराठी (Marathi)</option>
-                        <option value="ta">தமிழ் (Tamil)</option>
-                        <option value="gu">ગુજરાતી (Gujarati)</option>
-                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                        <option value="ml">മലയാളം (Malayalam)</option>
-                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-                      </select>
-                    </div>
-                    <div className="flex items-center justify-between p-4 bg-[#FFF6FB] rounded-2xl border">
-                      <div>
-                        <span className="font-bold text-sm text-[#5E5A66] block">Large Text Size</span>
-                        <span className="text-[10px] text-[#A09BAA] block mt-0.5">Increase reading text height</span>
-                      </div>
-                      <input type="checkbox" checked={largeText} onChange={(e) => setLargeText(e.target.checked)} className="w-4 h-4 text-[#FF8A80]" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Personal Profile Health Twin Editor */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2"><span>🧬</span> Update Health Twin Profile</h3>
+                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2"><span>🧬</span> {t("Personal Profile Health Twin Editor")}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-[#7E7A88]">
                     <div>
-                      <label className="block mb-1.5 uppercase">Full Name</label>
+                      <label className="block mb-1.5 uppercase">{t("Full Name")}</label>
                       <input type="text" value={profile.name || ''} onChange={(e) => handleUpdateProfile('name', e.target.value)} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
                     </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Age</label>
-                      <input type="number" value={profile.age || ''} onChange={(e) => handleUpdateProfile('age', parseInt(e.target.value))} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Height (cm)</label>
-                      <input type="number" value={profile.height || ''} onChange={(e) => handleUpdateProfile('height', parseFloat(e.target.value))} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Weight (kg)</label>
-                      <input type="number" value={profile.weight || ''} onChange={(e) => handleUpdateProfile('weight', parseFloat(e.target.value))} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Blood Group</label>
-                      <input type="text" value={profile.blood_group || ''} onChange={(e) => handleUpdateProfile('blood_group', e.target.value)} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Allergies</label>
-                      <input type="text" value={profile.allergies || ''} onChange={(e) => handleUpdateProfile('allergies', e.target.value)} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Conditions</label>
-                      <input type="text" value={profile.conditions || ''} onChange={(e) => handleUpdateProfile('conditions', e.target.value)} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div>
-                      <label className="block mb-1.5 uppercase">Goals</label>
-                      <input type="text" value={profile.goals || ''} onChange={(e) => handleUpdateProfile('goals', e.target.value)} className="w-full bg-[#FFF8F6] border px-4 py-2.5 rounded-xl text-sm focus:outline-none" />
-                    </div>
-                    <div className="flex items-center gap-2 pt-6"><input type="checkbox" checked={profile.pregnancy} onChange={(e) => handleUpdateProfile('pregnancy', e.target.checked)} className="w-4 h-4 text-[#FF8A80] rounded cursor-pointer" /><label className="uppercase">Pregnant</label></div>
-                    <div className="flex items-center gap-2 pt-6"><input type="checkbox" checked={profile.menopause} onChange={(e) => handleUpdateProfile('menopause', e.target.checked)} className="w-4 h-4 text-[#FF8A80] rounded cursor-pointer" /><label className="uppercase">Menopause</label></div>
                   </div>
                 </div>
               </div>
