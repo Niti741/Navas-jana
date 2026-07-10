@@ -127,6 +127,16 @@ const setLocal = (key, data) => localStorage.setItem(`sakhi_${key}`, JSON.string
 
 // Central API Service Wrapper
 export const api = {
+  setToken: (token) => {
+    if (token) {
+      client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      localStorage.setItem('sakhi_token', token);
+    } else {
+      delete client.defaults.headers.common['Authorization'];
+      localStorage.removeItem('sakhi_token');
+    }
+  },
+
   // Authentication
   register: async (name, email, password) => {
     try {

@@ -193,6 +193,7 @@ export default function App() {
   const [recordingAudio, setRecordingAudio] = useState(false);
 
   const [padReminderPacked, setPadReminderPacked] = useState(false);
+  const [padCount, setPadCount] = useState(3);
   const [pregnancyTests, setPregnancyTests] = useState([]);
   const [errandsList, setErrandsList] = useState([]);
   const [errandStreak, setErrandStreak] = useState(0);
@@ -368,13 +369,47 @@ export default function App() {
 
   // Onboarding Auto-Login Check
   useEffect(() => {
-    handleMockLogin();
+    const savedToken = localStorage.getItem('sakhi_token');
+    const savedUser = localStorage.getItem('sakhi_user');
+    if (savedToken && savedUser) {
+      api.setToken(savedToken);
+      setUser(JSON.parse(savedUser));
+      setLoading(true);
+      (async () => {
+        try {
+          await fetchDashboardData();
+          await fetchAnalyticsData();
+          const profileData = await api.getProfile();
+          setProfile(profileData);
+          setOnboardForm(profileData);
+          setGoals(await api.getGoals());
+          setBadges(await api.getBadges());
+          setRisks(await api.getRiskIndicators());
+          setPregnancyDetails(await api.getPregnancyDetails());
+          setMenopauseDetails(await api.getMenopauseDetails());
+          setAudioNotes(await api.getAudioNotes());
+          setPadReminderPacked(await api.getPadKitStatus());
+          setPregnancyTests(await api.getPregnancyTests());
+          setErrandsList(await api.getErrands());
+          setErrandStreak(4);
+        } catch (err) {
+          console.error(err);
+          handleLogout();
+        } finally {
+          setLoading(false);
+        }
+      })();
+    } else {
+      setView('landing');
+    }
   }, []);
 
   const handleMockLogin = async () => {
     setLoading(true);
     try {
       const data = await api.login('aditi@sakhi.ai', 'password123');
+      api.setToken(data.access_token);
+      localStorage.setItem('sakhi_user', JSON.stringify(data.user));
       setUser(data.user);
       await fetchDashboardData();
       await fetchAnalyticsData();
@@ -393,6 +428,7 @@ export default function App() {
       setPregnancyTests(await api.getPregnancyTests());
       setErrandsList(await api.getErrands());
       setErrandStreak(4);
+      setView('dashboard');
     } catch (e) {
       console.error(e);
     } finally {
@@ -752,11 +788,15 @@ export default function App() {
           return;
         }
         const data = await api.register(authName, authEmail, authPassword);
+        api.setToken(data.access_token);
+        localStorage.setItem('sakhi_user', JSON.stringify(data.user));
         setUser(data.user);
         setOnboardForm(prev => ({ ...prev, name: authName }));
         setView('onboarding');
       } else {
         const data = await api.login(authEmail, authPassword);
+        api.setToken(data.access_token);
+        localStorage.setItem('sakhi_user', JSON.stringify(data.user));
         setUser(data.user);
         setView('dashboard');
       }
@@ -769,6 +809,8 @@ export default function App() {
   };
 
   const handleLogout = () => {
+    api.setToken(null);
+    localStorage.removeItem('sakhi_user');
     setUser(null);
     setView('landing');
   };
@@ -1887,10 +1929,26 @@ export default function App() {
 
                   <div className="md:col-span-6 bg-white border rounded-3xl p-5 shadow-sm space-y-4 text-xs font-semibold text-[#7E7A88]">
                     <h3 className="font-bold text-sm text-[#5E5A66] border-b pb-1.5 flex items-center gap-1">🌸 {t("Menstrual Product Tracker")}</h3>
-                    <div className="grid grid-cols-3 gap-3 text-center">
-                      <div className="bg-[#FFF6FB] p-2 rounded-xl">
-                        <span className="text-[10px] text-[#A09BAA] block">{t("Stock left")}</span>
-                        <span className="text-lg font-bold text-[#FF8A80]">{padStock} Pads</span>
+                    <div className="grid grid-cols-1 gap-3">
+                      <div className="bg-[#FFF6FB] p-3 rounded-2xl flex items-center justify-between">
+                        <div>
+                          <span className="text-[10px] text-[#A09BAA] block uppercase font-bold">{t("Stock left")}</span>
+                          <span className="text-lg font-bold text-[#FF8A80]">{padStock} Pads</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button 
+                            onClick={() => setPadStock(Math.max(0, padStock - 1))}
+                            className="w-8 h-8 rounded-xl bg-[#FF8A80]/15 text-[#FF8A80] font-extrabold text-sm hover:bg-[#FF8A80]/25 transition-all flex items-center justify-center border border-[#FF8A80]/20"
+                          >
+                            -
+                          </button>
+                          <button 
+                            onClick={() => setPadStock(padStock + 1)}
+                            className="w-8 h-8 rounded-xl bg-[#B9F4D0]/35 text-[#2E7D32] font-extrabold text-sm hover:bg-[#B9F4D0]/50 transition-all flex items-center justify-center border border-[#B9F4D0]/30"
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
