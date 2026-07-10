@@ -12,9 +12,320 @@ import {
 } from 'recharts';
 import { api } from './services/api';
 
+// 🌐 Indian Languages Translation Map 🌐
+const TRANSLATIONS = {
+  en: {},
+  hi: {
+    "Sakhi": "सखी",
+    "Your Everyday AI Health Companion": "आपकी दैनिक एआई स्वास्थ्य साथी",
+    "One Intelligent Companion for Every Woman.": "हर महिला के लिए एक बुद्धिमान साथी।",
+    "One Intelligent Companion for": "के लिए एक बुद्धिमान साथी",
+    "Every Woman.": "हर महिला।",
+    "Good Morning, Aditi!": "शुभ प्रभात, अदिति!",
+    "Health Twin Active": "हेल्थ ट्विन सक्रिय है",
+    "Today's Wellness Score": "आज का कल्याण स्कोर",
+    "Calculated": "आंकड़ा",
+    "Daily AI Welcome Summary": "दैनिक एआई स्वागत सारांश",
+    "Water Intake": "पानी का सेवन",
+    "Sleep Quality": "नींद की गुणवत्ता",
+    "Exercise": "व्यायाम",
+    "Cycle Tracker": "मासिक चक्र ट्रैकर",
+    "Weekly Recommendations": "साप्ताहिक सिफारिशें",
+    "Log Your Vibe": "अपनी स्थिति दर्ज करें",
+    "Today's Medicine Checklist": "आज की दवा सूची",
+    "Smart Reminders": "स्मार्ट अनुस्मारक",
+    "Upcoming Appointments": "आने वाले अपॉइंटमेंट",
+    "Explore Stages": "चरणों का अन्वेषण करें",
+    "Start Your Journey": "यात्रा शुरू करें",
+    "Dashboard": "डैशबोर्ड",
+    "Sakhi AI Chat": "सखी एआई चैट",
+    "Menstrual Tracker": "मासिक चक्र",
+    "AI Meal Scanner": "एआई भोजन स्कैनर",
+    "Report Analyzer": "रिपोर्ट विश्लेषक",
+    "Health Passport": "स्वास्थ्य पासपोर्ट",
+    "Analytics Trends": "रुझान",
+    "Settings": "सेटिंग्स",
+    "Health Insights": "स्वास्थ्य अंतर्दृष्टि",
+    "Log Out": "लॉग आउट",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "हैकथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
+  },
+  bn: {
+    "Sakhi": "সখী",
+    "Your Everyday AI Health Companion": "আপনার দৈনন্দিন এআই স্বাস্থ্য সঙ্গী",
+    "One Intelligent Companion for Every Woman.": "প্রতিটি নারীর জন্য একটি বুদ্ধিমান সঙ্গী।",
+    "One Intelligent Companion for": "প্রতিটি নারীর জন্য",
+    "Every Woman.": "একটি বুদ্ধিমান সঙ্গী।",
+    "Good Morning, Aditi!": "সুপ্রভাত, অদিতি!",
+    "Health Twin Active": "হেলথ টুইন সক্রিয়",
+    "Today's Wellness Score": "আজকের স্বাস্থ্য স্কোর",
+    "Calculated": "হিসাবকৃত",
+    "Daily AI Welcome Summary": "দৈনিক এআই স্বাগত সারসংক্ষেপ",
+    "Water Intake": "জল গ্রহণ",
+    "Sleep Quality": "ঘুমের গুণমান",
+    "Exercise": "ব্যায়াম",
+    "Cycle Tracker": "মাসিক চক্র ট্র্যাকার",
+    "Weekly Recommendations": "সাপ্তাহিক সুপারিশ",
+    "Log Your Vibe": "আপনার অনুভূতি নথিভুক্ত করুন",
+    "Today's Medicine Checklist": "আজকের ওষুধের তালিকা",
+    "Smart Reminders": "স্মার্ট অনুস্মারক",
+    "Upcoming Appointments": "আসন্ন অ্যাপয়েন্টমেন্ট",
+    "Explore Stages": "ধাপগুলি অন্বেষণ করুন",
+    "Start Your Journey": "আপনার যাত্রা শুরু করুন",
+    "Dashboard": "ড্যাশবোর্ড",
+    "Sakhi AI Chat": "সখী এআই চ্যাট",
+    "Menstrual Tracker": "মাসিক চক্র",
+    "AI Meal Scanner": "এআই খাবার স্ক্যানার",
+    "Report Analyzer": "রিপোর্ট বিশ্লেষক",
+    "Health Passport": "হেলথ পাসপোর্ট",
+    "Analytics Trends": "বিশ্লেষণ প্রবণতা",
+    "Settings": "সেটিংস",
+    "Health Insights": "স্বাস্থ্য অন্তর্দৃষ্টি",
+    "Log Out": "লগ আউট",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ডেমো হ্যাকাথন কুইক অ্যাক্সেস (অদিতি হিসেবে লগইন করুন)"
+  },
+  te: {
+    "Sakhi": "సఖి",
+    "Your Everyday AI Health Companion": "మీ రోజువారీ AI ఆరోగ్య సహచరి",
+    "One Intelligent Companion for Every Woman.": "ప్రతి మహిళకు ఒక తెలివైన సహచరి।",
+    "One Intelligent Companion for": "ప్రతి మహిళకు",
+    "Every Woman.": "ఒక తెలివైన సహచరి।",
+    "Good Morning, Aditi!": "శుభోదయం, అదితి!",
+    "Health Twin Active": "హెల్త్ ట్విన్ యాక్టివ్‌గా ఉంది",
+    "Today's Wellness Score": "ఈరోజు ఆరోగ్యం స్కోర్",
+    "Calculated": "లెక్కించబడింది",
+    "Daily AI Welcome Summary": "రోజువారీ AI స్వాగత సారాంశం",
+    "Water Intake": "నీటి వినియోగం",
+    "Sleep Quality": "निద్ర నాణ్యత",
+    "Exercise": "వ్యాయామం",
+    "Cycle Tracker": "నెలసరి చక్ర ట్రాకర్",
+    "Weekly Recommendations": "వారపు సిఫార్సులు",
+    "Log Your Vibe": "మీ మానసిక స్థితిని నమోదు చేయండి",
+    "Today's Medicine Checklist": "ఈరోజు మందుల జాబితా",
+    "Smart Reminders": "స్మార్ట్ రిమైండర్లు",
+    "Upcoming Appointments": "రాబోయే అపాయింట్‌మెంట్‌లు",
+    "Explore Stages": "దశలను అన్వేషించండి",
+    "Start Your Journey": "మీ ప్రయాణాన్ని ప్రారంభించండి",
+    "Dashboard": "డాష్‌బోర్డ్",
+    "Sakhi AI Chat": "సఖి AI చాట్",
+    "Menstrual Tracker": "నెలసరి ట్రాకర్",
+    "AI Meal Scanner": "AI మీల్ స్కానర్",
+    "Report Analyzer": "రిపోర్ట్ అనలైజర్",
+    "Health Passport": "హెల్త్ పాస్‌పోర్ట్",
+    "Analytics Trends": "విశ్లేషణ ట్రెండ్‌లు",
+    "Settings": "సెట్టింగ్‌లు",
+    "Health Insights": "ఆరోగ్య అంతర్దృష్టులు",
+    "Log Out": "లాగ్ అవుట్",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిత ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
+  },
+  mr: {
+    "Sakhi": "सखी",
+    "Your Everyday AI Health Companion": "तुमची दैनंदिन एआय आरोग्य सोबती",
+    "One Intelligent Companion for Every Woman.": "प्रत्येक महिलेसाठी एक बुद्धिमान सोबती।",
+    "One Intelligent Companion for": "प्रत्येक महिलेसाठी",
+    "Every Woman.": "एक बुद्धिमान सोबती।",
+    "Good Morning, Aditi!": "शुभ प्रभात, अदिती!",
+    "Health Twin Active": "हेल्थ ट्विन सक्रिय आहे",
+    "Today's Wellness Score": "आजचा आरोग्य स्कोअर",
+    "Calculated": "मोजलेले",
+    "Daily AI Welcome Summary": "दैनिक एआय स्वागत सारांश",
+    "Water Intake": "पाणी पिण्याची नोंद",
+    "Sleep Quality": "झोपेची गुणवत्ता",
+    "Exercise": "व्यायाम",
+    "Cycle Tracker": "मासिक पाळी ट्रॅकर",
+    "Weekly Recommendations": "साप्ताहिक शिफारसी",
+    "Log Your Vibe": "तुमची मनस्थिती नोंदवा",
+    "Today's Medicine Checklist": "आजच्या औषधांची यादी",
+    "Smart Reminders": "स्मार्ट स्मरणपत्रे",
+    "Upcoming Appointments": "पुढील अपॉइंटमेंट्स",
+    "Explore Stages": "टप्पे एक्सप्लोर करा",
+    "Start Your Journey": "तुमचा प्रवास सुरू करा",
+    "Dashboard": "डॅशबोर्ड",
+    "Sakhi AI Chat": "सखी एआय चॅट",
+    "Menstrual Tracker": "मासिक पाळी",
+    "AI Meal Scanner": "एआय मील स्कॅनर",
+    "Report Analyzer": "रिपोर्ट विश्लेषक",
+    "Health Passport": "हेल्थ पासपोर्ट",
+    "Analytics Trends": "विश्लेषण ट्रेंड्स",
+    "Settings": "सेटिंग्ज",
+    "Health Insights": "आरोग्य अंतर्दृष्टी",
+    "Log Out": "लॉग आउट",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "डेमो हॅकाथॉन क्विक ॲक्सेस (अदिती म्हणून लॉग इन करा)"
+  },
+  ta: {
+    "Sakhi": "சகி",
+    "Your Everyday AI Health Companion": "உங்கள் அன்றாட AI சுகாதார துணை",
+    "One Intelligent Companion for Every Woman.": "ஒவ்வொரு பெண்ணுக்கும் ஒரு புத்திசாலித்தனமான துணை।",
+    "One Intelligent Companion for": "ஒவ்வொரு பெண்ணுக்கும்",
+    "Every Woman.": "ஒரு புத்திசாலித்தனமான துணை।",
+    "Good Morning, Aditi!": "காலை வணக்கம், அதிதி!",
+    "Health Twin Active": "ஹெல்த் ட்வின் செயலில் உள்ளது",
+    "Today's Wellness Score": "இன்றைய ஆரோக்கிய மதிப்பெண்",
+    "Calculated": "கணக்கிடப்பட்டது",
+    "Daily AI Welcome Summary": "தினசரி AI வரவேற்பு சுருக்கம்",
+    "Water Intake": "நீர் உட்கொள்ளல்",
+    "Sleep Quality": "தூக்கத்தின் தരം",
+    "Exercise": "உடற்பயிற்சி",
+    "Cycle Tracker": "மாதவிடாய் சுழற்சி டிராக்கர்",
+    "Weekly Recommendations": "வாராந்திர பரிந்துரைகள்",
+    "Log Your Vibe": "உங்கள் மனநிலையை பதிவு செய்யவும்",
+    "Today's Medicine Checklist": "இன்றைய மருந்து பட்டியல்",
+    "Smart Reminders": "ஸ்மார்ட் நினைவூட்டல்கள்",
+    "Upcoming Appointments": "வரவிருக்கும் சந்திப்புகள்",
+    "Explore Stages": "நிலைகளை ஆராயுங்கள்",
+    "Start Your Journey": "உங்கள் பயணத்தைத் தொடங்குங்கள்",
+    "Dashboard": "டாஷ்போர்டு",
+    "Sakhi AI Chat": "சகி AI அரட்டை",
+    "Menstrual Tracker": "மாதவிடாய் டிராக்கர்",
+    "AI Meal Scanner": "AI உணவு ஸ்கேனர்",
+    "Report Analyzer": "அறிக்கை பகுப்பாய்வி",
+    "Health Passport": "ஹெல்த் பாஸ்போர்ட்",
+    "Analytics Trends": "போக்குகள்",
+    "Settings": "அமைப்புகள்",
+    "Health Insights": "ஆரோக்கிய நுண்ணறிவு",
+    "Log Out": "வெளியேறு",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "டெமோ ஹேக்கத்தான் விரைவு அணுகல் (அதிதியாக உள்நுழையவும்)"
+  },
+  gu: {
+    "Sakhi": "સખી",
+    "Your Everyday AI Health Companion": "તમારી દૈનિક AI આરોગ્ય સાથી",
+    "One Intelligent Companion for Every Woman.": "દરેક મહિલા માટે એક બુદ્ધિશાળી સાથી।",
+    "One Intelligent Companion for": "દરેક મહિલા માટે",
+    "Every Woman.": "એક બુદ્ધિશાળી સાથી।",
+    "Good Morning, Aditi!": "શુભ સવાર, અદિતિ!",
+    "Health Twin Active": "હેલ્થ ટ્વીન સક્રિય છે",
+    "Today's Wellness Score": "આજનો વેલનેસ સ્કોર",
+    "Calculated": "ગણતરી કરેલ",
+    "Daily AI Welcome Summary": "દૈનિક AI સ્વાગત સારાંશ",
+    "Water Intake": "પાણી પીવાની નોંધ",
+    "Sleep Quality": "ઊંઘની ગુણવત્તા",
+    "Exercise": "વ્યાયામ",
+    "Cycle Tracker": "માસિક ચક્ર ટ્રેકર",
+    "Weekly Recommendations": "સાપ્તાહિક ભલામણો",
+    "Log Your Vibe": "તમારી સ્થિતિની નોંધ કરો",
+    "Today's Medicine Checklist": "આજની દવાઓની સૂચિ",
+    "Smart Reminders": "સ્માર્ટ રીમાઇન્ડર્સ",
+    "Upcoming Appointments": "આગામી એપોઇન્ટમેન્ટ્સ",
+    "Explore Stages": "તબક્કાઓ અન્વેષણ કરો",
+    "Start Your Journey": "તમારી યાત્રા શરૂ કરો",
+    "Dashboard": "ડેશબોર્ડ",
+    "Sakhi AI Chat": "સખી AI ચેટ",
+    "Menstrual Tracker": "માસિક ચક્ર",
+    "AI Meal Scanner": "AI ભોજન સ્કેનર",
+    "Report Analyzer": "રિપોર્ટ વિશ્લેષક",
+    "Health Passport": "હેલ્થ પાસપોર્ટ",
+    "Analytics Trends": "વિશ્લેષણ પ્રવાહો",
+    "Settings": "સેટિંગ્સ",
+    "Health Insights": "આરોગ્ય આંતરદૃષ્ટિ",
+    "Log Out": "લોગ આઉટ",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ડેમો હેકાથોન ક્વિક એક્સેસ (અદિતિ તરીકે લોગિન કરો)"
+  },
+  kn: {
+    "Sakhi": "ಸಖಿ",
+    "Your Everyday AI Health Companion": "ನಿಮ್ಮ ದೈನಂದಿನ AI ಆರೋಗ್ಯ ಸಂಗಾತಿ",
+    "One Intelligent Companion for Every Woman.": "ಪ್ರತಿ ಮಹಿಳೆಗೆ ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
+    "One Intelligent Companion for": "ಪ್ರತಿ ಮಹಿಳೆಗೆ",
+    "Every Woman.": "ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
+    "Good Morning, Aditi!": "ಶುಭೋದಯ, ಅದಿತಿ!",
+    "Health Twin Active": "ಹೆಲ್ತ್ ಟ್ವಿನ್ ಸಕ್ರಿಯವಾಗಿದೆ",
+    "Today's Wellness Score": "ಇಂದಿನ ವೆಲ್ನೆಸ್ ಸ್ಕೋರ್",
+    "Calculated": "ಲೆಕ್ಕಹಾಕಲಾಗಿದೆ",
+    "Daily AI Welcome Summary": "ದೈನಂದಿನ AI ಸ್ವಾಗತ ಸಾರಾಂಶ",
+    "Water Intake": "ನೀರಿನ ಸೇವನೆ",
+    "Sleep Quality": "ನಿದ್ರೆಯ ಗುಣಮಟ್ಟ",
+    "Exercise": "ವ್ಯಾಯಾಮ",
+    "Cycle Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
+    "Weekly Recommendations": "ಸಾಪ್ತಾಹಿಕ ಶಿಫಾರಸುಗಳು",
+    "Log Your Vibe": "ನಿಮ್ಮ ಮನಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ",
+    "Today's Medicine Checklist": "ಇಂದಿನ ಔಷಧಿಗಳ ಪಟ್ಟಿ",
+    "Smart Reminders": "ಸ್ಮಾರ್ಟ್ ಜ್ಞಾಪನೆಗಳು",
+    "Upcoming Appointments": "ಮುಂಬರುವ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು",
+    "Explore Stages": "ಹಂತಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
+    "Start Your Journey": "ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ",
+    "Dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "Sakhi AI Chat": "ಸಖಿ AI chating",
+    "Menstrual Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
+    "AI Meal Scanner": "AI ಊಟದ ಸ್ಕ್ಯಾನರ್",
+    "Report Analyzer": "ವರದಿ ವಿಶ್ಲೇಷಕ",
+    "Health Passport": "ಹೆಲ್ತ್ ಪಾಸ್‌ಪೋರ್ಟ್",
+    "Analytics Trends": "ವಿಶ್ಲೇಷಣೆ ಪ್ರವೃತ್ತಿಗಳು",
+    "Settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "Health Insights": "ಆರೋಗ್ಯ ಒಳನೋಟಗಳು",
+    "Log Out": "ಲಾಗ್ ಔಟ್",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ಡೆಮೊ ಹ್ಯಾಕಥಾನ್ ತ್ವರಿत ಪ್ರವೇಶ (ಅದಿತಿ ಎಂದು ಲಾಗಿನ್ ಮಾಡಿ)"
+  },
+  ml: {
+    "Sakhi": "സഖി",
+    "Your Everyday AI Health Companion": "നിങ്ങളുടെ ദൈനംദിന AI ആരോഗ്യ കൂട്ടാളി",
+    "One Intelligent Companion for Every Woman.": "ഓരോ സ്ത്രീക്കും ഒരു ബുദ്ധിമാനായ കൂട്ടാളി।",
+    "One Intelligent Companion for": "ഓരോ സ്ത്രീക്കും",
+    "Every Woman.": "ഒരു ബുദ്ധിമാനായ കൂട്ടാളി।",
+    "Good Morning, Aditi!": "സുപ്രഭാതം, അതിഥി!",
+    "Health Twin Active": "ഹെൽത്ത് ട്വിൻ സജീവമാണ്",
+    "Today's Wellness Score": "ഇന്നത്തെ വെൽനസ് സ്കോർ",
+    "Calculated": "കണക്കാക്കിയത്",
+    "Daily AI Welcome Summary": "ദൈനദിന AI സ്വാഗത സംഗ്രഹം",
+    "Water Intake": "വെള്ളം കുടിക്കുന്നതിന്റെ അളവ്",
+    "Sleep Quality": "ഉറക്കത്തിന്റെ ഗുണനിലവാരം",
+    "Exercise": "വ്യായാമം",
+    "Cycle Tracker": "ആർത്തവ ചക്ര ട്രാക്കർ",
+    "Weekly Recommendations": "പ്രതിവാര നിർദ്ദേശങ്ങൾ",
+    "Log Your Vibe": "നിങ്ങളുടെ മാനസികാവസ്ഥ രേഖപ്പെടുത്തുക",
+    "Today's Medicine Checklist": "ഇന്നത്തെ മരുന്നുകളുടെ ലിസ്റ്റ്",
+    "Smart Reminders": "സ്മാർട്ട് ഓർമ്മപ്പെടുത്തലുകൾ",
+    "Upcoming Appointments": "വരാനിരിക്കുന്ന കൂടിക്കാഴ്ചകൾ",
+    "Explore Stages": "ഘട്ടങ്ങൾ പര്യവേക്ഷണം ചെയ്യുക",
+    "Start Your Journey": "നിങ്ങളുടെ യാത്ര ആരംഭിക്കുക",
+    "Dashboard": "ഡാഷ്‌ബോർഡ്",
+    "Sakhi AI Chat": "സഖി AI ചാറ്റ്",
+    "Menstrual Tracker": "ആർത്തവ ട്രാക്കർ",
+    "AI Meal Scanner": "AI മീൽ സ്കാനർ",
+    "Report Analyzer": "റിപ്പോർട്ട് അനലൈസർ",
+    "Health Passport": "ഹെൽത്ത് പാസ്‌പോർട്ട്",
+    "Analytics Trends": "വിശകലന പ്രവണതകൾ",
+    "Settings": "ക്രമീകരണങ്ങൾ",
+    "Health Insights": "ആരോഗ്യ സ്ഥിതിവിവരങ്ങൾ",
+    "Log Out": "ലോഗ് ഔട്ട്",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ഡെമോ ഹാക്കത്തോൺ ദ്രുത പ്രവേശനം (അതിഥിയായി ലോഗിൻ ചെയ്യുക)"
+  },
+  pa: {
+    "Sakhi": "ਸਖੀ",
+    "Your Everyday AI Health Companion": "ਤੁਹਾਡੀ ਰੋਜ਼ਾਨਾ ਦੀ ਏਆਈ ਸਿਹਤ ਸਾਥੀ",
+    "One Intelligent Companion for Every Woman.": "ਹਰ ਔਰਤ ਲਈ ਇੱਕ ਬੁੱਧੀਮਾਨ ਸਾਥੀ।",
+    "One Intelligent Companion for": "ਹਰ ਔਰਤ ਲਈ",
+    "Every Woman.": "ਇੱਕ ਬੁੱਧੀਮਾਨ ਸਾਥੀ।",
+    "Good Morning, Aditi!": "ਸ਼ੁਭ ਸਵੇਰ, ਅਦਿਤੀ!",
+    "Health Twin Active": "ਹੈਲਥ ਟਵਿਨ ਸਰਗਰਮ ਹੈ",
+    "Today's Wellness Score": "ਅੱਜ ਦਾ ਵੈਲਨੈੱਸ ਸਕੋਰ",
+    "Calculated": "ਗਣਨਾ ਕੀਤੀ ਗਈ",
+    "Daily AI Welcome Summary": "ਰੋਜ਼ਾਨਾ ਏਆਈ ਸਵਾਗਤ ਸਾਰਾਂਸ਼",
+    "Water Intake": "ਪਾਣੀ ਪੀਣ ਦੀ ਮਾਤਰਾ",
+    "Sleep Quality": "ਨੀਂਦ ਦੀ ਗੁਣਵੱਤਾ",
+    "Exercise": "ਕਸਰਤ",
+    "Cycle Tracker": "ਮਾਹਵਾਰੀ ਚੱਕਰ ਟ੍ਰੈਕਰ",
+    "Weekly Recommendations": "ਹਫਤਾਵਾਰੀ ਸਿਫਾਰਸ਼ਾਂ",
+    "Log Your Vibe": "ਆਪਣੀ ਸਥਿਤੀ ਦਰਜ ਕਰੋ",
+    "Today's Medicine Checklist": "ਅੱਜ ਦੀਆਂ ਦਵਾਈਆਂ ਦੀ ਸੂਚੀ",
+    "Smart Reminders": "ਸਮਾਰਟ ਰੀਮਾਈਂਡਰ",
+    "Upcoming Appointments": "ਆਉਣ ਵਾਲੀਆਂ ਮੁਲਾਕਾਤਾਂ",
+    "Explore Stages": "ਪੜਾਵਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ",
+    "Start Your Journey": "ਆਪਣੀ ਯਾਰਤਾ ਸ਼ੁਰੂ ਕਰੋ",
+    "Dashboard": "ਡੈਸ਼ਬੋਰਡ",
+    "Sakhi AI Chat": "ਸਖੀ ਏਆਈ ਚੈਟ",
+    "Menstrual Tracker": "ਮਾਹਵਾਰੀ ਟ੍ਰੈਕਰ",
+    "AI Meal Scanner": "ਏਆਈ ਮੀਲ ਸਕੈਨਰ",
+    "Report Analyzer": "ਰਿਪੋਰਟ ਐਨਾਲਾਈਜ਼ਰ",
+    "Health Passport": "ਹੈਲਥ ਪਾਸਪੋਰਟ",
+    "Analytics Trends": "ਰੁਝਾਨ",
+    "Settings": "ਸੈਟਿੰਗਜ਼",
+    "Health Insights": "ਸਿਹਤ ਸੂਝ",
+    "Log Out": "ਲੌਗ ਆਉਟ",
+    "Demo Hackathon Quick Access (Log in as Aditi)": "ਡੈਮੋ ਹੈਕਾਥਨ ਤੁਰੰਤ ਪਹੁੰਚ (ਅਦਿਤੀ ਵਜੋਂ ਲੌਗਇਨ ਕਰੋ)"
+  }
+};
+
 export default function App() {
   // Global App States
-  const [view, setView] = useState('landing'); // landing, auth, onboarding, dashboard, chat, tracker, nutrition, reports, passport, insights, settings
+  const [view, setView] = useState('landing'); 
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [dashboardData, setDashboardData] = useState(null);
@@ -24,7 +335,7 @@ export default function App() {
   
   // Accessibility States
   const [largeText, setLargeText] = useState(false);
-  const [hindiMode, setHindiMode] = useState(false);
+  const [lang, setLang] = useState('en'); // en, hi, bn, te, mr, ta, gu, kn, ml, pa
 
   // Onboarding Quiz Form State
   const [onboardStep, setOnboardStep] = useState(1);
@@ -36,11 +347,10 @@ export default function App() {
 
   // UI Interactive States
   const [loading, setLoading] = useState(false);
-  const [faqOpen, setFaqOpen] = useState({});
   const [activeStage, setActiveStage] = useState('reproductive');
   const [sosActive, setSosActive] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('timeline'); // Health Passport sub-tabs: timeline, vaccines, prescriptions
+  const [activeTab, setActiveTab] = useState('timeline'); 
   
   // Chat States
   const [chatMessages, setChatMessages] = useState([]);
@@ -100,44 +410,10 @@ export default function App() {
   const [authPassword, setAuthPassword] = useState('');
   const [authError, setAuthError] = useState('');
 
-  // Translations Map for Hindi Mode Accessibility Demo
+  // Translation Function
   const t = (key) => {
-    if (!hindiMode) return key;
-    const dict = {
-      "Sakhi": "सखी",
-      "Your Everyday AI Health Companion": "आपकी दैनिक एआई स्वास्थ्य साथी",
-      "One Intelligent Companion for Every Woman.": "हर महिला के लिए एक बुद्धिमान साथी।",
-      "One Intelligent Companion for": "के लिए एक बुद्धिमान साथी",
-      "Every Woman.": "हर महिला।",
-      "Good Morning, Aditi!": "शुभ प्रभात, अदिति!",
-      "Health Twin Active": "हेल्थ ट्विन सक्रिय है",
-      "Today's Wellness Score": "आज का कल्याण स्कोर",
-      "Calculated": "आंकड़ा",
-      "Daily AI Welcome Summary": "दैनिक एआई स्वागत सारांश",
-      "Water Intake": "पानी का सेवन",
-      "Sleep Quality": "नींद की गुणवत्ता",
-      "Exercise": "व्यायाम",
-      "Cycle Tracker": "मासिक चक्र ट्रैकर",
-      "Weekly Recommendations": "साप्ताहिक सिफारिशें",
-      "Log Your Vibe": "अपनी स्थिति दर्ज करें",
-      "Today's Medicine Checklist": "आज की दवा सूची",
-      "Smart Reminders": "स्मार्ट अनुस्मारक",
-      "Upcoming Appointments": "आने वाले अपॉइंटमेंट",
-      "Explore Stages": "चरणों का अन्वेषण करें",
-      "Start Your Journey": "यात्रा शुरू करें",
-      "Dashboard": "डैशबोर्ड",
-      "Sakhi AI Chat": "सखी एआई चैट",
-      "Menstrual Tracker": "मासिक चक्र",
-      "AI Meal Scanner": "एआई भोजन स्कैनर",
-      "Report Analyzer": "रिपोर्ट विश्लेषक",
-      "Health Passport": "स्वास्थ्य पासपोर्ट",
-      "Analytics Trends": "विश्लेषण रुझान",
-      "Settings": "सेटिंग्स",
-      "Health Insights": "स्वास्थ्य अंतर्दृष्टि",
-      "Log Out": "लॉग आउट",
-      "Demo Hackathon Quick Access (Log in as Aditi)": "हैकथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
-    };
-    return dict[key] || key;
+    if (lang === 'en') return key;
+    return TRANSLATIONS[lang]?.[key] || key;
   };
 
   // Onboarding Auto-Login Check
@@ -156,7 +432,6 @@ export default function App() {
       setProfile(profileData);
       setOnboardForm(profileData);
       
-      // Load New Extension Data
       setGoals(await api.getGoals());
       setBadges(await api.getBadges());
       setRisks(await api.getRiskIndicators());
@@ -194,23 +469,23 @@ export default function App() {
   useEffect(() => {
     let timer;
     if (breathingActive) {
-      let step = 0; // 0 = Inhale, 1 = Hold, 2 = Exhale
+      let step = 0; 
       const runBreathing = () => {
         if (step === 0) {
-          setBreathingText(hindiMode ? 'सांस लें...' : 'Inhale...');
+          setBreathingText(lang !== 'en' ? 'सांस लें...' : 'Inhale...');
           setBreathingScale(1.4);
           timer = setTimeout(() => {
             step = 1;
             runBreathing();
           }, 4000);
         } else if (step === 1) {
-          setBreathingText(hindiMode ? 'रोकें...' : 'Hold...');
+          setBreathingText(lang !== 'en' ? 'रोकें...' : 'Hold...');
           timer = setTimeout(() => {
             step = 2;
             runBreathing();
           }, 4000);
         } else {
-          setBreathingText(hindiMode ? 'सांस छोड़ें...' : 'Exhale...');
+          setBreathingText(lang !== 'en' ? 'सांस छोड़ें...' : 'Exhale...');
           setBreathingScale(1.0);
           timer = setTimeout(() => {
             step = 0;
@@ -223,7 +498,7 @@ export default function App() {
       setBreathingScale(1.0);
     }
     return () => clearTimeout(timer);
-  }, [breathingActive, hindiMode]);
+  }, [breathingActive, lang]);
 
   // Load cycle forecast
   useEffect(() => {
@@ -232,7 +507,7 @@ export default function App() {
     }
   }, [user]);
 
-  // Goal value update increment
+  // Update Goal values
   const handleProgressGoal = async (id, step) => {
     const updatedGoals = goals.map(g => {
       if (g.id === id) {
@@ -244,7 +519,6 @@ export default function App() {
     setGoals(updatedGoals);
     localStorage.setItem('sakhi_goals', JSON.stringify(updatedGoals));
     
-    // Connect to core logs if applicable
     const g = updatedGoals.find(x => x.id === id);
     if (g.type === 'water') {
       await api.logWater(g.current);
@@ -265,7 +539,6 @@ export default function App() {
     }));
     await api.logWater(newLiters);
     
-    // Update goal sync
     const goalsList = await api.getGoals();
     setGoals(goalsList);
     fetchDashboardData();
@@ -280,15 +553,6 @@ export default function App() {
     fetchDashboardData();
   };
 
-  const handleAddMed = async (e) => {
-    e.preventDefault();
-    if (!newMedName) return;
-    await api.logMedicine(newMedName, newMedDosage, newMedTime);
-    setNewMedName('');
-    setNewMedDosage('');
-    fetchDashboardData();
-  };
-
   const handleLogMood = async (e) => {
     e.preventDefault();
     await api.logMood(logMoodStr, logStressLevel, logMoodNotes);
@@ -296,7 +560,7 @@ export default function App() {
     fetchDashboardData();
     fetchAnalyticsData();
     setRisks(await api.getRiskIndicators());
-    alert(hindiMode ? "दैनिक स्थिति सफलतापूर्वक दर्ज की गई!" : "Daily mood logged successfully!");
+    alert(lang !== 'en' ? "दैनिक स्थिति सफलतापूर्वक दर्ज की गई!" : "Daily mood logged successfully!");
   };
 
   const handleLogSleep = async (e) => {
@@ -305,7 +569,7 @@ export default function App() {
     fetchDashboardData();
     fetchAnalyticsData();
     setGoals(await api.getGoals());
-    alert(hindiMode ? "नींद का विवरण दर्ज किया गया!" : "Sleep details logged successfully!");
+    alert(lang !== 'en' ? "नींद का विवरण दर्ज किया गया!" : "Sleep details logged successfully!");
   };
 
   const handleLogActivity = async (e) => {
@@ -314,7 +578,7 @@ export default function App() {
     fetchDashboardData();
     fetchAnalyticsData();
     setGoals(await api.getGoals());
-    alert(hindiMode ? "व्यायाम विवरण दर्ज किया गया!" : "Activity details logged successfully!");
+    alert(lang !== 'en' ? "व्यायाम विवरण दर्ज किया गया!" : "Activity details logged successfully!");
   };
 
   const handleSendMessage = async (e) => {
@@ -376,37 +640,32 @@ export default function App() {
     }
   };
 
-  // Audio notes recording simulation
   const handleRecordAudioNotes = async () => {
     setRecordingAudio(true);
     setTimeout(async () => {
       setRecordingAudio(false);
       await api.transcribeAudioNotes(null);
       setAudioNotes(await api.getAudioNotes());
-      alert(hindiMode ? "ऑडियो परामर्श का ट्रांसक्रिप्शन पूरा हुआ!" : "Doctor audio consult transcribed successfully!");
+      alert(lang !== 'en' ? "ऑडियो परामर्श का ट्रांसक्रिप्शन पूरा हुआ!" : "Doctor audio consult transcribed successfully!");
     }, 4000);
   };
 
-  // Pregnancy kick log
   const handleLogKick = async () => {
     const details = await api.logKick();
     setPregnancyDetails(details);
   };
 
-  // Menopause Flash log
   const handleLogHotFlash = async () => {
     const details = await api.logHotFlash();
     setMenopauseDetails(details);
   };
 
-  // SOS activation
   const handleSOS = async () => {
     setSosActive(true);
     await api.triggerSOS(["+91 98765 43210", "+91 99999 88888"]);
     fetchDashboardData();
   };
 
-  // Onboarding Setup
   const handleOnboardingSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -477,13 +736,15 @@ export default function App() {
     }
   };
 
+  const handleUpdateProfile = async (field, val) => {
+    const updated = { ...profile, [field]: val };
+    setProfile(updated);
+    await api.updateProfile(updated);
+  };
+
   const handleLogout = () => {
     setUser(null);
     setView('landing');
-  };
-
-  const toggleFaq = (idx) => {
-    setFaqOpen(prev => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   const getMoodEmoji = (mood) => {
@@ -548,17 +809,30 @@ export default function App() {
             <div className="hidden md:flex items-center gap-8 text-[#7E7A88] font-medium text-xs">
               <a href="#features" className="hover:text-[#FF8A80] transition-colors">Features</a>
               <a href="#stages" className="hover:text-[#FF8A80] transition-colors">Life Stages</a>
-              <a href="#faq" className="hover:text-[#FF8A80] transition-colors">FAQ</a>
             </div>
 
             <div className="flex items-center gap-3">
-              <button 
-                onClick={() => setHindiMode(!hindiMode)} 
-                className="w-9 h-9 rounded-xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#FF8A80] shadow-sm font-semibold text-xs"
-                title="Toggle Hindi/English Language Mode"
-              >
-                <Globe size={16} />
-              </button>
+              {/* 🌐 Regional Indian Languages Selector Dropdown 🌐 */}
+              <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
+                <Globe size={13} className="text-[#A09BAA]" />
+                <select 
+                  value={lang} 
+                  onChange={(e) => setLang(e.target.value)} 
+                  className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer"
+                >
+                  <option value="en">English</option>
+                  <option value="hi">हिन्दी (Hindi)</option>
+                  <option value="bn">বাংলা (Bengali)</option>
+                  <option value="te">తెలుగు (Telugu)</option>
+                  <option value="mr">मराठी (Marathi)</option>
+                  <option value="ta">தமிழ் (Tamil)</option>
+                  <option value="gu">ગુજરાતી (Gujarati)</option>
+                  <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                  <option value="ml">മലയാളം (Malayalam)</option>
+                  <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                </select>
+              </div>
+
               {user ? (
                 <button onClick={() => setView('dashboard')} className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-5 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
                   {t("Dashboard")} <ArrowRight size={14} />
@@ -634,7 +908,6 @@ export default function App() {
             </div>
           </section>
 
-          {/* Life Stages Timeline */}
           <section id="stages" className="bg-[#FFF6FB]/85 border-y border-[#FFF3F8] py-20 px-6">
             <div className="max-w-7xl mx-auto space-y-12">
               <div className="text-center space-y-3">
@@ -876,10 +1149,31 @@ export default function App() {
               <div>
                 <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">{t("Health Twin Active")}</span>
                 <h1 className="text-3xl font-bold font-sans text-[#5E5A66] mt-0.5">
-                  {hindiMode ? `नमस्ते, ${profile?.name || 'अदिति'} 🌸` : `${t("Good Morning, Aditi!")}`}
+                  {lang !== 'en' ? `नमस्ते, ${profile?.name || 'अदिति'} 🌸` : `${t("Good Morning, Aditi!")}`}
                 </h1>
               </div>
               <div className="flex items-center gap-4 relative">
+                {/* 🌐 Regional Indian Languages Dropdown on Dashboard Header 🌐 */}
+                <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
+                  <Globe size={13} className="text-[#A09BAA]" />
+                  <select 
+                    value={lang} 
+                    onChange={(e) => setLang(e.target.value)} 
+                    className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer"
+                  >
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                    <option value="mr">मराठी (Marathi)</option>
+                    <option value="ta">தமிழ் (Tamil)</option>
+                    <option value="gu">ગુજરાતી (Gujarati)</option>
+                    <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    <option value="ml">മലയാളം (Malayalam)</option>
+                    <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                  </select>
+                </div>
+
                 <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2 rounded-2xl text-[10px] tracking-wider uppercase">🚨 SOS</button>
                 <button onClick={() => setNotificationOpen(!notificationOpen)} className="w-10 h-10 rounded-2xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#5E5A66] shadow-sm relative">
                   <Bell size={18} />
@@ -905,7 +1199,7 @@ export default function App() {
             {view === 'dashboard' && dashboardData && (
               <div className="space-y-8 animate-fade-in">
                 
-                {/* 20. Daily AI Welcome Summary Widget */}
+                {/* Daily AI Welcome Summary */}
                 <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-3 relative overflow-hidden">
                   <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#FFE79A]/15 rounded-full"></div>
                   <span className="inline-flex items-center gap-1 bg-[#FFE79A]/50 text-[#7E7A88] px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider">
@@ -916,7 +1210,6 @@ export default function App() {
                   </p>
                 </div>
 
-                {/* Onboarding Profile configuration widget */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
                   {/* Wellness Circle Card */}
@@ -954,10 +1247,10 @@ export default function App() {
 
                 </div>
 
-                {/* 5. Health Goals Tracker & Gamification Badges */}
+                {/* Health Goals & Badges */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   
-                  {/* Goals progress checklists */}
+                  {/* Goals */}
                   <div className="lg:col-span-7 bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                       <span>🎯 Health Targets Checklist</span>
@@ -984,7 +1277,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Gamification Badges Achievements */}
+                  {/* Badges */}
                   <div className="lg:col-span-5 bg-gradient-to-br from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
                     <div>
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b border-[#FFB3D9]/20 pb-2 flex items-center gap-2">
@@ -1007,7 +1300,7 @@ export default function App() {
 
                 </div>
 
-                {/* Conditional Pregnancy Companion Suite */}
+                {/* Pregnancy care suite */}
                 {profile?.pregnancy && pregnancyDetails && (
                   <div className="bg-[#FFF6FB] border border-[#FF8A80]/30 rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#FF8A80] border-b border-[#FF8A80]/20 pb-2 flex items-center gap-2">
@@ -1034,7 +1327,7 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Conditional Menopause Companion Suite */}
+                {/* Menopause care suite */}
                 {profile?.menopause && menopauseDetails && (
                   <div className="bg-[#FFF9EC] border border-[#FFB68A]/30 rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#FFB68A] border-b border-[#FFB68A]/20 pb-2 flex items-center gap-2">
@@ -1116,7 +1409,7 @@ export default function App() {
                   {/* Left Column: Quick log widgets */}
                   <div className="lg:col-span-7 space-y-6">
                     
-                    {/* Vibe Logger Form / Breathing toggle */}
+                    {/* Vibe Logger Form */}
                     <div className="bg-[#FFF6FB] border border-white rounded-3xl p-6 shadow-sm">
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b border-[#FFB3D9]/25 pb-2 mb-4 flex items-center justify-between gap-2">
                         <span>🧘‍♀️ {t("Log Your Vibe")}</span>
@@ -1175,10 +1468,10 @@ export default function App() {
 
                   </div>
 
-                  {/* Right Column: Reminders & Visits */}
+                  {/* Right Column: Reminders & Forms */}
                   <div className="lg:col-span-5 space-y-6">
                     
-                    {/* Sleep Logs entry form (8. Sleep Tracker Loggers) */}
+                    {/* Sleep Logs */}
                     <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                         <span>🛏️ Log Sleep Hours</span>
@@ -1206,7 +1499,7 @@ export default function App() {
                       </form>
                     </div>
 
-                    {/* Physical Activity Log form (9. Physical Activity Tracker) */}
+                    {/* Physical Activity Log */}
                     <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                         <span>🏃‍♂️ Log Physical Exercise</span>
@@ -1222,7 +1515,7 @@ export default function App() {
                       </form>
                     </div>
 
-                    {/* Smart Reminders list */}
+                    {/* Reminders */}
                     <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm">
                       <h3 className="font-bold text-lg text-[#5E5A66] border-b border-[#FFB68A]/30 pb-2 mb-4 flex items-center gap-2"><span>🔔</span> {t("Smart Reminders")}</h3>
                       <div className="space-y-3">
@@ -1402,7 +1695,7 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* PCOS quiz */}
+                {/* PCOS screening */}
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm space-y-4">
                   <div className="flex justify-between items-center">
                     <h3 className="text-xl font-bold text-[#5E5A66]">PCOS Screening Tool</h3>
@@ -1431,7 +1724,7 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 6: HEALTH PASSPORT Timeline, Vaccines, Prescriptions --- */}
+            {/* --- PANEL 6: HEALTH PASSPORT --- */}
             {view === 'passport' && dashboardData && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
@@ -1439,7 +1732,7 @@ export default function App() {
                   <p className="text-xs text-[#7E7A88] mt-2">Unified record repository of vaccinations, visits, prescriptions, and scanned files.</p>
                 </div>
                 
-                {/* Voice Summary Audio recorder */}
+                {/* Voice audio consult note */}
                 <div className="bg-[#FFF6FB] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-4">
                   <h3 className="font-bold text-base text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                     <span>🎙️ Doctor Audio visit Recorder</span>
@@ -1453,7 +1746,6 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Sub tab navigation */}
                 <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
                   {['timeline', 'vaccines', 'prescriptions', 'audioConsults'].map(tab => (
                     <button key={tab} onClick={() => setActiveTab(tab)} className={`text-xs font-bold py-1 px-4 rounded-full transition-all capitalize ${
@@ -1473,7 +1765,7 @@ export default function App() {
                     </div>
 
                     {doctorReportText && (
-                      <div className="bg-[#FFF9EC]/80 border border-[#FFD59A]/40 rounded-2xl p-5 space-y-4">
+                      <div className="bg-[#FFF9EC]/80 border border-[#FFD59A]/40 rounded-2xl p-5 shadow-sm space-y-4">
                         <div className="flex justify-between items-center border-b pb-2">
                           <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">Clinical Summary Worksheet</span>
                           <button onClick={() => setDoctorReportText('')} className="text-xs text-[#F48FB1] hover:underline font-bold">Close Report</button>
@@ -1545,17 +1837,16 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 6: HEALTH INSIGHTS SCREEN --- */}
+            {/* --- PANEL 7: HEALTH INSIGHTS & RISKS --- */}
             {view === 'insights' && risks && (
               <div className="space-y-8 animate-fade-in">
                 
-                {/* Header card */}
                 <div className="bg-[#FFF9EC] border border-white rounded-3xl p-6 shadow-sm relative overflow-hidden">
                   <h2 className="text-3xl font-bold font-sans text-[#5E5A66]">Health Insights & Risks</h2>
                   <p className="text-sm text-[#7E7A88] mt-2">A centralized analysis screen evaluating weekly summaries, areas to improve, and wellness risk markers.</p>
                 </div>
 
-                {/* 15. Weekly AI Health Report Card */}
+                {/* Weekly AI Health Report */}
                 <div className="bg-white border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-4 relative overflow-hidden">
                   <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#FFB3D9]/10 rounded-full"></div>
                   <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
@@ -1573,7 +1864,7 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* 7. Health Risk Predictions Indicators */}
+                {/* Risk Predictors */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                   <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
                     <span>🧬</span> Digital Health Twin Risk Predictions
@@ -1597,46 +1888,7 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 7: ANALYTICS GRAPHS --- */}
-            {view === 'analytics' && analyticsData && (
-              <div className="space-y-8 animate-fade-in">
-                <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">Analytics Trends</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">Monitor historical logs and wellness score correlations.</p>
-                </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h4 className="font-bold text-sm text-[#5E5A66]">Hydration Volume (Liters)</h4>
-                    <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart data={analyticsData.water_trends}>
-                          <defs><linearGradient id="colorWater" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#AEE7FF" stopOpacity={0.8}/><stop offset="95%" stopColor="#AEE7FF" stopOpacity={0}/></linearGradient></defs>
-                          <XAxis dataKey="date" stroke="#A09BAA" fontSize={10} tickLine={false} />
-                          <YAxis stroke="#A09BAA" fontSize={10} tickLine={false} />
-                          <Tooltip contentStyle={{ background: '#FFF6FB', borderRadius: '12px', border: '1px solid #FFB3D9' }} />
-                          <Area type="monotone" dataKey="liters" stroke="#AEE7FF" strokeWidth={2} fillOpacity={1} fill="url(#colorWater)" />
-                        </AreaChart>
-                      </ResponsiveContainer>
-                    </div>
-                  </div>
-                  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h4 className="font-bold text-sm text-[#5E5A66]">Sleep Quantity (Hours)</h4>
-                    <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={analyticsData.sleep_trends}>
-                          <XAxis dataKey="date" stroke="#A09BAA" fontSize={10} tickLine={false} />
-                          <YAxis stroke="#A09BAA" fontSize={10} tickLine={false} />
-                          <Tooltip contentStyle={{ background: '#FFF6FB', borderRadius: '12px', border: '1px solid #FFB3D9' }} />
-                          <Bar dataKey="hours" fill="#FFB3D9" radius={[8, 8, 0, 0]} />
-                        </BarChart>
-                      </ResponsiveContainer>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* --- PANEL 8: SETTINGS & ACCESSIBILITY CONFIG --- */}
+            {/* --- PANEL 8: SETTINGS --- */}
             {view === 'settings' && profile && (
               <div className="max-w-3xl mx-auto space-y-8 animate-fade-in">
                 <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
@@ -1644,7 +1896,7 @@ export default function App() {
                   <p className="text-xs text-[#7E7A88] mt-1">Configure language, larger typography, and dashboard alerts toggles.</p>
                 </div>
 
-                {/* Accessibility controllers */}
+                {/* Accessibility */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
                   <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
                     <ZoomIn size={20} className="text-[#F48FB1]" /> Accessibility Options
@@ -1652,10 +1904,25 @@ export default function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88]">
                     <div className="flex items-center justify-between p-4 bg-[#FFF6FB] rounded-2xl border">
                       <div>
-                        <span className="font-bold text-sm text-[#5E5A66] block">Hindi Language</span>
-                        <span className="text-[10px] text-[#A09BAA] block mt-0.5">Toggle Hindi translation labels</span>
+                        <span className="font-bold text-sm text-[#5E5A66] block">Select Language</span>
+                        <span className="text-[10px] text-[#A09BAA] block mt-0.5">Toggle regional localization</span>
                       </div>
-                      <input type="checkbox" checked={hindiMode} onChange={(e) => setHindiMode(e.target.checked)} className="w-4 h-4 text-[#FF8A80]" />
+                      <select 
+                        value={lang} 
+                        onChange={(e) => setLang(e.target.value)} 
+                        className="bg-white border rounded-xl px-3 py-1.5 text-xs font-semibold text-[#7E7A88] focus:outline-none shadow-sm cursor-pointer"
+                      >
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="ta">தமிழ் (Tamil)</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                      </select>
                     </div>
                     <div className="flex items-center justify-between p-4 bg-[#FFF6FB] rounded-2xl border">
                       <div>
