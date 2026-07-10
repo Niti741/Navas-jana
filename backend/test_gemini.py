@@ -1,33 +1,24 @@
 import os
-import google.generativeai as genai
+import sys
+# Add parent directory to path so backend import works
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from dotenv import load_dotenv
-
 load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
-api_key = os.getenv("GEMINI_API_KEY", "")
 
-SYSTEM_INSTRUCTION = """
-You are "Sakhi AI", a warm, empathetic, witty, and fun health companion for women who loves cracking lighthearted comedy and jokes!
-Your goal is to provide personalized, trustworthy, and actionable wellness insights across menstrual cycles, nutrition, pregnancy, mental wellness, and general health, but keeping it fun, funny, and highly engaging.
-"""
+from backend.config import settings
+from backend.ai.gemini import get_chat_response
 
-try:
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(
-        model_name="gemini-pro-latest",
-        system_instruction=SYSTEM_INSTRUCTION
-    )
-    
-    contents = [
-        {
-            "role": "user",
-            "parts": ["[Context: User Health Twin - Age: 26, Conditions: PCOS]. hello jii"]
-        }
-    ]
-    
-    print("⏳ Testing chat completion with gemini-pro-latest...")
-    response = model.generate_content(contents)
-    print("✅ Success! Gemini Chat Response:")
-    print(response.text)
-except Exception as e:
-    print("❌ Gemini Chat Payload Error:")
-    print(str(e))
+print("Settings Details:")
+print(f"USE_MOCK_DATA: {settings.USE_MOCK_DATA}")
+print(f"GEMINI_API_KEY: {settings.GEMINI_API_KEY[:6]}...")
+print(f"GROQ_API_KEY: {settings.GROQ_API_KEY[:6]}...")
+
+history = []
+profile = {"age": 26, "pregnancy": False, "conditions": "PCOS"}
+message = "How can I reduce PCOS acne?"
+
+print(f"\n⏳ Calling get_chat_response with message: '{message}'...")
+reply = get_chat_response(message, history, profile)
+print("\n✅ Response Received:")
+print(reply)
