@@ -496,4 +496,57 @@ def check_food_health(food_name: str) -> Dict[str, Any]:
             "benefits": "Supports smooth digestive function, supplies vital micronutrients, and aids in baseline energy levels without causing sugar crashes."
         }
 
+def estimate_nutrition_text(food_text: str) -> Dict[str, Any]:
+    """
+    Estimates macros (calories, protein, iron, fiber) from a text description of a meal.
+    """
+    prompt = f"""
+    Estimate the nutritional values for this meal description: "{food_text}".
+    Provide a realistic, scientific estimation for one serving.
+
+    Return the output STRICTLY as a JSON object with the following keys:
+    - 'food_name': string (the standardized name of the food)
+    - 'calories': integer (kcal)
+    - 'protein': float (grams)
+    - 'iron': float (mg)
+    - 'fiber': float (grams)
+
+    Do not include markdown backticks like ```json in your response. Just return raw json.
+    """
+
+    # 1. Try Gemini first
+    if genai and not settings.USE_MOCK_DATA:
+        try:
+            model = genai.GenerativeModel(
+                model_name=MODELS["text"],
+                system_instruction=SYSTEM_INSTRUCTION
+            )
+            response = model.generate_content(prompt)
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(clean_text)
+        except Exception as e:
+            print(f"Gemini estimate_nutrition_text failed, trying Groq... Error: {str(e)}")
+
+    # 2. Try Groq fallback
+    if settings.GROQ_API_KEY and not settings.USE_MOCK_DATA:
+        try:
+            groq_reply = call_groq_chat(
+                system_instruction=SYSTEM_INSTRUCTION + "\nReturn ONLY a valid JSON object.",
+                prompt=prompt
+            )
+            if groq_reply:
+                clean_text = groq_reply.replace("```json", "").replace("```", "").strip()
+                return json.loads(clean_text)
+        except Exception as e:
+            print(f"Groq estimate_nutrition_text failed: {str(e)}")
+
+    # 3. Mock Fallback
+    return {
+        "food_name": food_text,
+        "calories": 250,
+        "protein": 8.0,
+        "iron": 1.2,
+        "fiber": 2.5
+    }
+
 

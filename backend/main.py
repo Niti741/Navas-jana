@@ -14,7 +14,7 @@ from backend.models.schemas import (
 )
 from backend.ai.gemini import (
     generate_recommendations, get_chat_response,
-    analyze_blood_report, analyze_meal, analyze_skin, check_food_health
+    analyze_blood_report, analyze_meal, analyze_skin, check_food_health, estimate_nutrition_text
 )
 from backend.services.insights import (
     calculate_wellness_score, generate_smart_reminders
@@ -347,6 +347,26 @@ def check_food(payload: Dict[str, str]):
     if not food_name:
         raise HTTPException(status_code=400, detail="Food name is required")
     analysis = check_food_health(food_name)
+    return analysis
+
+@app.post("/api/meal/estimate")
+def estimate_meal(payload: Dict[str, str]):
+    food_text = payload.get("food_text", "").strip()
+    if not food_text:
+        raise HTTPException(status_code=400, detail="Food text is required")
+    analysis = estimate_nutrition_text(food_text)
+    
+    # Save to daily nutrition logs
+    uid = get_current_user_id()
+    DB["nutrition_logs"][uid].append({
+        "date": date.today(),
+        "food_name": analysis.get("food_name", food_text),
+        "protein": analysis.get("protein", 0.0),
+        "iron": analysis.get("iron", 0.0),
+        "calories": analysis.get("calories", 0),
+        "fiber": analysis.get("fiber", 0.0),
+        "time": datetime.now().strftime("%I:%M %p")
+    })
     return analysis
 
 @app.post("/api/skin/analyze")

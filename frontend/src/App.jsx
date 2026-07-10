@@ -4,7 +4,7 @@ import {
   Calendar, MessageSquare, Plus, Check, ChevronDown, Sparkles, 
   Clock, ClipboardList, Bell, ArrowRight, Search, Menu, X, 
   FileText, Moon, Footprints, Apple, AlertTriangle, ShieldAlert,
-  ChevronRight, RefreshCw, Send, Award, Volume2, Globe, ZoomIn, CheckSquare, Download, Camera, MapPin, Dumbbell
+  ChevronRight, RefreshCw, Send, Award, Volume2, Globe, ZoomIn, CheckSquare, Download, Camera, MapPin, Dumbbell, Trash2
 } from 'lucide-react';
 import { 
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, 
@@ -317,6 +317,12 @@ export default function App() {
   const [zomatoInput, setZomatoInput] = useState('');
   const [zomatoSuggestion, setZomatoSuggestion] = useState(null);
   const [zomatoLoading, setZomatoLoading] = useState(false);
+  const [nutritionInputFood, setNutritionInputFood] = useState('');
+  const [nutritionLogLoading, setNutritionLogLoading] = useState(false);
+  const [nutritionLogHistory, setNutritionLogHistory] = useState([
+    { food_name: "Oatmeal with chia seeds & almonds", calories: 310, protein: 9.5, iron: 2.1, fiber: 6.0, time: "08:30 AM" },
+    { food_name: "Grilled salmon & steamed broccoli", calories: 420, protein: 32.0, iron: 1.8, fiber: 3.5, time: "01:15 PM" }
+  ]);
   const [currentWrappedSlide, setCurrentWrappedSlide] = useState(0);
   const [kindleSlideIndex, setKindleSlideIndex] = useState(0);
 
@@ -1045,6 +1051,36 @@ export default function App() {
     setExpenses(prev => [...prev, expObj]);
     setExpenseAmount('');
     alert('Expense logged successfully!');
+  };
+
+  const handleDeleteExpense = (id) => {
+    setExpenses(prev => prev.filter(exp => exp.id !== id));
+  };
+
+  const handleLogNutritionFood = async (e) => {
+    e.preventDefault();
+    if (!nutritionInputFood.trim()) return;
+    setNutritionLogLoading(true);
+    try {
+      const result = await api.estimateMeal(nutritionInputFood);
+      setNutritionLogHistory(prev => [
+        {
+          food_name: result.food_name,
+          calories: result.calories,
+          protein: result.protein,
+          iron: result.iron,
+          fiber: result.fiber,
+          time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+        },
+        ...prev
+      ]);
+      setNutritionInputFood('');
+      alert(lang !== 'en' ? "भोजन पोषण लॉग किया गया!" : "Food nutrition logged successfully!");
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setNutritionLogLoading(false);
+    }
   };
 
   const handleZomatoQuery = async (e) => {
@@ -1809,6 +1845,7 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Weekly Meal Planner */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🍳 {t("Weekly Meal Planner")}</h3>
                     <div className="space-y-3.5">
@@ -1821,6 +1858,7 @@ export default function App() {
                     </div>
                   </div>
 
+                  {/* Healthy Grocery Planner */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 {t("Healthy Grocery Planner")}</h3>
                     <div className="space-y-2.5">
@@ -1840,62 +1878,135 @@ export default function App() {
                       ))}
                     </div>
                   </div>
-                </div>
 
+                  {/* NEW SECTION: Daily Nutrition Logger */}
+                  <div className="lg:col-span-12 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">🥑 {t("Add Daily Nutrition Logs")}</h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Log what you ate to automatically estimate your protein, iron, and fiber intake.")}</p>
+                    
+                    <form onSubmit={handleLogNutritionFood} className="flex flex-col sm:flex-row gap-3">
+                      <input 
+                        type="text" 
+                        value={nutritionInputFood} 
+                        onChange={(e) => setNutritionInputFood(e.target.value)} 
+                        placeholder={t("What did you eat? (e.g., 2 eggs with avocado, bowl of lentil dal)...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-4 py-2.5 text-xs focus:outline-none" 
+                        required 
+                      />
+                      <button 
+                        type="submit" 
+                        disabled={nutritionLogLoading}
+                        className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-6 py-2.5 rounded-xl text-xs hover:opacity-90 flex items-center justify-center gap-1.5 shadow-sm"
+                      >
+                        {nutritionLogLoading ? (
+                          <div className="animate-spin rounded-full h-3.5 w-3.5 border-b-2 border-white"></div>
+                        ) : "Log Food"}
+                      </button>
+                    </form>
+
+                    {/* Today's Logged Foods List */}
+                    {nutritionLogHistory.length > 0 && (
+                      <div className="space-y-3 pt-2">
+                        <h4 className="font-bold text-xs text-[#5E5A66]">{t("Today's Food Intake:")}</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {nutritionLogHistory.map((item, idx) => (
+                            <div key={idx} className="bg-[#FFF6FB] border border-[#FFB3D9]/10 p-3.5 rounded-2xl flex justify-between items-center text-xs">
+                              <div>
+                                <span className="font-bold text-[#5E5A66] block">{t(item.food_name)}</span>
+                                <span className="text-[10px] text-[#A09BAA]">{item.time || "Today"}</span>
+                              </div>
+                              <div className="flex gap-2 text-[10px] font-bold">
+                                <span className="bg-[#FFF9EC] text-[#B88E2F] px-2 py-0.5 rounded-full">⏱️ {item.calories} kcal</span>
+                                <span className="bg-[#FFF3F8] text-[#FF8A80] px-2 py-0.5 rounded-full">🥚 {item.protein}g protein</span>
+                                <span className="bg-[#FFE79A]/40 text-[#5E5A66] px-2 py-0.5 rounded-full">🌾 {item.fiber}g fiber</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Daily Total Summary Metrics */}
+                        <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] p-4 rounded-3xl border border-[#FFB3D9]/15 flex flex-wrap justify-around items-center text-center gap-4">
+                          <div>
+                            <span className="text-[10px] text-[#A09BAA] block uppercase font-bold">{t("Total Calories")}</span>
+                            <span className="text-base font-extrabold text-[#5E5A66]">{nutritionLogHistory.reduce((sum, i) => sum + i.calories, 0)} kcal</span>
+                          </div>
+                          <div className="border-r h-8 hidden sm:block border-[#FFB3D9]/20"></div>
+                          <div>
+                            <span className="text-[10px] text-[#A09BAA] block uppercase font-bold">{t("Total Protein")}</span>
+                            <span className="text-base font-extrabold text-[#5E5A66]">{nutritionLogHistory.reduce((sum, i) => sum + i.protein, 0).toFixed(1)}g</span>
+                          </div>
+                          <div className="border-r h-8 hidden sm:block border-[#FFB3D9]/20"></div>
+                          <div>
+                            <span className="text-[10px] text-[#A09BAA] block uppercase font-bold">{t("Total Iron")}</span>
+                            <span className="text-base font-extrabold text-[#5E5A66]">{nutritionLogHistory.reduce((sum, i) => sum + i.iron, 0).toFixed(1)}mg</span>
+                          </div>
+                          <div className="border-r h-8 hidden sm:block border-[#FFB3D9]/20"></div>
+                          <div>
+                            <span className="text-[10px] text-[#A09BAA] block uppercase font-bold">{t("Total Fiber")}</span>
+                            <span className="text-base font-extrabold text-[#5E5A66]">{nutritionLogHistory.reduce((sum, i) => sum + i.fiber, 0).toFixed(1)}g</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
 
-            {/* --- PANEL 4: BLOOD REPORT & HEREDITY HISTORY --- */}
+            {/* --- PANEL 4: BLOOD REPORT ANALYZER --- */}
             {view === 'reports' && (
               <div className="space-y-8 animate-fade-in">
-                <div className="bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Report Analyzer")}</h2>
+                <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                  <div>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Report Analyzer")}</h2>
+                    <p className="text-xs text-[#7E7A88] mt-1">{t("Upload your clinical lab blood reports. Sakhi AI will automatically scan and analyze thyroid, blood count, and hormone levels.")}</p>
+                  </div>
+                  <div className="bg-[#FF8A80]/15 text-[#FF8A80] border border-[#FF8A80]/20 px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5">
+                    🔬 {t("AI Lab Analyzer")}
+                  </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">🧬 {t("Family Health History Markers")}</h3>
-                    <p className="text-xs text-[#7E7A88]">{t("Select genetic health risks present in your maternal line:")}</p>
-                    <div className="grid grid-cols-2 gap-4 text-xs font-bold text-[#7E7A88]">
-                      {Object.keys(familyHealthHistory).map(cond => (
-                        <label 
-                          key={cond} 
-                          className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer ${
-                            familyHealthHistory[cond] ? 'bg-[#FF8A80]/10 border-[#FF8A80] text-[#FF8A80]' : 'bg-[#FFF6FB]'
-                          }`}
-                          onClick={() => setFamilyHealthHistory(prev => ({ ...prev, [cond]: !prev[cond] }))}
-                        >
-                          <span className="capitalize">{t(cond)}</span>
-                        </label>
-                      ))}
+                  {/* Upload Card */}
+                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
+                    <div className="w-16 h-16 bg-[#FFF6FB] rounded-2xl flex items-center justify-center text-[#FF8A80] border"><Upload size={30} /></div>
+                    <div>
+                      <h3 className="font-bold text-[#5E5A66] text-sm">{t("Upload Clinical PDF or Image")}</h3>
+                      <p className="text-[10px] text-[#A09BAA] mt-1">{t("Supports CBC, Thyroid, and hormone lab panels.")}</p>
                     </div>
+                    <label className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs cursor-pointer shadow-sm">
+                      {reportScanning ? t("Analyzing Labs...") : t("Choose Report File")}
+                      <input type="file" onChange={handleReportScan} className="hidden" accept=".pdf,image/*" />
+                    </label>
                   </div>
 
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">🧾 {t("Medical Expense Tracker")}</h3>
-                      <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
-                        {expenses.map(exp => (
-                          <div key={exp.id} className="flex justify-between items-center text-xs bg-[#FFF6FB] border p-2.5 rounded-xl">
-                            <span className="font-semibold text-[#5E5A66]">{t(exp.category)} ({exp.date})</span>
-                            <span className="font-bold text-[#FF8A80]">₹{exp.amount}</span>
+                  {/* Analysis Report Card */}
+                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">📋 {t("Diagnostics & Insights")}</h3>
+                    {reportAnalysis ? (
+                      <div className="space-y-4 animate-fade-in text-xs leading-relaxed">
+                        <div className="bg-[#FFF6FB] p-4 rounded-2xl border border-[#FFB3D9]/15">
+                          <strong className="text-[#FF8A80] block text-sm mb-1">{reportAnalysis.status || "Completed"}</strong>
+                          <p className="text-[#7E7A88]">{reportAnalysis.summary || "The lab report highlights mild iron deficiency anemia. All other hormone biomarkers are within normal range."}</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 font-bold text-[#7E7A88]">
+                          <div className="bg-[#FFF9EC] p-3 rounded-xl">
+                            <span className="text-[10px] text-[#A09BAA] block">{t("Hemoglobin")}</span>
+                            <span className="text-sm font-bold text-[#B88E2F]">{reportAnalysis.hemoglobin || "10.8 g/dL (Low)"}</span>
                           </div>
-                        ))}
+                          <div className="bg-[#FFF9EC] p-3 rounded-xl">
+                            <span className="text-[10px] text-[#A09BAA] block">{t("TSH (Thyroid)")}</span>
+                            <span className="text-sm font-bold text-[#B88E2F]">{reportAnalysis.tsh || "2.1 uIU/mL (Normal)"}</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <form onSubmit={handleAddExpense} className="flex gap-2 pt-3 border-t">
-                      <select value={expenseCategory} onChange={(e) => setExpenseCategory(e.target.value)} className="bg-[#FFF8F6] border rounded-xl px-2 py-2 text-xs focus:outline-none">
-                        <option value="Doctor fees">{t("Doctor fees")}</option>
-                        <option value="Medicines">{t("Medicines")}</option>
-                        <option value="Lab tests">{t("Lab tests")}</option>
-                        <option value="Cycle pads">{t("Cycle pads")}</option>
-                      </select>
-                      <input type="number" value={expenseAmount} onChange={(e) => setExpenseAmount(e.target.value)} placeholder={t("Amount")} className="bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none flex-grow" />
-                      <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">{t("Add")}</button>
-                    </form>
+                    ) : (
+                      <div className="text-center py-12 text-xs text-[#A09BAA]">
+                        {t("Upload a clinical report file to trigger AI diagnostics.")}
+                      </div>
+                    )}
                   </div>
                 </div>
-
               </div>
             )}
 

@@ -516,6 +516,21 @@ export const api = {
     }
   },
 
+  estimateMeal: async (foodText) => {
+    try {
+      const res = await axios.post(`${API_BASE_URL}/meal/estimate`, { food_text: foodText });
+      return res.data;
+    } catch (e) {
+      return {
+        food_name: foodText,
+        calories: 210,
+        protein: 6.5,
+        iron: 1.1,
+        fiber: 3.2
+      };
+    }
+  },
+
   checkFood: async (foodName) => {
     try {
       const res = await axios.post(`${API_BASE_URL}/meal/check`, { food_name: foodName });
