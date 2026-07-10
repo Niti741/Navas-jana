@@ -391,6 +391,25 @@ export default function App() {
     return TRANSLATIONS[lang]?.[key] || key;
   };
 
+  const loadAllUserData = async (profileData) => {
+    try {
+      setProfile(profileData);
+      setOnboardForm(profileData);
+      setGoals(await api.getGoals());
+      setBadges(await api.getBadges());
+      setRisks(await api.getRiskIndicators());
+      setPregnancyDetails(await api.getPregnancyDetails());
+      setMenopauseDetails(await api.getMenopauseDetails());
+      setAudioNotes(await api.getAudioNotes());
+      setPadReminderPacked(await api.getPadKitStatus());
+      setPregnancyTests(await api.getPregnancyTests());
+      setErrandsList(await api.getErrands());
+      setErrandStreak(4);
+    } catch (err) {
+      console.error("Error loading user data:", err);
+    }
+  };
+
   // Onboarding Auto-Login Check
   useEffect(() => {
     const savedToken = localStorage.getItem('sakhi_token');
@@ -404,18 +423,7 @@ export default function App() {
           await fetchDashboardData();
           await fetchAnalyticsData();
           const profileData = await api.getProfile();
-          setProfile(profileData);
-          setOnboardForm(profileData);
-          setGoals(await api.getGoals());
-          setBadges(await api.getBadges());
-          setRisks(await api.getRiskIndicators());
-          setPregnancyDetails(await api.getPregnancyDetails());
-          setMenopauseDetails(await api.getMenopauseDetails());
-          setAudioNotes(await api.getAudioNotes());
-          setPadReminderPacked(await api.getPadKitStatus());
-          setPregnancyTests(await api.getPregnancyTests());
-          setErrandsList(await api.getErrands());
-          setErrandStreak(4);
+          await loadAllUserData(profileData);
         } catch (err) {
           console.error(err);
           handleLogout();
@@ -795,8 +803,9 @@ export default function App() {
     setLoading(true);
     try {
       const updated = await api.updateProfile(onboardForm);
-      setProfile(updated);
+      await loadAllUserData(updated);
       await fetchDashboardData();
+      await fetchAnalyticsData();
       setView('dashboard');
     } catch (err) {
       console.error(err);
@@ -832,10 +841,11 @@ export default function App() {
         localStorage.setItem('sakhi_user', JSON.stringify(data.user));
         setUser(data.user);
         setView('dashboard');
+        const profileData = await api.getProfile();
+        await loadAllUserData(profileData);
+        await fetchDashboardData();
+        await fetchAnalyticsData();
       }
-      setProfile(await api.getProfile());
-      fetchDashboardData();
-      fetchAnalyticsData();
     } catch (err) {
       setAuthError(err.response?.data?.detail || 'Authentication failed.');
     }
