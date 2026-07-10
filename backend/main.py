@@ -14,7 +14,8 @@ from backend.models.schemas import (
 )
 from backend.ai.gemini import (
     generate_recommendations, get_chat_response,
-    analyze_blood_report, analyze_meal, analyze_skin, check_food_health, estimate_nutrition_text
+    analyze_blood_report, analyze_meal, analyze_skin, check_food_health, estimate_nutrition_text,
+    get_deficiency_recommendations, generate_weekly_meal_plan
 )
 from backend.services.insights import (
     calculate_wellness_score, generate_smart_reminders
@@ -367,6 +368,20 @@ def estimate_meal(payload: Dict[str, str]):
         "fiber": analysis.get("fiber", 0.0),
         "time": datetime.now().strftime("%I:%M %p")
     })
+    return analysis
+
+@app.post("/api/nutrition/deficiency")
+def deficiency_advisor(payload: Dict[str, str]):
+    deficiency_name = payload.get("deficiency_name", "").strip()
+    if not deficiency_name:
+        raise HTTPException(status_code=400, detail="Deficiency name is required")
+    analysis = get_deficiency_recommendations(deficiency_name)
+    return analysis
+
+@app.post("/api/meal/generate")
+def custom_meal_generator(payload: Dict[str, str]):
+    opinion = payload.get("opinion", "").strip()
+    analysis = generate_weekly_meal_plan(opinion)
     return analysis
 
 @app.post("/api/skin/analyze")

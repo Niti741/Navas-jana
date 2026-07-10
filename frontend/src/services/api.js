@@ -516,6 +516,34 @@ export const api = {
     }
   },
 
+  getDeficiencyRecommendations: async (deficiencyName) => {
+    try {
+      const res = await axios.post(`${API_BASE_URL}/nutrition/deficiency`, { deficiency_name: deficiencyName });
+      return res.data;
+    } catch (e) {
+      return {
+        deficiency: deficiencyName,
+        recommended_meals: ["Spinach & Lentil Curry with quinoa", "Roasted Tofu & Broccoli bowl", "Chia Seed Pudding with mixed berries"],
+        recommended_groceries: ["Spinach", "Lentils", "Chia Seeds", "Tofu"],
+        why_essential: "This nutrient supports red blood cell production, cellular repair, and hormone stabilization."
+      };
+    }
+  },
+
+  generateMealPlan: async (opinion) => {
+    try {
+      const res = await axios.post(`${API_BASE_URL}/meal/generate`, { opinion });
+      return res.data;
+    } catch (e) {
+      return {
+        breakfast: "Avocado toast with boiled egg",
+        lunch: "Quinoa salad with chickpea hummus",
+        snack: "Walnuts & Spearmint tea",
+        dinner: "Grilled salmon/Tofu with broccoli"
+      };
+    }
+  },
+
   estimateMeal: async (foodText) => {
     try {
       const res = await axios.post(`${API_BASE_URL}/meal/estimate`, { food_text: foodText });

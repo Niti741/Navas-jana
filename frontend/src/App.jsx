@@ -199,6 +199,24 @@ export default function App() {
   const [errandStreak, setErrandStreak] = useState(0);
   const [newErrandInput, setNewErrandInput] = useState('');
   const [showTeenGuide, setShowTeenGuide] = useState(false);
+  const [customHabits, setCustomHabits] = useState([]);
+  const [newHabitInput, setNewHabitInput] = useState('');
+  const [customChallengeInput, setCustomChallengeInput] = useState('');
+  const [familyShareLink, setFamilyShareLink] = useState('');
+  const [medicalRecords, setMedicalRecords] = useState([
+    { id: 1, type: "Vaccination", date: "2026-06-10", title: "HPV Dose 2 vaccine", details: "Administered at Care Clinic. Next dose due in December." },
+    { id: 2, type: "Prescription", date: "2026-07-02", title: "Metformin 500mg daily", details: "Prescribed by Dr. Sen for insulin sensitivity management." },
+    { id: 3, type: "Medical Visit", date: "2026-06-15", title: "Annual Gynecologist consultation", details: "Pelvic ultrasound normal. Cycle regularity improving." }
+  ]);
+  const [newRecordType, setNewRecordType] = useState('Vaccination');
+  const [newRecordDate, setNewRecordDate] = useState(new Date().toISOString().split('T')[0]);
+  const [newRecordTitle, setNewRecordTitle] = useState('');
+  const [newRecordDetails, setNewRecordDetails] = useState('');
+  const [deficiencyInput, setDeficiencyInput] = useState('');
+  const [deficiencyResult, setDeficiencyResult] = useState(null);
+  const [deficiencyLoading, setDeficiencyLoading] = useState(false);
+  const [mealPlannerPrompt, setMealPlannerPrompt] = useState('');
+  const [newGroceryItem, setNewGroceryItem] = useState('');
 
   // Input Logging Forms
   const [logMoodStr, setLogMoodStr] = useState('Calm');
@@ -1053,6 +1071,100 @@ export default function App() {
     alert('Expense logged successfully!');
   };
 
+  const handleAddCustomChallenge = (e) => {
+    e.preventDefault();
+    if (!customChallengeInput.trim()) return;
+    const newChal = {
+      id: Date.now(),
+      name: customChallengeInput,
+      points: 40,
+      completed: false
+    };
+    setWeeklyChallenges(prev => [...prev, newChal]);
+    setCustomChallengeInput('');
+  };
+
+  const handleAddMedicalRecord = (e) => {
+    e.preventDefault();
+    if (!newRecordTitle.trim()) return;
+    const recordObj = {
+      id: Date.now(),
+      type: newRecordType,
+      date: newRecordDate,
+      title: newRecordTitle,
+      details: newRecordDetails
+    };
+    setMedicalRecords(prev => [recordObj, ...prev]);
+    setNewRecordTitle('');
+    setNewRecordDetails('');
+    alert(lang !== 'en' ? "रिकॉर्ड सफलतापूर्वक जोड़ा गया!" : "Medical record logged successfully!");
+  };
+
+  const handleDeficiencySubmit = async (e) => {
+    e.preventDefault();
+    if (!deficiencyInput.trim()) return;
+    setDeficiencyLoading(true);
+    setDeficiencyResult(null);
+    try {
+      const res = await api.getDeficiencyRecommendations(deficiencyInput);
+      setDeficiencyResult(res);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setDeficiencyLoading(false);
+    }
+  };
+
+  const handleGenerateCustomMeal = async (e) => {
+    if (e) e.preventDefault();
+    setZomatoLoading(true);
+    try {
+      const res = await api.generateMealPlan(mealPlannerPrompt);
+      setWeeklyMealPlan({
+        breakfast: res.breakfast,
+        lunch: res.lunch,
+        snack: res.snack,
+        dinner: res.dinner
+      });
+      alert(lang !== 'en' ? "नया मील प्लान तैयार है!" : "New weekly meal plan generated successfully!");
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setZomatoLoading(false);
+    }
+  };
+
+  const handleAddNewGrocery = (e) => {
+    e.preventDefault();
+    if (!newGroceryItem.trim()) return;
+    const newItem = {
+      id: Date.now(),
+      name: newGroceryItem,
+      bought: false
+    };
+    setGroceries(prev => [...prev, newItem]);
+    setNewGroceryItem('');
+  };
+
+  const handleAddCustomHabit = (e) => {
+    e.preventDefault();
+    if (!newHabitInput.trim()) return;
+    const newHabit = {
+      key: `custom_${Date.now()}`,
+      label: newHabitInput,
+      completed: false
+    };
+    setCustomHabits(prev => [...prev, newHabit]);
+    setNewHabitInput('');
+  };
+
+  const handleGenerateShareLink = () => {
+    const link = `https://saakhi-s.netlify.app/share/health-passport-${user?.id || 'demo'}`;
+    setFamilyShareLink(link);
+    navigator.clipboard.writeText(link);
+    alert(lang !== 'en' ? "एक्सेस लिंक क्लिपबोर्ड पर कॉपी किया गया!" : "Secure family access link copied to clipboard!");
+  };
+
   const handleDeleteExpense = (id) => {
     setExpenses(prev => prev.filter(exp => exp.id !== id));
   };
@@ -1846,37 +1958,154 @@ export default function App() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   {/* Weekly Meal Planner */}
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🍳 {t("Weekly Meal Planner")}</h3>
-                    <div className="space-y-3.5">
-                      {Object.keys(weeklyMealPlan).map(mealKey => (
-                        <div key={mealKey} className="bg-[#FFF6FB] border p-4 rounded-2xl space-y-1 text-xs">
-                          <span className="font-bold text-[#FF8A80] uppercase tracking-wider block text-[9px]">{t(mealKey)}</span>
-                          <span className="font-semibold text-[#5E5A66] text-sm block">{t(weeklyMealPlan[mealKey])}</span>
-                        </div>
-                      ))}
+                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
+                        <span>🍳 {t("Weekly Meal Planner")}</span>
+                      </h3>
+                      <div className="space-y-3 pt-2">
+                        {Object.keys(weeklyMealPlan).map(mealKey => (
+                          <div key={mealKey} className="bg-[#FFF6FB] border p-3.5 rounded-2xl space-y-1 text-xs">
+                            <span className="font-bold text-[#FF8A80] uppercase tracking-wider block text-[9px]">{t(mealKey)}</span>
+                            <span className="font-semibold text-[#5E5A66] text-sm block">{t(weeklyMealPlan[mealKey])}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
+
+                    <form onSubmit={handleGenerateCustomMeal} className="border-t pt-3 space-y-2 mt-2">
+                      <label className="block text-[10px] uppercase tracking-wider font-extrabold text-[#7E7A88]">{t("Dietary Opinion / Preference:")}</label>
+                      <div className="flex gap-2">
+                        <input 
+                          type="text" 
+                          value={mealPlannerPrompt} 
+                          onChange={(e) => setMealPlannerPrompt(e.target.value)} 
+                          placeholder={t("e.g. Vegetarian high protein, low carb...")} 
+                          className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                        />
+                        <button 
+                          type="submit" 
+                          className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center justify-center gap-1 hover:opacity-95"
+                        >
+                          🔄 {t("Regenerate")}
+                        </button>
+                      </div>
+                    </form>
                   </div>
 
                   {/* Healthy Grocery Planner */}
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 {t("Healthy Grocery Planner")}</h3>
-                    <div className="space-y-2.5">
-                      {groceries.map(item => (
-                        <div 
-                          key={item.id} 
-                          onClick={() => handleToggleGrocery(item.id)}
-                          className="flex items-center justify-between bg-[#FFF9EC]/50 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${item.bought ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
-                              {item.bought && <Check size={10} />}
+                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 {t("Healthy Grocery Planner")}</h3>
+                      <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1 mt-2.5">
+                        {groceries.map(item => (
+                          <div 
+                            key={item.id} 
+                            onClick={() => handleToggleGrocery(item.id)}
+                            className="flex items-center justify-between bg-[#FFF9EC]/50 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9] transition-all"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`w-4 h-4 rounded border flex items-center justify-center ${item.bought ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
+                                  {item.bought && <Check size={10} />}
+                              </div>
+                              <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{t(item.name)}</span>
                             </div>
-                            <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{t(item.name)}</span>
+                            <button 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setGroceries(prev => prev.filter(g => g.id !== item.id));
+                              }}
+                              className="text-[#A09BAA] hover:text-[#FF8A80] p-1 rounded-lg hover:bg-[#FF8A80]/10"
+                            >
+                              <Trash2 size={12} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <form onSubmit={handleAddNewGrocery} className="border-t pt-3 flex gap-2 mt-3">
+                      <input 
+                        type="text" 
+                        value={newGroceryItem} 
+                        onChange={(e) => setNewGroceryItem(e.target.value)} 
+                        placeholder={t("Add grocery item...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                        required
+                      />
+                      <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs hover:opacity-90">+</button>
+                    </form>
+                  </div>
+
+                  {/* NEW SECTION: Deficiency & AI Recommendations */}
+                  <div className="lg:col-span-12 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">🥦 {t("AI Nutrition Deficiency Advisor")}</h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Input your nutrition deficiencies (e.g. Iron, Vitamin D, Zinc) to get custom cycle-friendly food sources.")}</p>
+                    
+                    <form onSubmit={handleDeficiencySubmit} className="flex flex-col sm:flex-row gap-3">
+                      <input 
+                        type="text" 
+                        value={deficiencyInput} 
+                        onChange={(e) => setDeficiencyInput(e.target.value)} 
+                        placeholder={t("What deficiency do you want to target? (e.g., Vitamin B12, Iron, Calcium)...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-4 py-2.5 text-xs focus:outline-none" 
+                        required 
+                      />
+                      <button 
+                        type="submit" 
+                        disabled={deficiencyLoading}
+                        className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-6 py-2.5 rounded-xl text-xs hover:opacity-90 flex items-center justify-center gap-1.5 shadow-sm"
+                      >
+                        {deficiencyLoading ? (
+                          <div className="animate-spin rounded-full h-3.5 w-3.5 border-b-2 border-white"></div>
+                        ) : "Get Recommendations"}
+                      </button>
+                    </form>
+
+                    {deficiencyResult && (
+                      <div className="bg-[#FFF9EC] border border-[#FFD59A]/30 p-5 rounded-3xl text-xs space-y-4 animate-fade-in">
+                        <div>
+                          <strong className="text-[#B88E2F] block text-sm mb-1">💡 {t("Why it's essential for Cycle/Hormone Health:")}</strong>
+                          <p className="text-[#7E7A88] leading-relaxed">{t(deficiencyResult.why_essential)}</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <strong className="text-[#5E5A66] block text-xs">🥘 {t("Recommended Wholesome Meals:")}</strong>
+                            <div className="space-y-1.5">
+                              {deficiencyResult.recommended_meals.map((meal, idx) => (
+                                <div key={idx} className="bg-white border rounded-xl p-2.5 font-semibold text-[#5E5A66]">{t(meal)}</div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <div className="flex justify-between items-center">
+                              <strong className="text-[#5E5A66] block text-xs">🛒 {t("Target Groceries to Buy:")}</strong>
+                              <button 
+                                onClick={() => {
+                                  deficiencyResult.recommended_groceries.forEach(item => {
+                                    setGroceries(prev => {
+                                      if (prev.some(g => g.name.toLowerCase() === item.toLowerCase())) return prev;
+                                      return [...prev, { id: Date.now() + Math.random(), name: item, bought: false }];
+                                    });
+                                  });
+                                  alert(lang !== 'en' ? "सामग्री ग्रोसरी लिस्ट में जोड़ी गई!" : "Ingredients added to grocery list successfully!");
+                                }}
+                                className="text-[10px] text-[#FF8A80] font-bold hover:underline"
+                              >
+                                {t("Add All to List")}
+                              </button>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {deficiencyResult.recommended_groceries.map((item, idx) => (
+                                <span key={idx} className="bg-white border border-[#FFD59A]/40 text-[#5E5A66] px-3.5 py-1.5 rounded-full font-bold">{t(item)}</span>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* NEW SECTION: Daily Nutrition Logger */}
@@ -1958,8 +2187,8 @@ export default function App() {
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                   <div>
-                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Report Analyzer")}</h2>
-                    <p className="text-xs text-[#7E7A88] mt-1">{t("Upload your clinical lab blood reports. Sakhi AI will automatically scan and analyze thyroid, blood count, and hormone levels.")}</p>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Report Analyzer & Genetics")}</h2>
+                    <p className="text-xs text-[#7E7A88] mt-1">{t("Upload clinical lab reports and select hereditary genetic markers to receive unified AI diagnostics.")}</p>
                   </div>
                   <div className="bg-[#FF8A80]/15 text-[#FF8A80] border border-[#FF8A80]/20 px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5">
                     🔬 {t("AI Lab Analyzer")}
@@ -1974,7 +2203,7 @@ export default function App() {
                       <h3 className="font-bold text-[#5E5A66] text-sm">{t("Upload Clinical PDF or Image")}</h3>
                       <p className="text-[10px] text-[#A09BAA] mt-1">{t("Supports CBC, Thyroid, and hormone lab panels.")}</p>
                     </div>
-                    <label className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs cursor-pointer shadow-sm">
+                    <label className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs cursor-pointer shadow-sm animate-pulse">
                       {reportScanning ? t("Analyzing Labs...") : t("Choose Report File")}
                       <input type="file" onChange={handleReportScan} className="hidden" accept=".pdf,image/*" />
                     </label>
@@ -2007,6 +2236,46 @@ export default function App() {
                     )}
                   </div>
                 </div>
+
+                {/* Family Health History Markers */}
+                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">🧬 {t("Family Health History Markers")}</h3>
+                  <p className="text-xs text-[#7E7A88]">{t("Select genetic health risks present in your maternal line to map heredity factors:")}</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-bold text-[#7E7A88]">
+                    {Object.keys(familyHealthHistory).map(cond => (
+                      <label 
+                        key={cond} 
+                        className={`flex items-center justify-center text-center gap-3 p-3.5 rounded-2xl border cursor-pointer transition-all ${
+                          familyHealthHistory[cond] ? 'bg-[#FF8A80]/10 border-[#FF8A80] text-[#FF8A80] shadow-sm' : 'bg-[#FFF6FB] hover:border-[#FFB3D9]'
+                        }`}
+                        onClick={() => setFamilyHealthHistory(prev => ({ ...prev, [cond]: !prev[cond] }))}
+                      >
+                        <span className="capitalize">{t(cond)}</span>
+                      </label>
+                    ))}
+                  </div>
+
+                  {/* Dynamic AI Clinical Guidance alert box */}
+                  {(familyHealthHistory.diabetes || familyHealthHistory.hypertension || familyHealthHistory.thyroid || familyHealthHistory.pcos) && (
+                    <div className="bg-[#FFF9EC]/80 border border-[#FFD59A]/30 p-5 rounded-2xl text-xs space-y-2 mt-4 animate-fade-in">
+                      <strong className="text-[#B88E2F] flex items-center gap-1">⚠️ {t("Maternal Genetic Guidance & Preventative Action:")}</strong>
+                      <ul className="list-disc pl-4 space-y-2 text-[#7E7A88] leading-relaxed">
+                        {familyHealthHistory.pcos && (
+                          <li><strong>{t("PCOS link:")}</strong> {t("Maternal PCOS history elevates predisposition to insulin resistance and follicular follicle variability. Prioritize daily physical movement (especially post-meal walks) and high-fiber nutrition.")}</li>
+                        )}
+                        {familyHealthHistory.diabetes && (
+                          <li><strong>{t("Diabetes link:")}</strong> {t("Increases maternal genetic risk for glucose crashes and metabolic slowdown. We recommend monitoring blood sugar levels annually and prioritizing slow-release carbohydrates.")}</li>
+                        )}
+                        {familyHealthHistory.thyroid && (
+                          <li><strong>{t("Thyroid link:")}</strong> {t("Increases susceptibility to autoimmune hypothyroidism. Keep track of T3/T4/TSH levels and ensure sufficient dietary selenium/iodine (from seaweed, fish, or iodized salt).")}</li>
+                        )}
+                        {familyHealthHistory.hypertension && (
+                          <li><strong>{t("Hypertension link:")}</strong> {t("Predisposition to vascular stiffness. Keep dietary sodium below 2,000mg/day, prioritize magnesium/potassium-rich foods, and log blood pressure during luteal phases.")}</li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
 
@@ -2023,6 +2292,34 @@ export default function App() {
                     <span className="bg-[#FF8A80]/20 text-[#5E5A66] px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center">{t("Predicted Period: 4 Days left")}</span>
                   </div>
                 </div>
+
+                {showTeenGuide && (
+                  <div className="bg-gradient-to-r from-[#FFF6FB] to-[#C9B6FF]/10 border border-[#C9B6FF]/20 rounded-3xl p-6 shadow-sm space-y-4 animate-fade-in relative">
+                    <button 
+                      onClick={() => setShowTeenGuide(false)}
+                      className="absolute top-4 right-4 text-[#A09BAA] hover:text-[#5E5A66]"
+                    >
+                      <X size={16} />
+                    </button>
+                    <h3 className="font-bold text-lg text-[#5E5A66] flex items-center gap-2">🌸 {t("First Period Guide (Menarche)")}</h3>
+                    <p className="text-xs text-[#7E7A88] leading-relaxed">{t("Getting your first period can bring up many questions. Remember: it is a completely natural milestone showing that your body is growing beautifully. Here is a quick guide to support you:")}</p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs mt-2">
+                      <div className="bg-white p-4 rounded-2xl border space-y-1.5 shadow-sm">
+                        <strong className="text-[#C9B6FF] text-sm block">🩸 {t("1. What to Expect:")}</strong>
+                        <p className="text-[#7E7A88] leading-relaxed">{t("The flow usually starts as light spotting (brown or pinkish) and might last 3-7 days. It happens once a month. Your early cycles can be irregular, and that is completely normal.")}</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-2xl border space-y-1.5 shadow-sm">
+                        <strong className="text-[#C9B6FF] text-sm block">🛡️ {t("2. Period Products:")}</strong>
+                        <p className="text-[#7E7A88] leading-relaxed">{t("Use disposable sanitary pads (change them every 4-6 hours), reusable cloth pads, or period underwear. Wash your hands before and after changing products.")}</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-2xl border space-y-1.5 shadow-sm">
+                        <strong className="text-[#C9B6FF] text-sm block">💆‍♀️ {t("3. Self-Care Tips:")}</strong>
+                        <p className="text-[#7E7A88] leading-relaxed">{t("If you feel cramps, apply a warm water bottle or take a warm shower. Stay hydrated, do light walking, and note the date on the Cycle Calendar above.")}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                   <div className="md:col-span-6 bg-[#FFF9EC] border border-[#FFD59A]/30 rounded-3xl p-5 shadow-sm space-y-3">
@@ -2082,6 +2379,20 @@ export default function App() {
                       <label className="block mb-1.5">{t("Concentration")} ({brainFogLog.concentration}/10)</label>
                       <input type="range" min="1" max="10" value={brainFogLog.concentration} onChange={(e) => setBrainFogLog({...brainFogLog, concentration: parseInt(e.target.value)})} className="w-full accent-[#FF8A80]" />
                     </div>
+                  </div>
+
+                  {/* Dynamic Focus Improvement Guide */}
+                  <div className="bg-[#FFF9EC]/75 border border-[#FFD59A]/30 p-4.5 rounded-2xl text-xs space-y-2 mt-4 animate-fade-in">
+                    <strong className="text-[#B88E2F] flex items-center gap-1">💡 {t("Melatonin & Concentration Improvement Guide:")}</strong>
+                    <ul className="list-disc pl-4 space-y-1.5 text-[#7E7A88] leading-relaxed font-semibold">
+                      {(brainFogLog.focus <= 5 || brainFogLog.memory <= 5) ? (
+                        <li>🚨 {t("Your concentration or recall is currently low. Estrogen drop can affect dopamine synthesis. Try a 15-minute brisk walk outside to stimulate blood flow, or drink a cup of organic ginger/green tea.")}</li>
+                      ) : (
+                        <li>✨ {t("Your brain fog level is optimal today! Maintain hydration (at least 2.5L) and do light stretching to keep energy levels balanced.")}</li>
+                      )}
+                      <li>🥑 {t("Dietary Booster: Consume foods rich in Omega-3 fatty acids (walnuts, chia seeds, flaxseeds) to support myelin sheaths and combat cognitive fatigue.")}</li>
+                      <li>📵 {t("Habit tip: Turn off all digital screens at least 45 minutes before sleep to ensure deep delta-wave recovery (which clears neural waste).")}</li>
+                    </ul>
                   </div>
                 </div>
 
@@ -2149,40 +2460,111 @@ export default function App() {
             {/* --- PANEL 6: HEALTH PASSPORT --- */}
             {view === 'passport' && (
               <div className="space-y-8 animate-fade-in">
-                <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Passport")}</h2>
-                  <p className="text-xs text-[#7E7A88] mt-2">{t("Unified record repository of vaccinations, visits, prescriptions, and scanned files.")}</p>
+                <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                  <div>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Passport")}</h2>
+                    <p className="text-xs text-[#7E7A88] mt-1">{t("Unified record repository of vaccinations, medical visits, prescriptions, and scanned files.")}</p>
+                  </div>
+                  <div className="bg-[#FF8A80]/15 text-[#FF8A80] border border-[#FF8A80]/20 px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5">
+                    🪪 {t("Maternal Health Repository")}
+                  </div>
                 </div>
                 
-                {/* Doctor Audio visit Recorder */}
-                <div className="bg-[#FFF6FB] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-base text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                    <span>🎙️ {t("Doctor Audio visit Recorder")}</span>
-                  </h3>
-                  <p className="text-xs text-[#7E7A88]">{t("Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...")}</p>
-                  <div className="flex gap-4 items-center">
-                    <button onClick={handleRecordAudioNotes} className="bg-[#C9B6FF] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm">
-                      {recordingAudio ? t("Recording Notes (4s)...") : t("Record Doctor Visit")}
-                    </button>
+                {/* Unified Records Input Form & List */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Form to Add New Record */}
+                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-base text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">➕ {t("Log New Medical Record")}</h3>
+                    <form onSubmit={handleAddMedicalRecord} className="space-y-3.5 text-xs font-bold text-[#7E7A88]">
+                      <div>
+                        <label className="block mb-1">{t("Record Type")}</label>
+                        <select 
+                          value={newRecordType} 
+                          onChange={(e) => setNewRecordType(e.target.value)} 
+                          className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                        >
+                          <option value="Vaccination">{t("Vaccination")}</option>
+                          <option value="Prescription">{t("Prescription")}</option>
+                          <option value="Medical Visit">{t("Medical Visit")}</option>
+                          <option value="Lab Report">{t("Lab Report")}</option>
+                        </select>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block mb-1">{t("Record Date")}</label>
+                          <input 
+                            type="date" 
+                            value={newRecordDate} 
+                            onChange={(e) => setNewRecordDate(e.target.value)}
+                            className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block mb-1">{t("Record Title")}</label>
+                          <input 
+                            type="text" 
+                            value={newRecordTitle} 
+                            onChange={(e) => setNewRecordTitle(e.target.value)}
+                            placeholder="e.g. HPV Vaccine Dose 1"
+                            className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block mb-1">{t("Details / Comments")}</label>
+                        <textarea 
+                          value={newRecordDetails} 
+                          onChange={(e) => setNewRecordDetails(e.target.value)}
+                          placeholder="e.g. Next checkup in 6 months, no side effects noted..."
+                          className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none h-16 resize-none"
+                        />
+                      </div>
+                      <button 
+                        type="submit" 
+                        className="w-full bg-[#FF8A80] hover:bg-[#FF8A80]/90 text-white font-bold py-2.5 rounded-xl text-xs shadow-sm transition-all"
+                      >
+                        {t("Save to Health Passport")}
+                      </button>
+                    </form>
                   </div>
 
-                  {audioNotes.length > 0 && (
-                    <div className="space-y-2 border-t pt-3">
-                      <span className="text-xs font-bold text-[#5E5A66] block">📄 {t("Transcribed Clinical Consultation Notes")}</span>
-                      {audioNotes.map((note, index) => (
-                        <div key={index} className="bg-white border p-3 rounded-2xl text-xs space-y-1.5">
-                          <div className="flex justify-between items-center text-[10px] text-[#A09BAA] font-bold font-mono">
-                            <span>{t("Audio Recording Note")} #{index + 1}</span>
-                            <span>{new Date(note.timestamp).toLocaleDateString()}</span>
+                  {/* List of Logged Records */}
+                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-base text-[#5E5A66] border-b pb-2 flex justify-between items-center">
+                      <span>📄 {t("Your Medical Folder")}</span>
+                      <span className="text-[10px] text-[#A09BAA] font-bold">{medicalRecords.length} {t("records saved")}</span>
+                    </h3>
+                    <div className="space-y-3.5 max-h-80 overflow-y-auto pr-1">
+                      {medicalRecords.length === 0 ? (
+                        <div className="text-center py-12 text-xs text-[#A09BAA]">{t("No medical records saved yet. Use the log form to add your first record.")}</div>
+                      ) : (
+                        medicalRecords.map(rec => (
+                          <div key={rec.id} className="bg-[#FFF6FB] border border-[#FFB3D9]/10 p-3.5 rounded-2xl space-y-2 relative hover:shadow-sm transition-all">
+                            <button 
+                              onClick={() => setMedicalRecords(prev => prev.filter(r => r.id !== rec.id))}
+                              className="absolute top-3.5 right-3.5 text-[#A09BAA] hover:text-[#FF8A80] p-1 rounded-lg hover:bg-[#FF8A80]/10 transition-all"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                            <div className="flex items-center gap-2">
+                              <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase ${
+                                rec.type === 'Vaccination' ? 'bg-[#C9B6FF]/15 text-[#C9B6FF]' :
+                                rec.type === 'Prescription' ? 'bg-[#FF8A80]/15 text-[#FF8A80]' :
+                                rec.type === 'Medical Visit' ? 'bg-[#FFF9EC] text-[#B88E2F]' :
+                                'bg-[#B9F4D0]/40 text-[#2E7D32]'
+                              }`}>
+                                {t(rec.type)}
+                              </span>
+                              <span className="text-[10px] font-bold text-[#A09BAA] font-mono">{rec.date}</span>
+                            </div>
+                            <h4 className="font-bold text-sm text-[#5E5A66]">{rec.title}</h4>
+                            {rec.details && <p className="text-xs text-[#7E7A88] leading-relaxed">{rec.details}</p>}
                           </div>
-                          <p className="text-[#7E7A88] italic">"{note.text}"</p>
-                          <div className="bg-[#FFF9EC] p-2.5 rounded-xl text-[11px]">
-                            <strong>{t("AI Consultation Summary")}:</strong> {note.summary}
-                          </div>
-                        </div>
-                      ))}
+                        ))
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
 
                 {/* Chronological Timeline */}
@@ -2191,17 +2573,15 @@ export default function App() {
                     <h3 className="font-bold text-lg text-[#5E5A66]">{t("Chronological Timeline")}</h3>
                   </div>
                   <div className="relative border-l-2 border-[#FFB3D9]/30 pl-6 space-y-6 ml-2 py-1">
-                    {[
-                      { title: "Maternal Health Baseline Assessment", date: "Jul 09, 2026", desc: "Digital Health Twin configured with height, weight, and blood markers.", icon: "🧬" },
-                      { title: "Maternal Serum Screen / Lab Upload", date: "Jul 05, 2026", desc: "Uploaded blood report scan. Low Iron index noted.", icon: "📄" },
-                      { title: "Consultation note logged", date: "Jul 01, 2026", desc: "Transcribed doctor advisory checkup on cycles.", icon: "🎙️" }
-                    ].map((evt, idx) => (
-                      <div key={idx} className="relative">
-                        <span className="absolute -left-[35px] top-0.5 w-6 h-6 rounded-full bg-white border border-[#FF8A80] flex items-center justify-center text-xs shadow-sm">{evt.icon}</span>
+                    {medicalRecords.map((rec) => (
+                      <div key={rec.id} className="relative">
+                        <span className="absolute -left-[35px] top-0.5 w-6 h-6 rounded-full bg-white border border-[#FF8A80] flex items-center justify-center text-xs shadow-sm">
+                          {rec.type === 'Vaccination' ? '💉' : rec.type === 'Prescription' ? '💊' : rec.type === 'Medical Visit' ? '🩺' : '📄'}
+                        </span>
                         <div className="text-xs">
-                          <span className="font-bold text-sm text-[#5E5A66] block">{t(evt.title)}</span>
-                          <span className="text-[10px] text-[#A09BAA] font-bold font-mono block mt-0.5">{evt.date}</span>
-                          <p className="text-[#7E7A88] mt-1">{t(evt.desc)}</p>
+                          <span className="font-bold text-sm text-[#5E5A66] block">{rec.title}</span>
+                          <span className="text-[10px] text-[#A09BAA] font-bold font-mono block mt-0.5">{rec.date}</span>
+                          {rec.details && <p className="text-[#7E7A88] mt-1">{rec.details}</p>}
                         </div>
                       </div>
                     ))}
@@ -2593,58 +2973,100 @@ export default function App() {
                   </div>
 
                   {/* Weekly challenges */}
-                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
-                      <span>🔬</span> {t("Weekly Challenges")}
-                    </h3>
-                    <p className="text-xs text-[#7E7A88]">{t("Complete healthy lifestyle challenges to accumulate health twin XP points.")}</p>
-                    <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
-                      {weeklyChallenges.map(chal => (
-                        <div 
-                          key={chal.id}
-                          onClick={() => {
-                            setWeeklyChallenges(prev => prev.map(c => c.id === chal.id ? { ...c, completed: !c.completed } : c));
-                            setUserPoints(prev => chal.completed ? Math.max(0, prev - chal.points) : prev + chal.points);
-                          }}
-                          className="flex items-center justify-between bg-[#FFF9EC]/40 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${chal.completed ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
-                              {chal.completed && <Check size={10} />}
+                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
+                        <span>🔬</span> {t("Weekly Challenges")}
+                      </h3>
+                      <p className="text-xs text-[#7E7A88] mb-3">{t("Complete healthy lifestyle challenges to accumulate health twin XP points.")}</p>
+                      <div className="space-y-3 text-xs font-semibold text-[#7E7A88] max-h-48 overflow-y-auto pr-1">
+                        {weeklyChallenges.map(chal => (
+                          <div 
+                            key={chal.id}
+                            onClick={() => {
+                              setWeeklyChallenges(prev => prev.map(c => c.id === chal.id ? { ...c, completed: !c.completed } : c));
+                              setUserPoints(prev => chal.completed ? Math.max(0, prev - chal.points) : prev + chal.points);
+                            }}
+                            className="flex items-center justify-between bg-[#FFF9EC]/40 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9] transition-all"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`w-4 h-4 rounded border flex items-center justify-center ${chal.completed ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
+                                {chal.completed && <Check size={10} />}
+                              </div>
+                              <span className={chal.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}>{t(chal.name)}</span>
                             </div>
-                            <span className={chal.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}>{t(chal.name)}</span>
+                            <span className="text-[10px] font-bold text-[#FF8A80] font-mono">+{chal.points} XP</span>
                           </div>
-                          <span className="text-[10px] font-bold text-[#FF8A80] font-mono">+{chal.points} XP</span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
+
+                    <form onSubmit={handleAddCustomChallenge} className="flex gap-2 border-t pt-3 mt-3">
+                      <input 
+                        type="text" 
+                        value={customChallengeInput} 
+                        onChange={(e) => setCustomChallengeInput(e.target.value)} 
+                        placeholder={t("Write your own custom challenge...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                        required
+                      />
+                      <button type="submit" className="bg-[#FF8A80] text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:opacity-90">+</button>
+                    </form>
                   </div>
                 </div>
 
                 {/* Night wind-down Habits */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5"><span>🌙</span> {t("Night wind-down Habits")}</h3>
-                    <p className="text-xs text-[#7E7A88]">{t("Tick off warm habits before sleeping to log melatonin cycles.")}</p>
-                    <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
-                      {[
-                        { key: 'dimScreens', label: 'Dim screens & blue light filters' },
-                        { key: 'mindfulness', label: '10 mins mindfulness / box breathing' },
-                        { key: 'herbalTea', label: 'Drink warm chamomile / herbal tea' },
-                        { key: 'sleepLog', label: 'Log sleep hours & cycle symptoms' }
-                      ].map(habit => (
-                        <div 
-                          key={habit.key}
-                          onClick={() => setNightModeWindDown(prev => ({ ...prev, [habit.key]: !prev[habit.key] }))}
-                          className="flex items-center gap-3 bg-[#FFF6FB] border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
-                        >
-                          <div className={`w-4 h-4 rounded border flex items-center justify-center ${nightModeWindDown[habit.key] ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FFB3D9]/60'}`}>
-                            {nightModeWindDown[habit.key] && <Check size={10} className="text-white" />}
+                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5"><span>🌙</span> {t("Night wind-down Habits")}</h3>
+                      <p className="text-xs text-[#7E7A88] mb-3">{t("Tick off warm habits before sleeping to log melatonin cycles.")}</p>
+                      <div className="space-y-3 text-xs font-semibold text-[#7E7A88] max-h-48 overflow-y-auto pr-1">
+                        {[
+                          { key: 'dimScreens', label: 'Dim screens & blue light filters' },
+                          { key: 'mindfulness', label: '10 mins mindfulness / box breathing' },
+                          { key: 'herbalTea', label: 'Drink warm chamomile / herbal tea' },
+                          { key: 'sleepLog', label: 'Log sleep hours & cycle symptoms' }
+                        ].map(habit => (
+                          <div 
+                            key={habit.key}
+                            onClick={() => setNightModeWindDown(prev => ({ ...prev, [habit.key]: !prev[habit.key] }))}
+                            className="flex items-center gap-3 bg-[#FFF6FB] border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9] transition-all"
+                          >
+                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${nightModeWindDown[habit.key] ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FFB3D9]/60'}`}>
+                              {nightModeWindDown[habit.key] && <Check size={10} className="text-white" />}
+                            </div>
+                            <span>{t(habit.label)}</span>
                           </div>
-                          <span>{t(habit.label)}</span>
-                        </div>
-                      ))}
+                        ))}
+
+                        {/* Render Custom Habits */}
+                        {customHabits.map(habit => (
+                          <div 
+                            key={habit.key}
+                            onClick={() => setCustomHabits(prev => prev.map(h => h.key === habit.key ? { ...h, completed: !h.completed } : h))}
+                            className="flex items-center gap-3 bg-[#FFF6FB] border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9] transition-all"
+                          >
+                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${habit.completed ? 'bg-[#FF8A80] border-[#FF8A80]' : 'border-[#FFB3D9]/60'}`}>
+                              {habit.completed && <Check size={10} className="text-white" />}
+                            </div>
+                            <span className={habit.completed ? 'line-through text-[#A09BAA]' : ''}>{habit.label}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
+
+                    <form onSubmit={handleAddCustomHabit} className="flex gap-2 border-t pt-3 mt-3">
+                      <input 
+                        type="text" 
+                        value={newHabitInput} 
+                        onChange={(e) => setNewHabitInput(e.target.value)} 
+                        placeholder={t("Add your own wind-down habit...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                        required
+                      />
+                      <button type="submit" className="bg-[#FF8A80] text-white px-3.5 py-2 rounded-xl text-xs font-bold hover:opacity-90">+</button>
+                    </form>
                   </div>
 
                   {/* Family sharing profile */}
@@ -2652,7 +3074,8 @@ export default function App() {
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
                       <Upload size={18} className="text-[#B9F4D0]" /> {t("Family Health Sharing Profile")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">{t("Automatically share updates with a trusted emergency contact:")}</p>
+                    <p className="text-xs text-[#7E7A88]">{t("Generate a secure, read-only dashboard link to share your health, cycles, and emergency logs with trusted members:")}</p>
+                    
                     <div className="space-y-3 text-xs font-bold text-[#7E7A88]">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -2662,6 +3085,7 @@ export default function App() {
                             value={familyContact.name} 
                             onChange={(e) => setFamilyContact({...familyContact, name: e.target.value})}
                             className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                            placeholder="e.g. Mother / Husband"
                           />
                         </div>
                         <div>
@@ -2671,10 +3095,12 @@ export default function App() {
                             value={familyContact.phone} 
                             onChange={(e) => setFamilyContact({...familyContact, phone: e.target.value})}
                             className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                            placeholder="+91..."
                           />
                         </div>
                       </div>
-                      <div className="flex flex-col gap-2 pt-2 border-t text-[11px] font-semibold text-[#7E7A88]">
+
+                      <div className="flex flex-col gap-2.5 pt-2 border-t text-[11px] font-semibold text-[#7E7A88]">
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input 
                             type="checkbox" 
@@ -2682,7 +3108,7 @@ export default function App() {
                             onChange={(e) => setFamilyContact({...familyContact, shareReports: e.target.checked})}
                             className="rounded text-[#FF8A80]"
                           />
-                          {t("Auto-sync blood reports")}
+                          {t("Auto-sync health records & medical history")}
                         </label>
                         <label className="flex items-center gap-2 cursor-pointer">
                           <input 
@@ -2691,8 +3117,23 @@ export default function App() {
                             onChange={(e) => setFamilyContact({...familyContact, shareSOS: e.target.checked})}
                             className="rounded text-[#FF8A80]"
                           />
-                          {t("Enable SOS emergency auto-calls")}
+                          {t("Enable SOS emergency auto-alerts & location sharing")}
                         </label>
+                      </div>
+
+                      <div className="pt-2 border-t space-y-3">
+                        <button 
+                          onClick={handleGenerateShareLink}
+                          className="w-full bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold py-2.5 px-4 rounded-xl text-xs shadow-sm hover:opacity-90 flex items-center justify-center gap-2"
+                        >
+                          🔗 {familyShareLink ? t("Access Link Copied!") : t("Generate Secure Share Link")}
+                        </button>
+                        
+                        {familyShareLink && (
+                          <div className="bg-[#FFF9EC] border border-[#FFD59A]/30 p-3 rounded-2xl text-[10px] text-[#A09BAA] break-all leading-relaxed font-mono">
+                            <strong>{t("Link")}:</strong> {familyShareLink}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -549,4 +549,72 @@ def estimate_nutrition_text(food_text: str) -> Dict[str, Any]:
         "fiber": 2.5
     }
 
+def get_deficiency_recommendations(deficiency_name: str) -> Dict[str, Any]:
+    """
+    Analyzes nutritional deficiencies and recommends cycle-syncing meals and groceries.
+    """
+    prompt = f"""
+    Analyze the nutrition deficiency: "{deficiency_name}".
+    Recommend specific meals and grocery items rich in this nutrient, targeted specifically for maternal health and cycle wellness.
+
+    Return the output STRICTLY as a JSON object with the following keys:
+    - 'deficiency': string (standardized name)
+    - 'recommended_meals': list of 3 strings (wholesome meal names)
+    - 'recommended_groceries': list of 4 strings (single ingredients)
+    - 'why_essential': string (explaining the cycle/hormone health connection)
+
+    Do not include markdown backticks like ```json in your response. Just return raw json.
+    """
+    if genai and not settings.USE_MOCK_DATA:
+        try:
+            model = genai.GenerativeModel(model_name=MODELS["text"], system_instruction=SYSTEM_INSTRUCTION)
+            response = model.generate_content(prompt)
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(clean_text)
+        except Exception as e:
+            print(f"Gemini get_deficiency_recommendations failed: {str(e)}")
+
+    return {
+        "deficiency": deficiency_name,
+        "recommended_meals": [
+            "Spinach & Lentil Curry with quinoa",
+            "Roasted Tofu & Broccoli bowl",
+            "Chia Seed Pudding with mixed berries"
+        ],
+        "recommended_groceries": ["Spinach", "Lentils", "Chia Seeds", "Tofu"],
+        "why_essential": f"This nutrient supports red blood cell production, cellular repair, and hormone stabilization during your menstrual cycle transitions."
+    }
+
+def generate_weekly_meal_plan(opinion: str) -> Dict[str, Any]:
+    """
+    Generates customized cycle-friendly meals based on user opinion/preference.
+    """
+    prompt = f"""
+    Generate a daily cycle-syncing weekly meal plan based on the user's preference: "{opinion}".
+    Provide a meal recommendation for Breakfast, Lunch, Snack, and Dinner.
+
+    Return the output STRICTLY as a JSON object with these exact keys:
+    - 'breakfast': string
+    - 'lunch': string
+    - 'snack': string
+    - 'dinner': string
+
+    Do not include markdown backticks like ```json in your response. Just return raw json.
+    """
+    if genai and not settings.USE_MOCK_DATA:
+        try:
+            model = genai.GenerativeModel(model_name=MODELS["text"], system_instruction=SYSTEM_INSTRUCTION)
+            response = model.generate_content(prompt)
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(clean_text)
+        except Exception as e:
+            print(f"Gemini generate_weekly_meal_plan failed: {str(e)}")
+
+    return {
+        "breakfast": "Avocado toast with boiled egg and hemp seeds",
+        "lunch": "Quinoa salad with chickpea hummus and roasted beets",
+        "snack": "Walnuts & Spearmint tea for testosterone control",
+        "dinner": "Grilled salmon/Tofu with baked sweet potato and kale"
+    }
+
 
