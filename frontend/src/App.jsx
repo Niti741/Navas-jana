@@ -4,7 +4,7 @@ import {
   Calendar, MessageSquare, Plus, Check, ChevronDown, Sparkles, 
   Clock, ClipboardList, Bell, ArrowRight, Search, Menu, X, 
   FileText, Moon, Footprints, Apple, AlertTriangle, ShieldAlert,
-  ChevronRight, RefreshCw, Send, Award, Volume2, Globe, ZoomIn, CheckSquare, Download, Camera, MapPin
+  ChevronRight, RefreshCw, Send, Award, Volume2, Globe, ZoomIn, CheckSquare, Download, Camera, MapPin, Dumbbell
 } from 'lucide-react';
 import { 
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, 
@@ -110,6 +110,26 @@ const TRANSLATIONS = {
     "Demo Hackathon Quick Access (Log in as Aditi)": "डैमों हैकाथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
   }
 };
+
+const ExerciseCard = ({ ex }) => (
+  <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <div className="space-y-3">
+      <div className="flex justify-between items-start">
+        <h3 className="font-bold text-base text-[#5E5A66] leading-tight">{ex.title}</h3>
+        {ex.renderAnimation()}
+      </div>
+      <p className="text-xs text-[#7E7A88] leading-relaxed">{ex.desc}</p>
+    </div>
+    
+    <div className="border-t border-[#FFB3D9]/10 pt-3 flex justify-between items-center text-[10px] font-bold text-[#A09BAA]">
+      <div className="flex gap-2">
+        <span className="bg-[#FFF9EC] text-[#B88E2F] px-2 py-0.5 rounded-full border border-[#B88E2F]/10">⏱️ {ex.time}</span>
+        <span className="bg-[#FFF6FB] text-[#FF8A80] px-2 py-0.5 rounded-full border border-[#FF8A80]/10">🔥 {ex.cals}</span>
+      </div>
+      <span className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white px-2.5 py-0.5 rounded-full shadow-sm">{ex.intensity}</span>
+    </div>
+  </div>
+);
 
 export default function App() {
   // Global App States
@@ -217,7 +237,7 @@ export default function App() {
   const [nearbyPin, setNearbyPin] = useState('560001');
   const [nearbyCategory, setNearbyCategory] = useState('Gynecologists');
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
-  
+  const [selectedExercisePhase, setSelectedExercisePhase] = useState('Follicular');
   // Community Forums & winddown
   const [communityTab, setCommunityTab] = useState('pcos');
   const [communityMessages, setCommunityMessages] = useState({
@@ -1290,7 +1310,7 @@ export default function App() {
                   { id: 'dashboard', label: 'Dashboard', icon: Activity },
                   { id: 'insights', label: 'Health Insights', icon: Sparkles },
                   { id: 'wrapped', label: 'Health Wrapped', icon: Award },
-                  { id: 'wellness', label: 'Wellness Coach', icon: Heart },
+                  { id: 'exercise', label: 'Exercise & Fitness', icon: Dumbbell },
                   { id: 'clinic', label: 'AI Clinic Room', icon: ShieldAlert },
                   { id: 'chat', label: 'Sakhi AI Chat', icon: MessageSquare },
                   { id: 'tracker', label: 'Menstrual Tracker', icon: Calendar },
@@ -1373,7 +1393,7 @@ export default function App() {
                       { id: 'dashboard', label: 'Dashboard', icon: Activity },
                       { id: 'insights', label: 'Health Insights', icon: Sparkles },
                       { id: 'wrapped', label: 'Health Wrapped', icon: Award },
-                      { id: 'wellness', label: 'Wellness Coach', icon: Heart },
+                      { id: 'exercise', label: 'Exercise & Fitness', icon: Dumbbell },
                       { id: 'clinic', label: 'AI Clinic Room', icon: ShieldAlert },
                       { id: 'chat', label: 'Sakhi AI Chat', icon: MessageSquare },
                       { id: 'tracker', label: 'Menstrual Tracker', icon: Calendar },
@@ -1444,7 +1464,7 @@ export default function App() {
               { id: 'dashboard', label: 'Home', icon: Activity },
               { id: 'insights', label: 'Insights', icon: Sparkles },
               { id: 'wrapped', label: 'Wrapped', icon: Award },
-              { id: 'wellness', label: 'Coach', icon: Heart },
+              { id: 'exercise', label: 'Exercise', icon: Dumbbell },
               { id: 'tracker', label: 'Cycle', icon: Calendar }
             ].map(item => {
               const Icon = item.icon;
@@ -1906,33 +1926,224 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 8: GUIDED WELLNESS & VOICE MOOD --- */}
-            {view === 'wellness' && (
+            {/* --- PANEL 8: EXERCISE & FITNESS RECOMMENDATIONS --- */}
+            {view === 'exercise' && (
               <div className="space-y-8 animate-fade-in">
-                <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Wellness Coach")}</h2>
+                <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                  <div>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Exercise & Fitness")}</h2>
+                    <p className="text-xs text-[#7E7A88] mt-1">{t("Sync your workouts with your menstrual cycle phases to maximize energy and support hormonal health.")}</p>
+                  </div>
+                  <div className="bg-[#FF8A80]/10 border border-[#FF8A80]/20 text-[#FF8A80] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5">
+                    🌸 {t("Current Phase:")} <span className="underline">{profile?.phase || t("Follicular")}</span>
+                  </div>
                 </div>
 
-                <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
-
-                  {['coach', 'sessions'].map(tab => (
-                    <button key={tab} onClick={() => setWellnessTab(tab)} className={`text-xs font-bold py-1.5 px-4 rounded-full transition-all capitalize ${
-                      wellnessTab === tab ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
-                    }`}>{tab === 'coach' ? t('🎙️ Voice Mood Coach') : t('🧘 Guided Sessions')}</button>
+                {/* Phase Selection Tabs */}
+                <div className="flex gap-2 overflow-x-auto pb-2 border-b border-[#FFB3D9]/10">
+                  {['Menstruation', 'Follicular', 'Ovulation', 'Luteal'].map(phase => (
+                    <button 
+                      key={phase} 
+                      onClick={() => setSelectedExercisePhase(phase)} 
+                      className={`text-xs font-bold py-2 px-5 rounded-full transition-all whitespace-nowrap ${
+                        selectedExercisePhase === phase 
+                          ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' 
+                          : 'bg-white border text-[#7E7A88] hover:bg-[#FFF6FB]'
+                      }`}
+                    >
+                      {t(phase)} {t("Phase")}
+                    </button>
                   ))}
                 </div>
 
-                {wellnessTab === 'coach' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-in">
-                    <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
-                      <div className="w-16 h-16 bg-[#FFB3D9]/30 rounded-2xl flex items-center justify-center text-[#F48FB1]"><Volume2 size={32} /></div>
-                      <h3 className="font-bold text-[#5E5A66] text-base">{t("🎙️ Voice Mood Coach")}</h3>
-                      <button onClick={handleRecordVoiceMood} className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs">
-                        {voiceRecording ? t("Recording Notes (4s)...") : t("Start Voice Scan")}
-                      </button>
-                    </div>
-                  </div>
-                )}
+                {/* Recommended Exercises Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {selectedExercisePhase === 'Menstruation' && [
+                    {
+                      title: "Restorative Butterfly Stretch",
+                      desc: "Alleviates pelvic congestion, relieves cramping, and releases lower back compression.",
+                      time: "15 mins",
+                      cals: "40 kcal",
+                      intensity: "Low",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FF8A80]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FF8A80]/20 flex-shrink-0">
+                          {/* Calming expanding lotus flower effect */}
+                          <div className="absolute w-8 h-8 bg-[#FF8A80]/30 rounded-full animate-lotus-pulse"></div>
+                          <div className="absolute w-4 h-4 bg-[#FF8A80] rounded-full"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Cat-Cow Flow",
+                      desc: "Gently stretches and stimulates abdominal organs while relieving spinal tension.",
+                      time: "10 mins",
+                      cals: "30 kcal",
+                      intensity: "Low",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFB3D9]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFB3D9]/20 flex-shrink-0">
+                          {/* Slow cow spine tilt effect */}
+                          <div className="absolute w-10 h-1 bg-[#FFB3D9] rounded-full animate-squat-bar"></div>
+                          <div className="absolute w-3 h-3 rounded-full bg-[#FFB3D9]/50 animate-squat-body"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Slow Mindful Walking",
+                      desc: "Improves mood and moves stagnant energy without triggering excessive cortisol production.",
+                      time: "30 mins",
+                      cals: "110 kcal",
+                      intensity: "Gentle",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFE79A]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFE79A]/20 flex-shrink-0">
+                          {/* Alternating footstep bubble shift */}
+                          <div className="absolute w-4 h-4 bg-[#FFE79A] rounded-full animate-squat-body" style={{ animationDelay: '0s' }}></div>
+                          <div className="absolute w-4 h-4 bg-[#FFE79A]/50 rounded-full animate-squat-body" style={{ animationDelay: '0.9s' }}></div>
+                        </div>
+                      )
+                    }
+                  ].map((ex, idx) => (
+                    <ExerciseCard key={idx} ex={ex} />
+                  ))}
+
+                  {selectedExercisePhase === 'Follicular' && [
+                    {
+                      title: "Dynamic Squats",
+                      desc: "Estrogen levels are rising! Build strong lower body foundations during this high muscle-repair window.",
+                      time: "15 mins",
+                      cals: "120 kcal",
+                      intensity: "Medium",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FF8A80]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FF8A80]/20 flex-shrink-0">
+                          {/* Squatting bar and body animation */}
+                          <div className="absolute w-10 h-2 bg-[#FF8A80] rounded-full animate-squat-bar"></div>
+                          <div className="absolute w-4 h-4 rounded-full border-4 border-[#FF8A80] animate-squat-body"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Mountain Climbers",
+                      desc: "Excellent high-intensity exercise that stimulates core stability and builds explosive energy.",
+                      time: "12 mins",
+                      cals: "95 kcal",
+                      intensity: "High",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFB3D9]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFB3D9]/20 flex-shrink-0">
+                          {/* Star jumping back and forth action */}
+                          <div className="absolute w-8 h-8 bg-[#FFB3D9] rounded-xl animate-star-jump"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Resistance Band Thrusters",
+                      desc: "Leverage rising hormone efficiency to work out your entire upper and lower body.",
+                      time: "20 mins",
+                      cals: "160 kcal",
+                      intensity: "Medium",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFE79A]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFE79A]/20 flex-shrink-0">
+                          {/* Orbiting band action */}
+                          <div className="absolute w-8 h-8 rounded-full border-2 border-[#FFE79A] border-dashed animate-orbit-rotate"></div>
+                          <div className="absolute w-3 h-3 bg-[#FFE79A] rounded-full"></div>
+                        </div>
+                      )
+                    }
+                  ].map((ex, idx) => (
+                    <ExerciseCard key={idx} ex={ex} />
+                  ))}
+
+                  {selectedExercisePhase === 'Ovulation' && [
+                    {
+                      title: "High Intensity Jumping Jacks",
+                      desc: "Your energy and testosterone peak today! Perfect time for a high-intensity cardio blast.",
+                      time: "15 mins",
+                      cals: "180 kcal",
+                      intensity: "High",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFB3D9]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFB3D9]/20 flex-shrink-0">
+                          {/* High energy jump star scaling */}
+                          <div className="absolute w-8 h-8 bg-[#FFB3D9] rounded-full animate-star-jump"></div>
+                          <div className="absolute w-4 h-4 bg-[#FF8A80] rounded-full animate-lotus-pulse"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Dumbbell Bicep Curls",
+                      desc: "Push your muscle strength limiters. Peak estrogen helps you load heavier weights securely.",
+                      time: "20 mins",
+                      cals: "150 kcal",
+                      intensity: "High",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FF8A80]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FF8A80]/20 flex-shrink-0">
+                          {/* Dumbbell lift curl rotation */}
+                          <div className="absolute w-10 h-2 bg-[#FF8A80] rounded-full animate-orbit-rotate"></div>
+                          <div className="absolute w-3 h-3 bg-[#FF8A80] rounded-full animate-squat-bar"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "HIIT Sprint Intervals",
+                      desc: "Unleash peak cardiovascular capability and metabolic speed with short, active sprint bursts.",
+                      time: "15 mins",
+                      cals: "210 kcal",
+                      intensity: "Maximum",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFE79A]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFE79A]/20 flex-shrink-0">
+                          {/* Double rapid star jumping dots */}
+                          <div className="absolute w-4 h-4 bg-[#FFE79A] rounded-full animate-star-jump" style={{ animationDelay: '0s' }}></div>
+                          <div className="absolute w-4 h-4 bg-[#FFE79A] rounded-full animate-star-jump" style={{ animationDelay: '0.6s' }}></div>
+                        </div>
+                      )
+                    }
+                  ].map((ex, idx) => (
+                    <ExerciseCard key={idx} ex={ex} />
+                  ))}
+
+                  {selectedExercisePhase === 'Luteal' && [
+                    {
+                      title: "Flowing Vinyasa Yoga",
+                      desc: "Estrogen is falling. Calming yoga sequences soothe Luteal-phase fatigue and mood swings.",
+                      time: "25 mins",
+                      cals: "90 kcal",
+                      intensity: "Medium",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFE79A]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFE79A]/20 flex-shrink-0">
+                          {/* Slow lotus pulsing flower */}
+                          <div className="absolute w-6 h-6 bg-[#FFE79A] rounded-full animate-lotus-pulse"></div>
+                          <div className="absolute w-10 h-10 border border-[#FFE79A]/40 rounded-full animate-lotus-pulse" style={{ animationDelay: '1.5s' }}></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Pilates Core Leg Circles",
+                      desc: "Progesterone relaxes your joints, so focus on low-impact deep core muscle stability work.",
+                      time: "15 mins",
+                      cals: "80 kcal",
+                      intensity: "Medium",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FF8A80]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FF8A80]/20 flex-shrink-0">
+                          {/* Leg tracing circle path animation */}
+                          <div className="absolute w-6 h-6 border-2 border-dashed border-[#FF8A80] rounded-full animate-orbit-rotate"></div>
+                          <div className="absolute w-2.5 h-2.5 bg-[#FF8A80] rounded-full animate-squat-bar"></div>
+                        </div>
+                      )
+                    },
+                    {
+                      title: "Steady Swimming / Cycling",
+                      desc: "Low-impact endurance cardio that maintains cardiovascular fitness without joint fatigue.",
+                      time: "30 mins",
+                      cals: "220 kcal",
+                      intensity: "Medium",
+                      renderAnimation: () => (
+                        <div className="relative w-16 h-16 bg-[#FFB3D9]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[#FFB3D9]/20 flex-shrink-0">
+                          {/* Waves / wheel rotation */}
+                          <div className="absolute w-8 h-8 border-4 border-double border-[#FFB3D9] rounded-full animate-orbit-rotate"></div>
+                        </div>
+                      )
+                    }
+                  ].map((ex, idx) => (
+                    <ExerciseCard key={idx} ex={ex} />
+                  ))}
+                </div>
               </div>
             )}
 

@@ -92,3 +92,41 @@
   animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Exercise Micro-Animations */
+@keyframes squatBar {
+  0%, 100% { transform: translateY(-12px); }
+  50% { transform: translateY(10px); }
+}
+@keyframes squatBody {
+  0%, 100% { transform: translateY(-5px) scaleY(1); }
+  50% { transform: translateY(10px) scaleY(0.7); }
+}
+@keyframes lotusPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.75; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+@keyframes starJump {
+  0%, 100% { transform: scale(0.9) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(15deg); }
+}
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-squat-bar {
+  animation: squatBar 1.8s ease-in-out infinite;
+}
+.animate-squat-body {
+  animation: squatBody 1.8s ease-in-out infinite;
+}
+.animate-lotus-pulse {
+  animation: lotusPulse 3.5s ease-in-out infinite;
+}
+.animate-star-jump {
+  animation: starJump 1.2s ease-in-out infinite;
+}
+.animate-orbit-rotate {
+  animation: orbitRotate 2.5s linear infinite;
+}
+
