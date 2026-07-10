@@ -216,6 +216,7 @@ export default function App() {
   const [skinScanning, setSkinScanning] = useState(false);
   const [nearbyPin, setNearbyPin] = useState('560001');
   const [nearbyCategory, setNearbyCategory] = useState('Gynecologists');
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   
   // Community Forums & winddown
   const [communityTab, setCommunityTab] = useState('pcos');
@@ -1329,6 +1330,92 @@ export default function App() {
             </div>
           </aside>
 
+          {/* Mobile Slide-Over Sidebar Drawer */}
+          {mobileSidebarOpen && (
+            <div className="lg:hidden fixed inset-0 z-50 flex">
+              {/* Backdrop Blur Overlay */}
+              <div 
+                className="fixed inset-0 bg-[#5E5A66]/30 backdrop-blur-sm transition-opacity" 
+                onClick={() => setMobileSidebarOpen(false)}
+              ></div>
+              
+              {/* Drawer Content */}
+              <div className="relative w-64 max-w-xs bg-[#FFF6FB] p-6 flex flex-col justify-between shadow-2xl h-full z-50 animate-slide-in">
+                {/* Close Button */}
+                <button 
+                  onClick={() => setMobileSidebarOpen(false)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-xl bg-white border flex items-center justify-center text-[#7E7A88] z-50 shadow-sm"
+                >
+                  <X size={14} />
+                </button>
+                
+                <div className="space-y-6 overflow-y-auto pr-1">
+                  <div className="flex items-center gap-2 cursor-pointer border-b pb-2.5" onClick={() => { setView('landing'); setMobileSidebarOpen(false); }}>
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white" size={18} /></div>
+                    <span className="text-xl font-bold bg-gradient-to-r from-[#FF8A80] to-[#F48FB1] bg-clip-text text-transparent font-sans">{t("Sakhi")}</span>
+                  </div>
+                  
+                  {/* Sidebar Ambient Audio Controller Widget */}
+                  {playingAudio && (
+                    <div className="bg-[#FFF9EC] p-3 rounded-2xl border border-[#FFB68A]/30 text-xs space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-extrabold text-[#5E5A66] truncate block max-w-[120px]">🎶 {playingAudioTitle}</span>
+                        <button onClick={stopAmbientSynth} className="text-[#FF8A80] hover:text-[#FF8A80]/80 font-bold">{t("Stop")}</button>
+                      </div>
+                      <div className="w-full bg-white h-1.5 rounded-full overflow-hidden border">
+                        <div className="bg-[#FF8A80] h-full transition-all duration-1000" style={{ width: `${audioProgress}%` }}></div>
+                      </div>
+                    </div>
+                  )}
+
+                  <nav className="flex flex-col gap-1">
+                    {[
+                      { id: 'dashboard', label: 'Dashboard', icon: Activity },
+                      { id: 'insights', label: 'Health Insights', icon: Sparkles },
+                      { id: 'wrapped', label: 'Health Wrapped', icon: Award },
+                      { id: 'wellness', label: 'Wellness Coach', icon: Heart },
+                      { id: 'clinic', label: 'AI Clinic Room', icon: ShieldAlert },
+                      { id: 'chat', label: 'Sakhi AI Chat', icon: MessageSquare },
+                      { id: 'tracker', label: 'Menstrual Tracker', icon: Calendar },
+                      { id: 'nutrition', label: 'Meal & Grocery', icon: Apple },
+                      { id: 'reports', label: 'Report Analyzer', icon: FileText },
+                      { id: 'passport', label: 'Health Passport', icon: ClipboardList },
+                      { id: 'community', label: 'Community Support', icon: Globe },
+                      { id: 'settings', label: 'Settings', icon: Settings }
+                    ].map(item => {
+                      const Icon = item.icon;
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => { setView(item.id); setMobileSidebarOpen(false); }}
+                          className={`flex items-center gap-3 px-4 py-2 rounded-2xl text-[11.5px] font-extrabold transition-all text-left ${
+                            view === item.id 
+                              ? 'bg-[#FF8A80]/15 text-[#FF8A80] border-l-4 border-[#FF8A80]'
+                              : 'text-[#7E7A88] hover:bg-[#FFF3F8]/30 hover:text-[#5E5A66]'
+                          }`}
+                        >
+                          <Icon size={14} className="flex-shrink-0" />
+                          <span>{t(item.label)}</span>
+                        </button>
+                      );
+                    })}
+                  </nav>
+                </div>
+                
+                <div className="border-t border-[#FFB3D9]/20 pt-4 space-y-2">
+                  <div className="flex items-center gap-2 px-2">
+                    <div className="w-8 h-8 rounded-full bg-[#FFE79A] flex items-center justify-center font-bold text-xs">{profile?.name ? profile.name[0] : 'A'}</div>
+                    <div className="overflow-hidden">
+                      <h4 className="font-bold text-[11px] truncate">{profile?.name || 'Aditi Sharma'}</h4>
+                      <span className="text-[9px] text-[#A09BAA] block truncate">{user?.email}</span>
+                    </div>
+                  </div>
+                  <button onClick={() => { handleLogout(); setMobileSidebarOpen(false); }} className="w-full text-left text-[11px] font-bold text-[#FF8A80] hover:underline px-2">{t("Log Out")}</button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Bottom mobile Nav */}
           <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-[#FFF6FB]/95 border-t border-[#FFF3F8] px-4 py-2 z-40 flex justify-around">
             {[
@@ -1353,11 +1440,19 @@ export default function App() {
             
             {/* Header */}
             <header className="flex justify-between items-center mb-8 border-b border-[#FFF3F8]/30 pb-4">
-              <div>
-                <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">{t("Health Twin Active")}</span>
-                <h1 className="text-2xl font-bold font-sans text-[#5E5A66] mt-0.5">
-                  {lang !== 'en' ? `नमस्ते, ${profile?.name || 'अदिति'} 🌸` : `${t("Good Morning, Aditi!")}`}
-                </h1>
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => setMobileSidebarOpen(true)}
+                  className="lg:hidden w-10 h-10 rounded-2xl bg-[#FFF6FB] border flex items-center justify-center text-[#FF8A80] hover:bg-[#FF8A80]/10 shadow-sm border-[#FFB3D9]/25 flex-shrink-0"
+                >
+                  <Menu size={18} />
+                </button>
+                <div>
+                  <span className="text-[10px] text-[#A09BAA] uppercase font-bold tracking-wider">{t("Health Twin Active")}</span>
+                  <h1 className="text-xl lg:text-2xl font-bold font-sans text-[#5E5A66] mt-0.5">
+                    {lang !== 'en' ? `नमस्ते, ${profile?.name || 'अदिति'} 🌸` : `${t("Good Morning, Aditi!")}`}
+                  </h1>
+                </div>
               </div>
               <div className="flex items-center gap-4 relative">
                 <div className="bg-[#FFE79A] text-[#5E5A66] font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm flex items-center gap-1">
