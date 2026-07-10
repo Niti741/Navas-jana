@@ -68,7 +68,6 @@ const MOCK_STATE = {
   appointments: [
     { id: 'a1', doctor: 'Dr. Meera Sen (Gynecologist)', date: '2026-07-15T11:30:00', notes: 'Routine checkup and discussion regarding cycle regularity.' }
   ],
-  // New MVP extensions
   goals: [
     { id: "g1", title: "Drink 3L Water", target: 3.0, current: 1.8, unit: "L", type: "water" },
     { id: "g2", title: "Walk 8000 Steps", target: 8000, current: 5100, unit: "steps", type: "steps" },
@@ -92,12 +91,28 @@ const MOCK_STATE = {
   },
   menopauseCompanion: {
     hotFlashesToday: 2,
-    calciumLogs: 600, // in mg
+    calciumLogs: 600, 
     symptoms: ["Joint dryness", "Slight mood shifts"]
   },
   audioNotes: [
     { id: "a1", date: "Jul 05", doctor: "Dr. Meera Sen", summary: "Advised checking Vitamin D level again in 3 months. Recommended taking iron supplement on empty stomach with lemon juice." }
-  ]
+  ],
+  // New features databases
+  padReminderPacked: false,
+  pregnancyTests: [
+    { id: "pt1", trimester: 1, name: "Early Ultrasound (Dating Scan)", weekRange: "Weeks 8-12", completed: true },
+    { id: "pt2", trimester: 1, name: "CBC & Blood Typing Panels", weekRange: "Weeks 10-12", completed: true },
+    { id: "pt3", trimester: 2, name: "Anomaly Scan (Detailed Ultrasound)", weekRange: "Weeks 18-22", completed: false },
+    { id: "pt4", trimester: 2, name: "Oral Glucose Tolerance Test (OGTT)", weekRange: "Weeks 24-28", completed: false },
+    { id: "pt5", trimester: 3, name: "Group B Strep (GBS) Screening", weekRange: "Weeks 35-37", completed: false }
+  ],
+  errands: [
+    { id: "er1", task: "Prepare Healthy Meals", completed: true },
+    { id: "er2", task: "Clean & Organize Living Room", completed: false },
+    { id: "er3", task: "Outside Errands / Groceries Run", completed: false },
+    { id: "er4", task: "Do Laundry & Folder Linens", completed: true }
+  ],
+  errandStreak: 4
 };
 
 // Initialize localStorage if empty
@@ -110,7 +125,7 @@ Object.keys(MOCK_STATE).forEach(key => {
 const getLocal = (key) => JSON.parse(localStorage.getItem(`sakhi_${key}`));
 const setLocal = (key, data) => localStorage.setItem(`sakhi_${key}`, JSON.stringify(data));
 
-// Central API Service Wrapper with Mock Fallbacks
+// Central API Service Wrapper
 export const api = {
   // Authentication
   register: async (name, email, password) => {
@@ -133,7 +148,6 @@ export const api = {
     }
   },
 
-  // Health Twin Profile Onboarding
   getProfile: async () => {
     try {
       const res = await client.get('/profile');
@@ -155,7 +169,6 @@ export const api = {
     }
   },
 
-  // Dashboard Aggregation
   getDashboard: async () => {
     try {
       const res = await client.get('/dashboard');
@@ -206,7 +219,6 @@ export const api = {
     }
   },
 
-  // Logging APIs
   logWater: async (liters) => {
     const log = { date: new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit' }), liters };
     try {
@@ -216,7 +228,6 @@ export const api = {
       logs.push(log);
       setLocal('water', logs);
       
-      // Update water goal progress
       const goals = getLocal('goals');
       const g = goals.find(x => x.type === 'water');
       if (g) {
@@ -314,7 +325,6 @@ export const api = {
     return log;
   },
 
-  // Interactive Goals & Achievements
   getGoals: async () => {
     return getLocal('goals');
   },
@@ -323,7 +333,6 @@ export const api = {
     return getLocal('badges');
   },
 
-  // Pregnancy Companion Loggers
   getPregnancyDetails: async () => {
     return getLocal('pregnancyCompanion');
   },
@@ -342,7 +351,6 @@ export const api = {
     return companion;
   },
 
-  // Menopause Companion Loggers
   getMenopauseDetails: async () => {
     return getLocal('menopauseCompanion');
   },
@@ -361,13 +369,11 @@ export const api = {
     return companion;
   },
 
-  // Doctor Audio Notes Voice Transcriber
   getAudioNotes: async () => {
     return getLocal('audioNotes');
   },
 
   transcribeAudioNotes: async (audioFile) => {
-    // Simulated Voice Transcription via LLM API call
     const newNote = {
       id: `audio-${Date.now()}`,
       date: new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit' }),
@@ -380,7 +386,68 @@ export const api = {
     return newNote;
   },
 
-  // AI Health Assistant Chatbot
+  // 📋 Pregnancy test tracker functions
+  getPregnancyTests: async () => {
+    return getLocal('pregnancyTests');
+  },
+
+  togglePregnancyTest: async (id) => {
+    const tests = getLocal('pregnancyTests');
+    const updated = tests.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
+    setLocal('pregnancyTests', updated);
+    return updated;
+  },
+
+  // 🏡 Errands streak tracker functions
+  getErrands: async () => {
+    return getLocal('errands');
+  },
+
+  toggleErrand: async (id) => {
+    const errands = getLocal('errands');
+    const updated = errands.map(e => e.id === id ? { ...e, completed: !e.completed } : e);
+    setLocal('errands', updated);
+
+    // Calculate streak logic (if all tasks completed, increment streak)
+    let streak = getLocal('errandStreak');
+    if (updated.every(e => e.completed)) {
+      streak += 1;
+      setLocal('errandStreak', streak);
+    }
+    return { errands: updated, streak };
+  },
+
+  addErrand: async (task) => {
+    const errands = getLocal('errands');
+    const newErrand = { id: `err-${Date.now()}`, task, completed: false };
+    errands.push(newErrand);
+    setLocal('errands', errands);
+    return errands;
+  },
+
+  // 🎒 Pad kit reminder function
+  togglePadKit: async () => {
+    const val = getLocal('padReminderPacked');
+    setLocal('padReminderPacked', !val);
+    
+    // Dispatch alert if ticked
+    if (!val) {
+      const notifications = getLocal('notifications');
+      notifications.unshift({
+        id: `pad-${Date.now()}`,
+        title: "🎒 Period Kit Ready",
+        message: "Your handbag pad kit is verified. You will receive alerts 2 days before your cycle to ensure you are fully prepared.",
+        seen: false
+      });
+      setLocal('notifications', notifications);
+    }
+    return !val;
+  },
+
+  getPadKitStatus: async () => {
+    return getLocal('padReminderPacked');
+  },
+
   sendChatMessage: async (message) => {
     try {
       const res = await client.post('/chat', { message });
@@ -419,7 +486,6 @@ export const api = {
     }
   },
 
-  // Vision File Uploads
   analyzeMeal: async (file) => {
     const formData = new FormData();
     formData.append('file', file);
@@ -463,9 +529,7 @@ export const api = {
     }
   },
 
-  // Risk Indicators Screen
   getRiskIndicators: async () => {
-    // Evaluates symptoms to flag wellness risk warnings
     const profile = getLocal('profile');
     const sleepLogs = getLocal('sleep');
     const lastSleep = sleepLogs[sleepLogs.length - 1];
@@ -480,7 +544,6 @@ export const api = {
     return risks;
   },
 
-  // Analytics Trends
   getAnalytics: async () => {
     try {
       const res = await client.get('/analytics');
@@ -496,7 +559,6 @@ export const api = {
     }
   },
 
-  // Emergency SOS trigger
   triggerSOS: async (contacts) => {
     try {
       const res = await client.post('/sos', { contacts });
