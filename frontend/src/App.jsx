@@ -30,7 +30,7 @@ const HEALTHCARE_PROVIDERS = {
     { name: 'Dr. Lal PathLabs & Diagnostics Center', address: '55 Commercial Street, Next to SBI', dist: '1.5 km away', phone: '+91 99999 88877' },
     { name: 'SRL Diagnostics & Blood Scan Lab', address: '90 Indiranagar Double Road', dist: '2.1 km away', phone: '+91 99999 55566' }
   ]
-}
+};
 
 // 🌐 Indian Languages Translation Map - Sentence Level 🌐
 const TRANSLATIONS = {
@@ -70,7 +70,7 @@ const TRANSLATIONS = {
     "Community Support": "सामुदायिक सहायता",
     "Settings": "सेटिंग्स",
     "Log Out": "लॉग आउट",
-    "Doctor Audio visit Recorder": "डॉक्टर ऑडियो परामर्श रिकॉर्डर",
+    "Doctor Audio visit Recorder": "डॉक्टर ऑडिओ परामर्श रिकॉर्डर",
     "Anonymous Discussion Forums": "अनाम चर्चा मंच",
     "Nearby Healthcare Finder": "निकटतम स्वास्थ्य केंद्र खोजक",
     "Weekly Challenges": "साप्ताहिक चुनौतियाँ",
@@ -102,604 +102,12 @@ const TRANSLATIONS = {
     "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "अपने नैदानिक परामर्श से ऑडियो नोट्स रिकॉर्ड करें। जेमिनी एआई स्वचालित रूप से ट्रांसक्राइब करेगा...",
     "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "एआई आपको कमी से वापस इष्टतम आधारभूत स्वास्थ्य की ओर ले जाने के लिए एक चरण-दर-चरण रोडमैप तैयार करता है।",
     "First Period Guide": "प्रथम मासिक धर्म मार्गदर्शिका",
-    "Cycle Calendar & Logs": "चक्र कैलेंडर और लॉग",
+    "Cycle Calendar & Logs": "ಚಕ್ರ ಕ್ಯಾಲೆಂಡರ್ ಮತ್ತು ಲಾಗ್ಸ್",
     "Day 12 Follicular Phase": "दिन १२ फॉलिकुलर चरण",
     "Predicted Period: 4 Days left": "पूर्वानुमानित अवधि: ४ दिन बचे हैं",
     "Packed in Handbag!": "हैंडबैग में पैक किया गया!",
     "Not Packed yet": "अभी पैक नहीं किया गया",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "हैकथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
-  },
-  bn: {
-    "Sakhi": "সখী",
-    "Your Everyday AI Health Companion": "আপনার দৈনন্দিন এআই স্বাস্থ্য সঙ্গী",
-    "One Intelligent Companion for Every Woman.": "প্রতিটি নারীর জন্য একটি বুদ্ধিমান সঙ্গী।",
-    "One Intelligent Companion for": "প্রতিটি নারীর জন্য",
-    "Every Woman.": "একটি বুদ্ধিমান সঙ্গী।",
-    "Good Morning, Aditi!": "সুপ্রভাত, অদিতি!",
-    "Health Twin Active": "হেলথ টুইন সক্রিয়",
-    "Today's Wellness Score": "আজকের স্বাস্থ্য স্কোর",
-    "Calculated": "হিসাবকৃত",
-    "Daily AI Welcome Summary": "দৈনিক এআই স্বাগত সারসংক্ষেপ",
-    "Water Intake": "জল গ্রহণ",
-    "Sleep Quality": "ঘুমের গুণমান",
-    "Exercise": "ব্যায়াম",
-    "Cycle Tracker": "মাসিক চক্র ট্র্যাকার",
-    "Weekly Recommendations": "সাপ্তাহিক সুপারিশ",
-    "Log Your Vibe": "আপনার অনুভূতি নথিভুক্ত করুন",
-    "Today's Medicine Checklist": "আজকের ওষুধের তালিকা",
-    "Smart Reminders": "smart অনুস্মারক",
-    "Upcoming Appointments": "আসন্ন অ্যাপয়েন্টমেন্ট",
-    "Explore Stages": "ধাপগুলি অন্বেষণ করুন",
-    "Start Your Journey": "আপনার যাত্রা শুরু করুন",
-    "Dashboard": "ড্যাশবোর্ড",
-    "Health Insights": "স্বাস্থ্য অন্তর্দৃষ্টি",
-    "Health Wrapped": "স্বাস্থ্য র‍্যাপড",
-    "Wellness Coach": "ওয়েলনেস কোচ",
-    "AI Clinic Room": "এআই ক্লিনিক রুম",
-    "Sakhi AI Chat": "সখী এআই চ্যাট",
-    "Menstrual Tracker": "মাসিক চক্র",
-    "Meal & Grocery": "খাবার ও মুদি",
-    "Report Analyzer": "রিপোর্ট বিশ্লেষক",
-    "Health Passport": "হেলথ পাসপোর্ট",
-    "Community Support": "কমিউনিটি সহায়তা",
-    "Settings": "সেটিংস",
-    "Log Out": "লগ আউট",
-    "Doctor Audio visit Recorder": "ডাক্তার অডিও ভিজিট রেকর্ডার",
-    "Anonymous Discussion Forums": "বেনামী আলোচনা ফোরাম",
-    "Nearby Healthcare Finder": "নিকটস্থ স্বাস্থ্যসেবা সন্ধানকারী",
-    "Weekly Challenges": "সাপ্তাহিক চ্যালেঞ্জ",
-    "Family Health Sharing Profile": "পারিবারিক স্বাস্থ্য ভাগ করার প্রোফাইল",
-    "Spotify Wrapped for Health": "স্বাস্থ্যের জন্য র্যাপড",
-    "Google Maps + Health AI Router": "গুগল ম্যাপস + হেলথ এআই রাউটার",
-    "Zomato + Nutrition Recommendation": "জোম্যাটো + পুষ্টি সুপারিশ",
-    "PCOS Screening Tool": "PCOS স্ক্রীনিং টুল",
-    "Daily Brain Fog Tracker": "দৈনিক ব্রেন ফগ ট্র্যাকার",
-    "Carry Pads Handbag Reminder": "প্যাড হ্যান্ডব্যাগ অনুস্মারক",
-    "Menstrual Product Tracker": "মাসিক পণ্য ট্র্যাকার",
-    "First Period Puberty Guide": "প্রথম মাসিক ও বয়ঃসন্ধি নির্দেশিকা",
-    "Weekly Meal Planner": "সাপ্তাহিক খাবার পরিকল্পনাকারী",
-    "Healthy Grocery Planner": "স্বাস্থ্যকর মুদি পরিকল্পনাকারী",
-    "Chronological Timeline": "কালানুক্রমিক সময়রেখা",
-    "Vaccination Records": "টিকা রেকর্ড",
-    "Prescription History": "প্রেসক্রিপশন ইতিহাস",
-    "Consultation Audio Transcripts": "পরামর্শ অডিও প্রতিলিপি",
-    "Digital Medical Card": "ডিজিটাল মেডিকেল কার্ড",
-    "Night wind-down Habits": "রাতের বিশ্রামের অভ্যাস",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "ঘুমের আগে স্বাস্থ্যকর অভ্যাসগুলি চিহ্নিত করুন।",
-    "Dim screens & blue light filters": "স্ক্রিন ম্লান করুন এবং ব্লু লাইট ফিল্টার লাগান",
-    "10 mins mindfulness / box breathing": "১০ মিনিট মাইন্ডফুলনেস / বক্স ব্রিদিং",
-    "Drink warm chamomile / herbal tea": "ঈষদুষ্ণ ক্যামোমাইল / ভেষজ চা পান করুন",
-    "Log sleep hours & cycle symptoms": "ঘুমের সময় এবং চক্রের লক্ষণগুলি নথিভুক্ত করুন",
-    "Check off when you have packed pads in your school/work handbag.": "স্কুল/কাজের ব্যাগে প্যাড প্যাক করার সময় চিহ্নিত করুন।",
-    "Enter Pin Code...": "পিন কোড লিখুন...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "লক্ষণগুলি চয়ন করুন স্বাস্থ্য অন্তর্দৃষ্টি বিশ্লেষণের জন্য।",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "আপনার পরামর্শ থেকে অডিও নোট রেকর্ড করুন। জেমিনি এআই স্বয়ংক্রিয়ভাবে প্রতিলিপি করবে...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "এআই আপনাকে ঘাটতি থেকে স্বাস্থ্যকর বেসলাইনে ফিরিয়ে নিতে পথনির্দেশ তৈরি করে।",
-    "First Period Guide": "প্রথম মাসিক গাইড",
-    "Cycle Calendar & Logs": "মাসিক চক্র ক্যালেন্ডার ও লগ",
-    "Day 12 Follicular Phase": "১২ তম দিন ফলিকুলার পর্যায়",
-    "Predicted Period: 4 Days left": "সম্ভাব্য মাসিক: ৪ দিন বাকি",
-    "Packed in Handbag!": "হ্যান্ডব্যাগে প্যাক করা হয়েছে!",
-    "Not Packed yet": "এখনো প্যাক করা হয়নি",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ডেমো হ্যাকাথন কুইক অ্যাক্সেস (অদিতি হিসেবে লগইন করুন)"
-  },
-  te: {
-    "Sakhi": "సఖి",
-    "Your Everyday AI Health Companion": "మీ రోజువారీ AI ఆరోగ్య సహచరి",
-    "One Intelligent Companion for Every Woman.": "ప్రతి మహిళకు ఒక తెలివైన సహచరి।",
-    "One Intelligent Companion for": "ప్రతి మహిళకు",
-    "Every Woman.": "ఒక తెలివైన సహచరి।",
-    "Good Morning, Aditi!": "శుభోదయం, అదితి!",
-    "Health Twin Active": "హెల్త్ ట్విన్ యాక్టివ్‌గా ఉంది",
-    "Today's Wellness Score": "ఈరోజు ఆరోగ్యం స్కోర్",
-    "Calculated": "లెక్కించబడింది",
-    "Daily AI Welcome Summary": "రోజువారీ AI స్వాగత సారాంశం",
-    "Water Intake": "నీటి వినియోగం",
-    "Sleep Quality": "నిద్ర నాణ్యత",
-    "Exercise": "వ్యాయామం",
-    "Cycle Tracker": "నెలసరి చక్ర ట్రాకర్",
-    "Weekly Recommendations": "వారపు సిఫార్సులు",
-    "Log Your Vibe": "మీ మానసిక స్థితిని నమోదు చేయండి",
-    "Today's Medicine Checklist": "ఈరోజు మందుల జాబితా",
-    "Smart Reminders": "స్మార్ట్ రిమైండర్లు",
-    "Upcoming Appointments": "రాబోయే అపాయింట్‌మెంట్‌లు",
-    "Explore Stages": "దశలను అన్వేషించండి",
-    "Start Your Journey": "మీ ప్రయాణాన్ని ప్రారంభించండి",
-    "Dashboard": "డాష్‌బోర్డ్",
-    "Health Insights": "ఆరోగ్య అంతర్దృష్టులు",
-    "Health Wrapped": "ఆరోగ్య ర్యాప్డ్",
-    "Wellness Coach": "వెల్నెస్ కోచ్",
-    "AI Clinic Room": "AI క్లినిక్ గది",
-    "Sakhi AI Chat": "సఖి AI చాట్",
-    "Menstrual Tracker": "నెలసరి ట్రాకర్",
-    "Meal & Grocery": "భోజనం & కిరాణా",
-    "Report Analyzer": "రిపోర్ట్ అనలైజర్",
-    "Health Passport": "హెల్త్ పాస్‌పోర్ట్",
-    "Community Support": "కమ్యూనిటీ మద్దతు",
-    "Settings": "సెట్టింగ్‌లు",
-    "Log Out": "లాగ్ అవుట్",
-    "Doctor Audio visit Recorder": "డాక్టర్ ఆడియో విజిట్ రికార్డర్",
-    "Anonymous Discussion Forums": "అనామక చర్చా వేదికలు",
-    "Nearby Healthcare Finder": "సమీప ఆరోగ్య కేంద్రాల గుర్తింపు",
-    "Weekly Challenges": "వారపు సవాళ్లు",
-    "Family Health Sharing Profile": "కుటుంబ ఆరోగ్య భాగస్వామ్య ప్రొఫైల్",
-    "Spotify Wrapped for Health": "ఆరోగ్యం కొరకు ర్యాప్డ్",
-    "Google Maps + Health AI Router": "గూగుల్ మ్యాప్స్ + హెల్త్ AI రూటర్",
-    "Zomato + Nutrition Recommendation": "జొమాటో + పోషకాహార సిఫార్సు",
-    "PCOS Screening Tool": "PCOS స్క్రీనింగ్ సాధనం",
-    "Daily Brain Fog Tracker": "రోజువారీ బ్రెయిన్ ఫాగ్ ట్రాకర్",
-    "Carry Pads Handbag Reminder": "ప్యాడ్ల హ్యాండ్‌బ్యాగ్ రిమైండర్",
-    "Menstrual Product Tracker": "నెలసరి ఉత్పత్తుల ట్రాకర్",
-    "First Period Puberty Guide": "మొదటి నెలసరి & యుక్తవయస్సు గైడ్",
-    "Weekly Meal Planner": "వారపు భోజన ప్రణాళిక",
-    "Healthy Grocery Planner": "ఆరోగ్యకరమైన కిరాణా ప్రణాళిక",
-    "Chronological Timeline": "కాలక్రమానుసార టైమ్‌లైన్",
-    "Vaccination Records": "టీకాల రికార్డులు",
-    "Prescription History": "ప్రిస్క్రిప్షన్ల చరిత్ర",
-    "Consultation Audio Transcripts": "కన్సల్టేషన్ ఆడియో ట్రాన్స్క్రిప్ట్",
-    "Digital Medical Card": "డిజిటల్ మెడికల్ కార్డ్",
-    "Night wind-down Habits": "రాత్రి నిద్ర అలవాట్లు",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "నిద్రపోయే ముందు మంచి అలవాట్లను గుర్తించండి.",
-    "Dim screens & blue light filters": "స్క్రీన్ వెలుతురు తగ్గించి బ్లూ లైట్ ఫిల్టర్ ఆన్ చేయండి",
-    "10 mins mindfulness / box breathing": "10 నిమిషాల మైండ్‌ఫుల్‌నెస్ / బాక్స్ బ్రీతింగ్",
-    "Drink warm chamomile / herbal tea": "గోరువెచ్చని చామంతి / మూలికా టీ తాగండి",
-    "Log sleep hours & cycle symptoms": "నిద్ర గంటలు మరియు నెలసరి లక్షణాలను నమోదు చేయండి",
-    "Check off when you have packed pads in your school/work handbag.": "స్కూల్/ఆఫీస్ బ్యాగులో ప్యాడ్లు సర్దినప్పుడు టిక్ చేయండి.",
-    "Enter Pin Code...": "పిన్ కోడ్ ఎంటర్ చేయండి...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "మీకు ఉన్న లక్షణాలను ఎంచుకోండి.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "మీ క్లినికల్ సంప్రదింపుల ఆడియో నోట్లను రికార్డ్ చేయండి. జెమిని AI సారాంశం ఇస్తుంది...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ఆరోగ్యకరమైన స్థితికి చేరుకోవడానికి AI దశల వారీ ప్రణాళికను అందిస్తుంది.",
-    "First Period Guide": "మొదటి నెలసరి గైడ్",
-    "Cycle Calendar & Logs": "నెలసరి క్యాలెండర్ & లాగ్స్",
-    "Day 12 Follicular Phase": "12 వ రోజు ఫోలిక్యులర్ దశ",
-    "Predicted Period: 4 Days left": "నెలసరి అంచనా: ఇంకా 4 రోజులు ఉంది",
-    "Packed in Handbag!": "హ్యాండ్‌బ్యాగ్‌లో సర్దబడింది!",
-    "Not Packed yet": "ఇంకా సర్దలేదు",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "డెమో హ్యాకథాన్ త్వరిత ప్రాప్యత (అదితిగా లాగిన్ అవ్వండి)"
-  },
-  mr: {
-    "Sakhi": "सखी",
-    "Your Everyday AI Health Companion": "तुमची दैनंदिन एआय आरोग्य सोबती",
-    "One Intelligent Companion for Every Woman.": "प्रत्येक महिलेसाठी एक बुद्धिमान सोबती।",
-    "One Intelligent Companion for": "प्रत्येक महिलेसाठी",
-    "Every Woman.": "एक बुद्धिमान सोबती।",
-    "Good Morning, Aditi!": "शुभ प्रभात, अदिती!",
-    "Health Twin Active": "हेल्थ ट्विन सक्रिय आहे",
-    "Today's Wellness Score": "आजचा आरोग्य स्कोअर",
-    "Calculated": "मोजलेले",
-    "Daily AI Welcome Summary": "दैनिक एआय स्वागत सारांश",
-    "Water Intake": "पाणी पिण्याची नोंद",
-    "Sleep Quality": "झोपेची गुणवत्ता",
-    "Exercise": "व्यायाम",
-    "Cycle Tracker": "मासिक पाळी ट्रॅकर",
-    "Weekly Recommendations": "साप्ताहिक शिफारसी",
-    "Log Your Vibe": "तुमची मनस्थिती नोंदवा",
-    "Today's Medicine Checklist": "आजच्या औषधांची यादी",
-    "Smart Reminders": "स्मार्ट स्मरणपत्रे",
-    "Upcoming Appointments": "पुढील अपॉइंटमेंट्स",
-    "Explore Stages": "टप्पे एक्सप्लोर करा",
-    "Start Your Journey": "तुमचा प्रवास सुरू करा",
-    "Dashboard": "डॅशबोर्ड",
-    "Health Insights": "आरोग्य अंतर्दृष्टी",
-    "Health Wrapped": "आरोग्य रॅप्ड",
-    "Wellness Coach": "वेलनेस कोच",
-    "AI Clinic Room": "एआय क्लिनिक रूम",
-    "Sakhi AI Chat": "सखी एआय चॅट",
-    "Menstrual Tracker": "मासिक पाळी",
-    "Meal & Grocery": "जेवण आणि किराणा",
-    "Report Analyzer": "रिपोर्ट विश्लेषक",
-    "Health Passport": "हेल्थ पासपोर्ट",
-    "Community Support": "सामुदायिक समर्थन",
-    "Settings": "सेटिंग्ज",
-    "Log Out": "लॉग आउट",
-    "Doctor Audio visit Recorder": "डॉक्टर ऑडिओ भेट रेकॉर्डर",
-    "Anonymous Discussion Forums": "अनामित चर्चा मंच",
-    "Nearby Healthcare Finder": "जवळचे आरोग्य केंद्र शोधक",
-    "Weekly Challenges": "साप्ताहिक आव्हाने",
-    "Family Health Sharing Profile": "कौटुंबिक आरोग्य सामायिकरण प्रोफाइल",
-    "Spotify Wrapped for Health": "आरोग्यासाठी रॅप्ड",
-    "Google Maps + Health AI Router": "गूगल मॅप्स + हेल्थ एआय राउटर",
-    "Zomato + Nutrition Recommendation": "झोमॅटो + पोषण शिफारस",
-    "PCOS Screening Tool": "PCOS स्क्रीनिंग टूल",
-    "Daily Brain Fog Tracker": "दैनिक ब्रेन फॉग ट्रॅकर",
-    "Carry Pads Handbag Reminder": "पॅड्स हँडबॅग स्मरणपत्र",
-    "Menstrual Product Tracker": "मासिक पाळी उत्पादन ट्रॅकर",
-    "First Period Puberty Guide": "पहिली मासिक पाळी आणि यौवन मार्गदर्शिका",
-    "Weekly Meal Planner": "साप्ताहिक जेवण नियोजनकार",
-    "Healthy Grocery Planner": "आरोग्यदायी किराणा माल नियोजनकार",
-    "Chronological Timeline": "कालानुक्रमिक टाइमलाइन",
-    "Vaccination Records": "लसीकरण रेकॉर्ड",
-    "Prescription History": "औषधोपचार इतिहास",
-    "Consultation Audio Transcripts": "परामर्श ऑडिओ ट्रान्सक्रिप्ट",
-    "Digital Medical Card": "डिजिटल वैद्यकीय कार्ड",
-    "Night wind-down Habits": "रात्रीचे विश्रांतीचे नियम",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "झोपण्यापूर्वी निरोगी सवयींची नोंद करा.",
-    "Dim screens & blue light filters": "स्क्रीन मंद करा आणि ब्लू लाईट फिल्टर वापरा",
-    "10 mins mindfulness / box breathing": "१० मिनिटे माइंडफुलनेस / बॉक्स ब्रीदिंग",
-    "Drink warm chamomile / herbal tea": "कोमट कॅमोमाइल / हर्बल चहा प्या",
-    "Log sleep hours & cycle symptoms": "झोपेचे तास आणि चक्राचे लक्षणे नोंदवा",
-    "Check off when you have packed pads in your school/work handbag.": "शाळेच्या/कामाच्या बॅगेत पॅड्स भरल्यावर खूण करा.",
-    "Enter Pin Code...": "पिन कोड प्रविष्ट करा...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "तुमची लक्षणे निवडा.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "तुमच्या वैद्यकीय सल्ल्याची ऑडिओ नोंद करा. जेमिनी एआय सारांश करेल...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "एआय तुम्हाला कमतरतेतून निरोगी आरोग्याकडे नेण्यासाठी रोडमॅप तयार करतो.",
-    "First Period Guide": "पहिली मासिक पाळी मार्गदर्शिका",
-    "Cycle Calendar & Logs": "चक्र कॅलेंडर आणि लॉग",
-    "Day 12 Follicular Phase": "दिवस १२ फॉलिक्युलर टप्पा",
-    "Predicted Period: 4 Days left": "मासिक पाळीचा अंदाज: ४ दिवस उरले",
-    "Packed in Handbag!": "हँडबॅगमध्ये पॅक केले!",
-    "Not Packed yet": "अजून पॅक केले नाही",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "डेमो हॅकाथॉन क्विक ॲक्सेस (अदिती म्हणून लॉग इन करा)"
-  },
-  ta: {
-    "Sakhi": "சகி",
-    "Your Everyday AI Health Companion": "உங்கள் அன்றாட AI சுகாதார துணை",
-    "One Intelligent Companion for Every Woman.": "ஒவ்வொரு பெண்ணுக்கும் ஒரு புத்திசாலித்தனமான துணை।",
-    "One Intelligent Companion for": "ஒவ்வொரு பெண்ணுக்கும்",
-    "Every Woman.": "ஒரு புத்திசாலித்தனமான துணை।",
-    "Good Morning, Aditi!": "காலை வணக்கம், அதிதி!",
-    "Health Twin Active": "ஹெல்த் ட்வின் செயலில் உள்ளது",
-    "Today's Wellness Score": "இன்றைய ஆரோக்கிய மதிப்பெண்",
-    "Calculated": "கணக்கிடப்பட்டது",
-    "Daily AI Welcome Summary": "தினசரி AI வரவேற்பு சுருக்கம்",
-    "Water Intake": "நீர் உட்கொள்ளல்",
-    "Sleep Quality": "தூக்கத்தின் தரம்",
-    "Exercise": "உடற்பயிற்சி",
-    "Cycle Tracker": "மாதவிடாய் சுழற்சி டிராக்கர்",
-    "Weekly Recommendations": "வாராந்திர பரிந்துரைகள்",
-    "Log Your Vibe": "உங்கள் மனநிலையை பதிவு செய்யவும்",
-    "Today's Medicine Checklist": "இன்றைய மருந்து பட்டியல்",
-    "Smart Reminders": "ஸ்மார்ட் நினைவூட்டல்கள்",
-    "Upcoming Appointments": "வரவிருக்கும் சந்திப்புகள்",
-    "Explore Stages": "நிலைகளை ஆராயுங்கள்",
-    "Start Your Journey": "உங்கள் பயணத்தைத் தொடங்குங்கள்",
-    "Dashboard": "டாஷ்போர்டு",
-    "Health Insights": "ஆரோக்கிய நுண்ணறிவு",
-    "Health Wrapped": "ஆரோக்கிய ரேப்டு",
-    "Wellness Coach": "வெல்னஸ் கோச்",
-    "AI Clinic Room": "AI கிளினிக் அறை",
-    "Sakhi AI Chat": "சகி AI அரட்டை",
-    "Menstrual Tracker": "மாதவிடாய் டிராக்கர்",
-    "Meal & Grocery": "உணவு & மளிகை",
-    "Report Analyzer": "அறிக்கை பகுப்பாய்வி",
-    "Health Passport": "ஹெல்த் பாஸ்போர்ட்",
-    "Community Support": "சமூக ஆதரவு",
-    "Settings": "அமைப்புகள்",
-    "Log Out": "வெளியேறு",
-    "Doctor Audio visit Recorder": "மருத்துவர் ஆடியோ பதிவி கருவி",
-    "Anonymous Discussion Forums": "அநாமதேய விவாத மன்றங்கள்",
-    "Nearby Healthcare Finder": "அருகிலுள்ள மருத்துவ உதவி தேடல்",
-    "Weekly Challenges": "வாராந்திர சவால்கள்",
-    "Family Health Sharing Profile": "குடும்ப சுகாதார பகிர்வு சுயவிவரம்",
-    "Spotify Wrapped for Health": "சுகாதாரத்திற்கான ரேப்டு",
-    "Google Maps + Health AI Router": "கூகுள் மேப்ஸ் + ஹெல்த் AI ரூட்டர்",
-    "Zomato + Nutrition Recommendation": "சொமாட்டோ + ஊட்டச்சத்து பரிந்துரை",
-    "PCOS Screening Tool": "PCOS பரிசோதனை கருவி",
-    "Daily Brain Fog Tracker": "தினசரி மூளை சோர்வு கண்காணிப்பு",
-    "Carry Pads Handbag Reminder": "பேடு கைப்பைகள் நினைவூட்டல்",
-    "Menstrual Product Tracker": "மாதவிடாய் தயாரிப்பு கண்காணிப்பு",
-    "First Period Puberty Guide": "முதல் மாதவிடாய் மற்றும் பூப்படைதல் வழிகாட்டி",
-    "Weekly Meal Planner": "வாராந்திர உணவு திட்டமிடுபவர்",
-    "Healthy Grocery Planner": "ஆரோக்கியமான மளிகை திட்டமிடுபவர்",
-    "Chronological Timeline": "காலவரிசைப்படி டைம்லைன்",
-    "Vaccination Records": "தடுப்பூசி பதிவுகள்",
-    "Prescription History": "மருந்து பரிந்துரை வரலாறு",
-    "Consultation Audio Transcripts": "ஆலோசனையின் ஆடியோ டிரான்ஸ்கிரிப்ட்",
-    "Digital Medical Card": "டிஜிட்டல் மருத்துவ அட்டை",
-    "Night wind-down Habits": "இரவு ஓய்வு பழக்கங்கள்",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "தூங்குவதற்கு முன் ஆரோக்கியமான பழக்கங்களை குறிக்கவும்.",
-    "Dim screens & blue light filters": "திரை வெளிச்சத்தை குறைத்து ப்ளூ லைட் ஃபில்டர் ஆன் செய்யவும்",
-    "10 mins mindfulness / box breathing": "10 நிமிடம் மன அமைதி / மூச்சுப் பயிற்சி",
-    "Drink warm chamomile / herbal tea": "மிதமான காமோமில் / மூலிகை டீ குடிக்கவும்",
-    "Log sleep hours & cycle symptoms": "தூக்க நேரம் மற்றும் மாதவிடாய் அறிகுறிகளை பதிவு செய்யவும்",
-    "Check off when you have packed pads in your school/work handbag.": "பள்ளி/அலுவலக பையில் பேடுகளை வைக்கும் போது டிக் செய்யவும்.",
-    "Enter Pin Code...": "பின் கோடை உள்ளிடவும்...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "உங்கள் அறிகுறிகளை தேர்வு செய்யவும்.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "மருத்துவ ஆலோசனையின் ஆடியோ குறிப்புகளை பதிவு செய்யவும். ஜெமினி AI சுருக்கம் தரும்...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "உகந்த ஆரோக்கியத்தை பெற AI உங்களுக்கு படிப்படியான வழிகாட்டுதலை வழங்கும்.",
-    "First Period Guide": "முதல் மாதவிடாய் வழிகாட்டி",
-    "Cycle Calendar & Logs": "மாதவிடாய் காலண்டர் & பதிவுகள்",
-    "Day 12 Follicular Phase": "12 வது நாள் ஃபோலிகுலர் நிலை",
-    "Predicted Period: 4 Days left": "மாதவிடாய் கணிப்பு: இன்னும் 4 நாட்கள் உள்ளன",
-    "Packed in Handbag!": "கைப்பையில் வைக்கப்பட்டது!",
-    "Not Packed yet": "இன்னும் வைக்கப்படவில்லை",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "டெமோ ஹேக்கத்தான் விரைவு அணுகல் (அதிதியாக உள்நுழையவும்)"
-  },
-  gu: {
-    "Sakhi": "સખી",
-    "Your Everyday AI Health Companion": "તમારી દૈનિક AI આરોગ્ય સાથી",
-    "One Intelligent Companion for Every Woman.": "દરેક મહિલા માટે એક બુદ્ધિશાળી સાથી।",
-    "One Intelligent Companion for": "દરેક મહિલા માટે",
-    "Every Woman.": "એક બુદ્ધિશાળી સાથી।",
-    "Good Morning, Aditi!": "શુભ સવાર, અદિતિ!",
-    "Health Twin Active": "હેલ્થ ટ્વીન સક્રિય છે",
-    "Today's Wellness Score": "આજનો વેલનેસ સ્કોર",
-    "Calculated": "ગણતરી કરેલ",
-    "Daily AI Welcome Summary": "દૈનિક AI સ્વાગત સારાંશ",
-    "Water Intake": "પાણી પીવાની નોંધ",
-    "Sleep Quality": "ઊંઘની ગુણવત્તા",
-    "Exercise": "વ્યાયામ",
-    "Cycle Tracker": "માસિક ચક્ર ટ્રેકર",
-    "Weekly Recommendations": "સાપ્તાહિક ભલામણો",
-    "Log Your Vibe": "તમારી સ્થિતિની નોંધ કરો",
-    "Today's Medicine Checklist": "આજની દવાઓની સૂચિ",
-    "Smart Reminders": "સ્માર્ટ રીમાઇન્ડર્સ",
-    "Upcoming Appointments": "આગામી એપોઇન્ટમેન્ટ્સ",
-    "Explore Stages": "તબક્કાઓ અન્વેષણ કરો",
-    "Start Your Journey": "તમારી યાત્રા શરૂ કરો",
-    "Dashboard": "ડેશબોર્ડ",
-    "Health Insights": "આરોગ્ય આંતરદૃષ્ટિ",
-    "Health Wrapped": "આરોગ્ય રેપ્ડ",
-    "Wellness Coach": "વેલનેસ કોચ",
-    "AI Clinic Room": "AI ક્લિનિક રૂમ",
-    "Sakhi AI Chat": "સખી AI ચેટ",
-    "Menstrual Tracker": "માસિક ચક્ર",
-    "Meal & Grocery": "ભોજન અને કરિયાણું",
-    "Report Analyzer": "રિપોર્ટ વિશ્લેષક",
-    "Health Passport": "હેલ્થ પાસપોર્ટ",
-    "Community Support": "સમુદાય સપોર્ટ",
-    "Settings": "સેટિંગ્સ",
-    "Log Out": "લોગ આઉટ",
-    "Doctor Audio visit Recorder": "ડોક્ટર ઓડિયો વિઝિટ રેકોર્ડર",
-    "Anonymous Discussion Forums": "અનામી ચર્ચા મંચ",
-    "Nearby Healthcare Finder": "નજીકનું આરોગ્ય કેન્દ્ર શોધક",
-    "Weekly Challenges": "સાપ્તાહિક પડકારો",
-    "Family Health Sharing Profile": "કૌટુંબિક આરોગ્ય શેરિંગ પ્રોફાઇલ",
-    "Spotify Wrapped for Health": "આરોગ્ય માટે રેપ્ડ",
-    "Google Maps + Health AI Router": "ગૂગલ મેપ્સ + હેલ્થ AI રૂટર",
-    "Zomato + Nutrition Recommendation": "ઝોમેટો + પોષણ ભલામણ",
-    "PCOS Screening Tool": "PCOS સ્ક્રીનીંગ સાધન",
-    "Daily Brain Fog Tracker": "દૈનિક બ્રેઇન ફોગ ટ્રેકર",
-    "Carry Pads Handbag Reminder": "પેડ્સ હેન્ડબેગ રીમાઇન્ડર",
-    "Menstrual Product Tracker": "માસિક ચક્ર પ્રોડક્ટ ટ્રેકર",
-    "First Period Puberty Guide": "પ્રથમ માસિક સ્રાવ અને ગર્ભાવસ્થા માર્ગદર્શિકા",
-    "Weekly Meal Planner": "સાપ્તાહિક ભોજન આયોજક",
-    "Healthy Grocery Planner": "આરોગ્યપ્રદ કરિયાણું આયોજક",
-    "Chronological Timeline": "કાલક્રમિક સમયરેખા",
-    "Vaccination Records": "રસીકરણ રેકોર્ડ્સ",
-    "Prescription History": "પ્રિસ્ક્રિપ્શન ઇતિહાસ",
-    "Consultation Audio Transcripts": "પરામર્શ ઓડિયો ટ્રાન્સક્રિપ્ટ",
-    "Digital Medical Card": "ડિજિટલ મેડિકલ કાર્ડ",
-    "Night wind-down Habits": "રાત્રિની આરામ કરવાની ટેવો",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "સૂતા પહેલા તંદુરસ્ત ટેવો નોંધી લો.",
-    "Dim screens & blue light filters": "સ્ક્રીન ધીમી કરો અને બ્લુ લાઇટ ફિલ્ટર લગાવો",
-    "10 mins mindfulness / box breathing": "૧૦ મિનિટ માઇન્ડફુલનેસ / બોક્સ બ્રીધિંગ",
-    "Drink warm chamomile / herbal tea": "હૂંફાળી કેમોમાઈલ / હર્બલ ચા પીઓ",
-    "Log sleep hours & cycle symptoms": "ઊંઘના કલાકો અને ચક્રના લક્ષણોની નોંધ કરો",
-    "Check off when you have packed pads in your school/work handbag.": "સ્કૂલ/કામની બેગમાં પેડ્સ પેક કરો ત્યારે ટીક કરો.",
-    "Enter Pin Code...": "પિન કોડ દાખલ કરો...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "તમારા લક્ષણો પસંદ કરો.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "પરામર્શની ઓડિયો નોંધો રેકોર્ડ કરો. જેમિની એઆઈ સારાંશ આપશે...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "એઆઈ તમને ઉણપમાંથી તંદુરસ્ત સ્વાસ્થ્ય તરફ લઈ જવા રોડમેપ બનાવે છે.",
-    "First Period Guide": "પ્રથમ માસિક માર્ગદર્શિકા",
-    "Cycle Calendar & Logs": "ચક્ર કેલેન્ડર અને લોગ",
-    "Day 12 Follicular Phase": "દિવસ ૧૨ ફોલિક્યુલર તબક્કો",
-    "Predicted Period: 4 Days left": "અંદાજિત માસિક: ૪ દિવસ બાકી",
-    "Packed in Handbag!": "હેન્ડબેગમાં પેક કર્યું!",
-    "Not Packed yet": "હજી પેક નથી કર્યું",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ડેમો હેકાથોન ક્વિક એક્સેસ (અદિતી તરીકે લોગિન કરો)"
-  },
-  kn: {
-    "Sakhi": "ಸಖಿ",
-    "Your Everyday AI Health Companion": "ನಿಮ್ಮ ದೈನಂದಿನ AI ಆರೋಗ್ಯ ಸಂಗಾತಿ",
-    "One Intelligent Companion for Every Woman.": "ಪ್ರತಿ महिलाಗೆ ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
-    "One Intelligent Companion for": "ಪ್ರತಿ మహిళకు",
-    "Every Woman.": "ಒಂದು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ।",
-    "Good Morning, Aditi!": "ಶುಭೋದಯ, ಅದಿತಿ!",
-    "Health Twin Active": "ಹೆಲ್ತ್ ಟ್ವಿನ್ ಸಕ್ರಿಯವಾಗಿದೆ",
-    "Today's Wellness Score": "ಇಂದಿನ ವೆಲ್ನೆಸ್ ಸ್ಕೋರ್",
-    "Calculated": "ಲೆಕ್ಕಹಾಕಲಾಗಿದೆ",
-    "Daily AI Welcome Summary": "ದೈನಂದಿನ AI ಸ್ವಾಗತ ಸಾರಾಂಶ",
-    "Water Intake": "ನೀರಿನ ಸೇವನೆ",
-    "Sleep Quality": "ನಿದ್ರೆಯ ಗುಣಮಟ್ಟ",
-    "Exercise": "ವ್ಯಾಯಾಮ",
-    "Cycle Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
-    "Weekly Recommendations": "ಸಾಪ್ತಾಹಿಕ ಶಿಫಾರಸುಗಳು",
-    "Log Your Vibe": "ನಿಮ್ಮ ಮನಸ್ಥಿತಿಯನ್ನು ದಾಖಲಿಸಿ",
-    "Today's Medicine Checklist": "ಇಂದಿನ ಔಷಧಿಗಳ ಪಟ್ಟಿ",
-    "Smart Reminders": "ಸ್ಮಾರ್ಟ್ ಜ್ಞಾಪನೆಗಳು",
-    "Upcoming Appointments": "ಮುಂಬರುವ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು",
-    "Explore Stages": "ಹಂತಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
-    "Start Your Journey": "ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ",
-    "Dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-    "Health Insights": "ಆರೋಗ್ಯ ಒಳನೋಟಗಳು",
-    "Health Wrapped": "ಆರೋಗ್ಯ ರಾಪ್ಡ್",
-    "Wellness Coach": "ವೆಲ್ನೆಸ್ ಕೋಚ್",
-    "AI Clinic Room": "AI ಕ್ಲಿನಿಕ್ ಕೊಠಡಿ",
-    "Sakhi AI Chat": "ಸಖಿ AI ಚಾಟ್",
-    "Menstrual Tracker": "ಋತುಚಕ್ರ ಟ್ರ್ಯಾಕರ್",
-    "Meal & Grocery": "ಊಟ ಮತ್ತು ದಿನಸಿ",
-    "Report Analyzer": "ವರದಿ ವಿಶ್ಲೇಷಕ",
-    "Health Passport": "ಹೆಲ್ತ್ ಪಾಸ್‌ಪೋರ್ಟ್",
-    "Community Support": "ಸಮುದಾಯ ಬೆಂಬಲ",
-    "Settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
-    "Log Out": "ಲಾಗ್ ಔಟ್",
-    "Doctor Audio visit Recorder": "ವೈದ್ಯರ ಆಡಿಯೋ ಭೇಟಿ ರೆಕಾರ್ಡರ್",
-    "Anonymous Discussion Forums": "ಅನಾಮಧೇಯ ಚರ್ಚಾ ವೇದಿಕೆಗಳು",
-    "Nearby Healthcare Finder": "ಸಮೀಪದ ಆರೋಗ್ಯ ಸೇವೆಗಳ ಪತ್ತೆ",
-    "Weekly Challenges": "ಸಾಪ್ತಾಹಿಕ ಸವಾಲುಗಳು",
-    "Family Health Sharing Profile": "ಕುಟುಂಬ ಆರೋಗ್ಯ ಹಂಚಿಕೆ ಪ್ರೊಫೈಲ್",
-    "Spotify Wrapped for Health": "ಆರೋಗ್ಯಕ್ಕಾಗಿ ರ‌್ಯಾಪ್ಡ್",
-    "Google Maps + Health AI Router": "ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ + ಹೆಲ್ತ್ AI ರೂಟರ್",
-    "Zomato + Nutrition Recommendation": "ಜೊಮ್ಯಾಟೊ + ಪೌಷ್ಟಿಕಾಂಶದ ಶಿಫಾರಸು",
-    "PCOS Screening Tool": "PCOS ತಪಾಸಣಾ ಸಾಧನ",
-    "Daily Brain Fog Tracker": "ದೈನಂದಿನ ಬ್ರೈನ್ ಫಾಗ್ ಟ್ರ್ಯಾಕರ್",
-    "Carry Pads Handbag Reminder": "ಪ್ಯಾಡ್ ಬ್ಯಾಗ್ ರಿಮೈಂಡರ್",
-    "Menstrual Product Tracker": "ಋತುಚಕ್ರ ಉತ್ಪನ್ನಗಳ ಟ್ರ್ಯಾಕರ್",
-    "First Period Puberty Guide": "ಮೊದಲ ಋತುಚಕ್ರ ಮತ್ತು ಪ್ರೌಢಾವಸ್ಥೆಯ ಗೈಡ್",
-    "Weekly Meal Planner": "ಸಾಪ್ತಾಹಿಕ ಊಟದ ಯೋಜಕ",
-    "Healthy Grocery Planner": "ಆರೋಗ್ಯಕರ ದಿನಸಿ ಯೋಜಕ",
-    "Chronological Timeline": "ಕಾಲಾನುಕ್ರಮದ ಟೈಮ್‌ಲೈನ್",
-    "Vaccination Records": "ಲಸಿಕೆ ದಾಖಲೆಗಳು",
-    "Prescription History": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಇತಿಹಾಸ",
-    "Consultation Audio Transcripts": "ಸಮಾಲೋಚನೆಯ ಆಡಿಯೋ ಪ್ರತಿಲಿಪಿ",
-    "Digital Medical Card": "ಡಿಜಿಟಲ್ ವೈದ್ಯಕೀಯ ಕಾರ್ಡ್",
-    "Night wind-down Habits": "ರಾತ್ರಿ ವಿಶ್ರಾಂತಿಯ ಅಭ್ಯಾಸಗಳು",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "ಮಲಗುವ ಮುನ್ನ ಉತ್ತಮ ಅಭ್ಯಾಸಗಳನ್ನು ಗುರುತಿಸಿ.",
-    "Dim screens & blue light filters": "ಸ್ಕ್ರೀನ್ ಬೆಳಕನ್ನು ಕಡಿಮೆ ಮಾಡಿ ಬ್ಲೂ ಲೈಟ್ ಫಿಲ್ಟರ್ ಆನ್ ಮಾಡಿ",
-    "10 mins mindfulness / box breathing": "10 ನಿಮಿಷಗಳ ಮೈಂಡ್‌ಫುಲ್‌ನೆಸ್ / ಬಾಕ್ಸ್ ಬ್ರೀಥಿಂಗ್",
-    "Drink warm chamomile / herbal tea": "ಬಿಸಿ ಚಾಮೊಮೈಲ್ / ಗಿಡಮೂಲಿಕೆ ಚಹಾವನ್ನು ಕುಡಿಯಿರಿ",
-    "Log sleep hours & cycle symptoms": "ನಿದ್ರೆಯ ಸಮಯ ಮತ್ತು ಋತುಚಕ್ರದ ಲಕ್ಷಣಗಳನ್ನು ದಾಖಲಿಸಿ",
-    "Check off when you have packed pads in your school/work handbag.": "ಸ್ಕೂಲ್/ಕೆಲಸದ ಬ್ಯಾಗಿನಲ್ಲಿ ಪ್ಯಾಡ್‌ಗಳನ್ನು ಇರಿಸಿದಾಗ ಗುರುತು ಮಾಡಿ.",
-    "Enter Pin Code...": "ಪಿನ್ ಕೋಡ್ ನಮೂದಿಸಿ...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "ನಿಮ್ಮ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ಆಡಿಯೋ ಟಿಪ್ಪಣಿಗಳನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ. ಜೆಮಿನಿ AI ಸಾರಾಂಶವನ್ನು ನೀಡುತ್ತದೆ...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ಉತ್ತಮ ಆರೋಗ್ಯಕ್ಕೆ ಮರಳಲು AI ಹಂತ ಹಂತದ ಯೋಜನೆಯನ್ನು ನೀಡುತ್ತದೆ.",
-    "First Period Guide": "ಮೊದಲ ಋತುಚಕ್ರ ಮಾರ್ಗದರ್ಶಿ",
-    "Cycle Calendar & Logs": "ಋತುಚಕ್ರ ಕ್ಯಾಲೆಂಡರ್ ಮತ್ತು ಲಾಗ್‌ಗಳು",
-    "Day 12 Follicular Phase": "12 ನೇ ದಿನ ಫೋಲಿಕ್ಯುಲರ್ ಹಂತ",
-    "Predicted Period: 4 Days left": "ಋತುಚಕ್ರದ ಮುನ್ಸೂಚನೆ: 4 ದಿನಗಳು ಬಾಕಿ ಇವೆ",
-    "Packed in Handbag!": "ಬ್ಯಾಗಿನಲ್ಲಿ ಇರಿಸಲಾಗಿದೆ!",
-    "Not Packed yet": "ಇನ್ನೂ ಇರಿಸಿಲ್ಲ",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ಡೆಮೊ ಹ್ಯಾಕಥಾನ್ ತ್ವರಿತ ಪ್ರವೇಶ (ಅದಿತಿ ಎಂದು ಲಾಗಿನ್ ಮಾಡಿ)"
-  },
-  ml: {
-    "Sakhi": "സഖി",
-    "Your Everyday AI Health Companion": "നിങ്ങളുടെ ദൈനദിന AI ആരോഗ്യ കൂട്ടാളി",
-    "One Intelligent Companion for Every Woman.": "ഓരോ സ്ത്രീക്കും ഒരു ബുദ്ധിമാനായ കൂട്ടാളി।",
-    "One Intelligent Companion for": "ഓരോ സ്ത്രീക്കും",
-    "Every Woman.": "ഒരു ബുദ്ധിമാനായ കൂട്ടാളി।",
-    "Good Morning, Aditi!": "സുപ്രഭാതം, അതിഥി!",
-    "Health Twin Active": "ഹെൽത്ത് ട്വിൻ സജീവമാണ്",
-    "Today's Wellness Score": "ഇന്നത്തെ വെൽനസ് സ്കോർ",
-    "Calculated": "കണക്കാക്കിയത്",
-    "Daily AI Welcome Summary": "ദൈനദിന AI സ്വാഗത സംഗ്രഹം",
-    "Water Intake": "വെള്ളം കുടിക്കുന്നതിന്റെ അളവ്",
-    "Sleep Quality": "ഉറക്കത്തിന്റെ ഗുണനിലവാരം",
-    "Exercise": "വ്യായാമം",
-    "Cycle Tracker": "ആർത്തവ ചക്ര ട്രാക്കർ",
-    "Weekly Recommendations": "പ്രതിവാര നിർദ്ദേശങ്ങൾ",
-    "Log Your Vibe": "നിങ്ങളുടെ മാനസികാവസ്ഥ രേഖപ്പെടുത്തുക",
-    "Today's Medicine Checklist": "ഇന്നത്തെ മരുന്നുകളുടെ ലിസ്റ്റ്",
-    "Smart Reminders": "സ്മാർട്ട് ഓർമ്മപ്പെടുത്തലുകൾ",
-    "Upcoming Appointments": "വരാനിരിക്കുന്ന കൂടിക്കാഴ്ചകൾ",
-    "Explore Stages": "ഘട്ടങ്ങൾ പര്യവേക്ഷണം ചെയ്യുക",
-    "Start Your Journey": "നിങ്ങളുടെ യാത്ര ആരംഭിക്കുക",
-    "Dashboard": "ഡാഷ്‌ബോർഡ്",
-    "Health Insights": "ആരോഗ്യ സ്ഥിതിവിവരങ്ങൾ",
-    "Health Wrapped": "ആരോഗ്യം റാപ്പ്ഡ്",
-    "Wellness Coach": "വെൽനസ് കോച്ച്",
-    "AI Clinic Room": "AI ക്ലിനിക് റൂം",
-    "Sakhi AI Chat": "സഖി AI ചാറ്റ്",
-    "Menstrual Tracker": "ആർത്തവ ട്രാക്കർ",
-    "Meal & Grocery": "ഭക്ഷണവും പലചരക്കും",
-    "Report Analyzer": "റിപ്പോർട്ട് അനലൈസർ",
-    "Health Passport": "ഹെൽത്ത് പാസ്‌പോർട്ട്",
-    "Community Support": "കമ്മ്യൂണിറ്റി പിന്തുണ",
-    "Settings": "ക്രമീകരണങ്ങൾ",
-    "Log Out": "ലോഗ് ഔട്ട്",
-    "Doctor Audio visit Recorder": "ഡോക്ടർ ഓഡിയോ സന്ദർശന റെക്കോർഡർ",
-    "Anonymous Discussion Forums": "അജ്ഞാത ചർച്ചാ വേദികൾ",
-    "Nearby Healthcare Finder": "അടുത്തുള്ള ആരോഗ്യ കേന്ദ്രം കണ്ടെത്തൽ",
-    "Weekly Challenges": "പ്രതിവാര വെല്ലുവിളികൾ",
-    "Family Health Sharing Profile": "കുടുംബ ആരോഗ്യ പങ്കിടൽ പ്രൊഫൈൽ",
-    "Spotify Wrapped for Health": "ആരോഗ്യത്തിന് റാപ്പ്ഡ്",
-    "Google Maps + Health AI Router": "ഗൂഗിൾ മാപ്‌സ് + ഹെൽത്ത് AI റൂട്ടർ",
-    "Zomato + Nutrition Recommendation": "സൊമാറ്റോ + പോഷകാഹാര ശുപാർശ",
-    "PCOS Screening Tool": "PCOS പരിശോധനാ ഉപകരണം",
-    "Daily Brain Fog Tracker": "പ്രതിദിന ബ്രെയിൻ ഫോഗ് ട്രാക്കർ",
-    "Carry Pads Handbag Reminder": "പാഡുകൾ ബാഗിൽ വെച്ചോ റിമൈൻഡർ",
-    "Menstrual Product Tracker": "ആർത്തവ ഉൽപ്പന്ന ട്രാക്കർ",
-    "First Period Puberty Guide": "ആദ്യ ആർത്തവവും പ്രായപൂർത്തിയാകലും ഗൈഡ്",
-    "Weekly Meal Planner": "പ്രതിവാര ഭക്ഷണ ആസൂത്രകൻ",
-    "Healthy Grocery Planner": "ആരോഗ്യകരമായ പലചരക്ക് ആസൂത്രകൻ",
-    "Chronological Timeline": "കാലാനുസൃതമായ സമയരേഖ",
-    "Vaccination Records": "വാക്സിനേഷൻ രേഖകൾ",
-    "Prescription History": "പ്രിസ്ക്രിപ്ഷൻ ചരിത്രം",
-    "Consultation Audio Transcripts": "കൺസൾട്ടേഷൻ ഓഡിയോ ട്രാൻസ്ക്രിപ്റ്റ്",
-    "Digital Medical Card": "ഡിജിറ്റൽ മെഡിക്കൽ കാർഡ്",
-    "Night wind-down Habits": "രാത്രി ഉറക്ക ശീലങ്ങൾ",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "ഉറങ്ങുന്നതിനുമുമ്പ് നല്ല ശീലങ്ങൾ അടയാളപ്പെടുത്തുക.",
-    "Dim screens & blue light filters": "സ്ക്രീൻ വെളിച്ചം കുറച്ച് ബ്ലൂ ലൈറ്റ് ഫിൽട്ടർ ഓൺ ചെയ്യുക",
-    "10 mins mindfulness / box breathing": "10 മിനിറ്റ് മൈൻഡ്ഫുൾനസ് / ബോക്സ് ബ്രീത്തിങ്",
-    "Drink warm chamomile / herbal tea": "ചെറുചൂടുള്ള ചമോമൈൽ / ഹെർബൽ ചായ കുടിക്കുക",
-    "Log sleep hours & cycle symptoms": "ഉറക്ക സമയവും ആർത്തവ ലക്ഷണങ്ങളും രേഖപ്പെടുത്തുക",
-    "Check off when you have packed pads in your school/work handbag.": "സ്കൂൾ/ഓഫീസ് ബാഗിൽ പാഡുകൾ പാക്ക് ചെയ്യുമ്പോൾ ടിക്ക് ചെയ്യുക.",
-    "Enter Pin Code...": "പിൻ കോഡ് നൽകുക...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "ലക്ഷണങ്ങൾ തിരഞ്ഞെടുക്കുക.",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ആലോചനകളുടെ ഓഡിയോ കുറിപ്പുകൾ റെക്കോർഡ് ചെയ്യുക. ജെമിനി AI സംഗ്രഹം നൽകും...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ആരോഗ്യകരമായ സ്ഥിതിയിലേക്ക് മടങ്ങാൻ AI ഘട്ടം ഘട്ടമായുള്ള പദ്ധതി നൽകുന്നു.",
-    "First Period Guide": "ആദ്യ ആർത്തവ ഗൈഡ്",
-    "Cycle Calendar & Logs": "ആർത്തവ കലണ്ടറും ലോഗുകളും",
-    "Day 12 Follicular Phase": "12-ാം ദിവസം ഫോളിക്കുലാർ ഘട്ടം",
-    "Predicted Period: 4 Days left": "പ്രതീക്ഷിക്കുന്ന ആർത്തവം: 4 ദിവസങ്ങൾ കൂടി",
-    "Packed in Handbag!": "ഹാൻഡ്‌ബാഗിൽ പാക്ക് ചെയ്തു!",
-    "Not Packed yet": "ഇതുവരെ പാക്ക് ചെയ്തിട്ടില്ല",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ഡെമോ ഹാക്കത്തോൺ ദ്രുത പ്രവേശനം (അതിഥിയായി ലോഗിൻ ചെയ്യുക)"
-  },
-  pa: {
-    "Sakhi": "ਸਖੀ",
-    "Your Everyday AI Health Companion": "ਤੁਹਾਡੀ ਰੋਜ਼ਾਨਾ ਦੀ ਏਆਈ ਸਿਹਤ ਸਾਥੀ",
-    "One Intelligent Companion for Every Woman.": "ਹਰ ਔਰਤ ਲਈ ਇੱਕ ਬੁੱਧੀਮਾਨ ਸਾਥੀ।",
-    "One Intelligent Companion for": "ਹਰ ਔਰਤ ਲਈ",
-    "Every Woman.": "ਇੱਕ ਬੁੱਧੀਮਾਨ ਸਾਥੀ।",
-    "Good Morning, Aditi!": "ਸ਼ੁਭ ਸਵੇਰ, ਅਦਿਤੀ!",
-    "Health Twin Active": "ਹੈਲਥ ਟਵਿਨ ਸਰਗਰਮ ਹੈ",
-    "Today's Wellness Score": "ਅੱਜ ਦਾ ਵੈਲਨੈੱਸ ਸਕੋਰ",
-    "Calculated": "ਗਣਨਾ ਕੀਤੀ ਗਈ",
-    "Daily AI Welcome Summary": "ਰੋਜ਼ਾਨਾ ਏਆਈ ਸਵਾਗਤ ਸਾਰਾਂਸ਼",
-    "Water Intake": "ਪਾਣੀ ਪੀਣ ਦੀ ਮਾਤਰਾ",
-    "Sleep Quality": "ਨੀਂਦ ਦੀ ਗੁਣਵੱਤਾ",
-    "Exercise": "ਕਸਰਤ",
-    "Cycle Tracker": "ਮਾਹਵਾਰੀ ਚੱਕਰ ਟ੍ਰੈਕਰ",
-    "Weekly Recommendations": "ਹਫਤਾਵਾਰੀ ਸਿਫਾਰਸ਼ਾਂ",
-    "Log Your Vibe": "ਆਪਣੀ ਸਥਿਤੀ ਦਰਜ ਕਰੋ",
-    "Today's Medicine Checklist": "ਅੱਜ ਦੀਆਂ ਦਵਾਈਆਂ ਦੀ ਸੂਚੀ",
-    "Smart Reminders": "ਸਮਾਰਟ ਰੀਮਾਈਂਡਰ",
-    "Upcoming Appointments": "ਆਉਣ ਵਾਲੀਆਂ ਮੁਲਾਕਾਤਾਂ",
-    "Explore Stages": "ਪੜਾਵਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ",
-    "Start Your Journey": "ਆਪਣੀ ਯਾਰਤਾ ਸਭਾਵਾਂ",
-    "Dashboard": "ਡੈਸ਼ਬੋਰਡ",
-    "Health Insights": "ਸਿਹਤ ਸੂਝ",
-    "Health Wrapped": "ਸਿਹਤ ਰੈਪਡ",
-    "Wellness Coach": "ਵੈਲਨੈਸ ਕੋਚ",
-    "AI Clinic Room": "ਏਆਈ ਕਲੀਨਿਕ ਰੂਮ",
-    "Sakhi AI Chat": "ਸਖੀ ਏਆਈ ਚੈਟ",
-    "Menstrual Tracker": "ਮਾਹਵਾਰੀ ਟ੍ਰੈਕਰ",
-    "Meal & Grocery": "ਭੋਜਨ ਅਤੇ ਕਰਿਆਨਾ",
-    "Report Analyzer": "ਰਿਪੋਰਟ ਐਨਾਲਾਈਜ਼ਰ",
-    "Health Passport": "ਹੈਲਥ ਪਾਸਪੋਰਟ",
-    "Community Support": "ਭਾਈਚਾਰਕ ਸਹਾਇਤਾ",
-    "Settings": "ਸੈਟਿੰਗਜ਼",
-    "Log Out": "ਲੌਗ ਆਉਟ",
-    "Doctor Audio visit Recorder": "ਡਾਕਟਰ ਆਡੀਓ ਮੁਲਾਕਾਤ ਰਿਕਾਰਡਰ",
-    "Anonymous Discussion Forums": "ਗੁਮਨਾਮ ਵਿਚਾਰ-ਵਟਾਂਦਰਾ ਫੋਰਮ",
-    "Nearby Healthcare Finder": "ਨੇੜਲੇ ਸਿਹਤ ਕੇਂਦਰ ਦੀ ਖੋਜ",
-    "Weekly Challenges": "ਹਫ਼ਤਾਵਾਰੀ ਚੁਣੌਤੀਆਂ",
-    "Family Health Sharing Profile": "ਪਰਿਵਾਰਕ ਸਿਹਤ ਸਾਂਝਾਕਰਨ ਪ੍ਰੋਫਾਈਲ",
-    "Spotify Wrapped for Health": "ਸਿਹਤ ਲਈ ਰੈਪਡ",
-    "Google Maps + Health AI Router": "ਗੂਗਲ ਮੈਪਸ + ਹੈਲਥ AI ਰੂਟਰ",
-    "Zomato + Nutrition Recommendation": "ਜ਼ੋਮੈਟੋ + ਪੋਸ਼ਣ ਸੰਬੰਧੀ ਸਿਫਾਰਸ਼",
-    "PCOS Screening Tool": "PCOS ਸਕ੍ਰੀਨਿੰਗ ਟੂਲ",
-    "Daily Brain Fog Tracker": "ਰੋਜ਼ਾਨਾ ਦਿਮਾਗੀ ਧੁੰਦ ਟ੍ਰੈਕਰ",
-    "Carry Pads Handbag Reminder": "ਪੈਡ ਹੈਂਡਬੈਗ ਰੀਮਾਈਂਡਰ",
-    "Menstrual Product Tracker": "ਮਾਹਵਾਰੀ ਉਤਪਾਦ ਟ੍ਰੈਕਰ",
-    "First Period Puberty Guide": "ਪਹਿਲੀ ਮਾਹਵਾਰੀ ਅਤੇ ਜਵਾਨੀ ਗਾਈਡ",
-    "Weekly Meal Planner": "ਹਫ਼ਤਾਵਾਰੀ ਭੋਜਨ ਯੋਜਨਾਕਾਰ",
-    "Healthy Grocery Planner": "ਸਿਹਤਮੰਦ ਕਰਿਆਨਾ ਯੋਜਨਾਕਾਰ",
-    "Chronological Timeline": "ਸਮਾਂਰੇਖਾ",
-    "Vaccination Records": "ਟੀਕਾਕਰਨ ਰਿਕਾਰਡ",
-    "Prescription History": "ਪਰਚੀ ਇਤਿਹਾਸ",
-    "Consultation Audio Transcripts": "ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦੀ ਆਡੀਓ ਲਿਖਤ",
-    "Digital Medical Card": "ਡਿਜੀਟਲ ਮੈਡੀਕਲ ਕਾਰਡ",
-    "Night wind-down Habits": "ਰਾਤ ਦੇ ਆਰਾਮ ਦੀਆਂ ਆਦਤਾਂ",
-    "Tick off warm habits before sleeping to log melatonin cycles.": "ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ ਸਿਹਤਮੰਦ ਆਦਤਾਂ ਨੂੰ ਨਿਸ਼ਾਨਬੱਧ ਕਰੋ।",
-    "Dim screens & blue light filters": "ਸਕ੍ਰੀਨ ਲਾਈਟ ਘਟਾਓ ਅਤੇ ਬਲੂ ਲਾਈਟ ਫਿਲਟਰ ਲਗਾਓ",
-    "10 mins mindfulness / box breathing": "10 ਮਿੰਟ ਮਾਈਂਡਫੁਲਨੈਸ / ਬਾਕਸ ਬ੍ਰੀਥਿੰਗ",
-    "Drink warm chamomile / herbal tea": "ਗਰਮ ਚਮੋਮਾਈਲ / ਜੜੀ-ਬੂਟੀਆਂ ਵਾਲੀ ਚਾਹ ਪੀਓ",
-    "Log sleep hours & cycle symptoms": "ਨੀਂਦ ਦੇ ਘੰਟੇ ਅਤੇ ਮਾਹਵਾਰੀ ਦੇ ਲੱਛਣ ਦਰਜ ਕਰੋ",
-    "Check off when you have packed pads in your school/work handbag.": "ਜਦੋਂ ਤੁਸੀਂ ਸਕੂਲ/ਕੰਮ ਵਾਲੇ ਬੈਗ ਵਿੱਚ ਪੈਡ ਪੈਕ ਕਰ ਲਏ ਹੋਣ ਤਾਂ ਟਿੱਕ ਕਰੋ।",
-    "Enter Pin Code...": "ਪਿਨ ਕੋਡ ਦਰਜ ਕਰੋ...",
-    "Select symptoms you are experiencing to analyze wellness insights.": "ਆਪਣੇ ਲੱਛਣਾਂ ਦੀ ਚੋਣ ਕਰੋ।",
-    "Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...": "ਡਾਕਟਰੀ ਸਲਾਹ ਦੇ ਆਡੀਓ ਨੋਟਸ ਰਿਕਾਰਡ ਕਰੋ। ਜੈਮਿਨੀ ਏਆਈ ਸਾਰਾਂਸ਼ ਦੇਵੇਗਾ...",
-    "AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.": "ਏਆਈ ਤੁਹかに ਘਾਟ ਤੋਂ ਵਾਪਸ ਸਿਹਤਮੰਦ ਬੇਸਲਾਈਨ ਵੱਲ ਲੈ ਜਾਣ ਲਈ ਪ੍ਰੋਗਰਾਮ ਤਿਆਰ ਕਰਦੀ ਹੈ।",
-    "First Period Guide": "ਪਹਿਲੀ ਮਾਹਵਾਰੀ ਗਾਈਡ",
-    "Cycle Calendar & Logs": "ਮਾਹਵਾਰੀ ਕੈਲੰਡਰ ਅਤੇ ਲੌਗ",
-    "Day 12 Follicular Phase": "ਦਿਨ 12 ਫੋਲੀਕੂਲਰ ਪੜਾਅ",
-    "Predicted Period: 4 Days left": "ਮਾਹਵਾਰੀ ਦਾ ਅੰਦਾਜ਼ਾ: 4 ਦਿਨ ਬਾਕੀ",
-    "Packed in Handbag!": "ਹੈਂਡਬੈਗ ਵਿੱਚ ਪੈਕ ਕੀਤਾ ਗਿਆ!",
-    "Not Packed yet": "ਅਜੇ ਪੈਕ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
-    "Demo Hackathon Quick Access (Log in as Aditi)": "ਡੈਮੋ ਹੈਕਾਥਨ ਤੁਰੰਤ ਪਹੁੰਚ (ਅਦਿਤੀ ਵਜੋਂ ਲੌਗਇਨ ਕਰੋ)"
+    "Demo Hackathon Quick Access (Log in as Aditi)": "डैमों हैकाथॉन त्वरित पहुँच (अदिति के रूप में लॉग इन करें)"
   }
 };
 
@@ -1382,10 +790,8 @@ export default function App() {
   };
 
   // ==========================================
-  // 🔥🔥🔥 DYNAMIC ACTIONS FOR NEW VIEWS 🔥🔥🔥
+  // 🔊 CONTINUOUS BROWSER-NATIVE SYNTHESIZER 🔊
   // ==========================================
-
-  // Synthesize relaxing lofi/meditative hums physically inside the browser!
   const playAmbientSound = (type) => {
     try {
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -1427,7 +833,6 @@ export default function App() {
     }
   };
 
-  // Web Audio Context continuous hum synthesizer
   const startAmbientSynth = (title, type) => {
     try {
       if (activeAudioInterval) clearInterval(activeAudioInterval);
@@ -1561,12 +966,6 @@ export default function App() {
     setGroceries(prev => prev.map(g => g.id === id ? { ...g, bought: !g.bought } : g));
   };
 
-  // Log sunlight exposure
-  const handleAddSunlight = (mins) => {
-    setSunlightLog(prev => prev + mins);
-    alert(`Logged ${mins} minutes of sunlight! Keep your Vitamin D stores high.`);
-  };
-
   // Log medical expenses
   const handleAddExpense = (e) => {
     e.preventDefault();
@@ -1609,12 +1008,16 @@ export default function App() {
     }
   };
 
+  const handleNearbyCategoryChange = (e) => {
+    setNearbyCategory(e.target.value);
+  };
+
   return (
     <div className={`min-h-screen bg-gradient-to-tr from-[#FFF8F6] via-[#FFF3F8] to-[#FFF9EC] text-[#5E5A66] transition-all ${
       largeText ? 'text-lg font-medium' : 'text-sm'
     }`}>
       
-      {/* 🌸 BACKGROUND GRAPHICS - FLOATING PASTEL BLOBS 🌸 */}
+      {/* 🌸 BACKGROUND FLOATING PASTEL BLOBS 🌸 */}
       <div className="absolute top-10 left-[5%] w-72 h-72 bg-[#C9B6FF]/20 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
       <div className="absolute top-[30%] right-[10%] w-96 h-96 bg-[#FFB3D9]/25 rounded-full blur-[120px] pointer-events-none animate-float"></div>
       <div className="absolute bottom-[20%] left-[15%] w-80 h-80 bg-[#FFE79A]/20 rounded-full blur-[90px] pointer-events-none animate-float-reverse"></div>
@@ -1658,20 +1061,14 @@ export default function App() {
               <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white" size={22} /></div>
               <span className="text-2xl font-bold bg-gradient-to-r from-[#FF8A80] to-[#F48FB1] bg-clip-text text-transparent font-sans">{t("Sakhi")}</span>
             </div>
-            
             <div className="hidden md:flex items-center gap-8 text-[#7E7A88] font-medium text-xs">
               <a href="#features" className="hover:text-[#FF8A80] transition-colors">{t("Features")}</a>
               <a href="#stages" className="hover:text-[#FF8A80] transition-colors">{t("Life Stages")}</a>
             </div>
-
             <div className="flex items-center gap-3">
               <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
                 <Globe size={13} className="text-[#A09BAA]" />
-                <select 
-                  value={lang} 
-                  onChange={(e) => setLang(e.target.value)} 
-                  className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer"
-                >
+                <select value={lang} onChange={(e) => setLang(e.target.value)} className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer">
                   <option value="en">English</option>
                   <option value="hi">हिन्दी (Hindi)</option>
                   <option value="bn">বাংলা (Bengali)</option>
@@ -1684,7 +1081,6 @@ export default function App() {
                   <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
                 </select>
               </div>
-
               {user ? (
                 <button onClick={() => setView('dashboard')} className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-5 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
                   {t("Dashboard")} <ArrowRight size={14} />
@@ -1713,23 +1109,18 @@ export default function App() {
                 <button onClick={() => { if (user) setView('dashboard'); else { setIsRegister(true); setView('auth'); } }} className="bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg flex items-center gap-2">
                   {t("Start Your Journey")} <ArrowRight size={16} />
                 </button>
-                <a href="#stages" className="bg-white/80 border text-[#7E7A88] hover:text-[#5E5A66] font-semibold px-6 py-3.5 rounded-2xl shadow-sm">{t("Explore Stages")}</a>
               </div>
             </div>
-
             <div className="lg:col-span-6 flex justify-center relative">
               <div className="w-full max-w-[420px] relative animate-float">
                 <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-xl">
                   <circle cx="250" cy="250" r="180" fill="url(#hero-circle-grad)" fillOpacity="0.4" stroke="#FFF6FB" strokeWidth="4"/>
                   <path d="M250 140 C280 140, 310 180, 310 240 C310 320, 250 370, 250 380 C250 370, 190 320, 190 240 C190 180, 220 140, 250 140 Z" fill="url(#lotus-grad)" />
-                  <path d="M250 160 C260 210, 290 230, 320 230 C290 250, 270 280, 250 310 C230 280, 210 250, 180 230 C210 230, 240 210, 250 160 Z" fill="#FFF6FB" fillOpacity="0.6"/>
                   <defs>
                     <linearGradient id="hero-circle-grad" x1="250" y1="70" x2="250" y2="430" gradientUnits="userSpaceOnUse"><stop stopColor="#FFF9EC" /><stop offset="1" stopColor="#FFF2FC" /></linearGradient>
                     <linearGradient id="lotus-grad" x1="250" y1="140" x2="250" y2="380" gradientUnits="userSpaceOnUse"><stop stopColor="#FFB3D9" /><stop offset="1" stopColor="#FF8A80" /></linearGradient>
                   </defs>
                 </svg>
-                <div className="absolute top-[8%] -left-8 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧬</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">{t("Wellness Index")}</span><span className="text-xs font-bold">{t("92% Excellent")}</span></div></div>
-                <div className="absolute bottom-[2%] right-4 bg-white/95 border rounded-2xl p-3 shadow-lg flex items-center gap-3"><span className="text-xl">🧘‍♀️</span><div><span className="text-[9px] text-[#A09BAA] block uppercase font-bold">{t("Logged Vibe")}</span><span className="text-xs font-bold">{t("Mindful Calm")}</span></div></div>
               </div>
             </div>
           </header>
@@ -1779,13 +1170,12 @@ export default function App() {
 
       {/* --- ONBOARDING: HEALTH TWIN SETUP --- */}
       {view === 'onboarding' && (
-        <div className="min-h-screen flex items-center justify-center p-6 relative z-10">
+        <div className="min-h-screen flex items-center justify-center p-6 relative z-10 animate-fade-in">
           <div className="w-full max-w-lg bg-[#FFF6FB] border rounded-3xl p-8 shadow-xl space-y-6">
             <div className="text-center">
               <span className="text-xs text-[#F48FB1] uppercase font-bold tracking-wider">{t("Step")} {onboardStep} {t("of")} 3</span>
               <h2 className="text-3xl font-bold font-sans text-[#5E5A66] mt-1">{t("Setup Health Twin")}</h2>
             </div>
-            
             <form onSubmit={handleOnboardingSubmit} className="space-y-4 text-xs font-semibold text-[#7E7A88]">
               {onboardStep === 1 && (
                 <div className="space-y-3">
@@ -1803,8 +1193,64 @@ export default function App() {
                       <label className="block mb-1">{t("Blood Group")}</label>
                       <input type="text" value={onboardForm.blood_group} onChange={(e) => setOnboardForm({...onboardForm, blood_group: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
                     </div>
+                    <div>
+                      <label className="block mb-1">{t("Height (cm)")}</label>
+                      <input type="number" value={onboardForm.height} onChange={(e) => setOnboardForm({...onboardForm, height: parseFloat(e.target.value)})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
+                    </div>
+                    <div>
+                      <label className="block mb-1">{t("Weight (kg)")}</label>
+                      <input type="number" value={onboardForm.weight} onChange={(e) => setOnboardForm({...onboardForm, weight: parseFloat(e.target.value)})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
+                    </div>
                   </div>
                   <button type="button" onClick={() => setOnboardStep(2)} className="w-full bg-[#FF8A80] text-white py-3 rounded-2xl font-bold mt-4">{t("Next Step")}</button>
+                </div>
+              )}
+
+              {onboardStep === 2 && (
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">{t("Medical Markers")}</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block mb-1">{t("Allergies")}</label>
+                      <input type="text" value={onboardForm.allergies} onChange={(e) => setOnboardForm({...onboardForm, allergies: e.target.value})} placeholder="e.g. Gluten sensitive" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
+                    </div>
+                    <div>
+                      <label className="block mb-1">{t("Existing Conditions")}</label>
+                      <input type="text" value={onboardForm.conditions} onChange={(e) => setOnboardForm({...onboardForm, conditions: e.target.value})} placeholder="e.g. PCOS" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 pt-2">
+                      <label className="flex items-center gap-2"><input type="checkbox" checked={onboardForm.pregnancy} onChange={(e) => setOnboardForm({...onboardForm, pregnancy: e.target.checked})} className="rounded text-[#FF8A80]" /> {t("Pregnant")}</label>
+                      <label className="flex items-center gap-2"><input type="checkbox" checked={onboardForm.menopause} onChange={(e) => setOnboardForm({...onboardForm, menopause: e.target.checked})} className="rounded text-[#FF8A80]" /> {t("Menopause")}</label>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 pt-4">
+                    <button type="button" onClick={() => setOnboardStep(1)} className="w-1/2 bg-white border py-3 rounded-2xl font-bold">{t("Back")}</button>
+                    <button type="button" onClick={() => setOnboardStep(3)} className="w-1/2 bg-[#FF8A80] text-white py-3 rounded-2xl font-bold">{t("Next Step")}</button>
+                  </div>
+                </div>
+              )}
+
+              {onboardStep === 3 && (
+                <div className="space-y-3">
+                  <h3 className="text-sm font-bold border-b pb-1 text-[#5E5A66]">{t("Goals & Lifestyle")}</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block mb-1">{t("Lifestyle Level")}</label>
+                      <select value={onboardForm.lifestyle} onChange={(e) => setOnboardForm({...onboardForm, lifestyle: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
+                        <option value="Sedentary">{t("Sedentary")}</option>
+                        <option value="Moderately Active">{t("Moderately Active")}</option>
+                        <option value="Highly Active">{t("Highly Active")}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block mb-1">{t("Fitness Goals")}</label>
+                      <input type="text" value={onboardForm.goals} onChange={(e) => setOnboardForm({...onboardForm, goals: e.target.value})} placeholder="e.g. improve energy" className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none" />
+                    </div>
+                  </div>
+                  <div className="flex gap-3 pt-4">
+                    <button type="button" onClick={() => setOnboardStep(2)} className="w-1/2 bg-white border py-3 rounded-2xl font-bold">{t("Back")}</button>
+                    <button type="submit" className="w-1/2 bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white py-3 rounded-2xl font-bold">{t("Complete Setup")}</button>
+                  </div>
                 </div>
               )}
             </form>
@@ -1913,19 +1359,12 @@ export default function App() {
                 </h1>
               </div>
               <div className="flex items-center gap-4 relative">
-                
-                {/* Points indicator */}
                 <div className="bg-[#FFE79A] text-[#5E5A66] font-bold text-xs px-3 py-1.5 rounded-xl shadow-sm flex items-center gap-1">
                   🏅 {userPoints} XP {t("Level")} 3
                 </div>
-
                 <div className="relative flex items-center gap-1 bg-white border rounded-xl px-2.5 py-1.5 shadow-sm">
                   <Globe size={13} className="text-[#A09BAA]" />
-                  <select 
-                    value={lang} 
-                    onChange={(e) => setLang(e.target.value)} 
-                    className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer"
-                  >
+                  <select value={lang} onChange={(e) => setLang(e.target.value)} className="bg-transparent text-[11px] font-semibold text-[#7E7A88] focus:outline-none cursor-pointer">
                     <option value="en">English</option>
                     <option value="hi">हिन्दी (Hindi)</option>
                     <option value="bn">বাংলা (Bengali)</option>
@@ -1938,7 +1377,6 @@ export default function App() {
                     <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
                   </select>
                 </div>
-
                 <button onClick={handleSOS} className="bg-[#FF8A80]/15 hover:bg-[#FF8A80]/20 border border-[#FF8A80]/40 text-[#FF8A80] font-bold px-4 py-2 rounded-2xl text-[10px] tracking-wider uppercase">🚨 {t("SOS")}</button>
                 <button onClick={() => setNotificationOpen(!notificationOpen)} className="w-10 h-10 rounded-2xl bg-white border flex items-center justify-center text-[#7E7A88] hover:text-[#5E5A66] shadow-sm relative">
                   <Bell size={18} />
@@ -1951,7 +1389,6 @@ export default function App() {
             {view === 'dashboard' && dashboardData && (
               <div className="space-y-8 animate-fade-in">
                 
-                {/* Daily AI Health Briefing */}
                 <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border border-[#FFB3D9]/20 rounded-3xl p-6 shadow-sm space-y-3 relative overflow-hidden">
                   <div className="absolute -top-16 -right-16 w-36 h-36 bg-[#FFE79A]/15 rounded-full"></div>
                   <span className="inline-flex items-center gap-1 bg-[#FFE79A]/50 text-[#7E7A88] px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider">
@@ -1963,10 +1400,7 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Wellness Score Circle Card */}
                   <div className="lg:col-span-4 bg-[#FFF6FB] border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden">
-                    <div className="absolute -top-12 -left-12 w-24 h-24 bg-[#FFB3D9]/10 rounded-full"></div>
                     <span className="text-xs font-bold text-[#A09BAA] uppercase tracking-wider">{t("Today's Wellness Score")}</span>
                     <div className="w-36 h-36 my-4 relative flex items-center justify-center">
                       <svg className="w-full h-full transform -rotate-90">
@@ -1980,29 +1414,22 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Smart Daily Routine Planner */}
                   <div className="lg:col-span-8 bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-lg font-bold text-[#5E5A66]">{t("Weekly Recommendations")}</h3>
-                    </div>
+                    <h3 className="text-lg font-bold text-[#5E5A66]">{t("Weekly Recommendations")}</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {routineList.map((rt, idx) => (
                         <div key={idx} className="bg-white/80 border rounded-2xl p-4 shadow-sm flex gap-3 items-center">
-                          <span className="bg-[#FFE79A] text-xs font-bold px-2 py-1 rounded-lg text-[#5E5A66] whitespace-nowrap">{rt.time}</span>
-                          <span className="text-xs font-semibold text-[#7E7A88]">{rt.activity}</span>
+                          <span className="bg-[#FFE79A] text-xs font-bold px-2 py-1 rounded-lg text-[#5E5A66]">{rt.time}</span>
+                          <span className="text-xs font-semibold text-[#7E7A88]">{t(rt.activity)}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-
                 </div>
 
-                {/* Chores checklist */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <div className="flex justify-between items-center border-b pb-2">
-                      <h3 className="font-bold text-lg text-[#5E5A66]">{t("Household & Errands Checklist")}</h3>
-                    </div>
+                    <h3 className="font-bold text-lg text-[#5E5A66]">{t("Household & Errands Checklist")}</h3>
                     <div className="space-y-2.5">
                       {errandsList.map(e => (
                         <div 
@@ -2014,14 +1441,13 @@ export default function App() {
                             {e.completed && <Check size={12} />}
                           </div>
                           <span className={`text-xs font-semibold ${e.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>
-                            {e.task}
+                            {t(e.task)}
                           </span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Daily targets */}
                   <div className="lg:col-span-5 bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">{t("Daily Health Targets")}</h3>
                     <div className="space-y-4">
@@ -2037,42 +1463,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Smart Hydration Intelligence */}
-                <h3 className="text-xl font-bold font-sans text-[#5E5A66] border-b pb-1">{t("Water Intake")}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  
-                  <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start">
-                      <span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Water Intake")}</span>
-                    </div>
-                    <div className="text-center py-1">
-                      <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{dashboardData.today_metrics.water}L</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Sleep Quality")}</span></div>
-                    <div className="text-center py-2">
-                      <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{dashboardData.today_metrics.sleep}h</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start">
-                      <span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Exercise")}</span>
-                    </div>
-                    <div className="text-center py-1">
-                      <span className="text-3xl font-extrabold text-[#5E5A66] font-sans">{actSteps} {t("Steps")}</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-white border border-[#FFF6FB] rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
-                    <div className="flex justify-between items-start"><span className="text-xs text-[#A09BAA] font-bold uppercase">{t("Cycle Tracker")}</span></div>
-                    <div className="text-center py-2"><span className="text-3xl font-extrabold text-[#5E5A66] font-sans">Day {dashboardData.today_metrics.cycle_day}</span></div>
-                  </div>
-
-                </div>
-
               </div>
             )}
 
@@ -2081,21 +1471,21 @@ export default function App() {
               <div className="bg-white border rounded-3xl shadow-sm h-[75vh] flex flex-col overflow-hidden animate-fade-in">
                 <div className="bg-[#FFF6FB] border-b px-6 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white animate-bounce" size={20} /></div>
-                    <div><h2 className="font-bold text-lg text-[#5E5A66]">{t("Sakhi AI Chat")}</h2></div>
+                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF8A80] to-[#FFB3D9] flex items-center justify-center shadow-sm"><Flower className="text-white" size={20} /></div>
+                    <h2 className="font-bold text-lg text-[#5E5A66]">{t("Sakhi AI Chat")}</h2>
                   </div>
                 </div>
                 <div className="flex-grow p-6 overflow-y-auto space-y-4">
                   {chatMessages.map((msg, idx) => (
                     <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`w-full max-w-[75%] rounded-3xl p-4 text-xs leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-[#FF8A80] text-white rounded-tr-none' : 'bg-[#FFF6FB] text-[#5E5A66] rounded-tl-none'}`}>
-                        <p>{msg.message}</p>
+                        <p>{t(msg.message)}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <form onSubmit={handleSendMessage} className="p-4 bg-white border-t flex gap-3">
-                  <input type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder="Ask about PCOS, delay..." className="flex-grow bg-[#FFF8F6] border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
+                  <input type="text" value={chatInput} onChange={(e) => setChatInput(e.target.value)} placeholder={t("Ask about PCOS, delay...")} className="flex-grow bg-[#FFF8F6] border rounded-2xl px-4 py-3 text-xs focus:outline-none" />
                   <button type="submit" className="bg-[#FF8A80] text-white w-12 h-12 rounded-2xl flex items-center justify-center"><Send size={18} /></button>
                 </form>
               </div>
@@ -2108,50 +1498,34 @@ export default function App() {
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Meal & Grocery")}</h2>
                 </div>
                 
-                {/* Zomato Healthy Choices recommendation card */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <h3 className="font-bold text-lg text-[#5E5A66] flex items-center gap-1.5">
-                      🍔 {t("Zomato + Nutrition Recommendation")}
-                    </h3>
-                  </div>
+                  <h3 className="font-bold text-lg text-[#5E5A66] flex items-center gap-1.5">🍔 {t("Zomato + Nutrition Recommendation")}</h3>
                   <form onSubmit={handleZomatoQuery} className="flex gap-2">
-                    <input 
-                      type="text" 
-                      value={zomatoInput} 
-                      onChange={(e) => setZomatoInput(e.target.value)} 
-                      placeholder="e.g. Cheese Pizza..." 
-                      className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
-                    />
+                    <input type="text" value={zomatoInput} onChange={(e) => setZomatoInput(e.target.value)} placeholder={t("Search restaurant foods (e.g. Pizza, Biryani)...")} className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none" />
                     <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">{t("Swap")}</button>
                   </form>
                   {zomatoSuggestion && (
                     <div className="bg-[#FFF6FB] border p-4 rounded-2xl text-xs space-y-2">
                       <div><strong className="text-[#FF8A80]">{t("Original Dish")}:</strong> <span className="line-through text-[#A09BAA]">{zomatoSuggestion.original}</span></div>
-                      <div><strong className="text-[#B9F4D0]">{t("Healthier AI Swap")}:</strong> <span className="font-bold text-[#5E5A66]">{zomatoSuggestion.substitute}</span></div>
+                      <div><strong className="text-[#B9F4D0]">{t("Healthier AI Swap")}:</strong> <span className="font-bold text-[#5E5A66]">{t(zomatoSuggestion.substitute)}</span></div>
+                      <div className="text-[11px] text-[#7E7A88] leading-relaxed pt-1"><strong>{t("Clinical Logic")}:</strong> {t(zomatoSuggestion.why)}</div>
                     </div>
                   )}
                 </div>
 
-                {/* Weekly Meal Planner & Grocery Checklist */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Meal Plan */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">
-                      🍳 {t("Weekly Meal Planner")}
-                    </h3>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🍳 {t("Weekly Meal Planner")}</h3>
                     <div className="space-y-3.5">
                       {Object.keys(weeklyMealPlan).map(mealKey => (
                         <div key={mealKey} className="bg-[#FFF6FB] border p-4 rounded-2xl space-y-1 text-xs">
                           <span className="font-bold text-[#FF8A80] uppercase tracking-wider block text-[9px]">{t(mealKey)}</span>
-                          <span className="font-semibold text-[#5E5A66] text-sm block">{weeklyMealPlan[mealKey]}</span>
+                          <span className="font-semibold text-[#5E5A66] text-sm block">{t(weeklyMealPlan[mealKey])}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Grocery Planner */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🛒 {t("Healthy Grocery Planner")}</h3>
                     <div className="space-y-2.5">
@@ -2162,13 +1536,15 @@ export default function App() {
                           className="flex items-center justify-between bg-[#FFF9EC]/50 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
                         >
                           <div className="flex items-center gap-3">
+                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${item.bought ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
+                              {item.bought && <Check size={10} />}
+                            </div>
                             <span className={`text-xs font-semibold ${item.bought ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}`}>{t(item.name)}</span>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
-
                 </div>
 
               </div>
@@ -2183,28 +1559,45 @@ export default function App() {
                 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧬 {t("Family Health Sharing Profile")}</h3>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">🧬 {t("Family Health History Markers")}</h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Select genetic health risks present in your maternal line:")}</p>
                     <div className="grid grid-cols-2 gap-4 text-xs font-bold text-[#7E7A88]">
                       {Object.keys(familyHealthHistory).map(cond => (
-                        <label key={cond} className="flex items-center gap-3 p-3 bg-[#FFF6FB] rounded-xl border cursor-pointer hover:border-[#FFB3D9]">
+                        <label 
+                          key={cond} 
+                          className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer ${
+                            familyHealthHistory[cond] ? 'bg-[#FF8A80]/10 border-[#FF8A80] text-[#FF8A80]' : 'bg-[#FFF6FB]'
+                          }`}
+                          onClick={() => setFamilyHealthHistory(prev => ({ ...prev, [cond]: !prev[cond] }))}
+                        >
                           <span className="capitalize">{t(cond)}</span>
                         </label>
                       ))}
                     </div>
                   </div>
 
-                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🧾 {t("Medical Expense Tracker")}</h3>
-                    <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
-                      {expenses.map(exp => (
-                        <div key={exp.id} className="flex justify-between items-center text-xs bg-[#FFF6FB] border p-2.5 rounded-xl">
-                          <div>
-                            <span className="font-semibold text-[#5E5A66]">{t(exp.category)}</span>
+                  <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">🧾 {t("Medical Expense Tracker")}</h3>
+                      <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
+                        {expenses.map(exp => (
+                          <div key={exp.id} className="flex justify-between items-center text-xs bg-[#FFF6FB] border p-2.5 rounded-xl">
+                            <span className="font-semibold text-[#5E5A66]">{t(exp.category)} ({exp.date})</span>
+                            <span className="font-bold text-[#FF8A80]">₹{exp.amount}</span>
                           </div>
-                          <span className="font-bold text-[#FF8A80]">₹{exp.amount}</span>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
+                    <form onSubmit={handleAddExpense} className="flex gap-2 pt-3 border-t">
+                      <select value={expenseCategory} onChange={(e) => setExpenseCategory(e.target.value)} className="bg-[#FFF8F6] border rounded-xl px-2 py-2 text-xs focus:outline-none">
+                        <option value="Doctor fees">{t("Doctor fees")}</option>
+                        <option value="Medicines">{t("Medicines")}</option>
+                        <option value="Lab tests">{t("Lab tests")}</option>
+                        <option value="Cycle pads">{t("Cycle pads")}</option>
+                      </select>
+                      <input type="number" value={expenseAmount} onChange={(e) => setExpenseAmount(e.target.value)} placeholder={t("Amount")} className="bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none flex-grow" />
+                      <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">{t("Add")}</button>
+                    </form>
                   </div>
                 </div>
 
@@ -2220,17 +1613,11 @@ export default function App() {
                     <span className="text-xs text-[#FFB3D9] font-bold bg-[#FFB3D9]/20 px-2 py-0.5 rounded-full inline-block mt-2 font-mono">{t("Day 12 Follicular Phase")}</span>
                   </div>
                   <div className="flex gap-2">
-                    <button 
-                      onClick={() => setShowTeenGuide(!showTeenGuide)}
-                      className="bg-[#C9B6FF] hover:bg-[#C9B6FF]/95 text-white font-bold px-4 py-2 rounded-2xl text-xs transition-all flex items-center gap-1"
-                    >
-                      🌸 {t("First Period Guide")}
-                    </button>
+                    <button onClick={() => setShowTeenGuide(!showTeenGuide)} className="bg-[#C9B6FF] hover:bg-[#C9B6FF]/95 text-white font-bold px-4 py-2 rounded-2xl text-xs transition-all flex items-center gap-1">🌸 {t("First Period Guide")}</button>
                     <span className="bg-[#FF8A80]/20 text-[#5E5A66] px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center">{t("Predicted Period: 4 Days left")}</span>
                   </div>
                 </div>
 
-                {/* Carry pads Handbag reminder */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                   <div className="md:col-span-6 bg-[#FFF9EC] border border-[#FFD59A]/30 rounded-3xl p-5 shadow-sm space-y-3">
                     <h3 className="font-bold text-sm text-[#5E5A66] flex items-center gap-1.5">🎒 {t("Carry Pads Handbag Reminder")}</h3>
@@ -2238,16 +1625,13 @@ export default function App() {
                     <button 
                       onClick={handleTogglePadKit}
                       className={`w-full py-2.5 rounded-2xl text-xs font-extrabold transition-all border ${
-                        padReminderPacked 
-                          ? 'bg-[#B9F4D0]/40 border-[#B9F4D0] text-[#5E5A66]' 
-                          : 'bg-white border-[#FFD59A] text-[#7E7A88]'
+                        padReminderPacked ? 'bg-[#B9F4D0]/40 border-[#B9F4D0] text-[#5E5A66]' : 'bg-white border-[#FFD59A] text-[#7E7A88]'
                       }`}
                     >
                       {padReminderPacked ? t('Packed in Handbag!') : t('Not Packed yet')}
                     </button>
                   </div>
 
-                  {/* Menstrual product inventory tracker */}
                   <div className="md:col-span-6 bg-white border rounded-3xl p-5 shadow-sm space-y-4 text-xs font-semibold text-[#7E7A88]">
                     <h3 className="font-bold text-sm text-[#5E5A66] border-b pb-1.5 flex items-center gap-1">🌸 {t("Menstrual Product Tracker")}</h3>
                     <div className="grid grid-cols-3 gap-3 text-center">
@@ -2259,14 +1643,22 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Brain Fog tracker */}
+                {/* Daily Brain Fog Tracker */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-base text-[#5E5A66] border-b pb-1.5 flex items-center gap-1.5">
-                    <span>🧠</span> {t("Daily Brain Fog Tracker")}
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-bold text-[#7E7A88]">
+                  <h3 className="font-bold text-base text-[#5E5A66] border-b pb-1.5 flex items-center gap-1.5">🧠 {t("Daily Brain Fog Tracker")}</h3>
+                  <p className="text-xs text-[#7E7A88]">{t("Log brain fog levels to trace hormone-induced concentration patterns.")}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs font-bold text-[#7E7A88]">
                     <div>
-                      <label className="block mb-1">{t("Memory Recall")} ({brainFogLog.memory}/10)</label>
+                      <label className="block mb-1.5">{t("Memory Recall")} ({brainFogLog.memory}/10)</label>
+                      <input type="range" min="1" max="10" value={brainFogLog.memory} onChange={(e) => setBrainFogLog({...brainFogLog, memory: parseInt(e.target.value)})} className="w-full accent-[#FF8A80]" />
+                    </div>
+                    <div>
+                      <label className="block mb-1.5">{t("Focus Level")} ({brainFogLog.focus}/10)</label>
+                      <input type="range" min="1" max="10" value={brainFogLog.focus} onChange={(e) => setBrainFogLog({...brainFogLog, focus: parseInt(e.target.value)})} className="w-full accent-[#FF8A80]" />
+                    </div>
+                    <div>
+                      <label className="block mb-1.5">{t("Concentration")} ({brainFogLog.concentration}/10)</label>
+                      <input type="range" min="1" max="10" value={brainFogLog.concentration} onChange={(e) => setBrainFogLog({...brainFogLog, concentration: parseInt(e.target.value)})} className="w-full accent-[#FF8A80]" />
                     </div>
                   </div>
                 </div>
@@ -2274,15 +1666,66 @@ export default function App() {
                 {/* PCOS screening quiz */}
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm space-y-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-bold text-[#5E5A66]">{t("PCOS Screening Tool")}</h3>
-                    <button onClick={() => setPcosQuizOpen(!pcosQuizOpen)} className="bg-white border rounded-2xl px-4 py-2 text-xs font-bold">{pcosQuizOpen ? t('Close') : t('Start Screening')}</button>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#5E5A66]">{t("PCOS Screening Tool")}</h3>
+                      <p className="text-xs text-[#7E7A88] mt-1">{t("A simple diagnostic quiz to screen high/low markers for Polycystic Ovary Syndrome.")}</p>
+                    </div>
+                    <button onClick={() => { setPcosQuizOpen(!pcosQuizOpen); setPcosResult(null); }} className="bg-white border rounded-2xl px-4 py-2 text-xs font-bold hover:bg-[#FFF6FB] transition-all">
+                      {pcosQuizOpen ? t('Close Quiz') : t('Start Screening')}
+                    </button>
                   </div>
+
+                  {pcosQuizOpen && !pcosResult && (
+                    <form onSubmit={handleSubmitPcosQuiz} className="space-y-4 text-xs font-semibold text-[#7E7A88] border-t pt-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block mb-1.5">{t("Period Regularity")}</label>
+                          <select value={pcosAnswers.periods} onChange={(e) => setPcosAnswers({...pcosAnswers, periods: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
+                            <option value="regular">{t("Regular (21-35 days)")}</option>
+                            <option value="irregular">{t("Irregular / Missed periods")}</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block mb-1.5">{t("Excessive Facial/Body Hair")}</label>
+                          <select value={pcosAnswers.hair} onChange={(e) => setPcosAnswers({...pcosAnswers, hair: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
+                            <option value="no">{t("No / Normal")}</option>
+                            <option value="yes">{t("Yes (Hirsutism)")}</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block mb-1.5">{t("Sudden Weight Gain")}</label>
+                          <select value={pcosAnswers.weight} onChange={(e) => setPcosAnswers({...pcosAnswers, weight: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
+                            <option value="stable">{t("Stable / Easy to manage")}</option>
+                            <option value="gain">{t("Sudden fluctuations")}</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block mb-1.5">{t("Acne Breakouts")}</label>
+                          <select value={pcosAnswers.acne} onChange={(e) => setPcosAnswers({...pcosAnswers, acne: e.target.value})} className="w-full bg-white border rounded-xl px-3 py-2 focus:outline-none">
+                            <option value="none">{t("None")}</option>
+                            <option value="severe">{t("Severe acne")}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <button type="submit" className="bg-[#FF8A80] text-white px-5 py-2.5 rounded-xl font-bold">{t("Analyze Risk")}</button>
+                    </form>
+                  )}
+
+                  {pcosResult && (
+                    <div className="bg-white p-4 border rounded-2xl text-xs space-y-2.5">
+                      <div className="flex justify-between items-center border-b pb-2">
+                        <span className="font-bold text-[#5E5A66]">{t("Quiz Assessment Result")}</span>
+                        <span className="px-2.5 py-0.5 rounded-full font-bold text-[9px] uppercase bg-[#FF8A80]/15 text-[#FF8A80]">{t(pcosResult.risk)} {t("Risk")}</span>
+                      </div>
+                      <p className="text-[#7E7A88] leading-relaxed">{t(pcosResult.guideline)}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
 
             {/* --- PANEL 6: HEALTH PASSPORT --- */}
-            {view === 'passport' && dashboardData && (
+            {view === 'passport' && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Passport")}</h2>
@@ -2295,17 +1738,51 @@ export default function App() {
                     <span>🎙️ {t("Doctor Audio visit Recorder")}</span>
                   </h3>
                   <p className="text-xs text-[#7E7A88]">{t("Record audio notes from your clinical consult. Gemini AI will automatically transcribe and summarize...")}</p>
-                  
                   <div className="flex gap-4 items-center">
-                    <button onClick={handleRecordAudioNotes} className="bg-[#C9B6FF] text-white px-5 py-2.5 rounded-xl text-xs font-bold">
-                      {t("Record Doctor Visit")}
+                    <button onClick={handleRecordAudioNotes} className="bg-[#C9B6FF] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm">
+                      {recordingAudio ? t("Recording Notes (4s)...") : t("Record Doctor Visit")}
                     </button>
                   </div>
+
+                  {audioNotes.length > 0 && (
+                    <div className="space-y-2 border-t pt-3">
+                      <span className="text-xs font-bold text-[#5E5A66] block">📄 {t("Transcribed Clinical Consultation Notes")}</span>
+                      {audioNotes.map((note, index) => (
+                        <div key={index} className="bg-white border p-3 rounded-2xl text-xs space-y-1.5">
+                          <div className="flex justify-between items-center text-[10px] text-[#A09BAA] font-bold font-mono">
+                            <span>{t("Audio Recording Note")} #{index + 1}</span>
+                            <span>{new Date(note.timestamp).toLocaleDateString()}</span>
+                          </div>
+                          <p className="text-[#7E7A88] italic">"{note.text}"</p>
+                          <div className="bg-[#FFF9EC] p-2.5 rounded-xl text-[11px]">
+                            <strong>{t("AI Consultation Summary")}:</strong> {note.summary}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
+                {/* Chronological Timeline */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
                   <div className="flex justify-between items-center border-b pb-3">
                     <h3 className="font-bold text-lg text-[#5E5A66]">{t("Chronological Timeline")}</h3>
+                  </div>
+                  <div className="relative border-l-2 border-[#FFB3D9]/30 pl-6 space-y-6 ml-2 py-1">
+                    {[
+                      { title: "Maternal Health Baseline Assessment", date: "Jul 09, 2026", desc: "Digital Health Twin configured with height, weight, and blood markers.", icon: "🧬" },
+                      { title: "Maternal Serum Screen / Lab Upload", date: "Jul 05, 2026", desc: "Uploaded blood report scan. Low Iron index noted.", icon: "📄" },
+                      { title: "Consultation note logged", date: "Jul 01, 2026", desc: "Transcribed doctor advisory checkup on cycles.", icon: "🎙️" }
+                    ].map((evt, idx) => (
+                      <div key={idx} className="relative">
+                        <span className="absolute -left-[35px] top-0.5 w-6 h-6 rounded-full bg-white border border-[#FF8A80] flex items-center justify-center text-xs shadow-sm">{evt.icon}</span>
+                        <div className="text-xs">
+                          <span className="font-bold text-sm text-[#5E5A66] block">{t(evt.title)}</span>
+                          <span className="text-[10px] text-[#A09BAA] font-bold font-mono block mt-0.5">{evt.date}</span>
+                          <p className="text-[#7E7A88] mt-1">{t(evt.desc)}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -2326,10 +1803,30 @@ export default function App() {
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Wellness Coach")}</h2>
                 </div>
+
+                <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
+                  {['coach', 'sessions'].map(tab => (
+                    <button key={tab} onClick={() => setWellnessTab(tab)} className={`text-xs font-bold py-1.5 px-4 rounded-full transition-all capitalize ${
+                      wellnessTab === tab ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
+                    }`}>{tab === 'coach' ? t('🎙️ Voice Mood Coach') : t('🧘 Guided Sessions')}</button>
+                  ))}
+                </div>
+
+                {wellnessTab === 'coach' && (
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-in">
+                    <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center space-y-4">
+                      <div className="w-16 h-16 bg-[#FFB3D9]/30 rounded-2xl flex items-center justify-center text-[#F48FB1]"><Volume2 size={32} /></div>
+                      <h3 className="font-bold text-[#5E5A66] text-base">{t("🎙️ Voice Mood Coach")}</h3>
+                      <button onClick={handleRecordVoiceMood} className="bg-[#FF8A80] hover:opacity-90 text-white font-bold py-2.5 px-6 rounded-2xl text-xs">
+                        {voiceRecording ? t("Recording Notes (4s)...") : t("Start Voice Scan")}
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
-            {/* --- PANEL 9: CLINIC ROOM (Symptom Checker, Acne, finder) --- */}
+            {/* --- PANEL 9: CLINIC ROOM (Symptom Checker, Face Acne, finder) --- */}
             {view === 'clinic' && (
               <div className="space-y-8 animate-fade-in">
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
@@ -2337,12 +1834,8 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Symptom Checker */}
                   <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">🩺 {t("AI Symptom Checker")}</h3>
-                    <p className="text-xs text-[#7E7A88]">{t("Select symptoms you are experiencing to analyze wellness insights.")}</p>
-                    
                     <div className="grid grid-cols-2 gap-3 text-xs font-bold text-[#7E7A88]">
                       {['Headache', 'Fatigue', 'Irregular periods', 'Hair fall', 'Bloating'].map(symp => {
                         const active = selectedSymptoms.includes(symp);
@@ -2361,57 +1854,68 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Face visual analyzer */}
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
                       <Camera size={18} className="text-[#FFB3D9]" /> {t("Visual Skin & Acne Analyzer")}
                     </h3>
-                  </div>
-
-                </div>
-
-                {/* Healthcare Finder */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">📍 {t("Nearby Healthcare Finder")}</h3>
-                  <div className="flex flex-wrap gap-3">
-                    <input 
-                      type="text" 
-                      value={nearbyPin} 
-                      onChange={(e) => setNearbyPin(e.target.value)} 
-                      placeholder={t("Enter Pin Code...")} 
-                      className="bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none w-32"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-[#7E7A88] pt-2">
-                    {HEALTHCARE_PROVIDERS[nearbyCategory]?.map((loc, idx) => (
-                      <div key={idx} className="bg-[#FFF6FB] border p-4 rounded-2xl flex justify-between items-start">
-                        <div>
-                          <span className="font-bold text-sm text-[#5E5A66] block">{loc.name}</span>
-                          <span className="block mt-0.5 text-[#7E7A88]">{loc.address}</span>
-                        </div>
-                      </div>
-                    ))}
+                    <div className="flex flex-col items-center justify-center p-6 border border-dashed rounded-2xl bg-[#FFF6FB] relative">
+                      <input type="file" accept="image/*" onChange={handleSkinScan} className="absolute inset-0 opacity-0 cursor-pointer" />
+                      <span className="text-3xl mb-2">📷</span>
+                    </div>
                   </div>
                 </div>
-
               </div>
             )}
 
             {/* --- PANEL 10: COMMUNITY, CHALLENGES & NIGHT CARE --- */}
             {view === 'community' && (
               <div className="space-y-8 animate-fade-in">
-                
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Community Support")}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
                   {/* Discussion boards */}
-                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm flex flex-col h-[400px]">
+                  <div className="lg:col-span-7 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between h-[420px]">
                     <div className="flex justify-between items-center border-b pb-2 mb-3">
                       <h3 className="font-bold text-base text-[#5E5A66]">💬 {t("Anonymous Discussion Forums")}</h3>
+                      <div className="flex gap-1.5 bg-[#FFF6FB] p-1 rounded-xl border">
+                        {['pcos', 'pregnancy', 'menopause'].map(topic => (
+                          <button 
+                            key={topic} 
+                            onClick={() => setCommunityTab(topic)}
+                            className={`text-[9px] uppercase tracking-wider font-extrabold px-2.5 py-1 rounded-lg transition-all ${
+                              communityTab === topic ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
+                            }`}
+                          >
+                            {t(topic)}
+                          </button>
+                        ))}
+                      </div>
                     </div>
+
+                    <div className="flex-grow space-y-3 overflow-y-auto pr-1">
+                      {communityMessages[communityTab]?.map((msg) => (
+                        <div key={msg.id} className="bg-[#FFF6FB] border p-3 rounded-2xl text-xs space-y-1">
+                          <div className="flex justify-between items-center text-[10px] font-bold text-[#FF8A80]">
+                            <span>{t(msg.user)}</span>
+                            <span className="text-[#A09BAA] font-mono">{msg.date}</span>
+                          </div>
+                          <p className="text-[#7E7A88] leading-relaxed">{t(msg.message)}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <form onSubmit={handleSendCommunityMessage} className="flex gap-2 border-t pt-3 mt-3">
+                      <input 
+                        type="text" 
+                        value={newCommunityInput} 
+                        onChange={(e) => setNewCommunityInput(e.target.value)} 
+                        placeholder={t("Post an anonymous message...")} 
+                        className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                      />
+                      <button type="submit" className="bg-[#FF8A80] text-white px-4 py-2 rounded-xl text-xs font-bold">{t("Send")}</button>
+                    </form>
                   </div>
 
                   {/* Weekly challenges */}
@@ -2419,18 +1923,34 @@ export default function App() {
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex justify-between items-center">
                       <span>🔬</span> {t("Weekly Challenges")}
                     </h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Complete healthy lifestyle challenges to accumulate health twin XP points.")}</p>
+                    <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
+                      {weeklyChallenges.map(chal => (
+                        <div 
+                          key={chal.id}
+                          onClick={() => {
+                            setWeeklyChallenges(prev => prev.map(c => c.id === chal.id ? { ...c, completed: !c.completed } : c));
+                            setUserPoints(prev => chal.completed ? Math.max(0, prev - chal.points) : prev + chal.points);
+                          }}
+                          className="flex items-center justify-between bg-[#FFF9EC]/40 border p-3 rounded-2xl cursor-pointer hover:border-[#FFB3D9]"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-4 h-4 rounded border flex items-center justify-center ${chal.completed ? 'bg-[#B9F4D0] border-[#B9F4D0]' : 'border-[#FFB3D9]/60'}`}>
+                              {chal.completed && <Check size={10} />}
+                            </div>
+                            <span className={chal.completed ? 'line-through text-[#A09BAA]' : 'text-[#5E5A66]'}>{t(chal.name)}</span>
+                          </div>
+                          <span className="text-[10px] font-bold text-[#FF8A80] font-mono">+{chal.points} XP</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-
                 </div>
 
-                {/* Night wind-down checklist widget */}
+                {/* Night wind-down Habits */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
-                  {/* Melatonin Wind-down checklist */}
                   <div className="lg:col-span-6 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
-                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
-                      <span>🌙</span> {t("Night wind-down Habits")}
-                    </h3>
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5"><span>🌙</span> {t("Night wind-down Habits")}</h3>
                     <p className="text-xs text-[#7E7A88]">{t("Tick off warm habits before sleeping to log melatonin cycles.")}</p>
                     <div className="space-y-3 text-xs font-semibold text-[#7E7A88]">
                       {[
@@ -2458,8 +1978,50 @@ export default function App() {
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
                       <Upload size={18} className="text-[#B9F4D0]" /> {t("Family Health Sharing Profile")}
                     </h3>
+                    <p className="text-xs text-[#7E7A88]">{t("Automatically share updates with a trusted emergency contact:")}</p>
+                    <div className="space-y-3 text-xs font-bold text-[#7E7A88]">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block mb-1">{t("Contact Name")}</label>
+                          <input 
+                            type="text" 
+                            value={familyContact.name} 
+                            onChange={(e) => setFamilyContact({...familyContact, name: e.target.value})}
+                            className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block mb-1">{t("Contact Phone")}</label>
+                          <input 
+                            type="text" 
+                            value={familyContact.phone} 
+                            onChange={(e) => setFamilyContact({...familyContact, phone: e.target.value})}
+                            className="w-full bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-2 pt-2 border-t text-[11px] font-semibold text-[#7E7A88]">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input 
+                            type="checkbox" 
+                            checked={familyContact.shareReports} 
+                            onChange={(e) => setFamilyContact({...familyContact, shareReports: e.target.checked})}
+                            className="rounded text-[#FF8A80]"
+                          />
+                          {t("Auto-sync blood reports")}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input 
+                            type="checkbox" 
+                            checked={familyContact.shareSOS} 
+                            onChange={(e) => setFamilyContact({...familyContact, shareSOS: e.target.checked})}
+                            className="rounded text-[#FF8A80]"
+                          />
+                          {t("Enable SOS emergency auto-calls")}
+                        </label>
+                      </div>
+                    </div>
                   </div>
-
                 </div>
 
               </div>
@@ -2468,16 +2030,27 @@ export default function App() {
             {/* --- PANEL 11: HEALTH WRAPPED (Spotify Wrapped, AI Routing Maps) --- */}
             {view === 'wrapped' && (
               <div className="space-y-8 animate-fade-in">
-                
                 <div className="bg-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden">
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Wrapped")}</h2>
                 </div>
-
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm flex flex-col justify-between h-[360px]">
                     <div className="flex justify-between items-center border-b pb-2">
                       <h3 className="font-bold text-base text-[#5E5A66]">📊 {t("Spotify Wrapped for Health")}</h3>
+                      <span className="text-[10px] bg-[#FF8A80] text-white px-2 py-0.5 rounded-full font-bold font-mono">{t("Slide")} {currentWrappedSlide + 1} {t("of")} 4</span>
+                    </div>
+
+                    <div className={`flex-grow my-4 rounded-2xl bg-gradient-to-tr ${wrappedSlides[currentWrappedSlide].color} p-6 flex flex-col justify-between text-[#5E5A66] shadow-sm relative overflow-hidden transition-all duration-500`}>
+                      <span className="font-bold text-sm uppercase block tracking-wider opacity-85">{t(wrappedSlides[currentWrappedSlide].title)}</span>
+                      <div className="my-2">
+                        <span className="text-3xl font-extrabold block drop-shadow-sm font-sans">{t(wrappedSlides[currentWrappedSlide].stat)}</span>
+                        <p className="text-xs mt-2 leading-relaxed opacity-95">{t(wrappedSlides[currentWrappedSlide].desc)}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <button onClick={() => setCurrentWrappedSlide(prev => Math.max(0, prev - 1))} className="bg-white border text-xs font-bold px-3 py-1.5 rounded-xl">{t("Previous")}</button>
+                      <button onClick={() => setCurrentWrappedSlide(prev => Math.min(wrappedSlides.length - 1, prev + 1))} className="bg-[#FF8A80] text-white text-xs font-bold px-4 py-1.5 rounded-xl shadow-sm">{t("Next Slide")}</button>
                     </div>
                   </div>
 
@@ -2485,11 +2058,24 @@ export default function App() {
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1">
                       <MapPin size={18} className="text-[#FF8A80]" /> {t("Google Maps + Health AI Router")}
                     </h3>
-                    <p className="text-xs text-[#7E7A88]">{t("AI plots a sequential step-by-step roadmap to guide you from deficiency back to optimal baseline health.")}</p>
+                    <div className="space-y-4 py-2">
+                      {[
+                        { step: "1. Current Assessment Node", label: "PCOS Cramps & Deficient Iron spotted in labs scan.", icon: "🩺", col: "border-[#FF8A80] bg-[#FF8A80]/15" },
+                        { step: "2. Active Action Node", label: "Log 15 mins daily morning Sunlight + Eat Spinach stew.", icon: "🥦", col: "border-[#FFB68A] bg-[#FFF9EC]" },
+                        { step: "3. Compliance Checkpoint", label: "Iron medicine supplementation scheduled at 8:00 PM.", icon: "💊", col: "border-[#CDECCF] bg-[#F7FCF6]" },
+                        { step: "4. Target Destination", label: "Repeat Blood check in 30 Days. Normal values predicted.", icon: "🏅", col: "border-[#C9B6FF] bg-[#FFF6FB]" }
+                      ].map((node, i) => (
+                        <div key={i} className={`flex items-center gap-3 border-l-4 p-3 rounded-r-xl ${node.col}`}>
+                          <span className="text-2xl">{node.icon}</span>
+                          <div className="text-xs">
+                            <span className="font-bold text-[#5E5A66] block">{t(node.step)}</span>
+                            <span className="text-[#7E7A88]">{t(node.label)}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-
                 </div>
-
               </div>
             )}
 
@@ -2500,16 +2086,8 @@ export default function App() {
                   <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Settings")}</h2>
                 </div>
 
-                {/* Accessibility */}
                 <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2">
-                    <ZoomIn size={20} className="text-[#F48FB1]" /> {t("Accessibility Options")}
-                  </h3>
-                </div>
-
-                {/* Personal Profile Health Twin Editor */}
-                <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-6">
-                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2"><span>🧬</span> {t("Personal Profile Health Twin Editor")}</h3>
+                  <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-2 font-sans">🧬 {t("Personal Profile Health Twin Editor")}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-[#7E7A88]">
                     <div>
                       <label className="block mb-1.5 uppercase">{t("Full Name")}</label>
