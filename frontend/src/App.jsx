@@ -211,6 +211,7 @@ export default function App() {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [symptomResult, setSymptomResult] = useState(null);
   const [skinFile, setSkinFile] = useState(null);
+  const [skinImagePreview, setSkinImagePreview] = useState(null);
   const [skinAnalysis, setSkinAnalysis] = useState(null);
   const [skinScanning, setSkinScanning] = useState(false);
   const [nearbyPin, setNearbyPin] = useState('560001');
@@ -926,22 +927,22 @@ export default function App() {
   };
 
   // Skin Visual analyzer
-  const handleSkinScan = (e) => {
+  const handleSkinScan = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
     setSkinFile(file);
+    setSkinImagePreview(URL.createObjectURL(file));
     setSkinScanning(true);
     setSkinAnalysis(null);
-    setTimeout(() => {
-      setSkinScanning(false);
-      setSkinAnalysis({
-        acne: 'Mild inflammatory sebum bumps detected on chin',
-        pigmentation: 'Optimal/Low',
-        hydration: '62% (Slightly Dry)',
-        hormonalLink: 'Progesterone levels are elevating in current Luteal window, triggering increased gland oil secretion. Focus on water intake & tea tree cleansers.'
-      });
+    try {
+      const result = await api.analyzeSkin(file);
+      setSkinAnalysis(result);
       setUserPoints(prev => prev + 25);
-    }, 4000);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setSkinScanning(false);
+    }
   };
 
   // Community message submit
@@ -1788,15 +1789,6 @@ export default function App() {
               </div>
             )}
 
-            {/* --- PANEL 7: HEALTH INSIGHTS --- */}
-            {view === 'insights' && risks && (
-              <div className="space-y-8 animate-fade-in">
-                <div className="bg-[#FFF9EC] border border-white rounded-3xl p-6 shadow-sm relative overflow-hidden">
-                  <h2 className="text-3xl font-bold font-sans text-[#5E5A66]">{t("Health Insights")}</h2>
-                </div>
-              </div>
-            )}
-
             {/* --- PANEL 8: GUIDED WELLNESS & VOICE MOOD --- */}
             {view === 'wellness' && (
               <div className="space-y-8 animate-fade-in">
@@ -1805,6 +1797,7 @@ export default function App() {
                 </div>
 
                 <div className="flex gap-4 border-b border-[#FFB3D9]/10 pb-2">
+
                   {['coach', 'sessions'].map(tab => (
                     <button key={tab} onClick={() => setWellnessTab(tab)} className={`text-xs font-bold py-1.5 px-4 rounded-full transition-all capitalize ${
                       wellnessTab === tab ? 'bg-gradient-to-r from-[#FF8A80] to-[#FFB68A] text-white shadow-sm' : 'text-[#7E7A88]'
@@ -1852,16 +1845,85 @@ export default function App() {
                         );
                       })}
                     </div>
+
+                    {selectedSymptoms.length > 0 && (
+                      <div className="bg-[#FFF6FB] border border-[#FFB3D9]/20 rounded-2xl p-4 mt-4 animate-fade-in space-y-2">
+                        <h4 className="font-bold text-xs text-[#FF8A80] uppercase tracking-wider">🌸 {t("Sakhi AI Symptom Insights")}</h4>
+                        <p className="text-xs text-[#7E7A88] leading-relaxed">
+                          {selectedSymptoms.includes('Irregular periods') && selectedSymptoms.includes('Bloating') 
+                            ? t("Your combination of irregular cycles and bloating suggests hormonal fluctuations typical of Luteal phase shifts or mild PCOS. Focus on high-fiber foods, seed cycling, and reducing dairy/gluten. Warm chamomile tea helps soothe abdominal discomfort.")
+                            : selectedSymptoms.includes('Fatigue') && selectedSymptoms.includes('Hair fall')
+                            ? t("Fatigue paired with hair thinning often points towards iron or thyroid level drops (very common in menstruating women). Consider adding iron-rich greens, vitamin C (to aid absorption), and scheduling a thyroid (TSH) checkup.")
+                            : selectedSymptoms.includes('Bloating') || selectedSymptoms.includes('Headache')
+                            ? t("Pre-menstrual water retention is likely causing your bloating/headaches. Reducing sodium intake, keeping up hydration (2.5L/day), and doing light neck stretches can relieve tension.")
+                            : t("Hormones play a vital role in how you feel daily. Try logging these symptoms in your Menstrual Tracker to see if they align with your estrogen or progesterone drop phases.")
+                          }
+                        </p>
+                        <div className="flex gap-2 pt-1">
+                          <span className="text-[10px] bg-[#FF8A80]/10 text-[#FF8A80] font-bold px-2 py-0.5 rounded-full border border-[#FF8A80]/20">💡 {t("Actionable wellness tip")}</span>
+                          <span className="text-[10px] bg-[#FFF9EC] text-[#B88E2F] font-bold px-2 py-0.5 rounded-full border border-[#B88E2F]/20">⚠️ {t("Not a medical diagnosis")}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
                     <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">
                       <Camera size={18} className="text-[#FFB3D9]" /> {t("Visual Skin & Acne Analyzer")}
                     </h3>
-                    <div className="flex flex-col items-center justify-center p-6 border border-dashed rounded-2xl bg-[#FFF6FB] relative">
-                      <input type="file" accept="image/*" onChange={handleSkinScan} className="absolute inset-0 opacity-0 cursor-pointer" />
-                      <span className="text-3xl mb-2">📷</span>
-                    </div>
+                    
+                    {!skinScanning && !skinAnalysis && (
+                      <div className="flex flex-col items-center justify-center p-8 border border-dashed rounded-2xl bg-[#FFF6FB] relative hover:bg-[#FFF2FA] transition-colors cursor-pointer text-center">
+                        <input type="file" accept="image/*" onChange={handleSkinScan} className="absolute inset-0 opacity-0 cursor-pointer" />
+                        <span className="text-4xl mb-2">📷</span>
+                        <p className="text-xs font-bold text-[#FF8A80]">{t("Upload selfie snapshot")}</p>
+                        <p className="text-[10px] text-[#A09BAA] mt-1">{t("Correlate skin hydration to cycles")}</p>
+                      </div>
+                    )}
+
+                    {skinScanning && (
+                      <div className="flex flex-col items-center justify-center p-8 border border-dashed rounded-2xl bg-[#FFF6FB] text-center space-y-3">
+                        {skinImagePreview && (
+                          <img src={skinImagePreview} alt="Selfie preview" className="w-28 h-28 object-cover rounded-2xl border shadow-sm animate-pulse" />
+                        )}
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#FF8A80]"></div>
+                        <p className="text-xs font-bold text-[#7E7A88]">{t("Scanning pores & hormonal links...")}</p>
+                      </div>
+                    )}
+
+                    {skinAnalysis && (
+                      <div className="space-y-3 animate-fade-in">
+                        {skinImagePreview && (
+                          <div className="flex justify-center">
+                            <img src={skinImagePreview} alt="Analyzed Selfie" className="w-28 h-28 object-cover rounded-2xl border shadow-sm" />
+                          </div>
+                        )}
+                        <div className="bg-[#FFF6FB] border border-[#FFB3D9]/20 rounded-2xl p-4 space-y-2.5">
+                          <div className="flex justify-between items-center text-xs">
+                            <span className="text-[#A09BAA] font-bold">{t("Breakouts / Acne:")}</span>
+                            <span className="font-bold text-[#FF8A80] bg-[#FF8A80]/10 px-2 py-0.5 rounded-full border border-[#FF8A80]/20">{t(skinAnalysis.acne)}</span>
+                          </div>
+                          <div className="flex justify-between items-center text-xs">
+                            <span className="text-[#A09BAA] font-bold">{t("Pigmentation:")}</span>
+                            <span className="font-semibold text-[#7E7A88]">{t(skinAnalysis.pigmentation)}</span>
+                          </div>
+                          <div className="flex justify-between items-center text-xs">
+                            <span className="text-[#A09BAA] font-bold">{t("Moisture Level:")}</span>
+                            <span className="font-semibold text-[#7E7A88]">{t(skinAnalysis.hydration)}</span>
+                          </div>
+                          <div className="border-t pt-2 text-[11px] text-[#7E7A88] leading-relaxed">
+                            <strong className="text-[#FF8A80] block mb-0.5">🧬 {t("Cycle Hormone Correlation:")}</strong>
+                            {t(skinAnalysis.hormonalLink)}
+                          </div>
+                        </div>
+                        <button 
+                          onClick={() => { setSkinFile(null); setSkinAnalysis(null); setSkinImagePreview(null); }}
+                          className="w-full bg-[#FFF6FB] border text-[#FF8A80] hover:bg-[#FF8A80]/10 text-xs font-bold py-2 rounded-xl transition-all"
+                        >
+                          🔄 {t("Analyze Another Selfie")}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

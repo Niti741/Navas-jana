@@ -14,7 +14,7 @@ from backend.models.schemas import (
 )
 from backend.ai.gemini import (
     generate_recommendations, get_chat_response,
-    analyze_blood_report, analyze_meal
+    analyze_blood_report, analyze_meal, analyze_skin
 )
 from backend.services.insights import (
     calculate_wellness_score, generate_smart_reminders
@@ -339,6 +339,12 @@ async def upload_meal(file: UploadFile = File(...)):
         "suggestions": analysis.get("suggestions", "")
     })
     
+    return analysis
+
+@app.post("/api/skin/analyze")
+async def upload_skin(file: UploadFile = File(...)):
+    contents = await file.read()
+    analysis = analyze_skin(contents, file.filename)
     return analysis
 
 @app.post("/api/report/analyze")
