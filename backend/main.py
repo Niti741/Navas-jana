@@ -14,7 +14,7 @@ from backend.models.schemas import (
 )
 from backend.ai.gemini import (
     generate_recommendations, get_chat_response,
-    analyze_blood_report, analyze_meal, analyze_skin
+    analyze_blood_report, analyze_meal, analyze_skin, check_food_health
 )
 from backend.services.insights import (
     calculate_wellness_score, generate_smart_reminders
@@ -339,6 +339,14 @@ async def upload_meal(file: UploadFile = File(...)):
         "suggestions": analysis.get("suggestions", "")
     })
     
+    return analysis
+
+@app.post("/api/meal/check")
+def check_food(payload: Dict[str, str]):
+    food_name = payload.get("food_name", "").strip()
+    if not food_name:
+        raise HTTPException(status_code=400, detail="Food name is required")
+    analysis = check_food_health(food_name)
     return analysis
 
 @app.post("/api/skin/analyze")

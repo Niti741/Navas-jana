@@ -435,4 +435,65 @@ def analyze_skin(image_bytes: bytes, file_name: str) -> Dict[str, Any]:
         "hormonalLink": "Progesterone levels are elevating in current Luteal window, triggering increased gland oil secretion. Focus on water intake & tea tree cleansers."
     }
 
+def check_food_health(food_name: str) -> Dict[str, Any]:
+    """
+    Analyzes whether a food item is healthy or unhealthy using LLM reasoning.
+    Returns recommendations and logic in a strict JSON format.
+    """
+    prompt = f"""
+    Analyze this food item: "{food_name}".
+    Determine if it is generally considered "unhealthy" (high in refined sugar, trans fats, refined carbs, artificial preservatives, or triggers severe blood sugar spikes) or "healthy" (nutrient-dense, whole food, rich in protein/fiber/vitamins).
+
+    Return the output STRICTLY as a JSON object with the following keys:
+    - 'is_unhealthy': boolean (true if unhealthy, false if healthy)
+    - 'healthy_swap': string (If unhealthy, suggest a delicious healthier alternative. If healthy, write "No swap needed! This is a nutritious choice.")
+    - 'reason': string (A 1-2 sentence explanation of why it is unhealthy or why it is healthy.)
+    - 'benefits': string (A 1-2 sentence description of the key nutritional benefits of this food or of the recommended swap, especially tied to women's hormonal balance, energy, or cycles.)
+
+    Do not include markdown backticks like ```json in your response. Just return raw json.
+    """
+
+    # 1. Try Gemini first
+    if genai and not settings.USE_MOCK_DATA:
+        try:
+            model = genai.GenerativeModel(
+                model_name=MODELS["text"],
+                system_instruction=SYSTEM_INSTRUCTION
+            )
+            response = model.generate_content(prompt)
+            clean_text = response.text.replace("```json", "").replace("```", "").strip()
+            return json.loads(clean_text)
+        except Exception as e:
+            print(f"Gemini check_food_health failed, trying Groq... Error: {str(e)}")
+
+    # 2. Try Groq fallback
+    if settings.GROQ_API_KEY and not settings.USE_MOCK_DATA:
+        try:
+            groq_reply = call_groq_chat(
+                system_instruction=SYSTEM_INSTRUCTION + "\nReturn ONLY a valid JSON object.",
+                prompt=prompt
+            )
+            if groq_reply:
+                clean_text = groq_reply.replace("```json", "").replace("```", "").strip()
+                return json.loads(clean_text)
+        except Exception as e:
+            print(f"Groq check_food_health failed: {str(e)}")
+
+    # 3. Fallback mock
+    food_lower = food_name.lower().strip()
+    if any(unhealthy_key in food_lower for unhealthy_key in ["pizza", "burger", "fries", "cola", "donut", "soda", "chips", "maggi"]):
+        return {
+            "is_unhealthy": True,
+            "healthy_swap": "Spiced Lentil Soup / Sauteed green vegetables & Paneer tikka",
+            "reason": f"'{food_name}' is high in simple refined carbs and trans fats, leading to rapid blood sugar spikes.",
+            "benefits": "The recommended swap is rich in dietary fiber and lean protein, which stabilizes insulin levels and supports hormonal repair."
+        }
+    else:
+        return {
+            "is_unhealthy": False,
+            "healthy_swap": "No swap needed! This is a nutritious choice.",
+            "reason": f"'{food_name}' is a wholesome, nutrient-dense ingredient that fits perfectly into a clean diet.",
+            "benefits": "Supports smooth digestive function, supplies vital micronutrients, and aids in baseline energy levels without causing sugar crashes."
+        }
+
 

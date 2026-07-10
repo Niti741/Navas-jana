@@ -315,6 +315,7 @@ export default function App() {
   // ==========================================
   const [zomatoInput, setZomatoInput] = useState('');
   const [zomatoSuggestion, setZomatoSuggestion] = useState(null);
+  const [zomatoLoading, setZomatoLoading] = useState(false);
   const [currentWrappedSlide, setCurrentWrappedSlide] = useState(0);
   const [kindleSlideIndex, setKindleSlideIndex] = useState(0);
 
@@ -1004,29 +1005,18 @@ export default function App() {
     alert('Expense logged successfully!');
   };
 
-  // Zomato + Nutrition Recommendation
-  const handleZomatoQuery = (e) => {
+  const handleZomatoQuery = async (e) => {
     e.preventDefault();
     if (!zomatoInput.trim()) return;
-    const inputLower = zomatoInput.toLowerCase();
-    if (inputLower.includes('pizza') || inputLower.includes('burger')) {
-      setZomatoSuggestion({
-        original: zomatoInput,
-        substitute: 'Paneer Wrap / Grilled Tandoori Tofu salad with mint dressing',
-        why: 'Pizza flour spikes blood sugar. The low-glycemic wrap keeps insulin levels stable, supporting PCOS hormone regulation.'
-      });
-    } else if (inputLower.includes('biryani') || inputLower.includes('rice')) {
-      setZomatoSuggestion({
-        original: zomatoInput,
-        substitute: 'Quinoa Veg Biryani / Brown Rice lentil bowl',
-        why: 'Provides complex fiber carbs and plant proteins. Perfect for high-energy phase workouts.'
-      });
-    } else {
-      setZomatoSuggestion({
-        original: zomatoInput,
-        substitute: 'Spiced Lentil Soup / Sauteed green vegetables & Paneer tikka',
-        why: 'Rich in iron, magnesium, and dietary fiber supporting follicular replenishment cycles.'
-      });
+    setZomatoLoading(true);
+    setZomatoSuggestion(null);
+    try {
+      const result = await api.checkFood(zomatoInput);
+      setZomatoSuggestion(result);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setZomatoLoading(false);
     }
   };
 
@@ -1642,11 +1632,50 @@ export default function App() {
                     <input type="text" value={zomatoInput} onChange={(e) => setZomatoInput(e.target.value)} placeholder={t("Search restaurant foods (e.g. Pizza, Biryani)...")} className="flex-grow bg-[#FFF8F6] border rounded-xl px-3 py-2 text-xs focus:outline-none" />
                     <button type="submit" className="bg-[#FF8A80] text-white font-bold px-4 py-2 rounded-xl text-xs">{t("Swap")}</button>
                   </form>
+                  {zomatoLoading && (
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#7E7A88] bg-[#FFF6FB] border p-4 rounded-2xl">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#FF8A80]"></div>
+                      <span>{t("AI checking nutritional density...")}</span>
+                    </div>
+                  )}
+
                   {zomatoSuggestion && (
-                    <div className="bg-[#FFF6FB] border p-4 rounded-2xl text-xs space-y-2">
-                      <div><strong className="text-[#FF8A80]">{t("Original Dish")}:</strong> <span className="line-through text-[#A09BAA]">{zomatoSuggestion.original}</span></div>
-                      <div><strong className="text-[#B9F4D0]">{t("Healthier AI Swap")}:</strong> <span className="font-bold text-[#5E5A66]">{t(zomatoSuggestion.substitute)}</span></div>
-                      <div className="text-[11px] text-[#7E7A88] leading-relaxed pt-1"><strong>{t("Clinical Logic")}:</strong> {t(zomatoSuggestion.why)}</div>
+                    <div className="animate-fade-in">
+                      {zomatoSuggestion.is_unhealthy === false || zomatoSuggestion.is_unhealthy === 'false' ? (
+                        <div className="bg-[#B9F4D0]/10 border border-[#B9F4D0]/35 p-4 rounded-2xl text-xs space-y-2 border-dashed">
+                          <div className="flex items-center gap-1.5 font-bold text-[#2E7D32] text-sm">
+                            <span>✅ {t("Already a Nutritious Choice!")}</span>
+                          </div>
+                          <div className="text-[11px] text-[#5E5A66] leading-relaxed pt-1">
+                            <strong>{t("Reason")}:</strong> {t(zomatoSuggestion.reason || zomatoSuggestion.why)}
+                          </div>
+                          <div className="text-[11px] text-[#7E7A88] leading-relaxed">
+                            <strong>🧬 {t("Hormonal & Cycle Benefits")}:</strong> {t(zomatoSuggestion.benefits)}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="bg-[#FFF6FB] border p-4 rounded-2xl text-xs space-y-2.5">
+                          <div className="flex items-center gap-1.5 font-bold text-[#FF8A80]">
+                            <span>⚠️ {t("Healthier alternative recommended")}</span>
+                          </div>
+                          <div>
+                            <strong className="text-[#7E7A88]">{t("Original Request")}:</strong>{" "}
+                            <span className="line-through text-[#A09BAA]">{zomatoSuggestion.original}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <strong className="text-[#2E7D32]">{t("Healthier AI Swap")}:</strong>{" "}
+                            <span className="font-bold text-[#2E7D32] bg-[#B9F4D0]/15 px-3 py-1 rounded-xl border border-[#B9F4D0]/35">
+                              {t(zomatoSuggestion.healthy_swap || zomatoSuggestion.substitute)}
+                            </span>
+                          </div>
+                          <div className="text-[11px] text-[#7E7A88] leading-relaxed pt-1 border-t border-[#FFB3D9]/10">
+                            <strong>{t("Reason")}:</strong> {t(zomatoSuggestion.reason || zomatoSuggestion.why)}
+                          </div>
+                          <div className="text-[11px] text-[#7E7A88] leading-relaxed">
+                            <strong>🧬 {t("Hormonal & Cycle Benefits")}:</strong> {t(zomatoSuggestion.benefits)}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

@@ -506,6 +506,30 @@ export const api = {
     }
   },
 
+  checkFood: async (foodName) => {
+    try {
+      const res = await axios.post(`${API_BASE_URL}/meal/check`, { food_name: foodName });
+      return res.data;
+    } catch (e) {
+      const foodLower = foodName.toLowerCase().trim();
+      if (foodLower.includes("pizza") || foodLower.includes("burger") || foodLower.includes("fries") || foodLower.includes("cola")) {
+        return {
+          is_unhealthy: true,
+          healthy_swap: "Paneer Wrap / Grilled Tandoori Tofu salad with mint dressing",
+          reason: `'${foodName}' is high in simple refined carbs and trans fats, leading to rapid blood sugar spikes.`,
+          benefits: "The recommended swap is rich in dietary fiber and lean protein, which stabilizes insulin levels and supports hormonal repair."
+        };
+      } else {
+        return {
+          is_unhealthy: false,
+          healthy_swap: "No swap needed! This is a nutritious choice.",
+          reason: `'${foodName}' is a wholesome, nutrient-dense ingredient that fits perfectly into a clean diet.`,
+          benefits: "Supports smooth digestive function, supplies vital micronutrients, and aids in baseline energy levels without causing sugar crashes."
+        };
+      }
+    }
+  },
+
   analyzeSkin: async (file) => {
     const formData = new FormData();
     formData.append('file', file);
