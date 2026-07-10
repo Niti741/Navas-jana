@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://default-niece-aloft.ngrok-free.dev/api';
+const API_BASE_URL = 'https://navas-jana.onrender.com/api';
 
 const client = axios.create({
   baseURL: API_BASE_URL,
