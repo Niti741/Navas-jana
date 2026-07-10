@@ -1594,6 +1594,92 @@ export default function App() {
               </div>
             )}
 
+            {/* --- PANEL 2: HEALTH INSIGHTS & AI RECOMMENDATIONS --- */}
+            {view === 'insights' && (
+              <div className="space-y-8 animate-fade-in">
+                <div className="bg-gradient-to-r from-[#FFF6FB] to-[#FFF9EC] border rounded-3xl p-6 shadow-sm relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                  <div>
+                    <h2 className="text-3xl font-bold text-[#5E5A66]">{t("Health Insights")}</h2>
+                    <p className="text-xs text-[#7E7A88] mt-1">{t("Dynamic AI-generated wellness tips, hormone trends, and health tracking anomalies.")}</p>
+                  </div>
+                  <div className="bg-[#FF8A80]/10 border border-[#FF8A80]/20 text-[#FF8A80] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-1">
+                    ✨ {t("AI Engine Active")}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Left Side: Interactive Cycle Analysis & Vital Trends */}
+                  <div className="lg:col-span-7 space-y-6">
+                    <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2 flex items-center gap-1.5">📊 {t("Hormone Trend Analysis")}</h3>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-[#A09BAA] font-bold">{t("Estrogen Level:")}</span>
+                          <span className="font-bold text-[#FF8A80] bg-[#FF8A80]/15 px-2.5 py-0.5 rounded-full border border-[#FF8A80]/30">{t("Rising (High Peak near)")}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-[#A09BAA] font-bold">{t("Progesterone Level:")}</span>
+                          <span className="font-semibold text-[#7E7A88]">{t("Low/Baseline")}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
+                          <span className="text-[#A09BAA] font-bold">{t("Metabolic Speed:")}</span>
+                          <span className="font-semibold text-[#7E7A88]">{t("Moderate (+5% base)")}</span>
+                        </div>
+                      </div>
+                      <div className="bg-[#FFF6FB] p-4 rounded-2xl border border-[#FFB3D9]/10 text-xs text-[#7E7A88] leading-relaxed">
+                        <strong className="text-[#FF8A80] block mb-1">🧠 {t("AI Cycle Correlation:")}</strong>
+                        {t("You are currently in your Follicular Phase. As estrogen rises, your physical strength, insulin sensitivity, and mood baseline are naturally increasing. This is the optimal phase for building muscle, trying new hobbies, and active social engagements. Keep hydration high to help liver-flush excess hormone byproducts.")}
+                      </div>
+                    </div>
+
+                    <div className="bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                      <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">📈 {t("Tracked Anomalies (Last 7 Days)")}</h3>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3 bg-[#FFF9EC]/40 border border-[#FFD59A]/30 p-3 rounded-2xl">
+                          <span className="text-xl">⚠️</span>
+                          <div>
+                            <h4 className="font-bold text-xs text-[#B88E2F]">{t("Sleep Debt Warning")}</h4>
+                            <p className="text-[11px] text-[#7E7A88] mt-0.5">{t("Your average sleep duration dropped to 6.2 hours over the last 3 nights. This can lead to cortisol increases, which aggravates PCOS bloating.")}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 bg-[#FFF6FB] border border-[#FFB3D9]/10 p-3 rounded-2xl">
+                          <span className="text-xl">💧</span>
+                          <div>
+                            <h4 className="font-bold text-xs text-[#FF8A80]">{t("Hydration Consistency")}</h4>
+                            <p className="text-[11px] text-[#7E7A88] mt-0.5">{t("Excellent work! You reached your 2.2L target 5 times this week. This is helping keep pre-period water retention low.")}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side: AI Recommendations List */}
+                  <div className="lg:col-span-5 bg-white border rounded-3xl p-6 shadow-sm space-y-4">
+                    <h3 className="font-bold text-lg text-[#5E5A66] border-b pb-2">💡 {t("Personalized Recommendations")}</h3>
+                    <div className="space-y-4">
+                      {dashboardData?.recommendations?.map((rec, idx) => (
+                        <div key={idx} className="bg-[#FFF6FB] border border-[#FFB3D9]/10 p-4 rounded-2xl space-y-2 relative hover:shadow-sm transition-all">
+                          <div className="flex justify-between items-center">
+                            <span className="bg-[#FF8A80]/15 text-[#FF8A80] font-bold px-2 py-0.5 rounded-full text-[9px] uppercase border border-[#FF8A80]/20">{t(rec.category)}</span>
+                            <span className={`font-bold text-[9px] px-2 py-0.5 rounded-full border ${
+                              rec.priority === 'High' ? 'bg-[#FF8A80]/10 text-[#FF8A80] border-[#FF8A80]/20' : 'bg-[#FFF9EC] text-[#B88E2F] border-[#FFD59A]/30'
+                            }`}>{t(rec.priority)} {t("Priority")}</span>
+                          </div>
+                          <h4 className="font-bold text-xs text-[#5E5A66]">{t(rec.title)}</h4>
+                          <p className="text-[11px] text-[#7E7A88] leading-relaxed">{t(rec.description)}</p>
+                        </div>
+                      ))}
+                      {!dashboardData?.recommendations?.length && (
+                        <div className="text-center py-8 text-xs text-[#A09BAA]">
+                          {t("All recommendations resolved! Keep tracking values to refresh insights.")}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* --- PANEL 2: SAKHI AI ASSISTANT CHAT --- */}
             {view === 'chat' && (
               <div className="bg-white border rounded-3xl shadow-sm h-[75vh] flex flex-col overflow-hidden animate-fade-in">
